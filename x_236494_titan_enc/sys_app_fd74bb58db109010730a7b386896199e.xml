@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_app">
+    <sys_app action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <can_edit_in_studio>false</can_edit_in_studio>
+        <enforce_license>none</enforce_license>
+        <guided_setup_guid/>
+        <js_level>helsinki_es5</js_level>
+        <licensable>true</licensable>
+        <license_category>none</license_category>
+        <license_model>none</license_model>
+        <logo>9a743398db109010730a7b386896192d</logo>
+        <menu/>
+        <name>Titan Encircle</name>
+        <private>false</private>
+        <restrict_table_access>false</restrict_table_access>
+        <runtime_access_tracking>permissive</runtime_access_tracking>
+        <scope>x_236494_titan_enc</scope>
+        <scoped_administration>false</scoped_administration>
+        <short_description>Titan Encircle Customer Community</short_description>
+        <source>x_236494_titan_enc</source>
+        <store_correlation_id/>
+        <store_url/>
+        <sys_class_name>sys_app</sys_class_name>
+        <sys_code/>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:51:52</sys_created_on>
+        <sys_id>fd74bb58db109010730a7b386896199e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-17 05:51:55</sys_updated_on>
+        <template/>
+        <trackable>true</trackable>
+        <user_role/>
+        <vendor/>
+        <vendor_prefix/>
+        <version>1.0.0</version>
+    </sys_app>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>Encircle logo.png</file_name>
+        <hash>83715cada7cdccb0d1d5330229e7053fda720e9eecfa0377079b69c8a420a883</hash>
+        <image_height/>
+        <image_width/>
+        <size_bytes>3338</size_bytes>
+        <size_compressed>3083</size_compressed>
+        <state>available</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:51:54</sys_created_on>
+        <sys_id>9a743398db109010730a7b386896192d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2020-04-17 05:51:54</sys_updated_on>
+        <table_name>sys_app</table_name>
+        <table_sys_id>fd74bb58db109010730a7b386896199e</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="Encircle logo.png" sys_id="9a743398db109010730a7b386896192d">9a743398db109010730a7b386896192d</sys_attachment>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:51:54</sys_created_on>
+        <sys_id>da743398db109010730a7b386896192d</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>4100</length>
+        <position>1</position>
+        <sys_attachment display_value="Encircle logo.png" sys_id="9a743398db109010730a7b386896192d">9a743398db109010730a7b386896192d</sys_attachment>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:51:54</sys_created_on>
+        <sys_id>5e743398db109010730a7b386896192d</sys_id>
+    </sys_attachment_doc>
+</record_update>

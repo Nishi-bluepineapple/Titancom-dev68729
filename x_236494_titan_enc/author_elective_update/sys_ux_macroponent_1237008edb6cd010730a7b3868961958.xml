@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="DELETE">
+        <associated_types/>
+        <component_dependencies/>
+        <composition>[ {
+  "elementId" : "eilcblbwxsfmbrnq",
+  "elementLabel" : "CSM: My Teams' Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My Teams' Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "secondary",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":4,"id":"ck9s9waw8002e2880gsfxucmn","rows":[{"type":"row","id":"ck9s9waw8002i2880cbfkiz0u","slotName":"ck9s9waw8002h2880dmfm5ojo"},{"type":"row","id":"ck9s9waw8002k2880edtpx1kf","slotName":"ck9s9waw8002j28809kfige0j"}]},{"type":"column","size":4,"slotName":"center","id":"ck9s9waw8002f28806jei7gd7"},{"type":"column","size":4,"slotName":"right","id":"ck9s9waw8002g2880grw6603h"}],"id":"ck9s9waw8002d2880670c1a90"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "iatisxujhpgqnvmi",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "fa5b9798732433006dfdbd49faf6a762",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Escalated",
+        "isRealtime" : "false"
+      },
+      "slot" : "right",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "gtinqfpvhxvyrqkw",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "3e1a1f58732433006dfdbd49faf6a7b4",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Unassigned",
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw8002h2880dmfm5ojo",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zbtkbodliwingyqv",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "908a1398732433006dfdbd49faf6a7f9",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "P1 ",
+        "isRealtime" : "false"
+      },
+      "slot" : "center",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "dpqhjqpfmygvceep",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "7cbb9b98732433006dfdbd49faf6a7ca",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "All",
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw8002j28809kfige0j",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "dxtmmdoshqbggamj",
+  "elementLabel" : "CSM: My High Priority Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My High Priority Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw700272880hqka21xw",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":3,"slotName":"first","id":"ck9s9waw8002m2880qzqyyhdd"},{"type":"column","size":3,"slotName":"second","id":"ck9s9waw8002n28801tkka7uk"},{"type":"column","size":3,"slotName":"third","id":"ck9s9waw8002o2880ykl8v9an"},{"type":"column","size":3,"slotName":"fourth","id":"ck9s9waw8002p288056nkah8m"}],"id":"ck9s9waw8002l2880orylg8ic"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "mlfepkhmhsuxcxbu",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "1245d7d4732433006dfdbd49faf6a7ec",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Escalated",
+        "isRealtime" : "false"
+      },
+      "slot" : "second",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "lluesnweqifruzms",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "10209754732433006dfdbd49faf6a7ab",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "5",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "P1",
+        "isRealtime" : "false"
+      },
+      "slot" : "first",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "lvwvoerogvuxbkvu",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "6d0bab50736433006dfdbd49faf6a7ae",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "SLA Breached",
+        "isRealtime" : "false"
+      },
+      "slot" : "third",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "geyjuexbcrvfnnel",
+  "elementLabel" : "CSM: My Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw8002928805sc6sbue",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":3,"slotName":"first","id":"ck9s9waw9002r2880nap4p9mj"},{"type":"column","size":3,"slotName":"second","id":"ck9s9waw9002s28804w6fydwe"},{"type":"column","size":3,"slotName":"third","id":"ck9s9waw9002t2880md2swoqd"},{"type":"column","size":3,"slotName":"fourth","id":"ck9s9waw9002u2880wqsrsdzx"}],"id":"ck9s9waw9002q2880tmc7u8z1"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "yadpjdtrkmghyccw",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "30971f18732433006dfdbd49faf6a7da",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Open",
+        "isRealtime" : "false"
+      },
+      "slot" : "third",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "tunvxvccekpthiyd",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "79a61718732433006dfdbd49faf6a7ea",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Not Updated in 5d",
+        "isRealtime" : "false"
+      },
+      "slot" : "second",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zxrtpwjfcwshqygx",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "0606dfd4732433006dfdbd49faf6a7dd",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Needs Attention",
+        "isRealtime" : "false"
+      },
+      "slot" : "first",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zxpneymykkqnlktc",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "eaf89758732433006dfdbd49faf6a7e9",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "All",
+        "isRealtime" : "false"
+      },
+      "slot" : "fourth",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "kdqvyhbmaobcakhl",
+  "elementLabel" : "CSM: My New Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My New Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw8002b288062nkt6kd",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"id":"ck9s9waw9002w2880n5bnh1do","type":"column","size":12,"rows":[{"type":"row","id":"ck9s9waw9002x2880yfm32bkz","slotName":"ck9s9waw9002v2880sboukan1"}]}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "ahrctvztbikrffhk",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : false,
+        "reportSysId" : "2d595b58732433006dfdbd49faf6a71a",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : "MEDIUM",
+        "is_realtime" : false,
+        "label" : null,
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw9002v2880sboukan1",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+} ]</composition>
+        <data/>
+        <events/>
+        <extends display_value="Landing Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <interactions/>
+        <layout>{
+  "default" : {
+    "type" : "rowColumn",
+    "root" : {"type":"row","columns":[{"type":"column","size":7,"divider":true,"id":"ck9s9waw7002528804z8difx3","rows":[{"type":"row","id":"ck9s9waw800282880vjan0862","slotName":"ck9s9waw700272880hqka21xw"},{"type":"row","id":"ck9s9waw8002a2880tnb4kxmj","slotName":"ck9s9waw8002928805sc6sbue"},{"type":"row","id":"ck9s9waw8002c28805wrq9udy","slotName":"ck9s9waw8002b288062nkt6kd"}]},{"type":"column","size":5,"slotName":"secondary","id":"ck9s9waw700262880wfx0a10q"}],"id":"ck9s9waw700242880za7c1jlw"}
+  }
+}</layout>
+        <macroponent_dependencies/>
+        <name>Copy of CSM Landing Page</name>
+        <props/>
+        <root_component/>
+        <root_component_config/>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-04 09:20:25</sys_created_on>
+        <sys_id>1237008edb6cd010730a7b3868961958</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy of CSM Landing Page</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_macroponent_1237008edb6cd010730a7b3868961958</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-04 09:20:25</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_ux_macroponent_1237008edb6cd010730a7b3868961958</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent"><sys_ux_macroponent action="INSERT_OR_UPDATE"><associated_types/><component_dependencies/><composition>[ {
+  "elementId" : "eilcblbwxsfmbrnq",
+  "elementLabel" : "CSM: My Teams' Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My Teams' Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "secondary",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":4,"id":"ck9s9waw8002e2880gsfxucmn","rows":[{"type":"row","id":"ck9s9waw8002i2880cbfkiz0u","slotName":"ck9s9waw8002h2880dmfm5ojo"},{"type":"row","id":"ck9s9waw8002k2880edtpx1kf","slotName":"ck9s9waw8002j28809kfige0j"}]},{"type":"column","size":4,"slotName":"center","id":"ck9s9waw8002f28806jei7gd7"},{"type":"column","size":4,"slotName":"right","id":"ck9s9waw8002g2880grw6603h"}],"id":"ck9s9waw8002d2880670c1a90"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "iatisxujhpgqnvmi",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "fa5b9798732433006dfdbd49faf6a762",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Escalated",
+        "isRealtime" : "false"
+      },
+      "slot" : "right",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "gtinqfpvhxvyrqkw",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "3e1a1f58732433006dfdbd49faf6a7b4",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Unassigned",
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw8002h2880dmfm5ojo",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zbtkbodliwingyqv",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "908a1398732433006dfdbd49faf6a7f9",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "P1 ",
+        "isRealtime" : "false"
+      },
+      "slot" : "center",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "dpqhjqpfmygvceep",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "7cbb9b98732433006dfdbd49faf6a7ca",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "All",
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw8002j28809kfige0j",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "dxtmmdoshqbggamj",
+  "elementLabel" : "CSM: My High Priority Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My High Priority Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw700272880hqka21xw",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":3,"slotName":"first","id":"ck9s9waw8002m2880qzqyyhdd"},{"type":"column","size":3,"slotName":"second","id":"ck9s9waw8002n28801tkka7uk"},{"type":"column","size":3,"slotName":"third","id":"ck9s9waw8002o2880ykl8v9an"},{"type":"column","size":3,"slotName":"fourth","id":"ck9s9waw8002p288056nkah8m"}],"id":"ck9s9waw8002l2880orylg8ic"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "mlfepkhmhsuxcxbu",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "1245d7d4732433006dfdbd49faf6a7ec",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Escalated",
+        "isRealtime" : "false"
+      },
+      "slot" : "second",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "lluesnweqifruzms",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "10209754732433006dfdbd49faf6a7ab",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "5",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "P1",
+        "isRealtime" : "false"
+      },
+      "slot" : "first",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "lvwvoerogvuxbkvu",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "6d0bab50736433006dfdbd49faf6a7ae",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "SLA Breached",
+        "isRealtime" : "false"
+      },
+      "slot" : "third",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "geyjuexbcrvfnnel",
+  "elementLabel" : "CSM: My Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw8002928805sc6sbue",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"type":"row","columns":[{"type":"column","size":3,"slotName":"first","id":"ck9s9waw9002r2880nap4p9mj"},{"type":"column","size":3,"slotName":"second","id":"ck9s9waw9002s28804w6fydwe"},{"type":"column","size":3,"slotName":"third","id":"ck9s9waw9002t2880md2swoqd"},{"type":"column","size":3,"slotName":"fourth","id":"ck9s9waw9002u2880wqsrsdzx"}],"id":"ck9s9waw9002q2880tmc7u8z1"}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "yadpjdtrkmghyccw",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "30971f18732433006dfdbd49faf6a7da",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Open",
+        "isRealtime" : "false"
+      },
+      "slot" : "third",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "tunvxvccekpthiyd",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "79a61718732433006dfdbd49faf6a7ea",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Not Updated in 5d",
+        "isRealtime" : "false"
+      },
+      "slot" : "second",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zxrtpwjfcwshqygx",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "0606dfd4732433006dfdbd49faf6a7dd",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "Needs Attention",
+        "isRealtime" : "false"
+      },
+      "slot" : "first",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    }, {
+      "elementId" : "zxpneymykkqnlktc",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : true,
+        "reportSysId" : "eaf89758732433006dfdbd49faf6a7e9",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : null,
+        "is_realtime" : false,
+        "label" : "All",
+        "isRealtime" : "false"
+      },
+      "slot" : "fourth",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+}, {
+  "elementId" : "kdqvyhbmaobcakhl",
+  "elementLabel" : "CSM: My New Cases",
+  "propertyValues" : {
+    "border" : false,
+    "collapsed" : false,
+    "canCollapse" : false,
+    "label" : "My New Cases",
+    "type" : "visualizations",
+    "bgvar" : ""
+  },
+  "slot" : "ck9s9waw8002b288062nkt6kd",
+  "definition" : {
+    "id" : "80653115e23949b501e719ae9b0b42a6",
+    "type" : "MACROPONENT"
+  },
+  "overrides" : {
+    "layout" : {
+      "default" : {
+        "type" : "rowColumn",
+        "root" : {"id":"ck9s9waw9002w2880n5bnh1do","type":"column","size":12,"rows":[{"type":"row","id":"ck9s9waw9002x2880yfm32bkz","slotName":"ck9s9waw9002v2880sboukan1"}]}
+      }
+    },
+    "composition" : [ {
+      "elementId" : "ahrctvztbikrffhk",
+      "elementLabel" : "Report / PA Widget",
+      "propertyValues" : {
+        "border" : false,
+        "reportSysId" : "2d595b58732433006dfdbd49faf6a71a",
+        "paWidgetSysId" : null,
+        "refreshInterval" : "2",
+        "variant" : "MEDIUM",
+        "is_realtime" : false,
+        "label" : null,
+        "isRealtime" : "false"
+      },
+      "slot" : "ck9s9waw9002v2880sboukan1",
+      "definition" : {
+        "id" : "7dbc62b27efa88d6d910579a68c7a65d",
+        "type" : "MACROPONENT"
+      },
+      "overrides" : null
+    } ]
+  }
+} ]</composition><data/><events/><extends display_value="Landing Page Template">19be392623033300f4b4c50947bf65ba</extends><interactions/><layout>{
+  "default" : {
+    "type" : "rowColumn",
+    "root" : {"type":"row","columns":[{"type":"column","size":7,"divider":true,"id":"ck9s9waw7002528804z8difx3","rows":[{"type":"row","id":"ck9s9waw800282880vjan0862","slotName":"ck9s9waw700272880hqka21xw"},{"type":"row","id":"ck9s9waw8002a2880tnb4kxmj","slotName":"ck9s9waw8002928805sc6sbue"},{"type":"row","id":"ck9s9waw8002c28805wrq9udy","slotName":"ck9s9waw8002b288062nkt6kd"}]},{"type":"column","size":5,"slotName":"secondary","id":"ck9s9waw700262880wfx0a10q"}],"id":"ck9s9waw700242880za7c1jlw"}
+  }
+}</layout><macroponent_dependencies/><name>Copy of CSM Landing Page</name><props/><root_component/><root_component_config/><schema_version>1.0.0</schema_version><sys_class_name>sys_ux_macroponent</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-05-04 09:20:25</sys_created_on><sys_id>1237008edb6cd010730a7b3868961958</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Copy of CSM Landing Page</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy>read</sys_policy><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_ux_macroponent_1237008edb6cd010730a7b3868961958</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-05-04 09:20:25</sys_updated_on></sys_ux_macroponent></record_update>]]></payload>
+        <payload_hash>1869384387</payload_hash>
+        <record_name>Copy of CSM Landing Page</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-04 09:20:25</sys_created_on>
+        <sys_id>5237008edb6cd010730a7b386896195a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171defc8e1f0000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-04 09:20:25</sys_updated_on>
+        <type>UX Macroponent Definition</type>
+        <update_guid>9a37008e486cd01020eed20055fc1759</update_guid>
+        <update_guid_history>9a37008e486cd01020eed20055fc1759:1869384387</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:16:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_macroponent">sys_ux_macroponent</sys_db_object>
+        <sys_id>ac1d7c4a7b4c44b8ae17b900c451cef1</sys_id>
+        <sys_metadata>1237008edb6cd010730a7b3868961958</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy of CSM Landing Page</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_ux_macroponent_1237008edb6cd010730a7b3868961958</sys_update_name>
+        <sys_update_version display_value="sys_ux_macroponent_1237008edb6cd010730a7b3868961958">5237008edb6cd010730a7b386896195a</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:16:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

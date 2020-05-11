@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Titan Communities - Container 5</name>
+        <order>5</order>
+        <sp_page display_value="titan_communities">24fd0535db189410730a7b38689619ff</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-21 09:46:41</sys_created_on>
+        <sys_id>d8909df5db189410730a7b3868961960</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Titan Communities - Container 5</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_container_d8909df5db189410730a7b3868961960</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-22 14:51:12</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_container_d8909df5db189410730a7b3868961960</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Titan Communities - Container 5</name><order>5</order><sp_page display_value="titan_communities">24fd0535db189410730a7b38689619ff</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-21 09:46:41</sys_created_on><sys_id>d8909df5db189410730a7b3868961960</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Titan Communities - Container 5</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_container_d8909df5db189410730a7b3868961960</sys_update_name><sys_updated_by>neel</sys_updated_by><sys_updated_on>2020-04-22 14:51:12</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>1617269169</payload_hash>
+        <record_name>Titan Communities - Container 5</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-22 14:51:12</sys_created_on>
+        <sys_id>fedf1302dbd8d410730a7b386896193a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171a25f14cb0000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-22 14:51:12</sys_updated_on>
+        <type>Container</type>
+        <update_guid>3adf13028ed8d410e50eb5b232333e3a</update_guid>
+        <update_guid_history>3adf13028ed8d410e50eb5b232333e3a:1617269169,5c909df51e18941015f8ee4b5fc82261:-411752910</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Titan Communities - Container 5">a610efcedb98d410730a7b386896197e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-22 14:52:16</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>670ac3c88bfa41c78892e5115e104de1</sys_id>
+        <sys_metadata>d8909df5db189410730a7b3868961960</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Communities - Container 5</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_container_d8909df5db189410730a7b3868961960</sys_update_name>
+        <sys_update_version display_value="sp_container_d8909df5db189410730a7b3868961960">fedf1302dbd8d410730a7b386896193a</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-22 14:52:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

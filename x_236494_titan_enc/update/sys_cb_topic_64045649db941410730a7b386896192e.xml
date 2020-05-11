@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <category display_value="Customer Service Topics">b28634c4b7b93300da7ab948ee11a93a</category>
+        <connect_queue/>
+        <description>CSM conversation for searching knowledge articles.</description>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "572a43298b1c470994e8e1dce18d7dd2": {
+      "id": "572a43298b1c470994e8e1dce18d7dd2",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "Knowledge Search",
+      "applicability": "",
+      "description": "ITSM conversation for searching knowledge articles.",
+      "nodes": {
+        "0d0181a99ea14144b82f084fe3d4d4bd": {
+          "id": "0d0181a99ea14144b82f084fe3d4d4bd",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "(function execute() {\n    /* Script the string logic here.\n       Be sure to return a quoted string.\n\n       For example:\n\n       var result;\n       var x = 1;\n       if (x == 1) {\n           result = 'hi there';\n       } else {\n           result = 'how are you?';\n       }\n       return result;\n    */\n    return '';\n})()\n",
+            "mode": "script"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "96cef9eee61a4fb8925d6c833833eca9": {
+          "id": "96cef9eee61a4fb8925d6c833833eca9",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "63f26701973541faa3eb17ce96f31965": {
+          "id": "63f26701973541faa3eb17ce96f31965",
+          "stepType": "Prompt",
+          "name": "Search Term",
+          "prompt": {
+            "value": "Enter a phrase to search the knowledge base.",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "9c074716ddc345b38b0c4417d1b20018",
+          "isOk": true,
+          "withNluUserInput": true,
+          "skipIfFulfilled": true,
+          "entity": {
+            "id": "searchquery"
+          }
+        },
+        "577a2d88f2b1499d98b58bcbe881f2ac": {
+          "id": "577a2d88f2b1499d98b58bcbe881f2ac",
+          "name": "Contextual Search",
+          "script": "(function execute() {\n    /* Uses the searh term inputed by user and calls the Contextual Search using the search context created\n       to return a max of 20 results and stores them JSON string.\n    */\n    var search_term = vaInputs.search_term;\n    //Navigate to Contextual Search &gt; Search Contexts &gt; breadcrumb icon and copy sys_id\n    //paste in search_context_sys_id.\n    var context = vaVars.search_context_sys_id;\n    //var contextualSearch = new sn_itsm_va.VAContextualSearchUtil();\n    var contextualSearch = new global.VAGlobalContextualSearchUtil();\n    var response = contextualSearch.search(context, search_term);\n    var success = contextualSearch.processSearchResponse(response);\n    if (!success) {\n        return;\n    }   \n    var relevantSearchResults = contextualSearch.processGeneralResults(response, 20, -2);\n    vaVars.kbResultCount = relevantSearchResults.length;\n    vaVars.search_kb_json_string = JSON.stringify(relevantSearchResults);\n    vaVars.index = 0;\n    return;\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "isOk": true
+        },
+        "b95925666ec44cb788e01e5a83ba3df3": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "KB Selection",
+          "prompt": {
+            "value": "(function execute() {\n    if (vaVars.kbResultCount &gt; 0)\n        return gs.getMessage('Alright, how else can I help? Here\\'s what I can do:');\n\n    return gs.getMessage(\"Sorry, I couldn't find anything on that topic. What would you like to do?\");\n})()\n",
+            "mode": "script"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "949fa9cb8cb349369865f0bb5c4db941",
+          "id": "b95925666ec44cb788e01e5a83ba3df3",
+          "mode": "external",
+          "script": "(function execute() {\n    /*\n    Pagination buttons for suggested KB articles.\n    */\n    var options = [];\n    var limit = parseInt(vaVars.limit);\n    var index = parseInt(vaVars.index);\n    \n    if (index &gt;= limit) {\n        options.push({ 'value': 'show_prev', 'label': gs.getMessage('Show previous')});    \n    }\n\n    if (index+limit &lt; vaVars.kbResultCount) {\n        options.push({ 'value': 'show_next', 'label': gs.getMessage('Show more')});    \n    }\n    options.push({ 'value': 'new_search', 'label': gs.getMessage('Try a different search')});\n    options.push({ 'value': 'cancel', 'label': gs.getMessage('I\\'m done')});\n    return options;\n})()\n",
+          "noRecordsResponseMsg": {
+            "value": "No Records Found",
+            "mode": "simple"
+          },
+          "isOk": true,
+          "condition": {
+            "value": "(function execute() {\n    /*\n    Pagination buttons for suggested KB articles.\n    */\n    var options = [];\n    var limit = parseInt(vaVars.limit);\n    var index = parseInt(vaVars.index);\n    \n    if (index &gt;= limit) {\n        options.push({ 'value': 'show_prev', 'label': gs.getMessage('Show previous')});    \n    }\n\n    if (index+limit &lt; vaVars.kbResultCount) {\n        options.push({ 'value': 'show_next', 'label': gs.getMessage('Show more')});    \n    }\n    options.push({ 'value': 'new_search', 'label': gs.getMessage('Try a different search')});\n    options.push({ 'value': 'cancel', 'label': gs.getMessage('I\\'m done')});\n    return options;\n})()\n",
+            "mode": "external_script"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": {
+            "id": ""
+          }
+        },
+        "2d2e5652c0d04e199f5a9f799451fbe6": {
+          "id": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "stepType": "Decision",
+          "name": "Knowledge Choice Decision",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "669655aabf8b41468724551b32e1cd91": {
+          "id": "669655aabf8b41468724551b32e1cd91",
+          "name": "Next",
+          "script": "(function execute() {\n    vaVars.index = parseInt(vaVars.index) + parseInt(vaVars.limit);\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "isOk": true
+        },
+        "2e0ae713a97149c6bf3abb104886d221": {
+          "id": "2e0ae713a97149c6bf3abb104886d221",
+          "name": "Previous",
+          "script": "(function execute() {\n    vaVars.index = parseInt(vaVars.index) - parseInt(vaVars.limit);\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "1dc6c17779b640e7baabe718c7b799fd": {
+          "id": "1dc6c17779b640e7baabe718c7b799fd",
+          "stepType": "Decision",
+          "name": "Decision",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "1ac02349f6294c6dad56577f1f6f4c07": {
+          "id": "1ac02349f6294c6dad56577f1f6f4c07",
+          "stepType": "TextOutput",
+          "name": "Found Result Message",
+          "value": {
+            "value": "Here are the results I found in our Knowledge Base that might help you.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "cd33100f206a450098d0957aebd8874e": {
+          "id": "cd33100f206a450098d0957aebd8874e",
+          "stepType": "LinkOutput",
+          "name": "Display KB(s)",
+          "url": {
+            "mode": "simple",
+            "value": ""
+          },
+          "label": {
+            "mode": "simple",
+            "value": ""
+          },
+          "header": {
+            "mode": "simple",
+            "value": ""
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "multiple",
+          "introMsg": {
+            "value": "(function execute() {\n    return '';\n})()\n",
+            "mode": "script"
+          },
+          "listOfLinks": "(function execute(header) {\n\tvar groupedLinksOutMsg = new sn_cs.GroupedPartsOutMsg();\n\tgroupedLinksOutMsg.setHeader(header);\n\tvar limit = parseInt(vaVars.limit);\n\tvar searchJsonObj = JSON.parse(vaVars.search_kb_json_string);\n\tvar index = parseInt(vaVars.index);\n\n\tvar linkBuilder = new global.cxs_SearchResultLinkBuilder();\n\tfor (var i = index; i &lt; index + limit &amp;&amp; i &lt; searchJsonObj.length; i++) {\n\t\tvar link = linkBuilder.build(searchJsonObj[i], vaInputs.portal);\n\t\t//groupedLinksOutMsg.addLinkPart(link.label, link.link, link.description, link.context_label);\n\t    if(link.label != undefined &amp;&amp; link.link != undefined &amp;&amp; link.description != undefined &amp;&amp; link.context_label != undefined){\n            groupedLinksOutMsg.addLinkPart(link.label, link.link, link.description, link.context_label);\n\t\t}\n\t}\n\treturn groupedLinksOutMsg;\n})(header)\n"
+        }
+      },
+      "edges": [
+        {
+          "id": "2edb8f40a35a48efa77a35610ffbfa16",
+          "edgeType": "Edge",
+          "source": "1ac02349f6294c6dad56577f1f6f4c07",
+          "target": "cd33100f206a450098d0957aebd8874e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6fb2925a32234182aafea2259120aefb",
+          "edgeType": "Edge",
+          "source": "0d0181a99ea14144b82f084fe3d4d4bd",
+          "target": "63f26701973541faa3eb17ce96f31965",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "bd14a789d2444bf3a84568af7c4abcf7",
+          "edgeType": "Edge",
+          "source": "63f26701973541faa3eb17ce96f31965",
+          "target": "577a2d88f2b1499d98b58bcbe881f2ac",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "828664492e9c4d64b1161a995c474bb1",
+          "edgeType": "Edge",
+          "source": "b95925666ec44cb788e01e5a83ba3df3",
+          "target": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ca3f59a16e264c09bc4edaa8cb17cd0e",
+          "edgeType": "Branch",
+          "source": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "target": "96cef9eee61a4fb8925d6c833833eca9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'cancel';\n})()\n"
+          },
+          "label": "Cancel"
+        },
+        {
+          "id": "04dcaf21d1ae4a20b8d96e78cd10f0ba",
+          "edgeType": "Branch",
+          "source": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "target": "63f26701973541faa3eb17ce96f31965",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'new_search';\n})()\n"
+          },
+          "label": "New Search"
+        },
+        {
+          "id": "940f4585009b4dffbd47e560796152e7",
+          "edgeType": "Branch",
+          "source": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "target": "669655aabf8b41468724551b32e1cd91",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'show_next';\n})()\n"
+          },
+          "label": "Show Next"
+        },
+        {
+          "id": "a8970f51ff374969b6c4912d19832a15",
+          "edgeType": "Edge",
+          "source": "669655aabf8b41468724551b32e1cd91",
+          "target": "cd33100f206a450098d0957aebd8874e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d3db175c37064e6cabe034a1d9fdf597",
+          "edgeType": "Branch",
+          "source": "2d2e5652c0d04e199f5a9f799451fbe6",
+          "target": "2e0ae713a97149c6bf3abb104886d221",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'show_prev';\n})()\n"
+          },
+          "label": "Show Previous"
+        },
+        {
+          "id": "d814cc19f9c34ad693bd9b9294f2ded8",
+          "edgeType": "Edge",
+          "source": "2e0ae713a97149c6bf3abb104886d221",
+          "target": "cd33100f206a450098d0957aebd8874e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "04397fec3c974ea5829d6f96ce247c6c",
+          "edgeType": "Edge",
+          "source": "577a2d88f2b1499d98b58bcbe881f2ac",
+          "target": "1dc6c17779b640e7baabe718c7b799fd",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5df1f590fbd14fa792a6f19c38a746a9",
+          "edgeType": "Branch",
+          "source": "1dc6c17779b640e7baabe718c7b799fd",
+          "target": "b95925666ec44cb788e01e5a83ba3df3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return !(vaVars.kbResultCount &gt; 0);\n})()\n"
+          },
+          "label": "No KBs"
+        },
+        {
+          "id": "b259a56dd2ad416a983a94398bb36fac",
+          "edgeType": "Branch",
+          "source": "1dc6c17779b640e7baabe718c7b799fd",
+          "target": "1ac02349f6294c6dad56577f1f6f4c07",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaVars.kbResultCount &gt; 0;\n})()\n"
+          },
+          "label": "Found KB(s)"
+        },
+        {
+          "id": "ca17c0c981b44c15ad8237e4b7cc5654",
+          "edgeType": "Edge",
+          "source": "cd33100f206a450098d0957aebd8874e",
+          "target": "b95925666ec44cb788e01e5a83ba3df3",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "9c074716ddc345b38b0c4417d1b20018": {
+      "id": "9c074716ddc345b38b0c4417d1b20018",
+      "name": "search_term",
+      "label": "Search Term",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "7b7544f715104918b23c33d93dcef7d7": {
+      "id": "7b7544f715104918b23c33d93dcef7d7",
+      "name": "search_kb_json_string",
+      "label": "search_kb_json_string",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "949fa9cb8cb349369865f0bb5c4db941": {
+      "id": "949fa9cb8cb349369865f0bb5c4db941",
+      "name": "kb_selection",
+      "label": "KB Selection",
+      "varType": "reference",
+      "table": "",
+      "category": "vaInputs"
+    },
+    "136b1c66a5e243e5b7c9fa6e14161ed8": {
+      "id": "136b1c66a5e243e5b7c9fa6e14161ed8",
+      "name": "index",
+      "label": "index",
+      "varType": "script",
+      "value": "0",
+      "category": "vaVars"
+    },
+    "5a0ca16109154c6ca6eb34338529e324": {
+      "id": "5a0ca16109154c6ca6eb34338529e324",
+      "value": {
+        "mode": "simple",
+        "value": "3"
+      },
+      "name": "limit",
+      "label": "limit",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "0ace0c05729b4c7584b41d5511e0d249": {
+      "id": "0ace0c05729b4c7584b41d5511e0d249",
+      "value": {
+        "mode": "simple",
+        "value": "5e973112f8455300964f8ada0264c0a5"
+      },
+      "name": "search_context_sys_id",
+      "label": "search_context_sys_id",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c0ddd4acf0534eb28f7a447acbb88efc": {
+      "id": "c0ddd4acf0534eb28f7a447acbb88efc",
+      "value": {
+        "mode": "simple",
+        "value": "0"
+      },
+      "name": "kbResultCount",
+      "label": "kbResultCount",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c2623a31c2b048df904ba8b439521244": {
+      "id": "c2623a31c2b048df904ba8b439521244",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": "itsm"
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "e6e9b26b74bd4232a795b7352e616282": {
+      "category": "vaInputs",
+      "id": "e6e9b26b74bd4232a795b7352e616282",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases>knowledge, question, kb, article, search, how</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Knowledge Search</name>
+        <nlu_intent>Knowledge Search</nlu_intent>
+        <nlu_intent_label>Knowledge Search</nlu_intent_label>
+        <nlu_model>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</nlu_model>
+        <nlu_model_label>Titan Encircle NLU for VA</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 06:45:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>64045649db941410730a7b386896192e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Knowledge Search</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_64045649db941410730a7b386896192e</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 12:20:17</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=64045649db941410730a7b386896192e"/>
+</record_update>

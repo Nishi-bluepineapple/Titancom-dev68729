@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <component_dependencies/>
+        <composition>[ {&#13;
+  "elementId" : "ckjjtpoddjjpaaaaaacccciiiiaaxyrddzmjjgg",&#13;
+  "elementLabel" : "diguFirst",&#13;
+  "propertyValues" : { },&#13;
+  "slot" : "ck9tpo39r0003288055jiat1d",&#13;
+  "definition" : {&#13;
+    "id" : "4403159a815624cb1f60a9306ec19110",&#13;
+    "type" : "MACROPONENT"&#13;
+  },&#13;
+  "overrides" : null&#13;
+}, {&#13;
+  "elementId" : "ckjjtqaasbaaaaaaahhcciiiiaaenyffeeffpj",&#13;
+  "elementLabel" : "Report / PA Widget",&#13;
+  "propertyValues" : {&#13;
+    "label" : "",&#13;
+    "reportSysId" : "9aaa191adb6c1410730a7b3868961951",&#13;
+    "paWidgetSysId" : "",&#13;
+    "isRealtime" : false,&#13;
+    "variant" : "auto",&#13;
+    "border" : false,&#13;
+    "refreshInterval" : ""&#13;
+  },&#13;
+  "slot" : "ck9tq0sbc00082880vyblb2zq",&#13;
+  "definition" : {&#13;
+    "id" : "7dbc62b27efa88d6d910579a68c7a65d",&#13;
+    "type" : "MACROPONENT"&#13;
+  },&#13;
+  "overrides" : null&#13;
+}, {&#13;
+  "elementId" : "ckjjtqooiiggaaaaaabcciiiiaawfffzggyccc",&#13;
+  "elementLabel" : "Report / PA Widget",&#13;
+  "propertyValues" : {&#13;
+    "label" : "",&#13;
+    "reportSysId" : "",&#13;
+    "paWidgetSysId" : "",&#13;
+    "isRealtime" : false,&#13;
+    "variant" : "auto",&#13;
+    "border" : false,&#13;
+    "refreshInterval" : ""&#13;
+  },&#13;
+  "slot" : "ck9tqoo87000c2880jndli3r3",&#13;
+  "definition" : {&#13;
+    "id" : "7dbc62b27efa88d6d910579a68c7a65d",&#13;
+    "type" : "MACROPONENT"&#13;
+  },&#13;
+  "overrides" : null&#13;
+} ]</composition>
+        <data/>
+        <events/>
+        <extends display_value="Landing Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <interactions/>
+        <layout>{
+  "default" : {
+    "type" : "rowColumn",
+    "root" : {"type":"row","id":"ck9tpo39r00042880qw2z4389","columns":[{"id":"ck9tqoo88000e288069hwiwuj","type":"column","rows":[{"type":"row","id":"ck9tq0sbd00092880ij9urs4i","slotName":"ck9tq0sbc00082880vyblb2zq"},{"type":"row","slotName":"ck9tqoo87000c2880jndli3r3","id":"ck9tqoo88000d28808m0pbj2e"}],"size":"6"},{"type":"column","id":"ck9tpo39r00052880fralj0xh","slotName":"ck9tpo39r0003288055jiat1d","size":"6"}]}
+  }
+}</layout>
+        <macroponent_dependencies/>
+        <name>paga</name>
+        <props/>
+        <root_component/>
+        <root_component_config/>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:29:08</sys_created_on>
+        <sys_id>f3c29992db6c1410730a7b386896199e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>paga</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_macroponent_f3c29992db6c1410730a7b386896199e</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-06 14:12:22</sys_updated_on>
+    </sys_ux_macroponent>
+</record_update>

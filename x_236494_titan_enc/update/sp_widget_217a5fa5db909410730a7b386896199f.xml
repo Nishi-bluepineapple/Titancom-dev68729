@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.brand-name-span {
+  color:#959595;
+  padding-left:20px;}
+
+.brand-image {
+height:47px;
+  width:73 px;
+}
+
+.dot {
+  height: 3px;
+  width: 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>titan-site-links</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Titan Site Links</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-21 01:10:40</sys_created_on>
+        <sys_id>217a5fa5db909410730a7b386896199f</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>Titan Site Links</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_217a5fa5db909410730a7b386896199f</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-24 14:34:44</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default  ">
+<div class="panel-heading">
+   <h2 class="panel-title"> 
+      <span >Redeem Points</span>
+   </h2>
+</div>
+  <div class="panel-body">
+<div align="center">
+   <a href="/encircle/?id=encircle_points">
+   <img src="MyEncircleCard.png" width="230" height="140"/></a>
+</div>
+<div>
+   <p>
+   </p>
+</div>
+
+   <h5>  <a href="http://titanworld.com/in/" target="_blank"><img src="/titan_logo.jpg" height="47px" width="73px"></a>
+      <span class="brand-name-span">Titan <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a></span>
+   </h5>
+   <h5><a href="https://www.tanishq.co.in/" target="_blank">
+      <img src="/tanishq.png" height="47px" width="73px"></a>
+      <span class="brand-name-span">Tanishq<a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5>
+      <a href="https://www.tanishq.co.in/mia" target="_blank">
+      <img src="https://member-exclusive-offer.s3-ap-southeast-1.amazonaws.com/brands/logos/000/000/018/original/MIA.png?AWSAccessKeyId=AKIASUHBCOF5QYFCO47O&Expires=1618508025&Signature=cQ9XMXdcaIysvYou9NqEgu7TFFQ%3D" height="47px" width="73px">
+      </a> <span class="brand-name-span">Mia <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5>
+      <a href="https://www.caratlane.com/" target="_blank">
+      <img src="https://member-exclusive-offer.s3-ap-southeast-1.amazonaws.com/brands/logos/000/000/021/original/Caratlane-LOGO-NEW-01--_Brand_page.jpg?AWSAccessKeyId=AKIASUHBCOF5QYFCO47O&Expires=1618508025&Signature=g3n%2BSbuIFdANR%2FuwmU5tf493U9w%3D" height="47px" width="73px"></a>
+      <span class="brand-name-span">Caratlane <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5>
+      <a href="https://www.zoya.in/" target="_blank">
+      <img src="https://member-exclusive-offer.s3-ap-southeast-1.amazonaws.com/brands/logos/000/000/017/original/zoyalogo.png?AWSAccessKeyId=AKIASUHBCOF5QYFCO47O&Expires=1618508025&Signature=PBL%2F1VLqECQMEWeFmTXAGtdHnCY%3D" height="47px" width="73px"></a>
+      <span class="brand-name-span">Zoya<a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5> <a href="https://www.fastrack.in/" target="_blank">
+      <img src="/Fastrack.png" height="47px" width="73px"></a>
+      <span class="brand-name-span">Fastrack<a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5><a href="http://helioswatchstore.com/" target="_blank">
+      <img src=" https://member-exclusive-offer.s3-ap-southeast-1.amazonaws.com/brands/logos/000/000/015/original/Helios.png?AWSAccessKeyId=AKIASUHBCOF5QYFCO47O&Expires=1618508025&Signature=Xx3%2BY60sTCw4FkDUcyIXu%2F9H9A4%3D" height="47px" width="73px">
+      </a>   <span class="brand-name-span">Helios <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+   <h5><a href="https://www.titan.co.in/shop/skinn" target="_blank">
+      <img src="https://member-exclusive-offer.s3-ap-southeast-1.amazonaws.com/brands/logos/000/000/022/original/Skinn_%281%29.png?AWSAccessKeyId=AKIASUHBCOF5QYFCO47O&Expires=1618508025&Signature=F%2FzP70q9KYbHdP4DOHdKhSvlCQo%3D" height="47px" width="73px">
+      </a> <span class="brand-name-span">Skinn <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a></span>
+   </h5>
+   <h5><a href="https://www.facebook.com/Taneira-1854132891493110/" target="_blank">
+      <img src="/Taniera.jpg" height="47px" width="73px"></a>
+      <span class="brand-name-span">Taneira <a href="" style="float:right;padding-top:15px;text-decoration: none;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</a> </span>
+   </h5>
+</div>]]></template>
+    </sp_widget>
+</record_update>

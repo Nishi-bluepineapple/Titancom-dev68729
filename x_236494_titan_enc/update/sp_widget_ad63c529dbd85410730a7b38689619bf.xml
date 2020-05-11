@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	/*$scope.encirclePointsArray = [];
+	$scope.balanceEncirclePoints = 6000;
+	
+	for(var i=0;i<7;i++) {
+		var obj = {};
+		obj.itemNameOrRemark = 'Test'+i;
+		obj.pointsValue = 'Rs.'+Math.floor(Math.random() * 10000);
+		obj.points_earned = Math.floor(Math.random() * 1000);
+		obj.points_redeemed = Math.floor(Math.random() * 1000);
+		obj.points_balance = Math.floor(Math.random() * 1000);
+		$scope.encirclePointsArray.push(obj);
+	}*/
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.header-color{
+	background-color: #f9f9f9;
+  color: #959595;
+}
+.table-caption {
+  font-size:24px;
+  padding:12px;
+}
+.table-cation-text {
+  margin-left: -6px;
+  font-size: 1.5em;
+}
+.encircle-title{
+  font-size: 2.5em;
+}
+table.table-padding td, th {
+  padding: 16px;
+  text-align: left;
+}
+
+table.table-padding th, td {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+table.table-padding td {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.card-padding {
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.card-box-shadow{
+  webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my_encircle_points</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>My Encircle Points</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.userSysId = gs.getUserID();
+
+	data.encirclePointsArray = [];
+	data.balanceEncirclePoints = 0;
+
+	var titanLoyaltyPoints = new GlideRecord("x_236494_titan_enc_loyalty_points_transactions");
+	titanLoyaltyPoints.addQuery("user", data.userSysId);
+	titanLoyaltyPoints.orderByDesc('transaction_date');
+	titanLoyaltyPoints.query();
+	while (titanLoyaltyPoints.next()) {
+		var loyaltyPoints = {};
+		
+		loyaltyPoints.pointsValue = 'Rs. '+titanLoyaltyPoints.getValue('transaction_price');
+		if(titanLoyaltyPoints.getValue('transaction_price') == 0){
+			loyaltyPoints.pointsValue = titanLoyaltyPoints.getValue('transaction_price');
+		} else if(titanLoyaltyPoints.getValue('transaction_price') == null) {
+			loyaltyPoints.pointsValue = 0;
+		}
+		loyaltyPoints.productOrRemark = titanLoyaltyPoints.getValue('transaction_product');
+		if(loyaltyPoints.productOrRemark == null) {
+			loyaltyPoints.productOrRemark = titanLoyaltyPoints.getValue('remarks');
+		}
+		loyaltyPoints.transaction_date = titanLoyaltyPoints.getValue('transaction_date');
+		loyaltyPoints.points_redeemed = titanLoyaltyPoints.getValue('points_redeemed');
+		loyaltyPoints.points_earned = titanLoyaltyPoints.getValue('points_earned');
+		loyaltyPoints.points_balance = titanLoyaltyPoints.getValue('points_balance');
+		loyaltyPoints.level = titanLoyaltyPoints.getValue('level');
+		loyaltyPoints.latest_transaction = titanLoyaltyPoints.getValue('latest_transaction');
+
+		/*var transactionItems = titanLoyaltyPoints.getElement("transaction_item").getRefRecord();
+		loyaltyPoints.itemNameOrRemark = transactionItems.getValue('name');
+		if(loyaltyPoints.itemNameOrRemark == null) {
+			loyaltyPoints.itemNameOrRemark = titanLoyaltyPoints.getValue('remarks');
+		}
+		loyaltyPoints.picture = transactionItems.getValue('picture');
+		loyaltyPoints.image = transactionItems.getValue('image');
+		*/
+		if(loyaltyPoints.latest_transaction == true){
+			
+			data.balanceEncirclePoints = loyaltyPoints.points_balance;
+			console.log('balance data:'+ data.balanceEncirclePoints );
+		}
+		
+		var transactionUser = titanLoyaltyPoints.getElement("user").getRefRecord();
+		loyaltyPoints.user = transactionUser.getValue('name');
+		
+			//data.balanceEncirclePoints += parseInt(loyaltyPoints.points_balance);
+		console.log('loyalty points : '+loyaltyPoints);
+		data.encirclePointsArray.push(loyaltyPoints);
+		
+	
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 14:11:28</sys_created_on>
+        <sys_id>ad63c529dbd85410730a7b38689619bf</sys_id>
+        <sys_mod_count>129</sys_mod_count>
+        <sys_name>My Encircle Points</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_ad63c529dbd85410730a7b38689619bf</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-05-01 09:16:40</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <h3 class="encircle-title">
+        My Encircle Points
+      </h3>
+    </div>
+  </div>
+  <div class="row" ng-if="c.data.encirclePointsArray.length == 0">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <h3>
+        	No Data Found.
+      </h3>
+    </div>
+  </div>
+  <div class="card card-box-shadow" ng-if="c.data.encirclePointsArray.length > 0">
+    <div class="card-body card-padding">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="table-caption header-color">
+            <span class="table-cation-text" style="">
+              Balance available points {{c.data.balanceEncirclePoints}}
+            </span>
+          </div>
+          <table class="table table-hover table-padding">
+            <thead class="header-color">
+              <tr>
+                <th>Product Purchased</th>
+                <th>Value</th>
+                <th>Points Earned</th>        
+                <th>Points redeemed </th>
+                <th>Points Remaining</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="encirclePointObject in c.data.encirclePointsArray">
+                <td>{{encirclePointObject.productOrRemark}}</td>
+                <td>{{encirclePointObject.pointsValue}}</td>
+                <td>{{encirclePointObject.points_earned}}</td>
+                <td>{{encirclePointObject.points_redeemed}}</td>
+                <td>{{encirclePointObject.points_balance}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

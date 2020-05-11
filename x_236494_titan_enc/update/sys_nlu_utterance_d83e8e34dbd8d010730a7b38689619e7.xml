@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_utterance">
+    <sys_nlu_utterance action="INSERT_OR_UPDATE">
+        <intent display_value="Knowledge Search">d82b0ab0dbd8d010730a7b38689619c1</intent>
+        <sys_class_name>sys_nlu_utterance</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:41:59</sys_created_on>
+        <sys_id>d83e8e34dbd8d010730a7b38689619e7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>what are KB's</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_nlu_utterance_d83e8e34dbd8d010730a7b38689619e7</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:42:16</sys_updated_on>
+        <utterance>what are KB's</utterance>
+    </sys_nlu_utterance>
+</record_update>

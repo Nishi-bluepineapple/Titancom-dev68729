@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_catalog_view_mtom">
+    <sc_catalog_view_mtom action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <sc_catalog display_value="Titan Service Portal">15ad1060dbd89010730a7b386896198d</sc_catalog>
+        <sys_class_name>sc_catalog_view_mtom</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-17 08:52:10</sys_created_on>
+        <sys_id>32bd9820dbd89010730a7b38689619f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Service Portal.catalog_titan_service_portal</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_portal_page display_value="catalog_titan_service_portal">b2bd9820dbd89010730a7b38689619ef</sys_portal_page>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sc_catalog_view_mtom_32bd9820dbd89010730a7b38689619f1</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-17 08:52:10</sys_updated_on>
+    </sc_catalog_view_mtom>
+</record_update>

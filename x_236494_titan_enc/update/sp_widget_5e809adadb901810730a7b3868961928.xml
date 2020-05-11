@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+	var c = this;
+	
+	c.productQuantity = 0;
+	
+	c.decrementQuantity = function() {
+			c.productQuantity = parseInt(c.productQuantity) - 1;
+	}
+	
+	c.incrementQuantity = function() {
+		if(parseInt(c.productQuantity) >= 0 ) {
+			c.productQuantity = parseInt(c.productQuantity) + 1;
+		}
+	}
+	
+	c.placeOrder = function(item) {
+		console.log(item);
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.detail-image-size{
+  width: 400px;
+  height: 400px;
+}
+.product-detailname{
+  font-weight:600;
+      font-size: 1.5rem;
+  padding-top: 12px;
+}
+.detail-currency-selector {
+    float: right;
+    padding:0;
+}
+.detail-currency-selector-button {
+    margin-top: 9px;
+}
+.detail-currency-selector-button button{
+  background-color: #FFF;
+  color: #000;
+}
+.btn.plus, .btn.minus{
+  background: none;
+}
+.detail-currency-selector .btn{
+  float: left;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 15px;
+  outline: 0;
+  padding: 0;
+}
+.center-align{
+  text-align: center;
+}
+.no-padding{
+  padding:0;
+}
+.new-price-label{
+  padding: 0 6px;
+  font-size: 1.8rem;
+}
+.product-title {
+  margin: 0;
+  line-height: 28px;
+  font-weight: 600;
+}
+.productPrice {
+   padding: 16px 0;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.product-main-details {
+  padding: 0 0 0 15px;
+}
+.product-details{
+  float: left;
+  padding: 40px 0 0 0;
+}
+.quantity {
+    margin-top: 20px;
+}
+.quantity-text{
+font-weight:600;
+  font-size:16px;
+}
+.input-div {
+    display: inline !important;
+    position: relative;
+}
+.quantity input {
+    width: 60px;
+    padding: 6px 0;
+    border-radius: 16px;
+    border: 1px solid #cfcfcf;
+    outline: 0 !important;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+.left-in-stock {
+  padding: 12px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.add-to-cart button {
+  font-size: 14px;
+  font-weight: 500;
+  outline: 0 !important;
+  box-shadow: none;
+  padding: 0;
+  color: #fff;
+  background-color: #222;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  border-radius: 25px;
+  width:100%;
+  margin:5px;
+}	
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+.instock{
+color:green;
+}
+.outofstock{
+color:red;
+}
+.flex{
+display:flex;
+}
+/////////////////////////////////////
+.titan-loader-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999991;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  display:none;
+}
+.titan-loader{
+    z-index: 999992;
+    position: relative;
+    background-image: url('TitanLoader.gif');
+    background-size: cover;
+    width: 56px;
+    height: 50px;
+    background-position: center center;
+      top: 50%;
+    left: 50%;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gifting_detail</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Gifting Detail</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	//console.log(options);
+	
+	data.titanItem = {};
+	var sourceTable = 'x_236494_titan_enc_titan_items';
+	var gr = new GlideRecord(sourceTable);
+	gr.addQuery('sys_id', '00593e9adb141810730a7b3868961974');
+	gr.addQuery('csmdemosubcategory', 'Jewellery');
+	gr.setLimit(1);
+	gr.query();
+
+	if (gr.next()) {
+		var titan_item = {};
+		titan_item.csmdemodiscountpercent = gr.getValue('csmdemodiscountpercent');
+		titan_item.csmdemoinstock = gr.getValue('csmdemoinstock');
+		titan_item.csmdemomrp = gr.getValue('csmdemomrp');
+		titan_item.csmdemonewarrival = gr.getValue('csmdemonewarrival');
+		titan_item.csmdemonocostemi = gr.getValue('csmdemonocostemi');
+		titan_item.csmdemoofferprice = gr.getValue('csmdemoofferprice');
+		titan_item.csmdemoproductcode = gr.getValue('csmdemoproductcode');
+		titan_item.csmdemoproductdetailedname = gr.getValue('csmdemoproductdetailedname');
+		titan_item.csmdemoproductimage = gr.getValue('csmdemoproductimage');
+		titan_item.csmdemoproductname = gr.getValue('csmdemoproductname');
+		titan_item.csmdemoshortdescription = gr.getValue('csmdemoshortdescription');
+		titan_item.csmdemospecialfeature = gr.getValue('csmdemospecialfeature');
+		//console.log(JSON.stringify(titan_item));
+		data.titanItem = titan_item;
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-23 03:43:41</sys_created_on>
+        <sys_id>5e809adadb901810730a7b3868961928</sys_id>
+        <sys_mod_count>145</sys_mod_count>
+        <sys_name>Gifting Detail</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_5e809adadb901810730a7b3868961928</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-25 11:14:46</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid" style="padding-bottom:1rem;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+            <div class="center-align">
+                <img src="{{c.data.titanItem.csmdemoproductimage + '.iix'}}" class="detail-image-size"/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7 center-align" style="padding-top: 70px;">
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                  
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="text-uppercase">{{c.data.titanItem.csmdemoproductcode}}</p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h3 class="text-uppercase product-title">{{c.data.titanItem.csmdemoproductdetailedname}}</h3>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                       <div class="productPrice">
+                        <span class="last-price">
+                            <span class="new-price-label">MRP</span> 
+                            <span class="new-price-label" ng-if="c.data.titanItem.csmdemoofferprice != c.data.titanItem.csmdemomrp && c.data.titanItem.csmdemoofferprice != 0 || c.data.titanItem.csmdemoofferprice < c.data.titanItem.csmdemomrp">
+                                <span><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemoofferprice}}</span>&nbsp;
+                                <span class="card-product-old-price" ><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                            </span>
+                            <span ng-if="c.data.titanItem.csmdemoofferprice == c.data.titanItem.csmdemomrp || c.data.titanItem.csmdemoofferprice == 0"><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                            <div class="tax-text">(Incl. of all taxes)</div>
+                        </span>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+                    <div class="detail-currency-selector-button center-align">
+                        <div class="detail-currency-selector-button center-align">
+                            <button class="btn btn-primary"><i class="fa fa-inr"></i></button>
+                            <button disabled class="btn btn-primary btn-inactive" ><i class="fa fa-dollar"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div class="product-detailname">{{c.data.titanItem.csmdemospecialfeature}}</div>
+                      </div>
+
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="quantity">
+                          <p class="quantity-text">Net Qty</p>
+                          <button class="btn minus" ng-click="c.decrementQuantity()" data-ng-disabled="c.productQuantity <= 0" disabled="disabled">
+                              <span class="glyphicon glyphicon-minus"></span>
+                          </button>
+                          <div class="input-div">
+                              <input type="number" value="{{c.productQuantity}}" ng-model="c.productQuantity"/>
+                          </div>
+                          <button class="btn plus" ng-click="c.incrementQuantity()" >
+                              <span class="glyphicon glyphicon-plus"></span>
+                          </button> 
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div class="left-in-stock" ng-if="c.data.titanItem.csmdemoinstock != 0">
+                            <span class="stock-condition instock" ng-if="csmdemoinstock != 0">IN STOCK</span>
+                            <span class="stock-condition outofstock" ng-if="csmdemoinstock == 0">OUT OF STOCK</span>
+                        </div>
+                      </div>
+                      
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="buttons button-cart" >
+                          <div class="add-to-cart-button add-to-cart">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 flex" >
+                              <button type="submit" data-ng-disabled="c.productQuantity <= 0" disabled="disabled" ng-click="c.addToCart(c.data.titanItem)" class="btn btn-default">ADD TO CART</button>
+                              <button type="submit" ng-if="c.productQuantity > 0" ng-click="c.placeOrder(c.data.titanItem)" class="btn btn-default">CHECKOUT</button>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+                    <div class="detail-currency-selector-button center-align">
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+                        <button class="btn btn-primary btn-inactive" ><i class="fa fa-share"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+  
+  <div class="titan-loader-overlay">
+    <div class="titan-loader">
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

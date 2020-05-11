@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container{&#13;
+	width:100% !important;&#13;
+}&#13;
+.user-offer-banner,.user-forum-banner {&#13;
+	width:100%;&#13;
+  height:auto;&#13;
+  padding:1rem;&#13;
+  margin-top: 20px;&#13;
+}&#13;
+.user-offer-banner-bg {&#13;
+  background:#FFFFFF;&#13;
+}&#13;
+.offer-text{&#13;
+  color:black;&#13;
+  font-size:4em;&#13;
+  text-align: center;&#13;
+  position:relative;&#13;
+  z-index:10;&#13;
+&#13;
+}&#13;
+.rotate-image{&#13;
+  transform: rotate(45deg);&#13;
+  position:relative;&#13;
+  z-index:1;&#13;
+}&#13;
+.image-size{&#13;
+	width:300px;&#13;
+  height:auto;&#13;
+}&#13;
+.thumbnail{&#13;
+	border: none !important;&#13;
+  padding:0;&#13;
+  background: transparent;&#13;
+}&#13;
+ &#13;
+.user-forum-banner-bg {&#13;
+  background:#9fcfeb;&#13;
+}&#13;
+.forum-banner-title{&#13;
+  color:#FFFFFF;&#13;
+	font-size:4em;&#13;
+  text-align:center;&#13;
+}&#13;
+.image-padding{&#13;
+	padding-top: 35px;&#13;
+}&#13;
+.forum-banner-items{&#13;
+&#13;
+}&#13;
+.adjust-ideaimage{&#13;
+	margin-top:0px;&#13;
+}&#13;
+.adjust-customerimage {&#13;
+	margin-top:26px;&#13;
+}&#13;
+.titan40perOffUserName{&#13;
+  text-align: center;&#13;
+  font-size: 3rem;&#13;
+  position:relative;&#13;
+  z-index:10;&#13;
+  color:black;&#13;
+  margin-bottom: -20px;&#13;
+}&#13;
+.titan40perOff{&#13;
+	width:250px;&#13;
+  height:300px;&#13;
+}&#13;
+@media only screen and (max-width: 576px) {&#13;
+.adjust-customerimage {&#13;
+    margin-top:7px;&#13;
+  }&#13;
+  .offer-text{&#13;
+    font-size:1em;&#13;
+  }&#13;
+  .forum-banner-title{&#13;
+    font-size:2em;&#13;
+  }&#13;
+  .image-size{&#13;
+    width:200px;&#13;
+    height:200px;&#13;
+  }&#13;
+}&#13;
+@media only screen and (min-width: 768px and max-width: 991px) {&#13;
+.adjust-customerimage {&#13;
+    margin-top:16px;&#13;
+  }&#13;
+  .offer-text{&#13;
+    font-size:2em;&#13;
+  }&#13;
+  .forum-banner-title{&#13;
+    font-size:3em;&#13;
+  }&#13;
+  .titan40perOff {&#13;
+    width: 200px;&#13;
+    height: 200px;&#13;
+  }&#13;
+}&#13;
+@media only screen and (min-width: 992px) {&#13;
+.adjust-customerimage {&#13;
+    margin-top:26px;&#13;
+  }&#13;
+  .offer-text-margin{&#13;
+  	margin-top: 40px;&#13;
+  }&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>loggedin_user_banner</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>LoggedIn User Banner</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+data.userName = gs.getUser().getFirstName();
+	data.isLoggedIn = gs.isLoggedIn();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-21 05:12:24</sys_created_on>
+        <sys_id>838150fddb149410730a7b3868961988</sys_id>
+        <sys_mod_count>115</sys_mod_count>
+        <sys_name>LoggedIn User Banner</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_838150fddb149410730a7b3868961988</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-30 16:38:10</sys_updated_on>
+        <template><![CDATA[<section class="user-offer-banner user-offer-banner-bg">
+  <div class="container-fluid">
+    <div class="row" ng-if="!data.isLoggedIn">
+      <div class="col-12 "  align="center">
+        <img src="NonLoggedInBanner.png" width="1349" height="446"/>
+      </div>
+    </div>
+    <div class="row" ng-if="data.isLoggedIn">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"  >
+        <!-- <div class="offer-text-margin">
+          <div class="offer-text">
+            Offers for you
+          </div>
+          <div class="offer-text">
+            {{c.data.userName}}!
+          </div>
+        </div>-->
+        <div>
+          <div class="titan40perOffUserName">
+            {{c.data.userName}}
+          </div>
+          <div style="text-align:center">
+            <img src="Titan40percentoff_Copy.png" class="titan40perOff"/>          
+          </div>  
+        </div>
+        
+
+      </div>    
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 image-padding">
+        <div class="row" >
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <a href="?id=titan_products&paramid=productsid" class="thumbnail" target="_blank">
+              <img class="rotate-image image-size" src="watch_01.png"/>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <a href="?id=titan_products&paramid=productsid" class="thumbnail" target="_blank">
+              <img class="rotate-image image-size" src="watch_image3.png"/>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <a href="?id=titan_products&paramid=productsid" class="thumbnail" target="_blank">
+              <img class="rotate-image image-size" src="watch_image_2.png"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-if="data.isLoggedIn">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="offer-text">
+          <span>
+            40% discount on your 3 most searched watches
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>redeem_points</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Redeem Points</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 12:46:46</sys_created_on>
+        <sys_id>b030b8e1db985410730a7b3868961971</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Redeem Points</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_b030b8e1db985410730a7b3868961971</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 12:46:46</sys_updated_on>
+        <template><![CDATA[<div><!-- your widget template --></div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_b030b8e1db985410730a7b3868961971</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function() {  /* widget controller */  var c = this;}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;redeem_points&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Redeem Points&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 12:46:46&lt;/sys_created_on&gt;&lt;sys_id&gt;b030b8e1db985410730a7b3868961971&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Redeem Points&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_b030b8e1db985410730a7b3868961971&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 12:46:46&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;&lt;!-- your widget template --&gt;&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1420945557</payload_hash>
+        <record_name>Redeem Points</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 12:46:46</sys_created_on>
+        <sys_id>7030b8e1db985410730a7b3868961973</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17197a072c40000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 12:46:46</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>b830b8e105985410b85e3762c5972272</update_guid>
+        <update_guid_history>b830b8e105985410b85e3762c5972272:1420945557</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Redeem Points">a218f8e9db985410730a7b3868961905</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 13:21:18</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>8ad626cb48f2419a8fafa1951dfbb429</sys_id>
+        <sys_metadata>b030b8e1db985410730a7b3868961971</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Redeem Points</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_b030b8e1db985410730a7b3868961971</sys_update_name>
+        <sys_update_version display_value="sp_widget_b030b8e1db985410730a7b3868961971">7030b8e1db985410730a7b3868961973</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 13:21:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

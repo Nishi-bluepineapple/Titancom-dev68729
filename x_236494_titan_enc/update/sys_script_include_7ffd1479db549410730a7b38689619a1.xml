@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_236494_titan_enc.TitanUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>TitanUtils</name>
+        <script><![CDATA[var TitanUtils = Class.create();
+TitanUtils.prototype = {
+    initialize: function() {
+    },
+    getUserPhoto: function(userId) {
+		var grUser = new GlideRecord("sys_user");
+		grUser.get(userId);
+		var photo = grUser.getValue("photo");
+		return photo;
+    },
+
+	getMenuItems: function() {
+		return [
+			{html:"Knowledge",href:"?id=titan_knowledge_base&paramid=prodselfid"},
+			//{html:"Kicking",href:"?d=kicking"},
+			//{html:"Ticking",href:"?d=ticking"},
+			{html:"Encircle",href:"encircle"}
+		];
+    },
+	getUserPoints: function(userId){
+		
+		var currentPoints={};
+		gs.info('current points 0 :'+userId);
+		var grCurrentPoints=new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+		grCurrentPoints.addQuery('latest_transaction=true');
+		grCurrentPoints.addQuery('user='+userId);	
+		grCurrentPoints.query();
+		while(grCurrentPoints.next())
+		{
+			currentPoints.points = grCurrentPoints.getValue('points_balance');
+			currentPoints.level = grCurrentPoints.getValue('level');
+			break;
+		}
+		gs.info('current points 1 :'+ JSON.stringify(currentPoints));
+		var grLevels=new GlideRecord('x_236494_titan_enc_loyalty_level');
+		grLevels.addQuery('starting_points','>',currentPoints.points);
+		grLevels.orderBy('starting_points');
+		grLevels.query();
+		while(grLevels.next())
+		{
+			currentPoints.next_level = grLevels.getValue('level_name');
+			currentPoints.next_level_start=grLevels.getValue('starting_points');
+			currentPoints.next_level_points=currentPoints.next_level_start  - currentPoints.points;
+			break;
+		}
+		gs.info('current points 2 :'+ JSON.stringify(currentPoints));
+		return currentPoints;
+		
+	},
+
+    type: 'TitanUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-21 06:08:14</sys_created_on>
+        <sys_id>7ffd1479db549410730a7b38689619a1</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>TitanUtils</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_script_include_7ffd1479db549410730a7b38689619a1</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-05-01 14:56:24</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <name>Bootstrap 3.3.7</name>
+        <source>url</source>
+        <sp_css/>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 08:45:10</sys_created_on>
+        <sys_id>cefb3363db501c10730a7b3868961917</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Bootstrap 3.3.7</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_css_include_cefb3363db501c10730a7b3868961917</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:45:10</sys_updated_on>
+        <url>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css</url>
+    </sp_css_include>
+</record_update>

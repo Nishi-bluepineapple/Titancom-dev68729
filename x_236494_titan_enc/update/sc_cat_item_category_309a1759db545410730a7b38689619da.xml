@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="Digu Titan 1">b0391719db545410730a7b386896192a</sc_cat_item>
+        <sc_category display_value="Titan">094e5860dbd89010730a7b38689619f7</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 06:32:41</sys_created_on>
+        <sys_id>309a1759db545410730a7b38689619da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan.Digu Titan 1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sc_cat_item_category_309a1759db545410730a7b38689619da</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 06:32:41</sys_updated_on>
+    </sc_cat_item_category>
+</record_update>

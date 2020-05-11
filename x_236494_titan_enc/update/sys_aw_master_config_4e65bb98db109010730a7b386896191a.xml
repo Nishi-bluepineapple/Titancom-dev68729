@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_aw_master_config">
+    <sys_aw_master_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <brand_color>#f00</brand_color>
+        <compiled_page display_value="Workspace Core">b70867ad0f603300bb57f4a1ff767e15</compiled_page>
+        <compiled_page_registry display_value="Titan Encircle">4665bb98db109010730a7b386896191b</compiled_page_registry>
+        <description/>
+        <global_search display_value="Default search settings">97a574ea53c0130084acddeeff7b12a6</global_search>
+        <global_search_data display_value="Titan Encircle Search Context Config">ce65bb98db109010730a7b3868961918</global_search_data>
+        <name>Titan Encircle</name>
+        <navigation_type>tab</navigation_type>
+        <notifications_enabled>true</notifications_enabled>
+        <primary_color>#0f0</primary_color>
+        <search_enabled>true</search_enabled>
+        <sys_class_name>sys_aw_master_config</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:56:00</sys_created_on>
+        <sys_id>4e65bb98db109010730a7b386896191a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Titan Encircle</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_aw_master_config_4e65bb98db109010730a7b386896191a</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-04 08:34:30</sys_updated_on>
+        <user_preference_controls_enabled>true</user_preference_controls_enabled>
+        <workspace_logo>b1bc73f1db6cd010730a7b38689619da</workspace_logo>
+        <workspace_url>titan_encircle</workspace_url>
+    </sys_aw_master_config>
+</record_update>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Location" max_length="40" name="imp_location" sizeclass="0" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="City" max_length="40" name="u_city" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact" max_length="40" name="u_contact" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Country" max_length="40" name="u_country" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ï»¿Name" max_length="40" name="u_ï__name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="40" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Parent" max_length="40" name="u_parent" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Phone" max_length="40" name="u_phone" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="State/Province" max_length="40" name="u_state_province" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Street" max_length="40" name="u_street" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Zip/Postal Code" max_length="40" name="u_zip_postal_code" type="string"/>
+    </element>
+</database>

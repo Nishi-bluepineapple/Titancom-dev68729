@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($rootScope, $scope,spUtil) {
+	/* widget controller */
+	var c = this;
+	c.giftingDetail = false;
+	$scope.callProductDetailPage = function(sys_id, subCategory) {
+		c.data.action="getDetail";
+		$scope.detailPageParameters = {
+			'sys_id':sys_id,
+			'subCategory':subCategory
+		};
+		//$rootScope.$broadcast('detailPageParameters', $scope.detailPageParameters);
+		c.data.detailPageParameters = $scope.detailPageParameters;
+		c.server.update().then(c.callBack);
+	}
+	$rootScope.$on('giftingDetail', function(event,data) {
+		c.giftingDetail = data;
+	});
+	c.callBack = function(){
+		c.giftingDetail = true;
+		console.log(c.data.bbb);
+	};
+
+	//deatil page controller
+
+	c.productQuantity = 0;
+
+	c.decrementQuantity = function() {
+		c.productQuantity = parseInt(c.productQuantity) - 1;
+	}
+
+	c.incrementQuantity = function() {
+		if(parseInt(c.productQuantity) >= 0 ) {
+			c.productQuantity = parseInt(c.productQuantity) + 1;
+		}
+	}
+
+	c.placeOrder = function(item) {
+		console.log(item);
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.card-image-size{
+  width: 200px;
+  height: 200px;
+}
+.center-align{
+	text-align:center;
+}
+.card-watch-title{
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align:center;
+  text-transform: uppercase;
+}
+.card-watch-price{
+  font-size: 1.5rem;
+  text-align:center;
+}
+.card-badge{
+  padding: 3px 6px;
+  border:none;
+  border-radius:0;
+  font-weight:200;
+  background-color: #666666;
+}
+.nocostemi{
+	width:90px;
+  height:18px;
+}
+.padding-top-bottom{
+    padding: 3px 0;
+}
+.margin-top-bottom{
+    margin: 2px 0;
+}
+.block-ellipsis {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 34px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+
+@media only screen and (min-width: 768px and max-width: 991px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}
+//------------------Detail page css
+.detail-image-size{
+  width: 400px;
+  height: 400px;
+}
+.product-font-weight{
+  font-weight:600;
+}
+.detail-currency-selector {
+    float: right;
+    margin: 0 0 10px 0;
+}
+.detail-currency-selector-button {
+    margin-top: 9px;
+}
+.detail-currency-selector-button button{
+  background-color: #FFF;
+  color: #000;
+}
+.btn.plus, .btn.minus{
+  background: none;
+}
+.detail-currency-selector .btn{
+  float: left;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 15px;
+  outline: 0;
+  padding: 0;
+}
+.center-align{
+  text-align: center;
+}
+.no-padding{
+  padding:0;
+}
+.product-title {
+  margin: 0;
+  line-height: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.productPrice {
+    margin-top: 12px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.product-main-details {
+  padding: 0 0 0 15px;
+}
+.product-details{
+  float: left;
+  padding: 40px 0 0 0;
+}
+.quantity {
+    margin-top: 20px;
+}
+.quantity-text{
+font-weight:600;
+  font-size:16px;
+}
+.input-div {
+    display: inline !important;
+    position: relative;
+}
+.quantity input {
+    width: 60px;
+    padding: 6px 0;
+    border-radius: 16px;
+    border: 1px solid #cfcfcf;
+    outline: 0 !important;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+.left-in-stock span {
+  margin: 10px 0 27px 0;
+}
+.add-to-cart button {
+  font-size: 14px;
+  font-weight: 500;
+  outline: 0 !important;
+  box-shadow: none;
+  padding: 0;
+  color: #fff;
+  background-color: #222;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  border-radius: 25px;
+  width:100%;
+}	
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+.instock{
+color:green;
+}
+.outofstock{
+color:red;
+}
+@media only screen and (max-width: 1014px) and (min-width: 768px)
+
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gifting_watches</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Gifting Watches</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	
+	var sourceTable = 'x_236494_titan_enc_titan_items';
+	var gr = new GlideRecord(sourceTable);
+if(input && input.action == 'getDetail'){
+	console.log(input);
+	data.titanItem = {};
+	
+	gr.addQuery('sys_id', input.detailPageParameters.sys_id);
+	gr.addQuery('csmdemosubcategory', input.detailPageParameters.subCategory);
+	gr.setLimit(1);
+	gr.query();
+
+	if (gr.next()) {
+		var titan_item = {};
+		titan_item.csmdemodiscountpercent = gr.getValue('csmdemodiscountpercent');
+		titan_item.csmdemoinstock = gr.getValue('csmdemoinstock');
+		titan_item.csmdemomrp = gr.getValue('csmdemomrp');
+		titan_item.csmdemonewarrival = gr.getValue('csmdemonewarrival');
+		titan_item.csmdemonocostemi = gr.getValue('csmdemonocostemi');
+		titan_item.csmdemoofferprice = gr.getValue('csmdemoofferprice');
+		titan_item.csmdemoproductcode = gr.getValue('csmdemoproductcode');
+		titan_item.csmdemoproductdetailedname = gr.getValue('csmdemoproductdetailedname');
+		titan_item.csmdemoproductimage = gr.getValue('csmdemoproductimage');
+		titan_item.csmdemoproductname = gr.getValue('csmdemoproductname');
+		titan_item.csmdemoshortdescription = gr.getValue('csmdemoshortdescription');
+		titan_item.csmdemospecialfeature = gr.getValue('csmdemospecialfeature');
+		//console.log(JSON.stringify(titan_item));
+		data.titanItem = titan_item;
+	}
+	gr = null;
+}else{
+	data.titanItems = [];
+		gr = new GlideRecord(sourceTable);
+	gr.addQuery('csmdemosubcategory', 'Watches');
+	gr.query();
+
+	while (gr.next()) {
+		var titan_item = {};
+		titan_item.csmdemodiscountpercent = gr.getValue('csmdemodiscountpercent');
+		titan_item.csmdemoinstock = gr.getValue('csmdemoinstock');
+		titan_item.csmdemomrp = gr.getValue('csmdemomrp');
+		titan_item.csmdemonewarrival = gr.getValue('csmdemonewarrival');
+		titan_item.csmdemonocostemi = gr.getValue('csmdemonocostemi');
+		titan_item.csmdemoofferprice = gr.getValue('csmdemoofferprice');
+		titan_item.csmdemoproductcode = gr.getValue('csmdemoproductcode');
+		titan_item.csmdemoproductdetailedname = gr.getValue('csmdemoproductdetailedname');
+		titan_item.csmdemoproductimage = gr.getValue('csmdemoproductimage');
+		titan_item.csmdemoproductname = gr.getValue('csmdemoproductname');
+		titan_item.csmdemoshortdescription = gr.getValue('csmdemoshortdescription');
+		titan_item.csmdemospecialfeature = gr.getValue('csmdemospecialfeature');
+		titan_item.sys_id = gr.getValue('sys_id');
+
+		//console.log(JSON.stringify(titan_item));
+		data.titanItems.push(titan_item);
+	}
+}
+	
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-21 06:20:43</sys_created_on>
+        <sys_id>d76164f9db549410730a7b3868961920</sys_id>
+        <sys_mod_count>150</sys_mod_count>
+        <sys_name>Gifting Watches</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_d76164f9db549410730a7b3868961920</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 11:10:59</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid">
+  <div ng-if="!c.giftingDetail">
+    <div class="row">
+      <!-- COLUMN 1 START-->
+      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4" ng-repeat="titanItem in c.data.titanItems">
+        <div class="card padding-top-bottom">
+          <div class="center-align">
+            <a href="javascript:void(0)" style="color:#000" ng-click="callProductDetailPage(titanItem.sys_id, 'Watches');">
+              <img class="card-img-top card-image-size" src="{{titanItem.csmdemoproductimage+'.iix'}}" />                        
+            </a>
+          </div>
+          <div class="card-body" style="height: 10rem;">
+            <a href="javascript:void(0)" style="color:#000" ng-click="callProductDetailPage(titanItem.sys_id, 'Watches');">
+              <div class="card-watch-title padding-top-bottom block-ellipsis">{{titanItem.csmdemoproductdetailedname}}</div>
+              <div class="card-watch-price padding-top-bottom">
+                <span ng-if="titanItem.csmdemoofferprice != titanItem.csmdemomrp && titanItem.csmdemoofferprice != 0 || titanItem.csmdemoofferprice < titanItem.csmdemomrp">
+                  <span><i class="fa fa-inr"></i>{{titanItem.csmdemoofferprice}}</span>
+                  <span class="card-product-old-price" ><i class="fa fa-inr"></i>{{titanItem.csmdemomrp}}</span>
+                </span>
+                <span ng-if="titanItem.csmdemoofferprice == titanItem.csmdemomrp || titanItem.csmdemoofferprice == 0"><i class="fa fa-inr"></i>{{titanItem.csmdemomrp}}</span>
+              </div>
+            </a>
+            <div class="center-align padding-top-bottom">
+              <span class="margin-top-bottom" ng-if="titanItem.csmdemonocostemi != 0">
+                <img src="nocostemi.png" class="nocostemi"/>
+              </span>
+              <span class="badge card-badge margin-top-bottom" ng-if="titanItem.csmdemonewarrival != 0">NEW ARRIVAL</span>
+              <!--<a href="aaa" class="btn btn-primary card-buttons margin-top-bottom">SLIMMEST WATCH</a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- COLUMN 1 END-->
+    </div>
+  </div>
+
+  <div ng-if="c.giftingDetail">
+    <div style="padding-bottom:1rem;">
+      <div class="row">
+        <!-- COLUMN 1 START-->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{c.data.titanItem.csmdemoproductimage + '.iix'}}" class="detail-image-size"/>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 product-main-details center-align">
+          <div class="row">
+
+            <div class="product-details col-xs-12 col-sm-12 col-md-11 col-lg-11">
+
+              <div class="row margin-bottom">
+                <div class="col-xs-12 col-sm-12 no-padding">
+                  <p class="text-uppercase">{{c.data.titanItem.csmdemoproductcode}}</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 no-padding">
+                  <h3 class="text-uppercase product-title">{{c.data.titanItem.csmdemoproductdetailedname}}</h3>
+                </div>
+              </div>
+
+              <div class="row ng-scope">
+                <p class="productPrice no-padding price col-sm-12">
+                  <span class="last-price">
+                    <span class="new-price-label ng-binding">MRP</span> 
+                    <span ng-if="c.data.titanItem.csmdemoofferprice != c.data.titanItem.csmdemomrp && c.data.titanItem.csmdemoofferprice != 0 || c.data.titanItem.csmdemoofferprice < c.data.titanItem.csmdemomrp">
+                      <span><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemoofferprice}}</span>&nbsp;
+                      <span class="card-product-old-price" ><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                    </span>
+                    <span ng-if="c.data.titanItem.csmdemoofferprice == c.data.titanItem.csmdemomrp || c.data.titanItem.csmdemoofferprice == 0"><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                    <span class="tax-text col-xs-12">(Incl. of all taxes)</span>
+                  </span>
+                </p>
+              </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+              <div class="detail-currency-selector-button center-align">
+                <button class="btn btn-primary"><i class="fa fa-inr"></i></button>
+                <button disabled class="btn btn-primary btn-inactive" ><i class="fa fa-dollar"></i></button>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-md-11">
+              <div class="ng-binding product-font-weight">{{c.data.titanItem.csmdemospecialfeature}}</div>
+            </div>
+
+            <div class="row col-xs-12 col-md-11 quantity-section ng-scope">
+              <div class="quantity col-xs-12">
+                <p class="quantity-text">Net Qty</p>
+                <button class="btn minus" ng-click="c.decrementQuantity()" data-ng-disabled="c.productQuantity <= 0" disabled="disabled">
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+                <div class="input-div">
+                  <input type="number" value="{{c.productQuantity}}" ng-model="c.productQuantity"/>
+                </div>
+                <button class="btn plus" ng-click="c.incrementQuantity()" >
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button> 
+              </div>
+            </div>
+
+            <div class="row margin-bottom col-xs-12 col-md-11 left-in-stock">
+              <div class="ng-scope" ng-if="c.data.titanItem.csmdemoinstock != 0">
+                <span class="col-xs-12 stock-condition instock" ng-if="csmdemoinstock != 0">IN STOCK</span>
+                <span class="col-xs-12 stock-condition outofstock" ng-if="csmdemoinstock == 0">OUT OF STOCK</span>
+                <div class="buttons button-cart col-xs-offset-3 col-xs-6" >
+                  <div class="col-xs-12 add-to-cart-button p1 add-to-cart">
+                    <button type="submit" data-ng-disabled="c.productQuantity <= 0" disabled="disabled" ng-click="c.placeOrder(c.data.titanItem)" class="btn btn-default">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+              <div class="detail-currency-selector-button center-align">
+                <button class="btn btn-primary"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+                <button class="btn btn-primary btn-inactive" ><i class="fa fa-share"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

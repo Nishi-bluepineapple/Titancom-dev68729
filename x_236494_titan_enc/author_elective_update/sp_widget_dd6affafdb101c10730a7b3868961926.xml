@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+$('.carousel .vertical .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=1;i<2;i++) {
+    next=next.next();
+    if (!next.length) {	next = $(this).siblings(':first');}  
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+	$scope.Redirect = function(){
+		console.log('inside approval function');
+		var url = 'https://dev68729.service-now.com/';
+	window.location.href=url;
+		
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container{
+	margin-top: 8%;
+  margin-left: 0%;
+}
+
+.item img:hover{
+   -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+}
+
+.item {
+    display: none;
+    position: relative;
+    .transition(.20s ease-in-out left);
+  
+}
+
+body{
+    background-color: #4A7296;
+}
+.carousel-inner.vertical &gt; .item {
+    -webkit-transition: .10s ease-in-out bottom;
+    -moz-transition: .10s ease-in-out bottom;
+    -o-transition: .10s ease-in-out bottom;
+    transition: .10s ease-in-out bottom;
+}
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+.carousel-inner.vertical &gt; .item {
+    -webkit-transition:-webkit-transform .6s ease-in-out;
+    -moz-transition:-webkit-transform .6s ease-in-out;
+    -o-transition:-o-transform .6s ease-in-out;
+    transition:transform .6s ease-in-out;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    backface-visibility:hidden;
+    -webkit-perspective:1000;
+    -moz-perspective:1000;
+}
+  
+.carousel-inner.vertical &gt; .item.next,
+.carousel-inner.vertical &gt; .item.active.right {
+    -webkit-transform: translate3d(0, 33.33%, 0);
+    -moz-transform: translate3d(0, 33.33%, 0);
+    transform: translate3d(0, 33.33%, 0);
+    top:0px;
+}
+.carousel-inner.vertical &gt; .item.prev,
+.carousel-inner.vertical &gt; .item.active.left {
+    -webkit-transform: translate3d(0, -33.33%, 0);
+    -moz-transform: translate3d(0, -33.33%, 0);
+    transform: translate3d(0, -33.33%, 0);
+    top: 0px;
+}
+.carousel-inner.vertical &gt; .item.next.left,
+.carousel-inner.vertical &gt; .item.prev.right,
+.carousel-inner.vertical &gt; .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    top:0px;
+  }
+}
+.carousel-inner.vertical &gt; .next,
+.carousel-inner.vertical &gt; .prev {
+    height: 100%;
+    width: auto;
+}
+#carousel-pager .carousel-control.left,#carousel-pager .carousel-control.right{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background:#FFF;
+    opacity: 1;
+    position: absolute;
+    top:-65px;
+    left:50%;
+    transform: translateX(-50%);
+}
+#carousel-pager .carousel-control.right {
+    top:unset;
+    bottom: -65px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.left .glyphicon,.right .glyphicon{
+    position:absolute;
+    top:13px;
+    left:16px;
+    color:#004C70;
+}
+.right .glyphicon{
+    top:16px;
+    left:15px;
+}
+.item img{
+    border:1px solid #e2e2e2;
+  	padding : 3px;
+  margin-bottom: 5px;
+ 
+}
+.carousel{
+    margin-top:80px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Copy of TBanner</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 08:38:02</sys_created_on>
+        <sys_id>dd6affafdb101c10730a7b3868961926</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Copy of TBanner</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_dd6affafdb101c10730a7b3868961926</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:38:37</sys_updated_on>
+        <template><![CDATA[<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="custom.css">
+</head>
+<body>
+  
+	<div >
+        <div id="carousel-pager" class="carousel slide " data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner vertical" >
+                <div class="active item" >
+                 <img src="Tbanner_image6.jpg" data-target="#carousel-main" data-slide-to="0" ng-click = "Redirect()">
+                </div>
+                <div class="item">
+                  <widget id="titan-upgrade"></widget>
+                </div>
+                <div class="item">
+                  <img src="Tbanner_image2.jpg" data-target="#carousel-main" data-slide-to="2">
+                </div>
+              
+            </div>
+             <a href="#imageCarousel" class="carousel-control left" data-slide="prev" style="background-image:none">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <a href="#imageCarousel" class="carousel-control right" data-slide="next" style="background-image:none">
+      <span class="glyphicon glyphicon-chevron-down"></span></a>
+        
+    </div>
+</div>
+</body>
+</html>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_dd6affafdb101c10730a7b3868961926</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+$('.carousel .vertical .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=1;i&lt;2;i++) {
+    next=next.next();
+    if (!next.length) {	next = $(this).siblings(':first');}  
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+	$scope.Redirect = function(){
+		console.log('inside approval function');
+		var url = 'https://dev68729.service-now.com/';
+	window.location.href=url;
+		
+	}
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.container{
+	margin-top: 8%;
+  margin-left: 0%;
+}
+
+.item img:hover{
+   -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+}
+
+.item {
+    display: none;
+    position: relative;
+    .transition(.20s ease-in-out left);
+  
+}
+
+body{
+    background-color: #4A7296;
+}
+.carousel-inner.vertical &amp;gt; .item {
+    -webkit-transition: .10s ease-in-out bottom;
+    -moz-transition: .10s ease-in-out bottom;
+    -o-transition: .10s ease-in-out bottom;
+    transition: .10s ease-in-out bottom;
+}
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+.carousel-inner.vertical &amp;gt; .item {
+    -webkit-transition:-webkit-transform .6s ease-in-out;
+    -moz-transition:-webkit-transform .6s ease-in-out;
+    -o-transition:-o-transform .6s ease-in-out;
+    transition:transform .6s ease-in-out;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    backface-visibility:hidden;
+    -webkit-perspective:1000;
+    -moz-perspective:1000;
+}
+  
+.carousel-inner.vertical &amp;gt; .item.next,
+.carousel-inner.vertical &amp;gt; .item.active.right {
+    -webkit-transform: translate3d(0, 33.33%, 0);
+    -moz-transform: translate3d(0, 33.33%, 0);
+    transform: translate3d(0, 33.33%, 0);
+    top:0px;
+}
+.carousel-inner.vertical &amp;gt; .item.prev,
+.carousel-inner.vertical &amp;gt; .item.active.left {
+    -webkit-transform: translate3d(0, -33.33%, 0);
+    -moz-transform: translate3d(0, -33.33%, 0);
+    transform: translate3d(0, -33.33%, 0);
+    top: 0px;
+}
+.carousel-inner.vertical &amp;gt; .item.next.left,
+.carousel-inner.vertical &amp;gt; .item.prev.right,
+.carousel-inner.vertical &amp;gt; .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    top:0px;
+  }
+}
+.carousel-inner.vertical &amp;gt; .next,
+.carousel-inner.vertical &amp;gt; .prev {
+    height: 100%;
+    width: auto;
+}
+#carousel-pager .carousel-control.left,#carousel-pager .carousel-control.right{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background:#FFF;
+    opacity: 1;
+    position: absolute;
+    top:-65px;
+    left:50%;
+    transform: translateX(-50%);
+}
+#carousel-pager .carousel-control.right {
+    top:unset;
+    bottom: -65px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.left .glyphicon,.right .glyphicon{
+    position:absolute;
+    top:13px;
+    left:16px;
+    color:#004C70;
+}
+.right .glyphicon{
+    top:16px;
+    left:15px;
+}
+.item img{
+    border:1px solid #e2e2e2;
+  	padding : 3px;
+  margin-bottom: 5px;
+ 
+}
+.carousel{
+    margin-top:80px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Copy of TBanner&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-27 08:38:02&lt;/sys_created_on&gt;&lt;sys_id&gt;dd6affafdb101c10730a7b3868961926&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Copy of TBanner&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_dd6affafdb101c10730a7b3868961926&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-27 08:38:37&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;html&gt;
+&lt;head&gt;
+	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
+	&lt;link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"&gt;
+	&lt;link rel="stylesheet" type="text/css" href="custom.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+	&lt;div &gt;
+        &lt;div id="carousel-pager" class="carousel slide " data-ride="carousel" data-interval="3000"&gt;
+            &lt;div class="carousel-inner vertical" &gt;
+                &lt;div class="active item" &gt;
+                 &lt;img src="Tbanner_image6.jpg" data-target="#carousel-main" data-slide-to="0" ng-click = "Redirect()"&gt;
+                &lt;/div&gt;
+                &lt;div class="item"&gt;
+                  &lt;widget id="titan-upgrade"&gt;&lt;/widget&gt;
+                &lt;/div&gt;
+                &lt;div class="item"&gt;
+                  &lt;img src="Tbanner_image2.jpg" data-target="#carousel-main" data-slide-to="2"&gt;
+                &lt;/div&gt;
+              
+            &lt;/div&gt;
+             &lt;a href="#imageCarousel" class="carousel-control left" data-slide="prev" style="background-image:none"&gt;
+      &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="#imageCarousel" class="carousel-control right" data-slide="next" style="background-image:none"&gt;
+      &lt;span class="glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/a&gt;
+        
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>244588255</payload_hash>
+        <record_name>Copy of TBanner</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 08:38:37</sys_created_on>
+        <sys_id>758a3fefdb101c10730a7b3868961953</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171bac9c3750000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:38:37</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>bd8a73ef21101c10e6da9220b855d470</update_guid>
+        <update_guid_history>bd8a73ef21101c10e6da9220b855d470:244588255,956affafe6101c101bde4bbe013d4528:446827543</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Copy of TBanner">d9dd3ba3db501c10730a7b38689619c6</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 08:53:04</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>ebbd0e3912c740fc89966c2ec2363210</sys_id>
+        <sys_metadata>dd6affafdb101c10730a7b3868961926</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy of TBanner</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_dd6affafdb101c10730a7b3868961926</sys_update_name>
+        <sys_update_version display_value="sp_widget_dd6affafdb101c10730a7b3868961926">758a3fefdb101c10730a7b3868961953</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:53:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

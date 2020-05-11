@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+	c.gm_main_header = c.data.gm_header;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.progress-bar{&#13;
+background-color: blue;&#13;
+}&#13;
+&#13;
+&#13;
+.gm_leaderboard{&#13;
+  .table{&#13;
+    margin-bottom: 0px;&#13;
+    border-collapse: separate; &#13;
+  }&#13;
+  .table&gt;tbody&gt;tr&gt;td{&#13;
+  	border-top:1px solid transparent;&#13;
+   }&#13;
+&#13;
+  .gm-list-filter{&#13;
+  	.gm-filter {&#13;
+      padding-bottom: 10px;&#13;
+    }&#13;
+    .gm-select2.select2-container .select2-choice {&#13;
+      font-size: inherit;&#13;
+    }&#13;
+  }&#13;
+  .leaderboard-sub-header{&#13;
+  	color:$text-muted;&#13;
+    font-size:15px;&#13;
+    line-height:25px;&#13;
+  }&#13;
+  .gm-list-filter {&#13;
+  }&#13;
+   .self-clear:after {&#13;
+    content: "";&#13;
+    clear: both;&#13;
+    display: table;&#13;
+  }&#13;
+  &#13;
+  .avatar-container{&#13;
+    width:4.2rem;&#13;
+    height:4.2rem;&#13;
+    &#13;
+    .avatar.soloAvatar .sub-avatar{&#13;
+    	line-height:4.2rem;&#13;
+    }&#13;
+  }&#13;
+  .rankCol{&#13;
+    vertical-align:middle;&#13;
+    color:$brand-primary;&#13;
+    font-weight:500;&#13;
+    text-align: center;&#13;
+  }&#13;
+  .userCol{&#13;
+    vertical-align:middle;&#13;
+  }  &#13;
+  .usersubcol1{&#13;
+  	display:inline-block;&#13;
+    width:40px;&#13;
+    margin-right:10px;&#13;
+  }&#13;
+  .usersubcol2{&#13;
+  	display:inline-block;&#13;
+    width:calc(100% - 50px);&#13;
+    vertical-align:top;&#13;
+  }&#13;
+  .usersubrow1{&#13;
+  	height:50%;&#13;
+    color:$text-color;&#13;
+    font-weight:500;&#13;
+    text-overflow: ellipsis;&#13;
+    white-space: nowrap;&#13;
+    overflow: hidden; &#13;
+  }&#13;
+  .lb-width{&#13;
+    width: 100%;&#13;
+  }  &#13;
+  @media only screen and (min-width:990px){&#13;
+        /* styles for browsers larger than 990px; */&#13;
+    .username-width{&#13;
+     max-width: 135px;&#13;
+    }&#13;
+   }&#13;
+  .usersubrow2{&#13;
+  	height:50%;&#13;
+    color:$text-muted;&#13;
+  }&#13;
+  .emptytable{&#13;
+  	text-align:center;&#13;
+    color:$text-muted;&#13;
+    position:relative;&#13;
+    min-height:100px;&#13;
+     .emptytablemsg{&#13;
+    	width:100%;&#13;
+        //position:absolute;&#13;
+      	//top:30%;&#13;
+    }&#13;
+  }&#13;
+  .navlink a{&#13;
+  	color:$text-color;&#13;
+  }&#13;
+  .leadeboardpagelink{&#13;
+    margin-top: 15px;&#13;
+  	width:100%;&#13;
+  }&#13;
+}&#13;
+.share_rank{  &#13;
+     td{&#13;
+        border-top:1px solid $link-color !important;&#13;
+        border-bottom:1px solid $link-color !important;&#13;
+      }&#13;
+     td:first-child {&#13;
+       border-left:1px solid $link-color !important;&#13;
+       border-top-left-radius: 2px !important;&#13;
+       border-bottom-left-radius: 2px!important;}&#13;
+     td:last-child { &#13;
+      border-right:1px solid $link-color !important;&#13;
+      border-top-right-radius: 2px !important;&#13;
+      border-bottom-right-radius: 2px !important; }    &#13;
+ }&#13;
+.avatar-container .avatar.soloAvatar .sub-avatar{&#13;
+  color: $gray-darker;&#13;
+  background-color: $gray-lighter;&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pw</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Points-Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.leaderBoard =[];
+	data.gm_display_enabled = "true";
+	var userSysId = gs.getUserID();
+	console.log(userSysId);
+		var gr = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+	gr.addQuery('user',userSysId);
+	gr.addQuery('latest_transaction','true');
+	gr.query();
+	while(gr.next()){
+		
+			var percent;
+			percent = (gr.points_balance*100)/20000;
+		data.userfirstname = gr.user.first_name+'';
+		data.userlastname = gr.user.last_name+'';
+		data.photo = gr.user.photo+'';
+		data.points =	gr.points_balance+'';
+		data.level = gr.level+'';
+		data.progress = percent;
+	}
+		
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-22 10:00:55</sys_created_on>
+        <sys_id>d45d920edbd4d410730a7b38689619e2</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_name>Points-Widget</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_d45d920edbd4d410730a7b38689619e2</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-29 06:54:21</sys_updated_on>
+        <template><![CDATA[<div aria-label="{{c.gm_header}}" ng-if="c.data.gm_display_enabled=='true' && !c.data.disableWidget" class="gm_leaderboard panel panel-default csm-widget">
+
+   <table>
+      <tbody>
+         <tr>
+            <td style="padding-right:15px;padding-left:7px;padding-left:5px;">{{::c.data.points}}</td>
+            <td>
+               <div class="avatar-container ng-isolate-scope" style="height: 5rem; width: 5rem;" title="" primary="::r.userObject" show-presence="false">
+                  <div class="avatar soloAvatar bottom ng-scope" context-menu="contextOptions">
+                     <div class="sub-avatar" style="background-image: url('{{::c.data.photo}}.iix?t=small');">
+                     </div>
+                  </div>
+               </div>
+            </td>
+            <td style="padding-left:15px;">
+               <div style = "font-size: 12px;padding-bottom: 2px;padding-top: 9PX;">{{::c.data.userfirstname}} {{::c.data.userlastname}}</div>
+               <div class="progress" style="width: 110px;height:5px;">
+                  <div class="progress-bar ng-binding" role="progressbar" style="width:{{::c.data.progress}}%;" aria-valuemin="0" aria-valuemax="100">{{::c.data.level}}</div>
+               </div>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_application">
+    <sys_ui_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <hint/>
+        <name>Community Stats</name>
+        <order/>
+        <roles>x_236494_titan_enc.community_stats_user</roles>
+        <sys_class_name>sys_ui_application</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 00:37:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>64f5a95edb101810730a7b3868961993</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Community Stats</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ui_application_64f5a95edb101810730a7b3868961993</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-23 00:37:03</sys_updated_on>
+    </sys_ui_application>
+</record_update>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop">
+    <cxs_res_context_config_prop action="DELETE">
+        <active>true</active>
+        <choices/>
+        <cxs_res_context_config display_value="knowledge">4e6f110edb14d410730a7b38689619ed</cxs_res_context_config>
+        <default_value>false</default_value>
+        <description>Excludes pinned articles from the result set. Should only be set to 'true' if pinned articles are included in this Searcher.</description>
+        <id>knowledge_sr.exclude_pinned</id>
+        <name>Exclude Pinned Articles</name>
+        <sys_class_name>cxs_res_context_config_prop</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:30:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>166f110edb14d410730a7b38689619f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Exclude Pinned Articles</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>cxs_res_context_config_prop_166f110edb14d410730a7b38689619f4</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:30:00</sys_updated_on>
+        <type>boolean</type>
+        <value>false</value>
+    </cxs_res_context_config_prop>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>cxs_res_context_config_prop_166f110edb14d410730a7b38689619f4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop"><cxs_res_context_config_prop action="INSERT_OR_UPDATE"><active>true</active><choices/><cxs_res_context_config display_value="knowledge">4e6f110edb14d410730a7b38689619ed</cxs_res_context_config><default_value>false</default_value><description>Excludes pinned articles from the result set. Should only be set to 'true' if pinned articles are included in this Searcher.</description><id>knowledge_sr.exclude_pinned</id><name>Exclude Pinned Articles</name><sys_class_name>cxs_res_context_config_prop</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-22 05:30:00</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>166f110edb14d410730a7b38689619f4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Exclude Pinned Articles</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>cxs_res_context_config_prop_166f110edb14d410730a7b38689619f4</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-22 05:30:00</sys_updated_on><type>boolean</type><value>false</value></cxs_res_context_config_prop></record_update>]]></payload>
+        <payload_hash>661271906</payload_hash>
+        <record_name>Exclude Pinned Articles</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:30:00</sys_created_on>
+        <sys_id>126f110edb14d410730a7b38689619f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171a05d4a470000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:30:00</sys_updated_on>
+        <type>Search Resource Context Property</type>
+        <update_guid>5a6f110ed614d4104ebff774468b04f5</update_guid>
+        <update_guid_history>5a6f110ed614d4104ebff774468b04f5:661271906</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Exclude Pinned Articles">ca00e10edb14d410730a7b3868961989</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:32:44</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config_prop">cxs_res_context_config_prop</sys_db_object>
+        <sys_id>070b83f0469c427d85281f1aef3b6bf9</sys_id>
+        <sys_metadata>166f110edb14d410730a7b38689619f4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Exclude Pinned Articles</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>cxs_res_context_config_prop_166f110edb14d410730a7b38689619f4</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_prop_166f110edb14d410730a7b38689619f4">126f110edb14d410730a7b38689619f6</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:32:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

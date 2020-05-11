@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.titan-container a{
+	color:#000;
+  text-decoration:none;
+}
+.titan-container a span.active, .dropdown-menu &gt; li &gt; a span.active{
+	font-weight:700;
+}
+.center-align {
+  text-align:center;
+}
+.titan-container {
+  padding:0;
+}
+.menuicon{
+  float:right;
+}
+.uppercase {
+	text-transform:uppercase;
+}
+.remove-float {
+	float:none;
+}
+.header-item {
+  font-size: 2rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.titan-comm-link{
+	display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  padding-top: 40px;
+}
+.navbar.titan-navbar {
+  background-color: #FFF;
+  line-height: 60px;
+  border-radius:0;
+  max-height: 60px;
+  margin: 0;
+}
+.dropdown-menu {
+  box-shadow:none;
+  border:none;
+  margin: 1px 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.dropdown-menu &gt; li &gt; a {
+  padding: 12px 16px;
+  font-size: 1.8rem;
+}
+
+.encircle-logo {
+	padding-left:1rem;
+  width:220px;
+}
+.icons-size {
+  font-size: 2rem;
+}
+
+.loggedin-user-img{
+	width:4rem;
+  height:4rem;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: -10px;
+}
+.loggedin-user-title{
+	font-size:1.8rem;
+  padding-left:1.8rem;
+}
+
+/*********************Media Query Classes **********************/
+@media only screen and (max-width: 600px) {
+  .hide-on-small-only, .hide-on-small-and-down {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .loggedin-user-img{
+    width:3rem;
+    height:3rem;
+    margin-top: -10px;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .hide-on-med-and-down {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .loggedin-user-img{
+    width:3rem;
+    height:3rem;
+    margin-top: -10px;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .hide-on-med-only {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .hide-on-med-and-up {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .hide-on-large-only {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1201px) {
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Titan Header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.userLoggedIn = gs.isLoggedIn();
+	if(!data.userLoggedIn){
+		var menu_id = $sp.getParameter("m");
+		if (!menu_id)
+			menu_id="k";
+
+		data.menuSelected = menu_id;
+
+	}
+	else{
+		var titanUtils = new TitanUtils();
+		
+		data.userPhoto=titanUtils.getUserPhoto(gs.getUserID());
+		var gUser = gs.getUser();
+		data.salutation = "Hi "+gUser.getFirstName();
+		
+	}
+	console.log('data.userPhoto' + data.userPhoto);
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 17:47:12</sys_created_on>
+        <sys_id>2d94fdeddb5c5410730a7b3868961923</sys_id>
+        <sys_mod_count>49</sys_mod_count>
+        <sys_name>Titan Header</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_header_footer_2d94fdeddb5c5410730a7b3868961923</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-30 07:00:19</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid titan-container">
+  <!-- Loggedin User Start-->
+  <div ng-if="data.userLoggedIn" class="navbar titan-navbar">
+    <div class="row">
+
+      <div class="col-md-1 col-lg-1"></div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="ng-scope header-menu-item nav navbar-nav">
+          <a role="menuitem"  ng-href="/encircle" style="padding-left: 1rem;"> 
+            <img class="encircle-logo" src="encircle.png" >
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2" style="height: 100%;"> 
+          <div class="titan-comm-link"> <a role="menuitem" ng-href="/titancom"> 
+      <span class="uppercase header-item toggleClass">Titan Community</span>
+        </a>
+          </div> 
+     
+   </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+        <div class="ng-scope header-menu-item nav navbar-nav">
+          <div class="header-menu-item nav navbar-nav menuicon titan-comm-link" uib-dropdown on-toggle="toggled(open)">
+            <a href="javascript:void(0);" id="logout-dropdown" uib-dropdown-toggle>
+              <span>
+                <img src="{{::data.userPhoto}}.iix" class="loggedin-user-img">
+              </span>
+              <span class="loggedin-user-title">{{::data.salutation}}</span>
+            </a>
+            <ul uib-dropdown-menu aria-labelledby="logout-dropdown">
+              <li >
+                <a ng-href="/logout.do?sysparm_goto_url=/titancom">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1 col-lg-1"></div>
+
+    </div>
+  </div>
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

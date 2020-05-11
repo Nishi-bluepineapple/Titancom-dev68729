@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.dcontainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.dbottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.dtop-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.dtop-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.dbottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.dcentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>digutest</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>diguTest</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+	var gr = new GlideRecord("x_236494_titan_enc_titan_items");
+	gr.query();
+	var klist=[];
+	var kn, ksd, kp, kimg;
+	while(gr.next()){
+		kn = gr.getValue("name");
+		ksd = gr.getValue("short_description");
+		kp =gr.getValue("price");
+		kimg = gr.getValue("picture");
+		klist.push({name: kn, sd: ksd, price: kp, image: kimg});
+	}
+	
+	data.klist = klist;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 07:33:20</sys_created_on>
+        <sys_id>53e5ab91db945410730a7b3868961935</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>diguTest</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_53e5ab91db945410730a7b3868961935</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 08:37:33</sys_updated_on>
+        <template><![CDATA[<div>
+  {{data.klist.length}}
+  <div class="container">
+    <div>
+      <div id="carousel-pager" class="carousel slide " data-ride="carousel" data-interval="1000">
+        <div class="carousel-inner vertical">
+          <div ng-repeat = "item in data.klist track by $index"  >
+            <div class="dcontainer item"  data-slide-to="{{$index}}" data-target="#carousel-main"  ngClass="{'active':$index==0}">
+              <img src="sys_attachment.do?sys_id={{item.image}}" width="100%" >
+              <div class="dcentered">Name: {{item.name}} Price: {{item.price}}</div>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-pager" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-pager" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

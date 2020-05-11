@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_agent_chat_config">
+    <sp_agent_chat_config action="DELETE">
+        <active>true</active>
+        <name>Titan Chat Agent</name>
+        <order>1</order>
+        <portal>14c5b83ddb949410730a7b38689619ce,e2967758db509010730a7b3868961906</portal>
+        <public>false</public>
+        <roles/>
+        <server_script><![CDATA[(function($sp) {
+	return {
+		live_agent_queue: $sp.getDisplayValue('sp_chat_queue')
+		};
+})($sp);]]></server_script>
+        <sys_class_name>sp_agent_chat_config</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-24 07:52:17</sys_created_on>
+        <sys_id>251358fadb145810730a7b3868961968</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Titan Chat Agent</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_agent_chat_config_251358fadb145810730a7b3868961968</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 07:54:03</sys_updated_on>
+    </sp_agent_chat_config>
+    <sys_translated_text action="DELETE" query="documentkey=251358fadb145810730a7b3868961968"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_agent_chat_config_251358fadb145810730a7b3868961968</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_agent_chat_config"&gt;&lt;sp_agent_chat_config action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;name&gt;Titan Chat Agent&lt;/name&gt;&lt;order&gt;1&lt;/order&gt;&lt;portal&gt;14c5b83ddb949410730a7b38689619ce,e2967758db509010730a7b3868961906&lt;/portal&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;server_script&gt;&lt;![CDATA[(function($sp) {
+	return {
+		live_agent_queue: $sp.getDisplayValue('sp_chat_queue')
+		};
+})($sp);]]&gt;&lt;/server_script&gt;&lt;sys_class_name&gt;sp_agent_chat_config&lt;/sys_class_name&gt;&lt;sys_created_by&gt;pradeep&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-24 07:52:17&lt;/sys_created_on&gt;&lt;sys_id&gt;251358fadb145810730a7b3868961968&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Titan Chat Agent&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_agent_chat_config_251358fadb145810730a7b3868961968&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;pradeep&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-24 07:54:03&lt;/sys_updated_on&gt;&lt;/sp_agent_chat_config&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=251358fadb145810730a7b3868961968"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-390041337</payload_hash>
+        <record_name>Titan Chat Agent</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-24 07:54:03</sys_created_on>
+        <sys_id>fb83903edb145810730a7b3868961944</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171ab2de4da0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 07:54:03</sys_updated_on>
+        <type>Service Portal Agent Chat Configuration</type>
+        <update_guid>3783903eff1458100408442cda489b44</update_guid>
+        <update_guid_history>3783903eff1458100408442cda489b44:-390041337,822354fa3214581040fc304d0a79e257:1140259910</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Titan Chat Agent">22acb2a7db5cd810730a7b386896199f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-27 04:08:19</sys_created_on>
+        <sys_db_object display_value="" name="sp_agent_chat_config">sp_agent_chat_config</sys_db_object>
+        <sys_id>41e15e6537c54b4c8bd7cb7637c89b90</sys_id>
+        <sys_metadata>251358fadb145810730a7b3868961968</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Chat Agent</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_agent_chat_config_251358fadb145810730a7b3868961968</sys_update_name>
+        <sys_update_version display_value="sp_agent_chat_config_251358fadb145810730a7b3868961968">fb83903edb145810730a7b3868961944</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-27 04:08:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

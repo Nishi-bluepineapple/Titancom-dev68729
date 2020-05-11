@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="ml_capability_definition_base">
+    <ml_capability_definition_base action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <capability display_value="NLU">b4ddf73453c73300d1dcddeeff7b1288</capability>
+        <current_solution_version>9</current_solution_version>
+        <dataset_language>en</dataset_language>
+        <fields/>
+        <filter/>
+        <solution_label>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</solution_label>
+        <solution_name>ml_global_fd74bb58db109010730a7b386896199e_titan_encircle_nlu_for_va</solution_name>
+        <solution_parameters/>
+        <stopwords>a6282a25533333008c5bddeeff7b12c3</stopwords>
+        <sys_class_name>ml_capability_definition_base</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:46:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9d3fc674dbd8d010730a7b3868961941</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>ml_capability_definition_base_9d3fc674dbd8d010730a7b3868961941</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:46:26</sys_updated_on>
+        <table/>
+        <training_frequency>every_30_days</training_frequency>
+        <word_vector_corpus/>
+    </ml_capability_definition_base>
+</record_update>

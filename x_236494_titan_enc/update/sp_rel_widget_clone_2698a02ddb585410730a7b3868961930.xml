@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="Copy of Community LeaderBoard">ea982ce9db585410730a7b3868961954</child>
+        <cloned>2020-04-20 12:13:35</cloned>
+        <last_validated>2020-04-20 12:13:35</last_validated>
+        <parent display_value="Community LeaderBoard">0d994638c3d23200998710c422d3ae49</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function($http,$q,$location) {
+  /* widget controller */
+  var c = this;
+	if(c.data.gm_display_enabled=='true'){
+		c.filters = {};
+		c.filters.showFilters = true;
+		c.filters.widgetFilters = true;
+		c.gm_header = "";
+		c.gm_main_header = c.data.gm_header;
+		c.showViewLeaderboardPageBtn = false;
+		c.shareRank = c.data.share_my_rank;
+		
+		c.getLeaderBoardDataUrl = function(context_type,context,time_frame){
+			var url = "";
+			switch(context_type){
+				case 'community':
+					url = 'api/sn_communities/v1/community/leaderboard';
+					break;
+				case 'forum':
+					if(context)
+						url = 'api/sn_communities/v1/community/forums/'+context+'/leaderboard';
+					break;
+				case 'topic':
+					if(context)
+						url = 'api/sn_communities/v1/community/topics/'+context+'/leaderboard';
+					break;
+			}
+			return url;
+		};
+	
+		c.getLeaderBoardData = function(context_type,context,time_frame,limit){
+			if(context_type){
+				var url = c.getLeaderBoardDataUrl(context_type,context);
+				var method = "GET";
+				var params = {};
+				if(time_frame)
+					params.time_frame = time_frame;
+
+				if(limit)
+					params.limit = limit;
+				
+				params.my_rank = c.shareRank;
+				if(url)
+					c.httpService(url,method,params).then(function successCallback(response){
+						if(response &amp;&amp; response.result &amp;&amp; (response.result.status==404 || response.result.status==403)){
+							c.data.disableWidget = true;
+						}
+						else if(response &amp;&amp; response.result &amp;&amp; response.result.data){
+							 if(response.result.data.leaderboard &amp;&amp; response.result.data.leaderboard.length &gt; 0){			
+								c.leaderboardRowData = response.result.data.leaderboard;
+                                c.userRankData = response.result.data.userRank;
+							
+                               // Add rank class styling identifier
+                               if (c.shareRank == 'true') {
+                                    if (c.userRankData &amp;&amp; c.userRankData.userObject) {
+									    if(c.userRankData.points &amp;&amp; (parseInt(c.userRankData.points)) &gt; 0 &amp;&amp; (parseInt(c.userRankData.rank) &lt; 1000000)){
+											
+                                            c.userRankData.rankClass = "share_rank";
+										    c.leaderboardRowData.push(c.userRankData); 
+									    }
+                                    } else {
+                                        for (var i = 0; i &lt; c.leaderboardRowData.length; i++) {
+                                            var usr = c.leaderboardRowData[i];
+                                            if (usr.loggedInUser)
+                                                usr.rankClass = "share_rank";
+                                        }
+                                   }
+                               }
+
+							  c.table.rowData = c.getLeaderBoardTableData(c.leaderboardRowData);
+							
+							  if(response.result.data.leaderboard.length &gt;= limit )
+								 c.showViewLeaderboardPageBtn = true;
+							  else
+								 c.showViewLeaderboardPageBtn = false;
+							}else{
+								c.table.rowData = [];
+								c.showViewLeaderboardPageBtn = false;
+							}
+
+							c.gm_header = "";
+							if(response.result.data.context)
+								c.gm_header = response.result.data.context;
+// 							else if(context_type == 'community')
+// 								c.gm_header = c.data.i18n.community;
+						}
+					},function errorCallback(){
+
+					});
+			}
+		};
+	
+		c.getLeaderBoardTableData = function(responseData){
+			if(Array.isArray(responseData)){
+				var len = responseData.length;
+				for(var i=0; i&lt;len; i++){
+					responseData[i].points = responseData[i].points + " " + c.data.i18n.points;
+					if(!jQuery.isEmptyObject(responseData[i].userObject)){
+						var link = c.getProfileLink(responseData[i].userObject.userId);
+						responseData[i].userObject.profileLink = link;
+						if(responseData[i].userObject.userImage)
+							responseData[i].userObject.userImage = responseData[i].userObject.userImage + "?t=small";
+						responseData[i].userObject.isLoaded = true;
+					}else{
+						responseData[i].userObject = {
+							initials : "CU",
+							isLoaded : true,
+							name : "Community User"
+						};
+					}
+				}
+			}
+			return responseData;
+		};
+	
+		c.httpService = function(url, method, params){
+			var deferred = $q.defer();
+			var postData = {};
+			var putData = {};
+			if(params){
+				if(method == "PUT")
+					angular.extend(putData,params);
+				else
+					angular.extend(postData,params);
+			}
+			$http({
+				method: method,
+				url: url,
+				data: putData,
+				params:postData,
+				headers:{'Content-Type':'application/json'}
+			}).then(function successCallback(response) {
+				deferred.resolve(response.data);
+			}, function errorCallback(reason) {
+				deferred.reject(reason);
+			});
+			return deferred.promise;
+		};
+	
+		c.filters.gm_time_frame = [
+			{'id':'all_time','text':c.data.i18n.all_time}
+		];
+	
+		if(c.data.this_month == "true")
+			c.filters.gm_time_frame.push({'id':'month','text':c.data.i18n.month});
+
+		c.filters.gm_context = c.data.gm_context_id;
+	
+		c.filters.selectedFilters = {
+			'gm_time_frame':'all_time'
+		};
+		c.table = {};
+	
+		c.table.cols = [
+			{'value':['rank'],'displayValue':c.data.i18n.rank,'cssClass':['rankCol'],'type':'simple'},
+			{'value':['userObject','userObject.name','points'],'displayValue':c.data.i18n.user,'cssClass':['userCol','usersubcol1','usersubcol2','usersubrow1 navlink','usersubrow2'],'type':'composite'}
+		];
+	
+		c.table.rowData = [];
+	
+		c.getProfileLink = function(profileId){
+			if(profileId)
+				return $rootScope.portal.url_suffix + "?id=community_user_profile&amp;user=" + profileId;
+			else return;
+		}
+	
+		c.onTimeFrameChange = function(val){
+			c.filters.selectedFilters.gm_time_frame = val;
+			c.getLeaderBoardData(c.data.gm_context_type,c.filters.gm_context,val,c.data.limit);
+		};
+	
+		c.getLeaderBoardData(c.data.gm_context_type,c.filters.gm_context,c.filters.selectedFilters.gm_time_frame,c.data.limit);
+
+		c.navtoleaderboardPage = function(){
+			var time_frame = c.filters.selectedFilters.gm_time_frame;
+			var context_type = c.data.gm_context_type;
+			var context = c.filters.gm_context;	$location.search({'id':'community_leaderboard_page','time_frame':time_frame,'context_type':context_type,'context':context});
+		};
+	}
+	
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.gm_leaderboard{
+  .table{
+    margin-bottom: 0px;
+    border-collapse: separate; 
+  }
+  .table&amp;gt;tbody&amp;gt;tr&amp;gt;td{
+  	border-top:1px solid transparent;
+   }
+
+  .gm-list-filter{
+  	.gm-filter {
+      padding-bottom: 10px;
+    }
+    .gm-select2.select2-container .select2-choice {
+      font-size: inherit;
+    }
+  }
+  .leaderboard-sub-header{
+  	color:$text-muted;
+    font-size:15px;
+    line-height:25px;
+  }
+  .gm-list-filter {
+  }
+   .self-clear:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .avatar-container{
+    width:4.2rem;
+    height:4.2rem;
+    
+    .avatar.soloAvatar .sub-avatar{
+    	line-height:4.2rem;
+    }
+  }
+  .rankCol{
+    vertical-align:middle;
+    color:$brand-primary;
+    font-weight:500;
+    text-align: center;
+  }
+  .userCol{
+    vertical-align:middle;
+  }  
+  .usersubcol1{
+  	display:inline-block;
+    width:40px;
+    margin-right:10px;
+  }
+  .usersubcol2{
+  	display:inline-block;
+    width:calc(100% - 50px);
+    vertical-align:top;
+  }
+  .usersubrow1{
+  	height:50%;
+    color:$text-color;
+    font-weight:500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+  }
+  .lb-width{
+    width: 100%;
+  }  
+  @media only screen and (min-width:990px){
+        /* styles for browsers larger than 990px; */
+    .username-width{
+     max-width: 135px;
+    }
+   }
+  .usersubrow2{
+  	height:50%;
+    color:$text-muted;
+  }
+  .emptytable{
+  	text-align:center;
+    color:$text-muted;
+    position:relative;
+    min-height:100px;
+     .emptytablemsg{
+    	width:100%;
+        //position:absolute;
+      	//top:30%;
+    }
+  }
+  .navlink a{
+  	color:$text-color;
+  }
+  .leadeboardpagelink{
+    margin-top: 15px;
+  	width:100%;
+  }
+}
+
+.share_rank{  
+     td{
+        border-top:1px solid $link-color !important;
+        border-bottom:1px solid $link-color !important;
+      }
+     td:first-child {
+       border-left:1px solid $link-color !important;
+       border-top-left-radius: 2px !important;
+       border-bottom-left-radius: 2px!important;}
+     td:last-child { 
+      border-right:1px solid $link-color !important;
+      border-top-right-radius: 2px !important;
+      border-bottom-right-radius: 2px !important; }    
+ }
+.avatar-container .avatar.soloAvatar .sub-avatar{
+  color: $gray-darker;
+  background-color: $gray-lighter;
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;community-leaderboard&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Community LeaderBoard&lt;/name&gt;&lt;option_schema&gt;[{"name":"context_type","default_value":"community","label":"Leaderboard Type","type":"choice","choices":[{"label":"community","value":"community"},{"label":"forum","value":"forum"},{"label":"topic","value":"topic"}]},{"displayValue":"Forum","hint":"Select Leaderboard type=forum, and choose a specific forum to always show leaderboard for it. If left empty, then forum is picked from page context","name":"forum_id","label":"Anchor to Specific Forum","type":"reference","value":"sn_communities_forum","ed":{"reference":"sn_communities_forum"}},{"displayValue":"Topic","hint":"Select Leaderboard type=topic, and choose a specific topic to always show leaderboard for it. If left empty, then topic is picked from page context","name":"topic_id","label":"Anchor to Specific  Topic","type":"reference","value":"sn_communities_topic","ed":{"reference":"sn_communities_topic"}},{"hint":"Enable leaderboard for this month.","name":"this_month","default_value":"false","label":"Enable leaderboard for this month.","type":"boolean"},{"hint":"Number of profiles to display. (Max 10)","name":"limit","default_value":"5","label":"Number of profiles to display. (Max 10)","type":"string"},{"name":"share_my_rank","default_value":"true","label":"Share My Rank","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+//data.accessibilityOn = gs.getUser().getPreference("glide.ui.accessibility") == 'true';
+	data.gm_display_enabled = gs.getProperty('sn_communities.enable_gamification');
+	if(data.gm_display_enabled == "true"){
+		data.gm_context_type = options.context_type ? options.context_type : 'community';
+		data.gm_context_id = "";
+		data.share_my_rank = options.share_my_rank;
+		if(data.gm_context_type != 'community'){
+			data.gm_context_id = options[data.gm_context_type+'_id'] ? options[data.gm_context_type+'_id'] : $sp.getParameter("sys_id");
+		}	
+		data.gm_user_count = options.gm_user_count;
+		data.gm_time_frame = (options.gm_time_frame)?options.gm_time_frame:'all_time';
+		data.this_month = options.this_month;
+	    data.gm_header =  gs.getMessage("Leaderboard");
+	    data.limit = options.limit ? options.limit : 5;
+		data.topicsEnabled = sn_communities.CommunityConstants.ENABLE_TOPICS;
+		data.disableWidget = false;
+		if(data.gm_context_type == "topic" &amp;&amp; !data.topicsEnabled){
+			data.disableWidget = true;
+		}
+		var i18nContext= data.gm_context_type;
+		switch(i18nContext){
+			case 'community':
+				i18nContext = gs.getMessage('community');
+				break;
+			case 'forum':
+				i18nContext = gs.getMessage('forum');
+				break;
+			case 'topic':
+				i18nContext = gs.getMessage('topic');
+				break;
+		}
+		data.limit = ((options.limit &gt; 0) &amp;&amp; (options.limit &lt;= 10)) ? options.limit : 10;
+	    data.i18n = {
+			'points':gs.getMessage('Points'),
+			'month':gs.getMessage('This Month'),
+			'all_time':gs.getMessage('All'),
+			'rank':gs.getMessage('Rank'),
+			'user':gs.getMessage('User'),
+			'community':gs.getMessage('Communities'),
+			'leaderboardpagebtn':gs.getMessage('View Leaderboard'),
+			'noleaderboardData':gs.getMessage('There has been no activity in this '),
+			'context':i18nContext,
+			'subject': gs.getMessage('Regarding your contributions'),
+			'profileLink': gs.getMessage("{0} Profile")
+		};
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-04-20 20:25:59&lt;/sys_created_on&gt;&lt;sys_id&gt;0d994638c3d23200998710c422d3ae49&lt;/sys_id&gt;&lt;sys_mod_count&gt;385&lt;/sys_mod_count&gt;&lt;sys_name&gt;Community LeaderBoard&lt;/sys_name&gt;&lt;sys_package display_value="Communities" source="sn_communities"&gt;10809a9edb866200b1f6f78eaf961904&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Communities"&gt;10809a9edb866200b1f6f78eaf961904&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_0d994638c3d23200998710c422d3ae49&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-04-24 07:15:28&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[  &lt;div aria-label="{{c.gm_header}}" ng-if="c.data.gm_display_enabled=='true' &amp;&amp; !c.data.disableWidget" class="gm_leaderboard panel panel-default csm-widget"&gt;
+    &lt;div class="panel-heading"&gt;
+      &lt;h2 class="panel-title"&gt;
+        &lt;div class="leaderboard-header"&gt;&lt;span ng-bind="::c.gm_main_header"&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="leaderboard-sub-header"&gt;&lt;span ng-bind="c.gm_header"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/h2&gt;          
+    &lt;/div&gt;
+    &lt;div class="panel-body"&gt;
+      &lt;gm-leaderboard-filters ng-if="c.filters.gm_time_frame.length &gt; 1"filterdata="c.filters" on-timeframe-change="c.onTimeFrameChange($val)"&gt;&lt;/gm-leaderboard-filters&gt; 
+      &lt;gm-leaderboard-table ng-if="c.table.rowData.length &gt; 0" tabledata="c.table" subject="::c.data.i18n.subject" messages="::c.data.i18n"&gt;&lt;/gm-leaderboard-table&gt;
+      &lt;div class="emptytable" ng-if="c.table.rowData.length == 0"&gt;
+       &lt;div class="emptytablemsg"&gt;
+         &lt;span ng-bind="::c.data.i18n.noleaderboardData"&gt;&lt;/span&gt;
+         &lt;span ng-bind="::c.data.i18n.context"&gt;&lt;/span&gt;
+       &lt;/div&gt;  
+     &lt;/div&gt;
+      &lt;button ng-if="c.showViewLeaderboardPageBtn" class="btn btn-default leadeboardpagelink" ng-click="c.navtoleaderboardPage()"&gt;&lt;span ng-bind="::c.data.i18n.leaderboardpagebtn"&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  ]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-20 12:13:35</sys_created_on>
+        <sys_id>2698a02ddb585410730a7b3868961930</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ea982ce9db585410730a7b3868961954</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_2698a02ddb585410730a7b3868961930</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-20 12:13:35</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

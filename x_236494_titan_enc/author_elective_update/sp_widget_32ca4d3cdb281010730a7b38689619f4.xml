@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($filter, $location, $scope, $timeout, $http, $q) {
+	var c = this, inpElemId = c.options.show_avatar ? 'searchInput1' : 'searchInput';
+	c.options.glyph = c.options.glyph || 'search';
+	c.options.title = (c.options.title || '${Search}') + (c.options.searchMsg ||c.data.searchMsg);
+	c.options.color = c.options.color || "default";
+	c.context_search_resource = c.options.contextual_search_sources;
+	c.redirect_search_result = c.options.redirect_search_result || false;
+	$scope.lastQuery = '';
+	$scope.logPending = false;
+	
+	c.onSelect = function($item, $model, $label) {
+		if ($item.target || c.redirect_search_result){
+			window.open($item.url, $item.target);
+			c.selectedState = $('#' + inpElemId).val();
+		}
+		else
+			$location.url($item.url);
+	};
+ 
+	c.onSubmit = function() {
+		if($scope.logPending && $scope.lastQuery === c.selectedState) {
+			$scope.$broadcast('logSearch', { query: $scope.lastQuery, url: $location.url(), page: $location.search().id });
+		} else {
+			var queryViewValue = $('#' + inpElemId).val();
+			if(queryViewValue != c.selectedState) {
+				$scope.$broadcast('logSearch', { query: queryViewValue, url: $location.url(), page: $location.search().id });	
+			}
+		}
+		$scope.logPending = false;
+		
+		if (c.selectedState)
+			$location.search({
+				id: 'community_search',
+				t: c.data.searchType,
+				q: c.selectedState,
+				spa: "1"
+			});
+	};
+	
+	var onPageChangeLog = function() {
+		if($scope.logPending && $scope.lastQuery) {
+			$scope.$broadcast('logSearch', { query:  c.selectedState, url: $location.url(), page: $location.search().id });
+		}
+		$scope.logPending = false;
+	}	
+	
+	var canceler = $q.defer();
+	c.getResults = function(query) {
+		
+		canceler.resolve("cancelled"); 
+		canceler = $q.defer();
+		if(query.length < c.data.minCharsToSearch)
+			return;
+		
+		$scope.lastQuery = query;
+		$scope.logPending = true;
+		$scope.lastLog = query;
+		$timeout(function() {
+			if($scope.logPending && query === $scope.lastQuery) {
+				$scope.$broadcast('logSearch', { query: query, url: $location.url(), page: $location.search().id });
+				$scope.logPending = false;
+			}
+			
+		}, 2000);
+        return $http({
+            method: "POST",
+            url: "/api/now/sp/widget/" + c.data.widgit_id + "?sysparm_cancelable=true",
+            data: {
+                q: query, 
+			          csr: c.context_search_resource
+            },
+            timeout: canceler.promise    
+        }).then(function(response){
+			      var a = $filter('orderBy')(response.data.result.data.results, 'score', true);
+			      return $filter('limitTo')(a, c.data.limit);
+		});		
+		
+		
+	}
+	
+	var added = false;
+
+	c.switchStyle = function(){
+		$timeout(function(){
+			var inpVal = document.getElementById(inpElemId).value;
+			if(inpVal && !added) {
+				$('#' + inpElemId).addClass('font-normal');
+				added = true
+			}
+			else if(!inpVal) {
+				$('#' + inpElemId).removeClass('font-normal');
+				added = false
+			}
+		});
+	};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>ul.dropdown-menu {
+  min-width: 100%;
+  border-radius: 0px 0px 4px 4px;
+  margin:0px;
+}
+
+div.btn.btn-default &gt; a.csm-link-inverse {
+	text-decoration: none;
+}
+
+ul.dropdown-menu a.ta-item {
+  line-height: 20px;
+  font-size: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+ul.dropdown-menu i.ta-icon, i.ta-img {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  line-height: 20px;
+  float:left;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+ul.dropdown-menu {
+
+  .view-all-item {
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 15px;
+  }
+
+  .ask-community {
+    padding: 0px;
+    border: 0px;
+  }
+}
+
+.search-box {
+  padding-bottom: 15px;
+}
+
+.cm-tp-dropdown-header{
+  display:none;
+}
+
+div.btn.btn-default &gt; a.csm-link-inverse {
+	text-decoration: none;
+}
+
+.dropdown-menu &gt; li &gt; a {
+  white-space: normal;  
+}
+
+.font-normal {
+  font-weight: normal !important;
+  font-size: 14px !important;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function(scope) {
+	var lazyLoader = $injector.get("lazyLoader");
+	lazyLoader.putTemplates(scope.data.typeaheadTemplates);
+}]]></link>
+        <name>TitanCommunity Typeahead Search</name>
+        <option_schema>[{"name":"title","section":"other","label":"Title","type":"string"},{"name":"color","section":"other","label":"Color","type":"string"},{"name":"glyph","section":"other","label":"glyph","type":"string"},{"name":"size","section":"other","label":"Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","section":"other","label":"Limit","type":"integer"},{"displayValue":"Search Source","hint":"If provided, limit the scope of the typeahead search to the given search sources","name":"contextual_search_sources","display_value_list":[],"section":"other","default_value":"72eeea455ba322007223286411f91a72,f593b3065b7322007223286411f91a02,ef6a92255b1032007223846411f91aec,a8bbd6075b523200ef440eac11f91a02,f05f16f4971332007a97a23363ac4aa8","label":"Contextual Search Sources","type":"glide_list","value":"sp_search_source","ed":{"reference":"sp_search_source"}},{"hint":"The number of milliseconds to wait after the last keystroke before a search is fired.","name":"search_delay","default_value":"500","section":"other","label":"Search Delay","type":"integer"},{"name":"show_avatar","default_value":"","section":"other","label":"Show Avatar","type":"boolean"},{"hint":"Time after Key Up to Wait before Search","name":"time_delay","default_value":"500","section":"other","label":"Time after Key Up to Wait before Search","type":"integer"},{"hint":"Minimum Characters to Search need to be equal or greater than 3","name":"minimum_characters_to_search","default_value":"","section":"other","label":"Minimum Characters to Search","type":"integer"},{"hint":"The Avatar Object to show when Show Avatar is enabled.","name":"avatar","section":"other","label":"User Object","type":"string"},{"name":"redirect_search_result","section":"other","label":"Open New Tab for Search Result Page","type":"boolean"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	if(gs.isLoggedIn()) {
+		var lpGR = new GlideRecord("live_profile");
+		lpGR.addQuery("document", gs.getUser().getID());
+		lpGR.query();
+		if (lpGR.next()) {
+			data.liveProfileId = lpGR.getUniqueValue();
+		}
+	}
+	
+	data.searchType = $sp.getParameter("t");
+	data.search_logger = $sp.getWidget('community-search-logger');
+	data.context = options.contextual_search_sources;
+	data.accessible = gs.getUser().getPreference("glide.ui.accessibility");
+	data.avatar = options.avatar;
+	data.minCharsToSearch = Math.max(options.minimum_characters_to_search || gs.getProperty("sn_communities.minimum_characters_to_search"), 3);
+		
+	var minimumMsg = gs.getMessage('minimum').toLowerCase();
+	var charMsg = gs.getMessage('characters');
+	
+	data.searchMsg = ' ' +'(' + minimumMsg + ' ' + data.minCharsToSearch + ' ' + charMsg + ')';
+
+	var widgetGr = new GlideRecord("sp_widget");
+	widgetGr.addQuery("id", "community-typeahead-search");
+	widgetGr.query();
+	if(widgetGr.next())
+		data.widgit_id = widgetGr.getValue("sys_id");
+
+	
+	
+	// 	if (!options.contextual_search_sources)
+	// 		data.searchType = $sp.getParameter("t");
+	// 	else {
+	// 		data.context = options.contextual_search_sources;
+	// 		var contextualSearchSources = options.contextual_search_sources.split(",");
+	// 		if (contextualSearchSources.length == 1) {
+	// 			var searchSourceGR = new GlideRecord("sp_search_source");
+	// 			if (searchSourceGR.get(contextualSearchSources[0]))
+	// 				data.searchType = searchSourceGR.getValue("id");
+	// 		} else
+	// 			data.searchType = $sp.getParameter("t");
+	// 	}
+
+	data.results = [];
+	data.limit = options.limit || 15;
+	var textQuery = '123TEXTQUERY321';
+
+	if (!input) {
+		data.typeaheadTemplates = {};
+		var searchGroupTemplatesGR = new GlideRecord("sp_search_source");
+		searchGroupTemplatesGR.query();
+		while(searchGroupTemplatesGR.next()) {
+			if (searchGroupTemplatesGR.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+				data.typeaheadTemplates["sp-typeahead-" + searchGroupTemplatesGR.getValue("id") + ".html"] = $sp.translateTemplate(searchGroupTemplatesGR.getValue("typeahead_template"));
+		}
+
+		return;
+	}
+
+	data.searchParams = {};
+	var permissions = new sn_communities.CommunityUserImpl();
+	data.searchParams.readableForums = permissions.getAllReadableForumsForSearch();
+	data.searchParams.ignoreProfile = true;
+
+	data.q = input.q;
+	data.sortOrder = "views";
+	//Gotta decide if we want to use the portal's sources, or use the defaults declared by
+	//the sys property
+	var useDefaultPortals;
+	if (!$sp.getPortalRecord()) {
+		useDefaultPortals = true;
+	} else {
+		var searchSourcesForPortalGR = new GlideRecord("m2m_sp_portal_search_source");
+		searchSourcesForPortalGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+		searchSourcesForPortalGR.query();
+		useDefaultPortals = searchSourcesForPortalGR.getRowCount() == 0;
+	}
+
+	if (input.csr) {
+		var contextualSearchSourceGR = new GlideRecord("sp_search_source");
+		contextualSearchSourceGR.addQuery("sys_id", "IN", input.csr);
+		//If topics are disabled, skip the topic search
+		if(GlidePluginManager.isActive('com.sn_communities') && !sn_communities.CommunityConstants.ENABLE_TOPICS){
+			var topicService = new sn_communities.CommunityTopic();
+			contextualSearchSourceGR.addQuery("id", "NOT IN", topicService.getSearchSources());
+		}
+		contextualSearchSourceGR.query();
+		while (contextualSearchSourceGR.next()) {
+			data.searchType = contextualSearchSourceGR.getValue("id");
+			getResults(contextualSearchSourceGR);
+		}
+	} else if (useDefaultPortals) {
+		var defaultSearchSourceGR = new GlideRecord("sp_search_source");
+		var defaultSearchSourceIDList = gs.getProperty("glide.service_portal.default_search_sources", "");
+		defaultSearchSourceGR.addQuery("sys_id", "IN", defaultSearchSourceIDList);
+		defaultSearchSourceGR.addQuery("enable_typeahead", true);
+		defaultSearchSourceGR.query();
+		while(defaultSearchSourceGR.next()) {
+			getResults(defaultSearchSourceGR);
+		}
+	} else {
+		var m2mSearchSourceGR = new GlideRecord("m2m_sp_portal_search_source");
+		m2mSearchSourceGR.addQuery("sp_search_source.enable_typeahead", true);
+		m2mSearchSourceGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+		m2mSearchSourceGR.query();
+		while(m2mSearchSourceGR.next()) {
+			getResults(m2mSearchSourceGR.getElement("sp_search_source").getRefRecord());
+		}
+	}
+
+	function getResults(gr) {
+		//Check if the user is allowed to see this source.
+		var userCriteria = new GlideSPUserCriteria();
+		if (userCriteria.isEnabled()) {
+			if (!userCriteria.userCanSeeSearchSource(gr.getUniqueValue()))
+				return;
+		} else {
+			var gs = GlideSession.get();
+			var searchSourceRoles = gr.getValue("roles");
+			if (searchSourceRoles && !gs.hasRole(searchSourceRoles))
+				return;
+		}
+
+		if (gr.is_scripted_source) {
+			var input = {};
+			input.query = data.q;
+			var evaluator = new GlideScopedEvaluator();
+			var results = evaluator.evaluateScript(gr, "data_fetch_script", input);
+
+			if (results) {
+				results.forEach(function(item) {
+					if (gr.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+						item.templateID = "sp-typeahead-" + gr.getValue("id") + ".html";
+					else {
+						item.glyph = gr.getValue("typeahead_glyph");
+						item.linkToPage = gr.getValue("page");
+					}
+					data.results.push(item);
+				});
+			}
+
+		} else {
+			var primaryField = gr.getValue("primary_display_field");
+			var displayFields = gr.getValue("display_fields");
+
+			var resultGR = new GlideRecordSecure(gr.getValue("source_table"));
+			var condition = gr.getValue("condition");
+			if (condition)
+				resultGR.addEncodedQuery(condition);
+			if (data.q)
+				resultGR.addQuery('123TEXTQUERY321', data.q);
+			resultGR.query();
+
+			var searchTableCount = 0;
+			while (resultGR.next() && searchTableCount < data.limit) {
+				if (!resultGR.canRead())
+					continue;
+
+				var secondaryValues = {};
+
+				if (displayFields)
+					displayFields.split(",").forEach(function(field) {
+						var obj = getField(resultGR, field);
+						secondaryValues[field] = obj;
+					});
+
+				var item = {
+					primary: (primaryField) ? resultGR.getValue(primaryField) : resultGR.getDisplayValue(),
+					sys_id: resultGR.getUniqueValue(),
+					table: resultGR.getTableName(),
+					score: parseFloat(resultGR.ir_query_score_double.getDisplayValue()),
+					fields: secondaryValues
+				};
+
+				if (gr.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+					item.templateID = "sp-typeahead-" + gr.getValue("id") + ".html";
+				else {
+					item.glyph = gr.getValue("typeahead_glyph");
+					item.linkToPage = gr.getValue("page");
+				}
+
+				data.results.push(item);
+				searchTableCount++;
+			}
+		}
+
+		var pageGR = new GlideRecord("sp_page");
+		if (pageGR.get(gr.getValue("page")))
+			var pageID = pageGR.getValue("id");
+
+		data.results.forEach(function(result) {
+			if (result.url)
+				return;
+
+			if (pageID) {
+				result.url = "?id=" + pageID;
+				if (result.sys_id)
+					result.url += "&sys_id=" + result.sys_id;
+				if (result.table)
+					result.url += "&table=" + result.table
+					} else {
+						result.url = "";
+					}
+		});
+	}
+
+	function getField(gr, name) {
+		var f = {};
+		f.display_value = gr.getDisplayValue(name);
+		f.value = gr.getValue(name);
+		var ge = gr.getElement(name);
+		if (ge == null)
+			return f;
+
+		f.type = ge.getED().getInternalType()
+		f.label = ge.getLabel();
+		return f;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-30 17:03:14</sys_created_on>
+        <sys_id>32ca4d3cdb281010730a7b38689619f4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>TitanCommunity Typeahead Search</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_32ca4d3cdb281010730a7b38689619f4</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-30 17:03:29</sys_updated_on>
+        <template><![CDATA[<form ng-submit="c.onSubmit()">
+  <input type="hidden" name="id" value="community_search"/>
+  <input type="hidden" name="t" value="{{data.searchType}}"/>
+  <input type="hidden" name="spa" value="1"/>
+  <div class="search-box input-group input-group-{{::c.options.size}}" data-ng-if="!c.options.show_avatar">
+    <!-- uses ui.bootstrap.typeahead -->
+    <input name="q" type="text" placeholder="${{{::c.options.title}}}" ng-model="c.selectedState"
+           ng-model-options="{debounce: 250}" autocomplete="off"
+           typeahead-wait-ms=c.options.time_delay
+           typeahead-min-length=c.data.minCharsToSearch
+           uib-typeahead="item as item.primary for item in c.getResults($viewValue)"
+           typeahead-focus-first="false"
+           typeahead-on-select="c.onSelect($item, $model, $label)"
+           typeahead-template-url="community-typeahead.html"
+           typeahead-popup-template-url="community-typeahead-popup.html"
+           class="form-control input-typeahead"
+           title="${{{::c.options.title}}}"
+           role="textbox"
+           id="searchInput"
+           aria-label="{{::c.options.title}}" tabindex="0">
+    <span class="input-group-btn">
+      <button name="search" type="submit" class="btn btn-{{::c.options.color}}" 
+              ng-click="onPageChangeLog()"
+              title="{{::c.options.title}}"
+              aria-label="{{::c.options.title}}">
+    	<i ng-if="::c.options.glyph" class="fa fa-{{::c.options.glyph}}"></i>
+      </button>
+    </span>
+  </div>
+  <div class="search-box input-group input-group-{{::c.options.size}}" data-ng-if="c.options.show_avatar">
+    <div style="display: flex">
+      <!--<span data-ng-if="c.user.profileId"><sn-avatar primary="c.userAvatarObject" show-presence="false"/></span>-->
+      <span class="cm-typeahead-avatar" data-ng-if="c.data.avatar"><sn-avatar primary="c.data.avatar" show-presence="false"/></span>
+      <!-- uses ui.bootstrap.typeahead -->
+      <input name="q" type="text" placeholder="${{{::c.options.title}}}" ng-model="c.selectedState"
+             ng-model-options="{debounce: 250}" autocomplete="off"
+             uib-typeahead="item as item.primary for item in c.getResults($viewValue)"
+             typeahead-focus-first="false"
+             typeahead-wait-ms=c.options.time_delay
+             typeahead-append-to="'#results'"
+             typeahead-on-select="c.onSelect($item, $model, $label)"
+             typeahead-template-url="community-typeahead.html"
+             typeahead-popup-template-url="community-typeahead-popup.html"
+             class="form-control input-typeahead"
+             title="${{{::c.options.title}}}"
+             role="textbox"
+             id="searchInput1"
+             ng-keyup="c.switchStyle()"
+             aria-label="{{::c.options.title}}" tabindex="0" aria-required="true">
+      <span class="input-group-btn">
+        <button name="search" type="submit" class="btn btn-{{::c.options.color}}" 
+                ng-click="onPageChangeLog()"
+                title="{{::c.options.title}}"
+                aria-label="{{::c.options.title}}">
+        <i ng-if="::c.options.glyph" class="fa fa-{{::c.options.glyph}}"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+  <sp-widget widget="data.search_logger" />
+</form>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_32ca4d3cdb281010730a7b38689619f4</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function ($filter, $location, $scope, $timeout, $http, $q) {
+	var c = this, inpElemId = c.options.show_avatar ? 'searchInput1' : 'searchInput';
+	c.options.glyph = c.options.glyph || 'search';
+	c.options.title = (c.options.title || '${Search}') + (c.options.searchMsg ||c.data.searchMsg);
+	c.options.color = c.options.color || "default";
+	c.context_search_resource = c.options.contextual_search_sources;
+	c.redirect_search_result = c.options.redirect_search_result || false;
+	$scope.lastQuery = '';
+	$scope.logPending = false;
+	
+	c.onSelect = function($item, $model, $label) {
+		if ($item.target || c.redirect_search_result){
+			window.open($item.url, $item.target);
+			c.selectedState = $('#' + inpElemId).val();
+		}
+		else
+			$location.url($item.url);
+	};
+ 
+	c.onSubmit = function() {
+		if($scope.logPending &amp;&amp; $scope.lastQuery === c.selectedState) {
+			$scope.$broadcast('logSearch', { query: $scope.lastQuery, url: $location.url(), page: $location.search().id });
+		} else {
+			var queryViewValue = $('#' + inpElemId).val();
+			if(queryViewValue != c.selectedState) {
+				$scope.$broadcast('logSearch', { query: queryViewValue, url: $location.url(), page: $location.search().id });	
+			}
+		}
+		$scope.logPending = false;
+		
+		if (c.selectedState)
+			$location.search({
+				id: 'community_search',
+				t: c.data.searchType,
+				q: c.selectedState,
+				spa: "1"
+			});
+	};
+	
+	var onPageChangeLog = function() {
+		if($scope.logPending &amp;&amp; $scope.lastQuery) {
+			$scope.$broadcast('logSearch', { query:  c.selectedState, url: $location.url(), page: $location.search().id });
+		}
+		$scope.logPending = false;
+	}	
+	
+	var canceler = $q.defer();
+	c.getResults = function(query) {
+		
+		canceler.resolve("cancelled"); 
+		canceler = $q.defer();
+		if(query.length &lt; c.data.minCharsToSearch)
+			return;
+		
+		$scope.lastQuery = query;
+		$scope.logPending = true;
+		$scope.lastLog = query;
+		$timeout(function() {
+			if($scope.logPending &amp;&amp; query === $scope.lastQuery) {
+				$scope.$broadcast('logSearch', { query: query, url: $location.url(), page: $location.search().id });
+				$scope.logPending = false;
+			}
+			
+		}, 2000);
+        return $http({
+            method: "POST",
+            url: "/api/now/sp/widget/" + c.data.widgit_id + "?sysparm_cancelable=true",
+            data: {
+                q: query, 
+			          csr: c.context_search_resource
+            },
+            timeout: canceler.promise    
+        }).then(function(response){
+			      var a = $filter('orderBy')(response.data.result.data.results, 'score', true);
+			      return $filter('limitTo')(a, c.data.limit);
+		});		
+		
+		
+	}
+	
+	var added = false;
+
+	c.switchStyle = function(){
+		$timeout(function(){
+			var inpVal = document.getElementById(inpElemId).value;
+			if(inpVal &amp;&amp; !added) {
+				$('#' + inpElemId).addClass('font-normal');
+				added = true
+			}
+			else if(!inpVal) {
+				$('#' + inpElemId).removeClass('font-normal');
+				added = false
+			}
+		});
+	};
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;ul.dropdown-menu {
+  min-width: 100%;
+  border-radius: 0px 0px 4px 4px;
+  margin:0px;
+}
+
+div.btn.btn-default &amp;gt; a.csm-link-inverse {
+	text-decoration: none;
+}
+
+ul.dropdown-menu a.ta-item {
+  line-height: 20px;
+  font-size: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+ul.dropdown-menu i.ta-icon, i.ta-img {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  line-height: 20px;
+  float:left;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+ul.dropdown-menu {
+
+  .view-all-item {
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 15px;
+  }
+
+  .ask-community {
+    padding: 0px;
+    border: 0px;
+  }
+}
+
+.search-box {
+  padding-bottom: 15px;
+}
+
+.cm-tp-dropdown-header{
+  display:none;
+}
+
+div.btn.btn-default &amp;gt; a.csm-link-inverse {
+	text-decoration: none;
+}
+
+.dropdown-menu &amp;gt; li &amp;gt; a {
+  white-space: normal;  
+}
+
+.font-normal {
+  font-weight: normal !important;
+  font-size: 14px !important;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function(scope) {
+	var lazyLoader = $injector.get("lazyLoader");
+	lazyLoader.putTemplates(scope.data.typeaheadTemplates);
+}]]&gt;&lt;/link&gt;&lt;name&gt;TitanCommunity Typeahead Search&lt;/name&gt;&lt;option_schema&gt;[{"name":"title","section":"other","label":"Title","type":"string"},{"name":"color","section":"other","label":"Color","type":"string"},{"name":"glyph","section":"other","label":"glyph","type":"string"},{"name":"size","section":"other","label":"Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","section":"other","label":"Limit","type":"integer"},{"displayValue":"Search Source","hint":"If provided, limit the scope of the typeahead search to the given search sources","name":"contextual_search_sources","display_value_list":[],"section":"other","default_value":"72eeea455ba322007223286411f91a72,f593b3065b7322007223286411f91a02,ef6a92255b1032007223846411f91aec,a8bbd6075b523200ef440eac11f91a02,f05f16f4971332007a97a23363ac4aa8","label":"Contextual Search Sources","type":"glide_list","value":"sp_search_source","ed":{"reference":"sp_search_source"}},{"hint":"The number of milliseconds to wait after the last keystroke before a search is fired.","name":"search_delay","default_value":"500","section":"other","label":"Search Delay","type":"integer"},{"name":"show_avatar","default_value":"","section":"other","label":"Show Avatar","type":"boolean"},{"hint":"Time after Key Up to Wait before Search","name":"time_delay","default_value":"500","section":"other","label":"Time after Key Up to Wait before Search","type":"integer"},{"hint":"Minimum Characters to Search need to be equal or greater than 3","name":"minimum_characters_to_search","default_value":"","section":"other","label":"Minimum Characters to Search","type":"integer"},{"hint":"The Avatar Object to show when Show Avatar is enabled.","name":"avatar","section":"other","label":"User Object","type":"string"},{"name":"redirect_search_result","section":"other","label":"Open New Tab for Search Result Page","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	
+	if(gs.isLoggedIn()) {
+		var lpGR = new GlideRecord("live_profile");
+		lpGR.addQuery("document", gs.getUser().getID());
+		lpGR.query();
+		if (lpGR.next()) {
+			data.liveProfileId = lpGR.getUniqueValue();
+		}
+	}
+	
+	data.searchType = $sp.getParameter("t");
+	data.search_logger = $sp.getWidget('community-search-logger');
+	data.context = options.contextual_search_sources;
+	data.accessible = gs.getUser().getPreference("glide.ui.accessibility");
+	data.avatar = options.avatar;
+	data.minCharsToSearch = Math.max(options.minimum_characters_to_search || gs.getProperty("sn_communities.minimum_characters_to_search"), 3);
+		
+	var minimumMsg = gs.getMessage('minimum').toLowerCase();
+	var charMsg = gs.getMessage('characters');
+	
+	data.searchMsg = ' ' +'(' + minimumMsg + ' ' + data.minCharsToSearch + ' ' + charMsg + ')';
+
+	var widgetGr = new GlideRecord("sp_widget");
+	widgetGr.addQuery("id", "community-typeahead-search");
+	widgetGr.query();
+	if(widgetGr.next())
+		data.widgit_id = widgetGr.getValue("sys_id");
+
+	
+	
+	// 	if (!options.contextual_search_sources)
+	// 		data.searchType = $sp.getParameter("t");
+	// 	else {
+	// 		data.context = options.contextual_search_sources;
+	// 		var contextualSearchSources = options.contextual_search_sources.split(",");
+	// 		if (contextualSearchSources.length == 1) {
+	// 			var searchSourceGR = new GlideRecord("sp_search_source");
+	// 			if (searchSourceGR.get(contextualSearchSources[0]))
+	// 				data.searchType = searchSourceGR.getValue("id");
+	// 		} else
+	// 			data.searchType = $sp.getParameter("t");
+	// 	}
+
+	data.results = [];
+	data.limit = options.limit || 15;
+	var textQuery = '123TEXTQUERY321';
+
+	if (!input) {
+		data.typeaheadTemplates = {};
+		var searchGroupTemplatesGR = new GlideRecord("sp_search_source");
+		searchGroupTemplatesGR.query();
+		while(searchGroupTemplatesGR.next()) {
+			if (searchGroupTemplatesGR.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+				data.typeaheadTemplates["sp-typeahead-" + searchGroupTemplatesGR.getValue("id") + ".html"] = $sp.translateTemplate(searchGroupTemplatesGR.getValue("typeahead_template"));
+		}
+
+		return;
+	}
+
+	data.searchParams = {};
+	var permissions = new sn_communities.CommunityUserImpl();
+	data.searchParams.readableForums = permissions.getAllReadableForumsForSearch();
+	data.searchParams.ignoreProfile = true;
+
+	data.q = input.q;
+	data.sortOrder = "views";
+	//Gotta decide if we want to use the portal's sources, or use the defaults declared by
+	//the sys property
+	var useDefaultPortals;
+	if (!$sp.getPortalRecord()) {
+		useDefaultPortals = true;
+	} else {
+		var searchSourcesForPortalGR = new GlideRecord("m2m_sp_portal_search_source");
+		searchSourcesForPortalGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+		searchSourcesForPortalGR.query();
+		useDefaultPortals = searchSourcesForPortalGR.getRowCount() == 0;
+	}
+
+	if (input.csr) {
+		var contextualSearchSourceGR = new GlideRecord("sp_search_source");
+		contextualSearchSourceGR.addQuery("sys_id", "IN", input.csr);
+		//If topics are disabled, skip the topic search
+		if(GlidePluginManager.isActive('com.sn_communities') &amp;&amp; !sn_communities.CommunityConstants.ENABLE_TOPICS){
+			var topicService = new sn_communities.CommunityTopic();
+			contextualSearchSourceGR.addQuery("id", "NOT IN", topicService.getSearchSources());
+		}
+		contextualSearchSourceGR.query();
+		while (contextualSearchSourceGR.next()) {
+			data.searchType = contextualSearchSourceGR.getValue("id");
+			getResults(contextualSearchSourceGR);
+		}
+	} else if (useDefaultPortals) {
+		var defaultSearchSourceGR = new GlideRecord("sp_search_source");
+		var defaultSearchSourceIDList = gs.getProperty("glide.service_portal.default_search_sources", "");
+		defaultSearchSourceGR.addQuery("sys_id", "IN", defaultSearchSourceIDList);
+		defaultSearchSourceGR.addQuery("enable_typeahead", true);
+		defaultSearchSourceGR.query();
+		while(defaultSearchSourceGR.next()) {
+			getResults(defaultSearchSourceGR);
+		}
+	} else {
+		var m2mSearchSourceGR = new GlideRecord("m2m_sp_portal_search_source");
+		m2mSearchSourceGR.addQuery("sp_search_source.enable_typeahead", true);
+		m2mSearchSourceGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+		m2mSearchSourceGR.query();
+		while(m2mSearchSourceGR.next()) {
+			getResults(m2mSearchSourceGR.getElement("sp_search_source").getRefRecord());
+		}
+	}
+
+	function getResults(gr) {
+		//Check if the user is allowed to see this source.
+		var userCriteria = new GlideSPUserCriteria();
+		if (userCriteria.isEnabled()) {
+			if (!userCriteria.userCanSeeSearchSource(gr.getUniqueValue()))
+				return;
+		} else {
+			var gs = GlideSession.get();
+			var searchSourceRoles = gr.getValue("roles");
+			if (searchSourceRoles &amp;&amp; !gs.hasRole(searchSourceRoles))
+				return;
+		}
+
+		if (gr.is_scripted_source) {
+			var input = {};
+			input.query = data.q;
+			var evaluator = new GlideScopedEvaluator();
+			var results = evaluator.evaluateScript(gr, "data_fetch_script", input);
+
+			if (results) {
+				results.forEach(function(item) {
+					if (gr.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+						item.templateID = "sp-typeahead-" + gr.getValue("id") + ".html";
+					else {
+						item.glyph = gr.getValue("typeahead_glyph");
+						item.linkToPage = gr.getValue("page");
+					}
+					data.results.push(item);
+				});
+			}
+
+		} else {
+			var primaryField = gr.getValue("primary_display_field");
+			var displayFields = gr.getValue("display_fields");
+
+			var resultGR = new GlideRecordSecure(gr.getValue("source_table"));
+			var condition = gr.getValue("condition");
+			if (condition)
+				resultGR.addEncodedQuery(condition);
+			if (data.q)
+				resultGR.addQuery('123TEXTQUERY321', data.q);
+			resultGR.query();
+
+			var searchTableCount = 0;
+			while (resultGR.next() &amp;&amp; searchTableCount &lt; data.limit) {
+				if (!resultGR.canRead())
+					continue;
+
+				var secondaryValues = {};
+
+				if (displayFields)
+					displayFields.split(",").forEach(function(field) {
+						var obj = getField(resultGR, field);
+						secondaryValues[field] = obj;
+					});
+
+				var item = {
+					primary: (primaryField) ? resultGR.getValue(primaryField) : resultGR.getDisplayValue(),
+					sys_id: resultGR.getUniqueValue(),
+					table: resultGR.getTableName(),
+					score: parseFloat(resultGR.ir_query_score_double.getDisplayValue()),
+					fields: secondaryValues
+				};
+
+				if (gr.getElement("advanced_typeahead_config").getDisplayValue() == "true")
+					item.templateID = "sp-typeahead-" + gr.getValue("id") + ".html";
+				else {
+					item.glyph = gr.getValue("typeahead_glyph");
+					item.linkToPage = gr.getValue("page");
+				}
+
+				data.results.push(item);
+				searchTableCount++;
+			}
+		}
+
+		var pageGR = new GlideRecord("sp_page");
+		if (pageGR.get(gr.getValue("page")))
+			var pageID = pageGR.getValue("id");
+
+		data.results.forEach(function(result) {
+			if (result.url)
+				return;
+
+			if (pageID) {
+				result.url = "?id=" + pageID;
+				if (result.sys_id)
+					result.url += "&amp;sys_id=" + result.sys_id;
+				if (result.table)
+					result.url += "&amp;table=" + result.table
+					} else {
+						result.url = "";
+					}
+		});
+	}
+
+	function getField(gr, name) {
+		var f = {};
+		f.display_value = gr.getDisplayValue(name);
+		f.value = gr.getValue(name);
+		var ge = gr.getElement(name);
+		if (ge == null)
+			return f;
+
+		f.type = ge.getED().getInternalType()
+		f.label = ge.getLabel();
+		return f;
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Nishi&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-30 17:03:14&lt;/sys_created_on&gt;&lt;sys_id&gt;32ca4d3cdb281010730a7b38689619f4&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;TitanCommunity Typeahead Search&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_32ca4d3cdb281010730a7b38689619f4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Nishi&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-30 17:03:29&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;form ng-submit="c.onSubmit()"&gt;
+  &lt;input type="hidden" name="id" value="community_search"/&gt;
+  &lt;input type="hidden" name="t" value="{{data.searchType}}"/&gt;
+  &lt;input type="hidden" name="spa" value="1"/&gt;
+  &lt;div class="search-box input-group input-group-{{::c.options.size}}" data-ng-if="!c.options.show_avatar"&gt;
+    &lt;!-- uses ui.bootstrap.typeahead --&gt;
+    &lt;input name="q" type="text" placeholder="${{{::c.options.title}}}" ng-model="c.selectedState"
+           ng-model-options="{debounce: 250}" autocomplete="off"
+           typeahead-wait-ms=c.options.time_delay
+           typeahead-min-length=c.data.minCharsToSearch
+           uib-typeahead="item as item.primary for item in c.getResults($viewValue)"
+           typeahead-focus-first="false"
+           typeahead-on-select="c.onSelect($item, $model, $label)"
+           typeahead-template-url="community-typeahead.html"
+           typeahead-popup-template-url="community-typeahead-popup.html"
+           class="form-control input-typeahead"
+           title="${{{::c.options.title}}}"
+           role="textbox"
+           id="searchInput"
+           aria-label="{{::c.options.title}}" tabindex="0"&gt;
+    &lt;span class="input-group-btn"&gt;
+      &lt;button name="search" type="submit" class="btn btn-{{::c.options.color}}" 
+              ng-click="onPageChangeLog()"
+              title="{{::c.options.title}}"
+              aria-label="{{::c.options.title}}"&gt;
+    	&lt;i ng-if="::c.options.glyph" class="fa fa-{{::c.options.glyph}}"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="search-box input-group input-group-{{::c.options.size}}" data-ng-if="c.options.show_avatar"&gt;
+    &lt;div style="display: flex"&gt;
+      &lt;!--&lt;span data-ng-if="c.user.profileId"&gt;&lt;sn-avatar primary="c.userAvatarObject" show-presence="false"/&gt;&lt;/span&gt;--&gt;
+      &lt;span class="cm-typeahead-avatar" data-ng-if="c.data.avatar"&gt;&lt;sn-avatar primary="c.data.avatar" show-presence="false"/&gt;&lt;/span&gt;
+      &lt;!-- uses ui.bootstrap.typeahead --&gt;
+      &lt;input name="q" type="text" placeholder="${{{::c.options.title}}}" ng-model="c.selectedState"
+             ng-model-options="{debounce: 250}" autocomplete="off"
+             uib-typeahead="item as item.primary for item in c.getResults($viewValue)"
+             typeahead-focus-first="false"
+             typeahead-wait-ms=c.options.time_delay
+             typeahead-append-to="'#results'"
+             typeahead-on-select="c.onSelect($item, $model, $label)"
+             typeahead-template-url="community-typeahead.html"
+             typeahead-popup-template-url="community-typeahead-popup.html"
+             class="form-control input-typeahead"
+             title="${{{::c.options.title}}}"
+             role="textbox"
+             id="searchInput1"
+             ng-keyup="c.switchStyle()"
+             aria-label="{{::c.options.title}}" tabindex="0" aria-required="true"&gt;
+      &lt;span class="input-group-btn"&gt;
+        &lt;button name="search" type="submit" class="btn btn-{{::c.options.color}}" 
+                ng-click="onPageChangeLog()"
+                title="{{::c.options.title}}"
+                aria-label="{{::c.options.title}}"&gt;
+        &lt;i ng-if="::c.options.glyph" class="fa fa-{{::c.options.glyph}}"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;sp-widget widget="data.search_logger" /&gt;
+&lt;/form&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>249281054</payload_hash>
+        <record_name>TitanCommunity Typeahead Search</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-30 17:03:29</sys_created_on>
+        <sys_id>22da0d3cdb281010730a7b3868961996</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171cc0b124a0000001</sys_recorded_at>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-30 17:03:29</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>2ada0d3cd1281010dcafdb204d188b95</update_guid>
+        <update_guid_history>2ada0d3cd1281010dcafdb204d188b95:249281054,becacd3c1a28101023b27d77c09b5aa8:-1436435526</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="TitanCommunity Typeahead Search">4e1bc17cdb281010730a7b3868961939</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-30 17:04:32</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>0f18e9ad65644252b8e827a9cb9ffbd9</sys_id>
+        <sys_metadata>32ca4d3cdb281010730a7b38689619f4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TitanCommunity Typeahead Search</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_32ca4d3cdb281010730a7b38689619f4</sys_update_name>
+        <sys_update_version display_value="sp_widget_32ca4d3cdb281010730a7b38689619f4">22da0d3cdb281010730a7b3868961996</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-30 17:04:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

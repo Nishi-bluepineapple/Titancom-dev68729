@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_236494_titan_enc.ComputeLoyaltyTransactionPointsBalance</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>ComputeLoyaltyTransactionPointsBalance</name>
+        <script><![CDATA[var ComputeLoyaltyTransactionPointsBalance = Class.create();
+ComputeLoyaltyTransactionPointsBalance.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	computePointsBalance : function() {
+	
+	},
+
+    type: 'ComputeLoyaltyTransactionPointsBalance'
+	
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-20 11:13:43</sys_created_on>
+        <sys_id>35d9d0eddb185410730a7b3868961959</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ComputeLoyaltyTransactionPointsBalance</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_script_include_35d9d0eddb185410730a7b3868961959</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-20 11:13:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

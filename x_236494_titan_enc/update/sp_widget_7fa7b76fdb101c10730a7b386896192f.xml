@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+	  $("figure").mouseleave(
+    function() {
+      $(this).removeClass("hover");
+    }
+  );
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import "bourbon";
+$base_font_size:12px;
+$base_line_height: 0.5em;
+$text_font_family: 'Open Sans', "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+$display_font_family: 'Open Sans', "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+
+body {
+	font-family: $text_font_family;
+	font-size: $base_font_size;
+	line-height: $base_line_height;
+	font-weight: 200;
+}
+
+p, span, a, ul, li, button {
+	font-family: inherit;
+  font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+strong {
+	font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $display_font_family;
+	line-height: 30px;
+	font-weight: 200;	
+}
+
+strong {
+  font-weight: 200;
+}
+
+.tile {  
+  width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #fff;		
+	padding: 30px;
+	margin-bottom: 70px;
+  margin-top: 70px;
+  
+  .title {
+		margin-top: 0px;
+	}
+  
+  &amp;.purple, &amp;.blue, &amp;.red, &amp;.orange, &amp;.green {
+    color: #fff;
+  }
+  
+  &amp;.purple {
+    background: $color_purple;
+
+		&amp;:hover {
+			background: darken($color_purple, 10%);
+		}		
+  }
+  
+  &amp;.red {
+    background: $color_red;
+
+		&amp;:hover {
+			background: darken($color_red, 10%);
+		}		
+  }
+  
+  &amp;.green {
+    background: $color_green;
+
+		&amp;:hover {
+			background: darken($color_green, 10%);
+		}		
+  }
+  
+  &amp;.blue {
+    background: $color_blue;
+
+		&amp;:hover {
+			background: darken($color_blue, 10%);
+		}	
+  }
+  
+  &amp;.orange {
+    background: $color_orange;
+
+		&amp;:hover {
+			background: darken($color_orange, 10%);
+		}	
+  }
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+figure.snip1104 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin-right:10px;
+  margin-top: 40px;
+	margin-bottom: 40px;
+  min-width: 200px;
+  max-width: 300px;
+  max-height: 420px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+figure.snip1104 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+figure.snip1104 img {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.4;
+}
+
+figure.snip1104 figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+figure.snip1104 h2 {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  display: inline-block;
+  background: #000000;
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  padding: 12px 5px;
+  margin: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+figure.snip1104 h2 span {
+  font-weight: 300;
+}
+
+figure.snip1104:before {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background: #ffffff;
+  position: absolute;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: rotate(110deg) translateY(-50%);
+  transform: rotate(110deg) translateY(-50%);
+}
+
+figure.snip1104 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+figure.snip1104.blue {
+  background: #123851;
+}
+
+figure.snip1104.blue h2 {
+  background: #0a212f;
+}
+
+figure.snip1104.red {
+  background: #581a14;
+}
+
+figure.snip1104.red h2 {
+  background: #36100c;
+}
+
+figure.snip1104.yellow {
+  background: #7f5006;
+}
+
+figure.snip1104.yellow h2 {
+  background: #583804;
+}
+
+figure.snip1104:hover img,
+figure.snip1104.hover img {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+figure.snip1104:hover h2,
+figure.snip1104.hover h2 {
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+}
+
+figure.snip1104:hover:before,
+figure.snip1104.hover:before {
+  -webkit-transform: rotate(110deg) translateY(-150%);
+  transform: rotate(110deg) translateY(-150%);
+}
+
+
+html {
+  height: 100%;
+}
+body {
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  margin: 0;
+  height: 100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Titan Knowledgebase-tile</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-27 08:26:11</sys_created_on>
+        <sys_id>7fa7b76fdb101c10730a7b386896192f</sys_id>
+        <sys_mod_count>68</sys_mod_count>
+        <sys_name>Titan Knowledgebase-tile</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_7fa7b76fdb101c10730a7b386896192f</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-28 03:37:51</sys_updated_on>
+        <template><![CDATA[<div class="row">
+   <div class="col-sm-3" nopadding >
+      <figure class="snip1104 red">
+         <img src="tanishq_tiles.png" alt="Idea forum" />
+         <figcaption>
+            <h2>Tanishq</h2>
+         </figcaption>
+         <a href="/titancom?id=kb_search&kb_knowledge_base=05ff44289f011200550bf7b6077fcfa3&spa=1&kb_category=f98513c4dbd05010730a7b3868961908"></a>
+      </figure>
+   </div>
+   <div class="col-sm-3" >
+      <figure class="snip1104 red" style="height:147px;">
+         <img src="titanwatches12.jpg" alt="Idea forum" />
+         <figcaption>
+            <h2>Watches</h2>
+         </figcaption>
+         <a href="/titancom?id=kb_search&kb_knowledge_base=05ff44289f011200550bf7b6077fcfa3&spa=1&kb_category=a8185f95db545410730a7b38689619fd"></a>
+      </figure>
+   </div>
+   <div class="col-sm-3">
+      <figure class="snip1104 red">
+         <img src="Perfumes_tiles.png" alt="Idea forum" />
+         <figcaption>
+            <h2>Perfumes</h2>
+         </figcaption>
+         <a href="/titancom?id=kb_search&kb_knowledge_base=05ff44289f011200550bf7b6077fcfa3&spa=1&kb_category=fd698bc8db905010730a7b3868961970"></a>
+      </figure>
+   </div>
+   <div class="col-sm-3">
+      <figure class="snip1104 red">
+         <img src="glasses.png" alt="Idea forum"/>
+         <figcaption>
+            <h2>Eyeglasses</h2>
+         </figcaption>
+         <a href="/titancom?id=kb_search&kb_knowledge_base=05ff44289f011200550bf7b6077fcfa3&spa=1&kb_category=b2f48348db905010730a7b386896199e"></a>
+      </figure>
+   </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="chart.js">a7a8754347011200ba13a5554ee4905c</sp_dependency>
+        <sp_widget display_value="Copy of trial">c4dd74d1dbec5010730a7b3868961975</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-02 05:23:29</sys_created_on>
+        <sys_id>08dd74d1dbec5010730a7b3868961977</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>chart.js.Copy of trial</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_08dd74d1dbec5010730a7b3868961977</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-02 05:23:29</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sp_widget_dependency_08dd74d1dbec5010730a7b3868961977</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="chart.js">a7a8754347011200ba13a5554ee4905c</sp_dependency><sp_widget display_value="Copy of trial">c4dd74d1dbec5010730a7b3868961975</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-05-02 05:23:29</sys_created_on><sys_id>08dd74d1dbec5010730a7b3868961977</sys_id><sys_mod_count>0</sys_mod_count><sys_name>chart.js.Copy of trial</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sp_widget_dependency_08dd74d1dbec5010730a7b3868961977</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-05-02 05:23:29</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>-1065545165</payload_hash>
+        <record_name>chart.js.Copy of trial</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-02 05:23:29</sys_created_on>
+        <sys_id>ccdd74d1dbec5010730a7b3868961979</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171d3d6e92b0000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-02 05:23:29</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>08dd74d128ec501071ecdbd70ad93d79</update_guid>
+        <update_guid_history>08dd74d128ec501071ecdbd70ad93d79:-1065545165</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="chart.js.Copy of trial">b4e22be1db60d010730a7b386896190f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-03 12:03:11</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>3b3f31cee47d4246a52ac4ac538ba561</sys_id>
+        <sys_metadata>08dd74d1dbec5010730a7b3868961977</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>chart.js.Copy of trial</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sp_widget_dependency_08dd74d1dbec5010730a7b3868961977</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_08dd74d1dbec5010730a7b3868961977">ccdd74d1dbec5010730a7b3868961979</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-03 12:03:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

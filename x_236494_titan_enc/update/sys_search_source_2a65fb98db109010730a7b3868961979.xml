@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_source">
+    <sys_search_source action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <name>Forums</name>
+        <source_table>sn_communities_forum</source_table>
+        <sys_class_name>sys_search_source</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:56:01</sys_created_on>
+        <sys_id>2a65fb98db109010730a7b3868961979</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Forums</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_search_source_2a65fb98db109010730a7b3868961979</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-17 05:56:01</sys_updated_on>
+    </sys_search_source>
+    <sys_translated_text action="delete_multiple" query="documentkey=2a65fb98db109010730a7b3868961979"/>
+</record_update>

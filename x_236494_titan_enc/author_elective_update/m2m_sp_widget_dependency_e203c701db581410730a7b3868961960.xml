@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="RetinaIcons">a4fb2d566703220051a062c15685ef67</sp_dependency>
+        <sp_widget display_value="encircle survey">e603c701db581410730a7b386896195d</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-19 10:11:22</sys_created_on>
+        <sys_id>e203c701db581410730a7b3868961960</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RetinaIcons.encircle survey</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_e203c701db581410730a7b3868961960</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:11:22</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sp_widget_dependency_e203c701db581410730a7b3868961960</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="RetinaIcons">a4fb2d566703220051a062c15685ef67</sp_dependency><sp_widget display_value="encircle survey">e603c701db581410730a7b386896195d</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>neel</sys_created_by><sys_created_on>2020-04-19 10:11:22</sys_created_on><sys_id>e203c701db581410730a7b3868961960</sys_id><sys_mod_count>0</sys_mod_count><sys_name>RetinaIcons.encircle survey</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sp_widget_dependency_e203c701db581410730a7b3868961960</sys_update_name><sys_updated_by>neel</sys_updated_by><sys_updated_on>2020-04-19 10:11:22</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>-325181453</payload_hash>
+        <record_name>RetinaIcons.encircle survey</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-19 10:11:22</sys_created_on>
+        <sys_id>a203c701db581410730a7b3868961962</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17191ebcfb50000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:11:22</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>ea03c70174581410eb7f44289dc07461</update_guid>
+        <update_guid_history>ea03c70174581410eb7f44289dc07461:-325181453</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="RetinaIcons.encircle survey">92b7f8e9db985410730a7b386896191e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 13:19:39</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>5e1d7838fdb7418090cd1dc9422fe040</sys_id>
+        <sys_metadata>e203c701db581410730a7b3868961960</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RetinaIcons.encircle survey</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sp_widget_dependency_e203c701db581410730a7b3868961960</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_e203c701db581410730a7b3868961960">a203c701db581410730a7b3868961962</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 13:19:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <size>9</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">83a5e068dbd89010730a7b3868961902</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-17 09:26:52</sys_created_on>
+        <sys_id>83a5e068dbd89010730a7b3868961906</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_column_83a5e068dbd89010730a7b3868961906</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-01 05:47:46</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_column_83a5e068dbd89010730a7b3868961906</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><class_name/><order>1</order><size>9</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">83a5e068dbd89010730a7b3868961902</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-04-17 09:26:52</sys_created_on><sys_id>83a5e068dbd89010730a7b3868961906</sys_id><sys_mod_count>1</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_column_83a5e068dbd89010730a7b3868961906</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-05-01 05:47:46</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-1512861279</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-01 05:47:46</sys_created_on>
+        <sys_id>42c97734db205010730a7b386896197e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171cec6c9a80000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-01 05:47:46</sys_updated_on>
+        <type>Column</type>
+        <update_guid>8ac977349d20501026395f2d49ed3d7d</update_guid>
+        <update_guid_history>8ac977349d20501026395f2d49ed3d7d:-1512861279,03a5e06842d890105a4f79b30d23b807:-315266653</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">08d97b34db205010730a7b3868961918</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-01 05:47:54</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>74ee6728d36845c3a62811047d8bfd59</sys_id>
+        <sys_metadata>83a5e068dbd89010730a7b3868961906</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_column_83a5e068dbd89010730a7b3868961906</sys_update_name>
+        <sys_update_version display_value="sp_column_83a5e068dbd89010730a7b3868961906">42c97734db205010730a7b386896197e</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-01 05:47:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

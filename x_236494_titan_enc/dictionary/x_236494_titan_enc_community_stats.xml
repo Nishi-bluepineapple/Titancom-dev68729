@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Community Stats" max_length="40" name="x_236494_titan_enc_community_stats" sizeclass="5" type="collection">
+        <element label="Count" max_length="40" name="count" type="integer"/>
+        <element label="Icon" max_length="40" name="image" type="user_image"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
+    </element>
+</database>

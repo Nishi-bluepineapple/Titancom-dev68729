@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_parent" label="Parent" language="en" table="imp_location">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_parent</element>
+            <help/>
+            <hint/>
+            <label>Parent</label>
+            <language>en</language>
+            <name>imp_location</name>
+            <plural>Parents</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-05-01 06:05:43</sys_created_on>
+            <sys_id>45edbff4db205010730a7b3868961919</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Parent</sys_name>
+            <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+            <sys_update_name>sys_documentation_imp_location_u_parent_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-05-01 06:05:43</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

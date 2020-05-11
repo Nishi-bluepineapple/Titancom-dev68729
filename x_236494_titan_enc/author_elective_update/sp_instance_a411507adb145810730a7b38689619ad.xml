@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">f601547adb145810730a7b3868961992</sp_column>
+        <sp_widget display_value="Titan Encircle Virtual Agent SP">9efd8f09db581410730a7b3868961964</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-24 07:43:11</sys_created_on>
+        <sys_id>a411507adb145810730a7b38689619ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_instance_a411507adb145810730a7b38689619ad</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 07:43:11</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=a411507adb145810730a7b38689619ad"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_instance_a411507adb145810730a7b38689619ad</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><roles/><short_description/><size>md</size><sp_column display_value="1">f601547adb145810730a7b3868961992</sp_column><sp_widget display_value="Titan Encircle Virtual Agent SP">9efd8f09db581410730a7b3868961964</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-24 07:43:11</sys_created_on><sys_id>a411507adb145810730a7b38689619ad</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_instance_a411507adb145810730a7b38689619ad</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-24 07:43:11</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=a411507adb145810730a7b38689619ad"/></record_update>]]></payload>
+        <payload_hash>-820125255</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-24 07:43:11</sys_created_on>
+        <sys_id>6c11547adb145810730a7b38689619f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171ab23efef0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 07:43:11</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>a411547ab3145810bc52e35e63eaaef5</update_guid>
+        <update_guid_history>a411547ab3145810bc52e35e63eaaef5:-820125255</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">a3c254fadb145810730a7b3868961999</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-24 07:50:45</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>aa6daaee5abe4520a107154e87b1c390</sys_id>
+        <sys_metadata>a411507adb145810730a7b38689619ad</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_instance_a411507adb145810730a7b38689619ad</sys_update_name>
+        <sys_update_version display_value="sp_instance_a411507adb145810730a7b38689619ad">6c11547adb145810730a7b38689619f5</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 07:50:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

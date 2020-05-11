@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($rootScope,$scope,$document,spUtil,spModal) {
+	/* widget controller */
+	var c = this;
+	c.showTitanLoader = true;
+
+	c.getProducts = function (subCategory){
+		c.data.action="getProducts";
+		c.data.selectedSubCategory = subCategory;
+		c.server.update().then(function(){
+			c.productDetailPage = false;
+			c.showModalPhase = false;
+			c.showCheckoutPage = false;
+			c.showTitanLoader = false;
+		});
+	};
+
+
+	$scope.$on("menuSelectedFromRoot", function(event, data){
+		c.getProducts(data);
+	});
+
+	c.getProductDetails = function(){
+		c.productDetailPage = true;
+		c.productQuantity = 0;
+		c.totalAmount = c.productQuantity*c.data.titanItem.csmdemoofferprice;
+		c.redeemPoints = parseInt(c.data.currentPoints);
+		c.showTitanLoader = false;
+	};
+
+	c.callProductDetailPage = function(sys_id) {
+		c.showTitanLoader = true;
+		c.showCheckoutPage = false;
+		c.showModalPhase = false;
+		c.detailPageParameters = {
+			'sys_id':sys_id,
+			'subCategory':c.selectedSubCategory
+		};
+		c.data.action="getProductDetail";
+		c.data.detailPageParameters = c.detailPageParameters;
+		c.server.update().then(c.getProductDetails);
+	};
+
+	c.addToCart = function(){
+		//spModal.alert('ADD TO CART is not implemented.');
+	};
+
+	c.placeOrder = function(item) {
+		c.showCheckoutPage = true;
+		c.totalAmount = c.productQuantity*c.data.titanItem.csmdemoofferprice;
+	};
+
+	c.decrementQuantity = function() {
+		c.productQuantity = parseInt(c.productQuantity) - 1;
+		c.totalAmount = c.productQuantity*c.data.titanItem.csmdemoofferprice;
+	};
+
+	c.incrementQuantity = function() {
+		if(parseInt(c.productQuantity) >= 0 ) {
+			c.productQuantity = parseInt(c.productQuantity) + 1;
+			c.totalAmount = c.productQuantity*c.data.titanItem.csmdemoofferprice;
+		}
+	};
+
+	c.insertCallback = function() {
+		spModal.alert('Your order has been placed successfully.').then(function(){
+			c.getProducts(c.data.selectedSubCategory);
+		});
+	};
+
+	c.insertTransaction=function(){
+		console.log("first");
+		c.netAmount =(c.productQuantity * parseInt(c.data.titanItem.csmdemoofferprice)) - c.redeemPoints; 
+		console.log("second", c.netAmount);
+		c.transactionParams={
+			'points_redeemed':c.redeemPoints,
+			'transaction_amount':c.netAmount,
+			'transaction_product':c.data.titanItem.csmdemoproductname,
+			'points_earned':Math.round(c.netAmount*0.05,0),
+			'remarks':'Reward points',
+			'product_sys_id':c.data.titanItem.sys_id
+		};
+		console.log("third", c.transactionParams);
+		c.data.transactionParams=c.transactionParams;
+		c.data.action='insertTransaction';
+		console.log("fourth", c.data);
+		c.server.update().then(c.insertCallback);
+	}
+
+$scope.monthList = [];
+	for(var j=1;j<=12;j++) {
+		$scope.monthList.push(j);
+	}
+	
+	c.goToPhase2 = function() {
+		c.showModalPhase = true;
+		var totAmount = (c.productQuantity * parseInt(c.data.titanItem.csmdemoofferprice)) - c.redeemPoints;
+		c.emiAmount = Math.round(totAmount/parseInt(c.emimonth));
+	}
+
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.products ul{
+	margin:0;
+  padding: 0px;
+}
+.products ul li{
+  list-style:none;
+  padding: 6px 0px;
+  //border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+
+.products ul li a, .productsli{
+	color: #000;
+  text-decoration:none;
+  font-size: 1.3em;
+}
+.productsli{
+  font-weight:800;
+  font-size: 1.5em;
+}
+
+//----------products------------
+.card-image-size{
+  width: 200px;
+  height: 200px;
+}
+.center-align{
+	text-align:center;
+}
+.card-watch-title{
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align:center;
+  text-transform: uppercase;
+}
+.card-watch-price{
+  font-size: 1.5rem;
+  text-align:center;
+}
+.card-badge{
+  padding: 3px 6px;
+  border:none;
+  border-radius:0;
+  font-weight:200;
+  background-color: #666666;
+}
+.nocostemi{
+	width:90px;
+  height:18px;
+}
+.padding-top-bottom{
+    padding: 3px 0;
+}
+.margin-top-bottom{
+    margin: 2px 0;
+}
+.block-ellipsis {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 34px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+
+@media only screen and (min-width: 768px and max-width: 991px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}
+//------------------Detail page css
+.detail-image-size{
+  width: 400px;
+  height: 400px;
+}
+.product-detailname{
+  font-weight:600;
+      font-size: 1.5rem;
+  padding-top: 12px;
+}
+.detail-currency-selector {
+    float: right;
+    padding:0;
+}
+.detail-currency-selector-button {
+    margin-top: 9px;
+}
+.detail-currency-selector-button button{
+  background-color: #FFF;
+  color: #000;
+}
+.btn.plus, .btn.minus{
+  background: none;
+}
+.detail-currency-selector .btn{
+  float: left;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 15px;
+  outline: 0;
+  padding: 0;
+}
+.center-align{
+  text-align: center;
+}
+.no-padding{
+  padding:0;
+}
+.new-price-label{
+  padding: 0 6px;
+  font-size: 1.8rem;
+}
+.product-title {
+  margin: 0;
+  line-height: 28px;
+  font-weight: 600;
+}
+.productPrice {
+   padding: 16px 0;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.product-main-details {
+  padding: 0 0 0 15px;
+}
+.product-details{
+  float: left;
+  padding: 40px 0 0 0;
+}
+.quantity {
+    margin-top: 20px;
+}
+.quantity-text{
+font-weight:600;
+  font-size:16px;
+}
+.input-div {
+    display: inline !important;
+    position: relative;
+}
+.quantity input {
+    width: 60px;
+    padding: 6px 0;
+    border-radius: 16px;
+    border: 1px solid #cfcfcf;
+    outline: 0 !important;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+.left-in-stock {
+  padding: 12px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.add-to-cart button {
+  font-size: 14px;
+  font-weight: 500;
+  outline: 0 !important;
+  box-shadow: none;
+  padding: 0;
+  color: #fff;
+  background-color: #222;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  border-radius: 25px;
+  width:100%;
+  margin:5px;
+}	
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+.instock{
+color:green;
+}
+.outofstock{
+color:red;
+}
+.flex{
+display:flex;
+}
+@media only screen and (max-width: 991px) {
+  .detail-image-size{
+    width: 280px;
+    height: 280px;
+  }
+}
+
+///MODAL CSS---------------------------
+.inputstyle {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: inherit;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.modal-title {
+  text-align:center;
+  font-size: 2.5rem;
+}
+.modal-header{
+  border:none;
+}
+.modal-footer{
+  text-align:center;
+  border-top:none;
+}
+.modal-body {
+  padding: 0 15px;
+}
+.tatacss{
+  color: #005898;
+  font-weight: 900;
+}
+.capitalcss{
+  color: #145b91;
+  font-weight: 600;
+}
+.phase2text, .phase1text{
+  color: #1b78e5;
+  font-size: 2rem;
+}
+
+//////////---------Checkout-------//////////////
+.bottomline{
+  border-bottom: 2px solid #dcdcdc;
+  padding-bottom: 6px;
+}
+.checkout-image-size{
+  width: 170px;
+  height: 170px;
+}
+.checkout{
+  display:flex;
+  padding-top: 6px;
+}
+.checkout button{
+	padding: 0 8px;
+}
+.checkout input{
+  width:45px;
+  padding-left: 12px;
+}
+.checkout-total{
+  padding-top: 6px;
+}
+.payemt-title{
+	
+  font-weight:800;
+}
+.payemt-title-note{
+	 font-weight: normal;
+   padding-top: 5px;
+   padding-bottom: 5px;
+ 
+}
+.creditcart{
+  display:flex;
+   padding-bottom: 5px;
+}
+.creditcart .radio {
+  
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+.creditcart .credittext{
+  
+    padding-left: 6px;
+    padding-top: 4px;
+ 
+}
+.payemtpadding{
+  padding-bottom:12px;
+}
+.payement-box-svg{
+  margin-top: -26px;
+  float: right;
+  padding-right: 10px;
+}
+.rememberme{
+  font-size: 2rem;
+  font-weight: 600;
+}
+.completeorder{
+  background-color:#000;
+  color:#FFF;
+  padding: 14px 24px;
+  width: 100%;
+}
+.emi-title{
+font-size: 2rem;
+  font-weight: 500;
+  color:grey;
+}
+
+/////////////------Loading idicators css----////////////////////////
+.titan-loader-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999991;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  display:block;
+}
+.titan-loader{
+  z-index: 999992;
+  position: relative;
+  background-image: url('TitanLoader.gif');
+  width: 56px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+}
+
+.btn-blue{
+  color:#FAF7F5;
+  background-color:#2986B7;
+}
+.btn-blue:hover{
+  color:#FAF7F5;
+  background-color:#35a1da;
+}
+
+	.totalrow{
+		padding-top: 0.5rem;
+		padding-bottom: 0;
+		
+	}
+	.total-last-row{
+		padding-top: 0.5rem;
+		border-bottom: 1px solid #000;
+		padding-bottom: 0.5rem;
+	}
+	
+	.total-row-heading{
+		font-weight: 800;
+    text-align:right;
+	}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gifting_content</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Gifting Content</name>
+        <option_schema>[{"name":"display","section":"other","default_value":"Gifting","label":"Display","type":"string"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+
+	if(input){
+
+		var getProducts = function(selectedCategory) {
+			var sourceTable = 'x_236494_titan_enc_titan_items';
+			var gr = new GlideRecord(sourceTable);
+			var titanItems = [];
+			gr = new GlideRecord(sourceTable);
+			gr.addQuery('csmdemosubcategory', selectedCategory);
+			gr.orderBy('csmdemoitemposition');
+			gr.query();
+
+			while (gr.next()) {
+				var titan_item = {};
+				titan_item.csmdemodiscountpercent = gr.getValue('csmdemodiscountpercent');
+				titan_item.csmdemoinstock = gr.getValue('csmdemoinstock');
+				titan_item.csmdemomrp = gr.getValue('csmdemomrp');
+				titan_item.csmdemonewarrival = gr.getValue('csmdemonewarrival');
+				titan_item.csmdemonocostemi = gr.getValue('csmdemonocostemi');
+				titan_item.csmdemoofferprice = gr.getValue('csmdemoofferprice');
+				titan_item.csmdemoproductcode = gr.getValue('csmdemoproductcode');
+				titan_item.csmdemoproductdetailedname = gr.getValue('csmdemoproductdetailedname');
+				titan_item.csmdemoproductimage = gr.getValue('csmdemoproductimage');
+				titan_item.csmdemoproductname = gr.getValue('csmdemoproductname');
+				titan_item.csmdemoshortdescription = gr.getValue('csmdemoshortdescription');
+				titan_item.csmdemospecialfeature = gr.getValue('csmdemospecialfeature');
+				titan_item.sys_id = gr.getValue('sys_id');
+
+				titanItems.push(titan_item);
+			}
+			return titanItems;
+		};
+
+		var getProductDetails = function(params) {
+			var sourceTable = 'x_236494_titan_enc_titan_items';
+			var gr = new GlideRecord(sourceTable);
+			gr = new GlideRecord(sourceTable);
+			var titan_item = {};
+			if(gr.get(params.sys_id)){
+
+				titan_item.sys_id=params.sys_id;
+				titan_item.csmdemodiscountpercent = gr.getValue('csmdemodiscountpercent');
+				titan_item.csmdemoinstock = gr.getValue('csmdemoinstock');
+				titan_item.csmdemomrp = gr.getValue('csmdemomrp');
+				titan_item.csmdemonewarrival = gr.getValue('csmdemonewarrival');
+				titan_item.csmdemonocostemi = gr.getValue('csmdemonocostemi');
+				titan_item.csmdemoofferprice = gr.getValue('csmdemoofferprice');
+				titan_item.csmdemoproductcode = gr.getValue('csmdemoproductcode');
+				titan_item.csmdemoproductdetailedname = gr.getValue('csmdemoproductdetailedname');
+				titan_item.csmdemoproductimage = gr.getValue('csmdemoproductimage');
+				titan_item.csmdemoproductname = gr.getValue('csmdemoproductname');
+				titan_item.csmdemoshortdescription = gr.getValue('csmdemoshortdescription');
+				titan_item.csmdemospecialfeature = gr.getValue('csmdemospecialfeature');
+
+			}
+			gs.info("digu count items {0}",JSON.stringify(titan_item));
+			return titan_item;
+		};
+
+		var insertransaction = function(params){
+			gs.info("digu in insertransaction function");
+			//	return;
+			var surveyPoints = new SurveyPoints();
+			surveyPoints.insertTransaction(gs.getUserID(),
+																		 params.remarks,
+																		 params.points_earned,
+																		 params.points_redeemed,
+																		 params.transaction_amount,
+																		 params.transaction_product
+																		);
+
+		};
+
+
+
+
+		/*
+
+*/
+		if(input.action == 'getProducts'){
+			data.titanItems = getProducts(input.selectedSubCategory);
+
+		} 
+		else if(input.action == 'getProductDetail'){
+			data.titanItem = getProductDetails(input.detailPageParameters);
+			var titanUtils = new TitanUtils();
+			var gUser = gs.getUser();
+			data.isLoggedIn = gs.isLoggedIn();
+			if(data.isLoggedIn)
+			{
+				var userPoints = titanUtils.getUserPoints(gs.getUserID());
+				data.currentPoints=userPoints.points==null?0:userPoints.points;
+			}
+			else
+			{
+				data.currentPoints=0;
+			}
+
+			data.userEmailId = gs.getUser().getEmail();
+		}
+		else if(input.action == 'insertTransaction'){
+			gs.info('digu action {0}',input.action);
+			gs.info('digu in insertransaction {0}',JSON.stringify(input.transactionParams));
+			insertransaction(input.transactionParams);
+		}
+		else{
+			gs.info('digu input {0}',JSON.stringify(input));
+	//		gs.info('digu in insertransaction'+ JSON.stringify(input.transactionParams));
+			
+		}
+
+
+
+
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-01 02:38:21</sys_created_on>
+        <sys_id>ef6e8f34dbac1010730a7b386896190b</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>Gifting Content</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_ef6e8f34dbac1010730a7b386896190b</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-05-04 10:02:38</sys_updated_on>
+        <template><![CDATA[<h2 ng-if="data.selectedSubCategory == 'Eyewear' || data.selectedSubCategory == 'Clocks' || data.selectedSubCategory == 'Wallets' || data.selectedSubCategory == 'Belts'">
+  Coming soon!
+</h2>
+<!-- Product List Start -->
+<div ng-if="!c.productDetailPage && (data.selectedSubCategory == 'Jewellery' || data.selectedSubCategory == 'Watches' || data.selectedSubCategory == 'Perfumes')">
+  <div class="row">
+    <!-- COLUMN 1 START-->
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4" ng-repeat="titanItem in c.data.titanItems">
+      <div class="card padding-top-bottom">
+        <div class="center-align">
+          <a href="javascript:void(0)" style="color:#000" ng-click="c.callProductDetailPage(titanItem.sys_id);">
+            <img class="card-img-top card-image-size" src="{{'api/x_236494_titan_enc/getimage/get/'+titanItem.csmdemoproductimage}}" />                        
+          </a>
+        </div>
+        <div class="card-body" style="height: 10rem;">
+          <a href="javascript:void(0)" style="color:#000" ng-click="callProductDetailPage(titanItem.sys_id);">
+            <div class="card-watch-title padding-top-bottom block-ellipsis">{{titanItem.csmdemoproductdetailedname}}</div>
+            <div class="card-watch-price padding-top-bottom">
+              <span ng-if="titanItem.csmdemoofferprice != titanItem.csmdemomrp && titanItem.csmdemoofferprice != 0 || titanItem.csmdemoofferprice < titanItem.csmdemomrp">
+                <span><i class="fa fa-inr"></i>{{titanItem.csmdemoofferprice}}</span>
+                <span class="card-product-old-price" ><i class="fa fa-inr"></i>{{titanItem.csmdemomrp}}</span>
+              </span>
+              <span ng-if="titanItem.csmdemoofferprice == titanItem.csmdemomrp || titanItem.csmdemoofferprice == 0"><i class="fa fa-inr"></i>{{titanItem.csmdemomrp}}</span>
+            </div>
+          </a>
+          <div class="center-align padding-top-bottom">
+            <span class="margin-top-bottom" ng-if="titanItem.csmdemonocostemi != 0">
+              <img src="nocostemi.png" class="nocostemi"/>
+            </span>
+            <span class="badge card-badge margin-top-bottom" ng-if="titanItem.csmdemonewarrival != 0">NEW ARRIVAL</span>
+            <!--<a href="aaa" class="btn btn-primary card-buttons margin-top-bottom">SLIMMEST WATCH</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- COLUMN 1 END-->
+  </div>
+</div>
+<!-- Product List End -->
+
+<!-- Product Detail Page Start -->
+<div ng-if="c.productDetailPage && !c.showCheckoutPage">
+  <div style="padding-bottom:1rem;">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <div class="center-align">
+        
+          <img src="{{'api/x_236494_titan_enc/getimage/get/'+c.data.titanItem.csmdemoproductimage }}" class="detail-image-size"/>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 center-align" style="padding-top: 0px;">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p class="text-uppercase" style="font-size:1.5rem;">{{c.data.titanItem.csmdemoproductcode}}</p>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="text-uppercase product-title">{{c.data.titanItem.csmdemoproductdetailedname}}</h3>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="productPrice">
+                  <span class="last-price">
+                    <span class="new-price-label">MRP</span> 
+                    <span class="new-price-label" ng-if="c.data.titanItem.csmdemoofferprice != c.data.titanItem.csmdemomrp && c.data.titanItem.csmdemoofferprice != 0 || c.data.titanItem.csmdemoofferprice < c.data.titanItem.csmdemomrp">
+                      <span><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemoofferprice}}</span>&nbsp;
+                      <span class="card-product-old-price" ><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                    </span>
+                    <span ng-if="c.data.titanItem.csmdemoofferprice == c.data.titanItem.csmdemomrp || c.data.titanItem.csmdemoofferprice == 0"><i class="fa fa-inr"></i>{{c.data.titanItem.csmdemomrp}}</span>
+                    <div class="tax-text">(Incl. of all taxes)</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+            <div class="detail-currency-selector-button center-align">
+              <div class="detail-currency-selector-button center-align">
+                <button class="btn btn-primary"><i class="fa fa-inr"></i></button>
+                <button disabled class="btn btn-primary btn-inactive" ><i class="fa fa-dollar"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="product-detailname">{{c.data.titanItem.csmdemospecialfeature}}</div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="quantity">
+                  <p class="quantity-text">Net Qty</p>
+                  <button class="btn minus" ng-click="c.decrementQuantity()" data-ng-disabled="c.productQuantity <= 0" disabled="disabled">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </button>
+                  <div class="input-div">
+                    <input type="text" style="text-align: center; padding: 0px;" value="{{c.productQuantity}}" ng-model="c.productQuantity"/>
+                  </div>
+                  <button class="btn plus" ng-click="c.incrementQuantity()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button> 
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="left-in-stock" ng-if="c.data.titanItem.csmdemoinstock != 0">
+                  <span class="stock-condition instock" ng-if="csmdemoinstock != 0">IN STOCK</span>
+                  <span class="stock-condition outofstock" ng-if="csmdemoinstock == 0">OUT OF STOCK</span>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="buttons button-cart" >
+                  <div class="add-to-cart-button add-to-cart">
+                    <div class="col-sm-2 col-md-2 col-lg-2"></div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 flex" >
+                      <button type="submit" data-ng-disabled="c.productQuantity <= 0" disabled="disabled" ng-click="c.addToCart(c.data.titanItem)" class="btn btn-default">ADD TO CART</button>
+                      <button type="submit" ng-if="c.productQuantity > 0" ng-click="c.placeOrder(c.data.titanItem)" class="btn btn-default">CHECKOUT</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 detail-currency-selector center-align">
+            <div class="detail-currency-selector-button center-align">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+              <button class="btn btn-primary btn-inactive" ><i class="fa fa-share"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Product Detail Page End -->
+
+<!------- CHeckout PAGE Start --->
+<div class="row" ng-if="c.showCheckoutPage">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+    <!-- row 1 start -->
+    <div class="row bottomline">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div style="font-weight:800;">
+          ITEM(S)
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5">
+        <div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+        <div style="font-weight:800;">
+          QUANTITY
+        </div>
+      </div>
+
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div style="font-weight:800;">
+          TOTAL
+        </div>
+      </div>
+    </div>
+    <!-- row 1 end -->
+
+    <!-- row 2 start -->
+    <div class="row" style="padding-top: 24px;border-bottom: 1px solid #000;padding-bottom: 24px;">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div>
+          <img src="{{'api/x_236494_titan_enc/getimage/get/'+c.data.titanItem.csmdemoproductimage }}" class="checkout-image-size"/>
+
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5">
+        <div>
+          <h3 class="text-uppercase product-title" style="font-size: 2rem;">{{c.data.titanItem.csmdemoproductdetailedname}}</h3>
+        </div>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2" style="padding:0">
+        <div class="quantity-section">
+          <div class="checkout">
+            <button class="btn minus" ng-click="c.decrementQuantity()" data-ng-disabled="c.productQuantity <= 0" disabled="disabled">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            <div class="input-div">
+              <input type="number" value="{{c.productQuantity}}" ng-model="c.productQuantity"/>
+            </div>
+            <button class="btn plus" ng-click="c.incrementQuantity()" >
+              <span class="glyphicon glyphicon-plus"></span>
+            </button> 
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="checkout-total">
+          <span><i class="fa fa-inr"></i>{{c.productQuantity * c.data.titanItem.csmdemoofferprice}}</span>&nbsp;
+        </div>
+      </div>
+    </div>
+    <!-- row 2 end -->
+    <!-- total rows start-->
+    <div class="row totalrow"  ng-if="data.isLoggedIn"> 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> 
+
+      </div> 
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5"> 
+
+        <div class="text-uppercase total-row-heading ng-binding checkout-total" > 
+          Order Amount
+        </div></div> 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2" style="padding:0"> 
+        <div class="quantity-section"> 
+
+        </div> 
+      </div> 
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> 
+        <div class="checkout-total"> 
+          <span class="ng-binding"><i class="fa fa-inr"></i>{{c.productQuantity * c.data.titanItem.csmdemoofferprice}}</span>&nbsp; 
+        </div> 
+      </div> 
+    </div>
+    <!--total row end-->
+    <!--redeem points row-->
+    <div class="row totalrow"  ng-if="data.isLoggedIn"> 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> 
+
+      </div> 
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5"> 
+
+        <div class="text-uppercase total-row-heading ng-binding checkout-total" > 
+          Redeem Points
+        </div></div> 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2" style="padding:0"> 
+
+      </div> 
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> 
+
+        <div class="quantity-section"> 
+          <div class="checkout"> 
+
+            <div class="input-div"> 
+              <input type="number" value="{{::c.redeemPoints}}" ng-model="c.redeemPoints" max="{{::c.data.currentPoints}}" class="ng-pristine ng-untouched ng-valid ng-not-empty" role="spinbutton" aria-invalid="false" style="width: 70px;"> 
+            </div> 
+
+          </div> 
+        </div></div> 
+    </div>
+
+    <!--redeem points row end-->
+    <!--net amount  row-->
+    <div class="row total-last-row" > 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> 
+
+      </div> 
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5"> 
+
+        <div class="text-uppercase total-row-heading ng-binding checkout-total" > 
+          Amount Payable
+        </div></div> 
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2" style="padding:0"> 
+
+      </div> 
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> 
+
+        <div class="checkout-total"> 
+          <span class="ng-binding"><i class="fa fa-inr"></i>{{c.productQuantity * c.data.titanItem.csmdemoofferprice - c.redeemPoints}}</span>&nbsp; 
+        </div></div> 
+    </div>
+    <!--net amount  row end-->
+
+    <!-- EMI row start -->
+    <div class="row" ng-if="data.isLoggedIn">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <div style="padding:24px 0px 0px 0px;" align="center">
+          <span class="emi-title">EMI options available with</span>
+          <h4 class="modal-title"  style="text-align:center;">
+            <!--<span class="tatacss">TATA</span> <span class="capitalcss">CAPITAL</span>-->
+            <img src="tatacapital3.png" width="150" >
+          </h4>
+          <a href="javascript:void(0);" class="btn capitalcss"  data-toggle="modal" data-target="#myModal">
+            <button type="button"   class="btn btn-blue"  >
+              Apply
+            </button></a>
+        </div>
+      </div>
+    </div>
+    <!-- EMI row  end -->
+    <!-- Sign up row-->
+      <div class="row" ng-if="!data.isLoggedIn">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" >
+	<img class="encircle-logo" src="encircle.png" width="150px">
+  </div>
+            
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" >
+        <div style="padding-top: 1rem;">
+          Titan Encircle members earn reward points with every purchase <a ng-href="?id=titan_encircle_registration_form" href="?id=titan_encircle_registration_form"> Sign Up  </a><br/>
+					Already a member? <a ng-href="?id=titan_login" href="?id=titan_login"> Log In </a> 
+			
+        </div>
+			
+       
+  </div>
+          </div>
+    <!-- Sign up row end-->
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <div class="payemt-title bottomline">
+          PAYMENT
+
+        </div>
+        <div class="payemt-title-note">
+          All transactions are secure and encrypted
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="padding: 6px 12px;">
+            <div class="creditcart">
+              <input type="radio" checked="true">
+
+              <span class="credittext">Credit card</span>
+            </div>
+            <div>
+              <img role="presentation" src="VisaMaster.png" width="250" height="55">
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row payemtpadding">
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div>
+                  <span><input type="text" class="form-control" placeholder="Card number"></span>
+                  <span class="payement-box-svg">
+                    <svg class="bi bi-lock-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                      <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 117 0v3h-1V4a2.5 2.5 0 00-5 0v3h-1V4z" clip-rule="evenodd"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row payemtpadding">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span><input type="text" class="form-control" placeholder="Name on card"></span>
+              </div>              
+            </div>
+
+            <div class="row payemtpadding">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span><input type="text" class="form-control" placeholder="Expiry date (MM / YY)"></span>
+              </div>              
+            </div>
+
+            <div class="row payemtpadding">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div >
+                  <span><input type="text" class="form-control" placeholder="Security code"></span>
+                  <span class="payement-box-svg">
+                    <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" clip-rule="evenodd"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remebder me start -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <span class="rememberme">Remember me</span>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <div class="panel panel-default">
+          <div class="panel-body" style="padding: 6px 16px;">
+            <div class="checkbox">
+              <label><input type="checkbox">Save my information for faster checkout</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <div class="center-align">
+          <button type="button" data-ng-disabled="c.productQuantity <= 0" disabled="disabled" class="btn completeorder" ng-click="c.insertTransaction();">Complete order</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- Remebder me end -->
+
+  </div>
+</div>
+<!------- Checkout page end ----->
+
+  <!-- MODAL START -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+            <img src="tatacapital3.png" width="150" />
+            <!--<span class="tatacss">TATA</span> 
+<span class="capitalcss">CAPITAL</span>-->
+          </h4>
+        </div>
+        <div class="modal-body">
+
+          <!-- 1st Phase of Body Start --->
+          <div ng-if="!c.showModalPhase">
+            <!-- Mobile -->
+            <div class="row non-lg-padding-top">
+              <div class="form-group">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <label for="Mobile" class="phase1text">Mobile</label>
+                  <input type="text" ng-model="mobileno" class="form-control inputstyle" id="Mobile" placeholder="Mobile No" >
+                </div>   
+                <!-- OPT -->
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <label for="OTP" class="phase1text">OTP</label>
+                  <input type="text" ng-model="otp" class="form-control inputstyle" id="OTP" placeholder="OTP" >
+                </div>   
+              </div>
+            </div>
+
+            <!-- PAN -->
+            <div class="row non-lg-padding-top">
+              <div class="form-group">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <label for="PAN" class="phase1text">PAN Number</label>
+                  <input type="text" ng-model="firstName" class="form-control inputstyle" id="PAN" placeholder="PAN Number" >
+                </div>
+                
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <label for="PAN" class="phase1text">MONTHS</label>
+                  <select class="form-control non-lg-month" id="Month" ng-model="c.emimonth">
+                    <option ng-repeat="emimonth in monthList" value="{{emimonth}}">{{emimonth}}</option>
+                  </select>
+                </div>  
+                
+              </div>
+            </div>
+          </div>
+          <!-- 1st Phase of Body End --->
+
+          <!-- 2nd Phase Start -->
+          <div ng-if="c.showModalPhase">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="center-align phase2text">
+                  Details verified
+                </div>
+              </div>  
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="center-align phase2text">
+                  Loan Approved EMI@Rs.{{c.emiAmount}}/month for {{c.emimonth}} months
+                </div>
+              </div>  
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="center-align phase2text">
+                  email sent to {{c.data.userEmailId}}
+                </div>
+              </div>  
+            </div>
+          </div>
+          <!-- 2nd Phase end -->
+        </div>
+
+        <div class="modal-footer">
+          <a href="javascript:void(0);" ng-if="!c.showModalPhase" class="btn btn-info" ng-click="c.goToPhase2();" style="background-color: #1878e5;">SUBMIT</a>
+          <a href="javascript:void(0);" ng-if="c.showModalPhase" class="btn btn-info" data-dismiss="modal" style="background-color: #1878e5;">Done</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL END --->
+
+
+
+
+<!------Loading indicators------->
+<div ng-if="c.showTitanLoader">
+  <div class="titan-loader-overlay" >
+    <div class="titan-loader">
+    </div>
+  </div>  
+</div>
+
+<!------Loading indicators------->
+]]></template>
+    </sp_widget>
+</record_update>

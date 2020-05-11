@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $http) {
+	/* widget controller */
+	var c = this;
+	console.log(this.data.userPoints);
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.center {&#13;
+  display: block;&#13;
+  margin-left: auto;&#13;
+  margin-right: auto;&#13;
+  width: 60%;&#13;
+}&#13;
+&#13;
+.bluediv{&#13;
+	background-color:#2986B7;&#13;
+  color:#FAF7F5;&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>trendingideas</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>TrendingIdeas</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	var titanUtils = new TitanUtils();
+		data.userPhoto=titanUtils.getUserPhoto(gs.getUserID());
+		var gUser = gs.getUser();
+		data.salutation = "Hi "+gUser.getFirstName() + "!";
+		//console.log(data.userPhoto);
+		data.userPoints = titanUtils.getUserPoints(gs.getUserID());
+		data.userPhotoUrl=data.userPhoto+".iix?type=large";
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 12:19:45</sys_created_on>
+        <sys_id>c52d20bbdbd01c10730a7b38689619e9</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>TrendingIdeas</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_c52d20bbdbd01c10730a7b38689619e9</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 12:37:52</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid" class="bluediv">
+       <div class="row" style="display: inline;text-align: center;">
+      	  <div class="col-xs-8">  Ideas Submitted </div>
+          <div class="col-xs-4"> 20,456 </div>
+  		</div>
+   		<div class="row" style="display: inline;text-align: center;">
+      	  <div class="col-xs-8">  Ideas Accepted </div>
+          <div class="col-xs-4"> 547 </div>
+  		</div>
+   		<div class="row" style="display: inline;text-align: center;">
+      	  <div class="col-xs-8">  Your Idea </div>
+          <div class="col-xs-4"> Accepted </div>
+  		</div>
+  		<div class="row" style="display: inline;text-align: center;">
+      	  <div class="col-xs-8">  Your Idea Rank</div>
+          <div class="col-xs-4"> 7th </div>
+  		</div>
+ </div>
+ 
+  
+    ]]></template>
+    </sp_widget>
+</record_update>

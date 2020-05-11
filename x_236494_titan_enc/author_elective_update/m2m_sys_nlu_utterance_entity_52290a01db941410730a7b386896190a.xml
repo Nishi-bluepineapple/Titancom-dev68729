@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"indexes":[0],"annotatedString":"{{phrase=\"Eyeglasses\"}}","cat":"Eyeglasses"}]</annotation>
+        <entity display_value="Encircle Brands">9c6dc6f0dbd8d010730a7b38689619c9</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 05:58:29</sys_created_on>
+        <sys_id>52290a01db941410730a7b386896190a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Encircle Brands.Eyeglasses</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_52290a01db941410730a7b386896190a</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 05:58:29</sys_updated_on>
+        <utterance display_value="Eyeglasses">c529c601db941410730a7b3868961904</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_52290a01db941410730a7b386896190a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"indexes":[0],"annotatedString":"{{phrase=\"Eyeglasses\"}}","cat":"Eyeglasses"}]</annotation><entity display_value="Encircle Brands">9c6dc6f0dbd8d010730a7b38689619c9</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-19 05:58:29</sys_created_on><sys_id>52290a01db941410730a7b386896190a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Encircle Brands.Eyeglasses</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_52290a01db941410730a7b386896190a</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-19 05:58:29</sys_updated_on><utterance display_value="Eyeglasses">c529c601db941410730a7b3868961904</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>791373595</payload_hash>
+        <record_name>Encircle Brands.Eyeglasses</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 05:58:29</sys_created_on>
+        <sys_id>5e290a01db941410730a7b386896190b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17191044ab00000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 05:58:29</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>96290a01519414105269569dde242a0b</update_guid>
+        <update_guid_history>96290a01519414105269569dde242a0b:791373595</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Encircle Brands.Eyeglasses">e21b8281db941410730a7b38689619af</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 06:06:58</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>303e248f403445c4ad0980ef3725b604</sys_id>
+        <sys_metadata>52290a01db941410730a7b386896190a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Encircle Brands.Eyeglasses</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_52290a01db941410730a7b386896190a</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_52290a01db941410730a7b386896190a">5e290a01db941410730a7b386896190b</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 06:06:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

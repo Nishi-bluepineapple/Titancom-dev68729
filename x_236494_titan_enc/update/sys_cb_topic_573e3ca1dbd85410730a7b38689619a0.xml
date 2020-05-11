@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <category display_value="Setup Topics">5628e7f27373230025d032e954f6a7de</category>
+        <connect_queue/>
+        <description>Titan Encircle assistance with knowledge base search and create case</description>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "13fc657565b5481d8637c85293725d6a": {
+      "id": "13fc657565b5481d8637c85293725d6a",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "a719988c560f4c77a6f2cc8bcc894db7": {
+          "id": "a719988c560f4c77a6f2cc8bcc894db7",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "854c10f5e1754d428a4a062df3049198": {
+          "id": "854c10f5e1754d428a4a062df3049198",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "28cb85b43c4a401ea7a146dce0bbff8e": {
+          "id": "28cb85b43c4a401ea7a146dce0bbff8e",
+          "stepType": "Prompt",
+          "name": "Greeting",
+          "prompt": {
+            "value": "Hello! I am your the Encircle assistant. How can I help you today?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": true,
+          "skipIfFulfilled": false,
+          "entity": {
+            "id": "Encircle Brands",
+            "label": "Encircle Brands"
+          },
+          "variableId": "136ada8b975f40c4a7df4b5d69f09d9a"
+        },
+        "07af85edc3b5470cb599ea6124c7f41a": {
+          "id": "07af85edc3b5470cb599ea6124c7f41a",
+          "name": "Contextual Search",
+          "script": "(function execute() {\n    /* Uses the searh term inputed by user and calls the Contextual Search using the search context created\n       to return a max of 20 results and stores them JSON string.\n    */\n    gs.info('______ '+vaVars.search_keywords);\n    var search_term = vaInputs.greeting;\n    //Navigate to Contextual Search &gt; Search Contexts &gt; breadcrumb icon and copy sys_id\n    //paste in search_context_sys_id.\n    var context = vaVars.search_context_sys_id;\n    //var contextualSearch = new sn_itsm_va.VAContextualSearchUtil();\n    var contextualSearch = new global.VAGlobalContextualSearchUtil();\n    var response = contextualSearch.search(context, search_term);\n    var success = contextualSearch.processSearchResponse(response);\n    if (!success) {\n        return;\n    }   \n    var relevantSearchResults = contextualSearch.processGeneralResults(response, 20, -2);\n    vaVars.kbResultCount = relevantSearchResults.length;\n    vaVars.search_kb_json_string = JSON.stringify(relevantSearchResults);\n    vaVars.index = 0;\n    return;\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "8e948da1bc4c492dac79214b2e6621af": {
+          "id": "8e948da1bc4c492dac79214b2e6621af",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "4ee8fa51bb274a16bacc13b9360cdb49": {
+          "id": "4ee8fa51bb274a16bacc13b9360cdb49",
+          "stepType": "TextOutput",
+          "name": "Found Result Message",
+          "value": {
+            "value": "Here are the results I found in our Knowledge Base that might help you.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6cb6ce3cda624a709f711fd2d1e27fce": {
+          "id": "6cb6ce3cda624a709f711fd2d1e27fce",
+          "stepType": "LinkOutput",
+          "name": "Display KB(s)",
+          "url": {
+            "mode": "simple",
+            "value": ""
+          },
+          "label": {
+            "mode": "simple",
+            "value": ""
+          },
+          "header": {
+            "mode": "simple",
+            "value": ""
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "multiple",
+          "introMsg": {
+            "value": "(function execute() {\n    return '';\n})()\n",
+            "mode": "script"
+          },
+          "listOfLinks": "(function execute(header) {\n\tvar groupedLinksOutMsg = new sn_cs.GroupedPartsOutMsg();\n\tgroupedLinksOutMsg.setHeader(header);\n\tvar limit = parseInt(vaVars.limit);\n\tvar searchJsonObj = JSON.parse(vaVars.search_kb_json_string);\n\tvar index = parseInt(vaVars.index);\n\n\tvar linkBuilder = new global.cxs_SearchResultLinkBuilder();\n\tfor (var i = index; i &lt; index + limit &amp;&amp; i &lt; searchJsonObj.length; i++) {\n\t\tvar link = linkBuilder.build(searchJsonObj[i], vaInputs.portal);\n\t\t//groupedLinksOutMsg.addLinkPart(link.label, link.link, link.description, link.context_label);\n\t    if(link.label != undefined &amp;&amp; link.link != undefined &amp;&amp; link.description != undefined &amp;&amp; link.context_label != undefined){\n            groupedLinksOutMsg.addLinkPart(link.label, link.link, link.description, link.context_label);\n\t\t}\n\t}\n\treturn groupedLinksOutMsg;\n})(header)\n"
+        },
+        "fdf44a5792c64e529c849f4d5c5274f3": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "KB Selection",
+          "prompt": {
+            "value": "(function execute() {\n    if (vaVars.kbResultCount &gt; 0)\n        return gs.getMessage('Was this helpful?');\n\n    return gs.getMessage(\"Sorry, I couldn't find anything on that topic. What would you like to do?\");\n})()\n",
+            "mode": "script"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "c401ebfeb9bc44519c8f67d5026a3b9f",
+          "id": "fdf44a5792c64e529c849f4d5c5274f3",
+          "mode": "external",
+          "script": "(function execute() {\n    /*\n    Pagination buttons for suggested KB articles.\n    */\n    var options = [];\n    var limit = parseInt(vaVars.limit);\n    var index = parseInt(vaVars.index);\n    \n    if (index &gt;= limit) {\n        options.push({ 'value': 'show_prev', 'label': gs.getMessage('Show previous')});    \n    }\n\n    if (index+limit &lt; vaVars.kbResultCount) {\n        options.push({ 'value': 'show_next', 'label': gs.getMessage('Show more')});    \n    }\n    //options.push({ 'value': 'usefull_yes', 'label': gs.getMessage('Yes, this was useful')});    \n    options.push({ 'value': 'new_search', 'label': gs.getMessage('Search for more articles')});\n    //options.push({ 'value': 'cancel', 'label': gs.getMessage('I\\'m done')});\n    options.push({ 'value': 'need_support', 'label': gs.getMessage('I need support')});    \n    return options;\n})()\n",
+          "noRecordsResponseMsg": {
+            "value": "No Records Found",
+            "mode": "simple"
+          },
+          "condition": {
+            "value": "(function execute() {\n    /*\n    Pagination buttons for suggested KB articles.\n    */\n    var options = [];\n    var limit = parseInt(vaVars.limit);\n    var index = parseInt(vaVars.index);\n    \n    if (index &gt;= limit) {\n        options.push({ 'value': 'show_prev', 'label': gs.getMessage('Show previous')});    \n    }\n\n    if (index+limit &lt; vaVars.kbResultCount) {\n        options.push({ 'value': 'show_next', 'label': gs.getMessage('Show more')});    \n    }\n    //options.push({ 'value': 'usefull_yes', 'label': gs.getMessage('Yes, this was useful')});    \n    options.push({ 'value': 'new_search', 'label': gs.getMessage('Search for more articles')});\n    //options.push({ 'value': 'cancel', 'label': gs.getMessage('I\\'m done')});\n    options.push({ 'value': 'need_support', 'label': gs.getMessage('I need support')});    \n    return options;\n})()\n",
+            "mode": "external_script"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
+        },
+        "40a27476556444a49e30d3fd28601d49": {
+          "id": "40a27476556444a49e30d3fd28601d49",
+          "stepType": "Decision",
+          "name": "Knowledge Choice Decision"
+        },
+        "62e003fc887244bba3a564462d589eb8": {
+          "id": "62e003fc887244bba3a564462d589eb8",
+          "name": "Previous",
+          "script": "(function execute() {\n    vaVars.index = parseInt(vaVars.index) - parseInt(vaVars.limit);\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "16f466459c2f42e7a4d531c1456a14d4": {
+          "id": "16f466459c2f42e7a4d531c1456a14d4",
+          "name": "Next",
+          "script": "(function execute() {\n    vaVars.index = parseInt(vaVars.index) + parseInt(vaVars.limit);\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6261d1d6891747d4aade984ce6e47f26": {
+          "stepType": "ChoicePrompt",
+          "name": "Support Options",
+          "prompt": {
+            "value": "Please selection your action",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "1e70ea15fee2442586f0a4ee006f192c",
+          "id": "6261d1d6891747d4aade984ce6e47f26",
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
+        },
+        "cb8d4916e6e7446d9caecfa02592fdd1": {
+          "id": "cb8d4916e6e7446d9caecfa02592fdd1",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "3c602dd4de424449af12fffe04001574": {
+          "id": "3c602dd4de424449af12fffe04001574",
+          "name": "Connect to Agent",
+          "script": "(function execute() {\n    if(vaSystem.isLiveAgentAvailable()) { \n        vaSystem.connectToAgent();\n    }\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "f169386e634a41d98356489b272e10c6": {
+          "id": "f169386e634a41d98356489b272e10c6",
+          "stepType": "ReusableTopic",
+          "name": "Titan Create Case Clone",
+          "fields": [],
+          "reusableTopicChoice": "Titan Create Case Clone",
+          "reusableTopicId": "76ba5c2cdb989010730a7b3868961914",
+          "inputs": {},
+          "variableIds": [],
+          "outputs": []
+        },
+        "7b06d1b3f5ef4de08b03ea1fd4077d51": {
+          "id": "7b06d1b3f5ef4de08b03ea1fd4077d51",
+          "stepType": "TextOutput",
+          "name": "Repeat",
+          "value": {
+            "value": "(function execute() {\n    /* Return a quoted string.  For example:\n\n       var result;\n       if (vaInputs.first_name == 'Bill') {\n           return gs.getMessage('hi there {0}', [vaInputs.first_name]);\n       } else {\n           return gs.getMessage('how are you {0}', [vaInputs.last_name]);\n       }\n    */\n    var input = vaInputs.greeting;\n    if(input != undefined) {\n        vaVars.search_keywords = input;\n    } else {\n        vaVars.search_keywords = vaInputs.more_search;\n    }\n})()\n",
+            "mode": "script"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1a9a6db34f374b91982d23f3d1129dce": {
+          "id": "1a9a6db34f374b91982d23f3d1129dce",
+          "stepType": "Prompt",
+          "name": "More Search",
+          "prompt": {
+            "value": "Enter a phrase to search ",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": "",
+          "variableId": "d6eb1262bc8d4e55b07cfe04fcf8adeb"
+        }
+      },
+      "edges": [
+        {
+          "id": "967ad8baa30d4073923342c1b42743cf",
+          "edgeType": "Edge",
+          "source": "a719988c560f4c77a6f2cc8bcc894db7",
+          "target": "28cb85b43c4a401ea7a146dce0bbff8e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "372e6f2790074fc8a327c7138bfd34af",
+          "edgeType": "Edge",
+          "source": "07af85edc3b5470cb599ea6124c7f41a",
+          "target": "8e948da1bc4c492dac79214b2e6621af",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0648c27898a247999ae29c8b35386463",
+          "edgeType": "Branch",
+          "source": "8e948da1bc4c492dac79214b2e6621af",
+          "target": "fdf44a5792c64e529c849f4d5c5274f3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return !(vaVars.kbResultCount &gt; 0);\n})()\n"
+          },
+          "label": "No KBs"
+        },
+        {
+          "id": "2f657afa80b8410f9b37183f5cdfc107",
+          "edgeType": "Branch",
+          "source": "8e948da1bc4c492dac79214b2e6621af",
+          "target": "4ee8fa51bb274a16bacc13b9360cdb49",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaVars.kbResultCount &gt; 0;\n})()\n"
+          },
+          "label": "Found KB(s)"
+        },
+        {
+          "id": "fee00fc86cf344b789236e2ff239d8d3",
+          "edgeType": "Edge",
+          "source": "4ee8fa51bb274a16bacc13b9360cdb49",
+          "target": "6cb6ce3cda624a709f711fd2d1e27fce",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "db394265b9d4454eac6f6beda33ac4b4",
+          "edgeType": "Edge",
+          "source": "6cb6ce3cda624a709f711fd2d1e27fce",
+          "target": "fdf44a5792c64e529c849f4d5c5274f3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "266d53226848492c97e25d88e9bfa6b5",
+          "edgeType": "Edge",
+          "source": "fdf44a5792c64e529c849f4d5c5274f3",
+          "target": "40a27476556444a49e30d3fd28601d49",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d8f8e9cc12df4c059de36732361ef1b7",
+          "edgeType": "Branch",
+          "source": "40a27476556444a49e30d3fd28601d49",
+          "target": "854c10f5e1754d428a4a062df3049198",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'cancel';\n})()\n"
+          },
+          "label": "Cancel"
+        },
+        {
+          "id": "9536cb75244d484793ec623be69c39a8",
+          "edgeType": "Branch",
+          "source": "40a27476556444a49e30d3fd28601d49",
+          "target": "62e003fc887244bba3a564462d589eb8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'show_prev';\n})()\n"
+          },
+          "label": "Show Previous"
+        },
+        {
+          "id": "e1256abe01b84ca0b0fedd038c4e031c",
+          "edgeType": "Edge",
+          "source": "62e003fc887244bba3a564462d589eb8",
+          "target": "6cb6ce3cda624a709f711fd2d1e27fce",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2423e83ee61b4c288816a3510ea6a0ec",
+          "edgeType": "Branch",
+          "source": "40a27476556444a49e30d3fd28601d49",
+          "target": "16f466459c2f42e7a4d531c1456a14d4",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'show_next';\n})()\n"
+          },
+          "label": "Show Next"
+        },
+        {
+          "id": "9b3edcfa4d2147d699b868d5ffd6a1f2",
+          "edgeType": "Edge",
+          "source": "16f466459c2f42e7a4d531c1456a14d4",
+          "target": "6cb6ce3cda624a709f711fd2d1e27fce",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "58e5abfac27b4de6a08fd2ce910fc50c",
+          "edgeType": "Branch",
+          "source": "40a27476556444a49e30d3fd28601d49",
+          "target": "6261d1d6891747d4aade984ce6e47f26",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'need_support';\n})()\n"
+          },
+          "label": "Need Support"
+        },
+        {
+          "id": "ffc479342fe94eb8b08bcb5c4928ef86",
+          "edgeType": "Edge",
+          "source": "6261d1d6891747d4aade984ce6e47f26",
+          "target": "cb8d4916e6e7446d9caecfa02592fdd1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "23c31830ce844684b6d8c6652b9d868e",
+          "edgeType": "Branch",
+          "source": "cb8d4916e6e7446d9caecfa02592fdd1",
+          "target": "3c602dd4de424449af12fffe04001574",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "support_options=Speak to a live agent",
+            "mode": "query"
+          },
+          "label": "Speak to a live agent"
+        },
+        {
+          "id": "7987c24764194b8aae158350d4626928",
+          "edgeType": "Edge",
+          "source": "3c602dd4de424449af12fffe04001574",
+          "target": "854c10f5e1754d428a4a062df3049198",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3295dd0c9f0d433ea5c28c51e0217812",
+          "edgeType": "Branch",
+          "source": "cb8d4916e6e7446d9caecfa02592fdd1",
+          "target": "f169386e634a41d98356489b272e10c6",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "support_options=Raise a support case",
+            "mode": "query"
+          },
+          "label": "Raise a support case"
+        },
+        {
+          "id": "ea04a8521b8b45fe8514013a79f70056",
+          "edgeType": "Edge",
+          "source": "f169386e634a41d98356489b272e10c6",
+          "target": "854c10f5e1754d428a4a062df3049198",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "61e64960cd3e4fb4ae38b5c2660c276d",
+          "edgeType": "Edge",
+          "source": "28cb85b43c4a401ea7a146dce0bbff8e",
+          "target": "7b06d1b3f5ef4de08b03ea1fd4077d51",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1bdaf46a40954ac3aedbb1e54323188d",
+          "edgeType": "Edge",
+          "source": "7b06d1b3f5ef4de08b03ea1fd4077d51",
+          "target": "07af85edc3b5470cb599ea6124c7f41a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c1efd5e985474f57b071ce7ca208295e",
+          "edgeType": "Branch",
+          "source": "40a27476556444a49e30d3fd28601d49",
+          "target": "1a9a6db34f374b91982d23f3d1129dce",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.kb_selection == 'new_search';\n})()\n"
+          },
+          "label": "New Search"
+        },
+        {
+          "id": "7245a857790047a8a40cc6b9a1cbd136",
+          "edgeType": "Edge",
+          "source": "1a9a6db34f374b91982d23f3d1129dce",
+          "target": "7b06d1b3f5ef4de08b03ea1fd4077d51",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "de2283db18e6496ab8920aaf708bb65b": {
+      "id": "de2283db18e6496ab8920aaf708bb65b",
+      "name": "created_incident_sys_id",
+      "label": "Created_incident_sys_id",
+      "defaultValue": "created_incident_sys_id",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "1ab6f4d1cf7d49ffb0fb5ff7c11f122c": {
+      "category": "vaInputs",
+      "id": "1ab6f4d1cf7d49ffb0fb5ff7c11f122c",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "136ada8b975f40c4a7df4b5d69f09d9a": {
+      "id": "136ada8b975f40c4a7df4b5d69f09d9a",
+      "name": "greeting",
+      "label": "Greeting",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "c401ebfeb9bc44519c8f67d5026a3b9f": {
+      "id": "c401ebfeb9bc44519c8f67d5026a3b9f",
+      "name": "kb_selection",
+      "label": "KB Selection",
+      "varType": "reference",
+      "table": "",
+      "category": "vaInputs"
+    },
+    "3b0058419d5543ce85e751de7bbbd862": {
+      "id": "3b0058419d5543ce85e751de7bbbd862",
+      "value": {
+        "mode": "simple",
+        "value": "5e973112f8455300964f8ada0264c0a5"
+      },
+      "name": "search_context_sys_id",
+      "label": "search_context_sys_id",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "e6feae920b844371bbe19d56cb26757a": {
+      "id": "e6feae920b844371bbe19d56cb26757a",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "search_kb_json_string",
+      "label": "search_kb_json_string",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "691be90ac1c0491ab0e2067b80b68668": {
+      "id": "691be90ac1c0491ab0e2067b80b68668",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "index",
+      "label": "index",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "bded7a7999084d5da3c4df8652a73608": {
+      "id": "bded7a7999084d5da3c4df8652a73608",
+      "value": {
+        "mode": "simple",
+        "value": "3"
+      },
+      "name": "limit",
+      "label": "limit",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "97eaa7e543ce4d19b961ea00ae5c07c6": {
+      "id": "97eaa7e543ce4d19b961ea00ae5c07c6",
+      "value": {
+        "mode": "simple",
+        "value": "0"
+      },
+      "name": "kbResultCount",
+      "label": "kbResultCount",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "1e70ea15fee2442586f0a4ee006f192c": {
+      "id": "1e70ea15fee2442586f0a4ee006f192c",
+      "name": "support_options",
+      "label": "Support Options",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Raise a support case",
+          "value": "Raise a support case"
+        },
+        {
+          "label": "Speak to a live agent",
+          "value": "Speak to a live agent",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs"
+    },
+    "110642625585445082f5fafb286a3e77": {
+      "id": "110642625585445082f5fafb286a3e77",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "name": "search_keywords",
+      "label": "search_keywords",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "d6eb1262bc8d4e55b07cfe04fcf8adeb": {
+      "id": "d6eb1262bc8d4e55b07cfe04fcf8adeb",
+      "name": "more_search",
+      "label": "More Search",
+      "varType": "string",
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Email Setup,email,mail,mailbox,access,setup,setup email,email on my phone,email on my computer,setup outlook,set up my web mail,configure email</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>TE Support Demo1</name>
+        <nlu_intent>Knowledge Search</nlu_intent>
+        <nlu_intent_label>Knowledge Search</nlu_intent_label>
+        <nlu_model>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</nlu_model>
+        <nlu_model_label>Titan Encircle NLU for VA</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 13:48:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>573e3ca1dbd85410730a7b38689619a0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>TE Support Demo1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_573e3ca1dbd85410730a7b38689619a0</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 14:03:07</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=573e3ca1dbd85410730a7b38689619a0"/>
+</record_update>

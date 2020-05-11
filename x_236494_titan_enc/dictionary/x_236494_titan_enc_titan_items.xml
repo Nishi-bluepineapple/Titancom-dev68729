@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" extends="sc_cat_item" label="Titan Items" max_length="40" name="x_236494_titan_enc_titan_items" sizeclass="28" type="collection">
+        <element label="CSMDemoBrand" max_length="128" name="csmdemobrand" type="string"/>
+        <element label="CSMDemoCategory" max_length="256" name="csmdemocategory" type="string"/>
+        <element label="CSMDemoDiscountPercent" max_length="40" name="csmdemodiscountpercent" type="integer"/>
+        <element label="CSMDemoInStock" max_length="40" name="csmdemoinstock" type="boolean"/>
+        <element label="CSMDemoItemPosition" max_length="40" name="csmdemoitemposition" type="integer"/>
+        <element label="CSMDemoMRP" max_length="40" name="csmdemomrp" type="integer"/>
+        <element label="CSMDemoNewArrival" max_length="40" name="csmdemonewarrival" type="boolean"/>
+        <element label="CSMDemoNoCostEMI" max_length="40" name="csmdemonocostemi" type="boolean"/>
+        <element label="CSMDemoOfferPrice" max_length="40" name="csmdemoofferprice" type="integer"/>
+        <element label="CSMDemoProductCode" max_length="128" name="csmdemoproductcode" type="string"/>
+        <element label="CSMDemoProductDetailedName" max_length="512" name="csmdemoproductdetailedname" type="string"/>
+        <element label="CSMDemoProductImage" max_length="40" name="csmdemoproductimage" type="user_image"/>
+        <element label="CSMDemoProductName" max_length="512" name="csmdemoproductname" type="string"/>
+        <element label="CSMDemoShortDescription" max_length="2048" name="csmdemoshortdescription" type="string"/>
+        <element label="CSMDemoSpecialFeature" max_length="128" name="csmdemospecialfeature" type="string"/>
+        <element label="CSMDemoSubCategory" max_length="256" name="csmdemosubcategory" type="string"/>
+        <element label="Offer" max_length="40" name="offer" type="boolean"/>
+        <element label="Points" max_length="40" name="points" type="integer"/>
+        <element display="true" label="Rating" max_length="20" name="rating" type="decimal"/>
+    </element>
+</database>

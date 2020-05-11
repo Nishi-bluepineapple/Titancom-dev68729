@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_page_property">
+    <sys_ux_page_property action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Include/exclude workspace notification</description>
+        <name>ws_active_notification</name>
+        <page display_value="Titan Encircle">4665bb98db109010730a7b386896191b</page>
+        <suffix/>
+        <sys_class_name>sys_ux_page_property</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-17 05:56:00</sys_created_on>
+        <sys_id>5265bb98db109010730a7b386896191e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ws_active_notification</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_page_property_5265bb98db109010730a7b386896191e</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-17 05:56:00</sys_updated_on>
+        <type>boolean</type>
+        <unique_name>x_236494_titan_enc.ws_active_notification</unique_name>
+        <value>true</value>
+    </sys_ux_page_property>
+    <sys_translated_text action="delete_multiple" query="documentkey=5265bb98db109010730a7b386896191e"/>
+</record_update>

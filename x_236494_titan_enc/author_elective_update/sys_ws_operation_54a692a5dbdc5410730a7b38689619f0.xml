@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri>/api/x_236494_titan_enc/leaderboard/table/{tableName}</default_operation_uri>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Actions</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+	
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_236494_titan_enc/v1/leaderboard/table/{tableName}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/table/{tableName}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-20 20:34:29</sys_created_on>
+        <sys_id>54a692a5dbdc5410730a7b38689619f0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Actions</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ws_operation_54a692a5dbdc5410730a7b38689619f0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-20 21:08:05</sys_updated_on>
+        <web_service_definition display_value="leaderboard">11f3d2a5dbdc5410730a7b386896197e</web_service_definition>
+        <web_service_version display_value="v1">98661ee5dbdc5410730a7b3868961982</web_service_version>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_ws_operation_54a692a5dbdc5410730a7b38689619f0</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri&gt;/api/x_236494_titan_enc/leaderboard/table/{tableName}&lt;/default_operation_uri&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;GET&lt;/http_method&gt;&lt;name&gt;Actions&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+	
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/x_236494_titan_enc/v1/leaderboard/table/{tableName}&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/table/{tableName}&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 20:34:29&lt;/sys_created_on&gt;&lt;sys_id&gt;54a692a5dbdc5410730a7b38689619f0&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Actions&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_54a692a5dbdc5410730a7b38689619f0&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 21:08:05&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="leaderboard"&gt;11f3d2a5dbdc5410730a7b386896197e&lt;/web_service_definition&gt;&lt;web_service_version display_value="v1"&gt;98661ee5dbdc5410730a7b3868961982&lt;/web_service_version&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>42154490</payload_hash>
+        <record_name>Actions</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-20 21:08:05</sys_created_on>
+        <sys_id>54f26221db109410730a7b386896197f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171996b6a920000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-20 21:08:05</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>dcf262217d109410fcfde301c9192a7e</update_guid>
+        <update_guid_history>dcf262217d109410fcfde301c9192a7e:42154490,79d12221a3109410977b7f2e49ce723b:1448365314,bf4b1a6930dc5410177f8d1afe98f89b:1716314153,844b16a954dc54103040d52a5a775e1e:-1674558703</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 02:19:31</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>d1f8ef8ba49145fab773ae7707342524</sys_id>
+        <sys_metadata>54a692a5dbdc5410730a7b38689619f0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Actions</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_54a692a5dbdc5410730a7b38689619f0</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_54a692a5dbdc5410730a7b38689619f0">54f26221db109410730a7b386896197f</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-21 02:19:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

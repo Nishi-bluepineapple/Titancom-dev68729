@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="kb_uc_can_read_mtom">
+    <kb_uc_can_read_mtom action="DELETE">
+        <kb_knowledge_base display_value="Customer Service">05ff44289f011200550bf7b6077fcfa3</kb_knowledge_base>
+        <sys_class_name>kb_uc_can_read_mtom</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 14:05:09</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f02285e5dbd85410730a7b3868961954</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Service.SNC External</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>kb_uc_can_read_mtom_f02285e5dbd85410730a7b3868961954</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 14:05:09</sys_updated_on>
+        <user_criteria display_value="SNC External">66c1b50e730333009508738234f6a7c9</user_criteria>
+    </kb_uc_can_read_mtom>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>kb_uc_can_read_mtom_f02285e5dbd85410730a7b3868961954</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="kb_uc_can_read_mtom"><kb_uc_can_read_mtom action="INSERT_OR_UPDATE"><kb_knowledge_base display_value="Customer Service">05ff44289f011200550bf7b6077fcfa3</kb_knowledge_base><sys_class_name>kb_uc_can_read_mtom</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-04-20 14:05:09</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>f02285e5dbd85410730a7b3868961954</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Customer Service.SNC External</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>kb_uc_can_read_mtom_f02285e5dbd85410730a7b3868961954</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-04-20 14:05:09</sys_updated_on><user_criteria display_value="SNC External">66c1b50e730333009508738234f6a7c9</user_criteria></kb_uc_can_read_mtom></record_update>]]></payload>
+        <payload_hash>786328607</payload_hash>
+        <record_name>Customer Service.SNC External</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 14:05:09</sys_created_on>
+        <sys_id>bc2285e5dbd85410730a7b3868961956</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17197e832f10000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 14:05:09</sys_updated_on>
+        <type>Who Can Read Knowledge Base</type>
+        <update_guid>f42285e5fed85410318d9c3cb4d95856</update_guid>
+        <update_guid_history>f42285e5fed85410318d9c3cb4d95856:786328607</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Customer Service.SNC External">8643c529dbd85410730a7b38689619eb</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 14:10:09</sys_created_on>
+        <sys_db_object display_value="" name="kb_uc_can_read_mtom">kb_uc_can_read_mtom</sys_db_object>
+        <sys_id>40a2c5d533b14560bef0ec0d7fa28f10</sys_id>
+        <sys_metadata>f02285e5dbd85410730a7b3868961954</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Service.SNC External</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>kb_uc_can_read_mtom_f02285e5dbd85410730a7b3868961954</sys_update_name>
+        <sys_update_version display_value="kb_uc_can_read_mtom_f02285e5dbd85410730a7b3868961954">bc2285e5dbd85410730a7b3868961956</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 14:10:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

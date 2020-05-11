@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_page_element">
+    <sys_ux_custom_content_root_elem action="DELETE">
+        <active>false</active>
+        <applicability>single</applicability>
+        <applicable_page display_value="Titan Encircle">4665bb98db109010730a7b386896191b</applicable_page>
+        <attrs/>
+        <children/>
+        <component/>
+        <is_root>true</is_root>
+        <layout/>
+        <macroponent/>
+        <macroponent_config>{ }</macroponent_config>
+        <name>aama</name>
+        <order>0</order>
+        <page display_value="Workspace Core">b70867ad0f603300bb57f4a1ff767e15</page>
+        <parent/>
+        <parent_slot/>
+        <picker/>
+        <picker_condition/>
+        <placeholder display_value="Landing Page Placeholder">d27533d8db109010730a7b386896199c</placeholder>
+        <sys_class_name>sys_ux_custom_content_root_elem</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-04 08:24:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>886ab7b1db6cd010730a7b3868961963</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>aama</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_custom_content_root_elem_886ab7b1db6cd010730a7b3868961963</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-04 08:24:17</sys_updated_on>
+        <tree_root/>
+    </sys_ux_custom_content_root_elem>
+    <sys_variable_value action="DELETE" query="document_key=886ab7b1db6cd010730a7b3868961963"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_ux_custom_content_root_elem_886ab7b1db6cd010730a7b3868961963</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_page_element"><sys_ux_custom_content_root_elem action="INSERT_OR_UPDATE"><active>false</active><applicability>single</applicability><applicable_page display_value="Titan Encircle">4665bb98db109010730a7b386896191b</applicable_page><attrs/><children/><component/><is_root>true</is_root><layout/><macroponent/><macroponent_config>{ }</macroponent_config><name>aama</name><order>0</order><page display_value="Workspace Core">b70867ad0f603300bb57f4a1ff767e15</page><parent/><parent_slot/><picker/><picker_condition/><placeholder display_value="Landing Page Placeholder">d27533d8db109010730a7b386896199c</placeholder><sys_class_name>sys_ux_custom_content_root_elem</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-05-04 08:24:17</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>886ab7b1db6cd010730a7b3868961963</sys_id><sys_mod_count>0</sys_mod_count><sys_name>aama</sys_name><sys_overrides/><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_ux_custom_content_root_elem_886ab7b1db6cd010730a7b3868961963</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-05-04 08:24:17</sys_updated_on><tree_root/></sys_ux_custom_content_root_elem><sys_variable_value action="delete_multiple" query="document_key=886ab7b1db6cd010730a7b3868961963"/></record_update>]]></payload>
+        <payload_hash>-146377029</payload_hash>
+        <record_name>aama</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:15:09</sys_created_on>
+        <sys_id>8b9fcd12db6c1410730a7b386896192c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171e41e18a30000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:15:09</sys_updated_on>
+        <type>UX Custom Content Extension</type>
+        <update_guid>886af7b1246cd010427828a5e1b3a920</update_guid>
+        <update_guid_history>886af7b1246cd010427828a5e1b3a920:1350058532,886af7b1246cd010427828a5e1b3a920:1350058532</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:15:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_custom_content_root_elem">sys_ux_custom_content_root_elem</sys_db_object>
+        <sys_id>2b0aa896ec8a43088194937988409484</sys_id>
+        <sys_metadata>886ab7b1db6cd010730a7b3868961963</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>aama</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_ux_custom_content_root_elem_886ab7b1db6cd010730a7b3868961963</sys_update_name>
+        <sys_update_version display_value="sys_ux_custom_content_root_elem_886ab7b1db6cd010730a7b3868961963">8b9fcd12db6c1410730a7b386896192c</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:15:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

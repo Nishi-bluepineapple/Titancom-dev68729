@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="DELETE">
+        <child display_value="Copy of Knowledge MostViewed Articles">6a729ad0dbac5c10730a7b3868961907</child>
+        <cloned>2020-04-29 08:59:27</cloned>
+        <last_validated>2020-04-29 08:59:27</last_validated>
+        <parent display_value="Knowledge MostViewed Articles">d4f0d56cdb68320099f93691f0b8f502</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  /* widget controller */
+  var c = this;
+		c.template = "kb_article_list_template";
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list&gt;title,color,glyph,css&lt;/field_list&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;kb-mostviewed-articles&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Knowledge MostViewed Articles&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Knowledge","name":"table","default_value":"kb_knowledge","label":"Table","type":"choice","choices":[{"label":"Knowledge","value":"kb_knowledge"}]},{"hint":"Display Field","name":"display_field","default_value":"short_description","label":"Display Field","type":"field_name"},{"hint":"Additional Fields to be displayed","name":"secondary_fields","label":"Secondary Fields","type":"field_list"},{"hint":"Number of records to show in widget","name":"max_records","default_value":"","label":"Max number of records to show","type":"string"},{"hint":"Show even when empty","name":"always_show","label":"Show even when empty","type":"boolean"},{"hint":"Show Secondary Fields Label","name":"show_secondary_fields_label","label":"Show Secondary Fields Label","type":"boolean"},{"displayValue":"Knowledge Base","hint":"Show result for specific knowledge base. Keep blank to show for all bases.","name":"knowledge_base","label":"Knowledge Base","type":"reference","value":"kb_knowledge_base","ed":{"reference":"kb_knowledge_base"}}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	if(input)
+		return;
+	else {
+	options.title = options.title || gs.getMessage('Most Viewed');
+	options.display_field = options.display_field || "short_description"; 
+	options.secondary_fields = options.secondary_fields ? options.secondary_fields.split(",") : getKnowledgeFieldsfromProperties();
+	options.show_secondary_fields_label = options.show_secondary_fields_label ? options.show_secondary_fields_label == 'true' : false;
+	options.max_records = options.max_records || gs.getProperty('glide.knowman.content_block_limit')|| '5';
+	options.always_show = options.always_show ? options.always_show == 'true' : true;
+	options.reverse = true;
+
+
+	var kbService = new KBPortalService();
+	options.knowledge_base =  options.knowledge_base || String(kbService.getServicePortalKnowledgeBases($sp.getPortalRecord().url_suffix)) || "";
+	var result = [];
+
+	var kbData = kbService.getMostViewedArticles(options.max_records,options.display_field,options.secondary_fields,options.knowledge_base);
+	if(kbData)
+		result= kbData;
+
+	options.result = result;
+	data.template = $sp.getWidget("kb-list-widget-template", options);
+	}
+
+
+	function getKnowledgeFieldsfromProperties(){
+
+		//Generate secondary fields based on legacy properties
+		var fields = [];
+
+		if(gs.getProperty('glide.knowman.search.show_article_number','false') == 'true'){
+			var kbMod = new global.KBViewModel();
+			if(kbMod.isVersioningEnabled()){
+				fields.push('display_number');
+			}else{
+				fields.push('number');
+			}
+		}
+		if(gs.getProperty('glide.knowman.search.show_author','false') == 'true')
+			fields.push('author');
+		if(gs.getProperty('glide.knowman.search.show_view_count','false') == 'true')
+			fields.push('sys_view_count');		
+		if(gs.getProperty('glide.knowman.search.show_last_modified','false') == 'true')
+			fields.push('sys_updated_on');
+		if(gs.getProperty('glide.knowman.search.show_published','false') == 'true')
+			fields.push('published');
+		if(gs.getProperty('glide.knowman.show_unpublished','false') == 'true')
+			fields.push('workflow_state');
+		if(gs.getProperty('glide.knowman.search.show_rating','false') == 'true')
+			fields.push('rating');
+
+		return fields;
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-01-22 21:44:42&lt;/sys_created_on&gt;&lt;sys_id&gt;d4f0d56cdb68320099f93691f0b8f502&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Knowledge MostViewed Articles&lt;/sys_name&gt;&lt;sys_package display_value="Knowledge Management - Service Portal" source="sn_km_portal"&gt;bab6dea3db20320099f93691f0b8f590&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Knowledge Management - Service Portal"&gt;bab6dea3db20320099f93691f0b8f590&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_d4f0d56cdb68320099f93691f0b8f502&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-07-02 10:19:30&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="kb-article-list"&gt;
+ &lt;sp-widget widget="::c.data.template"&gt;&lt;/sp-widget&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-29 08:59:27</sys_created_on>
+        <sys_id>22729ad0dbac5c10730a7b386896190a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6a729ad0dbac5c10730a7b3868961907</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_22729ad0dbac5c10730a7b386896190a</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-29 08:59:27</sys_updated_on>
+    </sp_rel_widget_clone>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_rel_widget_clone_22729ad0dbac5c10730a7b386896190a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone"><sp_rel_widget_clone action="INSERT_OR_UPDATE"><child display_value="Copy of Knowledge MostViewed Articles">6a729ad0dbac5c10730a7b3868961907</child><cloned>2020-04-29 08:59:27</cloned><last_validated>2020-04-29 08:59:27</last_validated><parent display_value="Knowledge MostViewed Articles">d4f0d56cdb68320099f93691f0b8f502</parent><payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  /* widget controller */
+  var c = this;
+		c.template = "kb_article_list_template";
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list&gt;title,color,glyph,css&lt;/field_list&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;kb-mostviewed-articles&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Knowledge MostViewed Articles&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Knowledge","name":"table","default_value":"kb_knowledge","label":"Table","type":"choice","choices":[{"label":"Knowledge","value":"kb_knowledge"}]},{"hint":"Display Field","name":"display_field","default_value":"short_description","label":"Display Field","type":"field_name"},{"hint":"Additional Fields to be displayed","name":"secondary_fields","label":"Secondary Fields","type":"field_list"},{"hint":"Number of records to show in widget","name":"max_records","default_value":"","label":"Max number of records to show","type":"string"},{"hint":"Show even when empty","name":"always_show","label":"Show even when empty","type":"boolean"},{"hint":"Show Secondary Fields Label","name":"show_secondary_fields_label","label":"Show Secondary Fields Label","type":"boolean"},{"displayValue":"Knowledge Base","hint":"Show result for specific knowledge base. Keep blank to show for all bases.","name":"knowledge_base","label":"Knowledge Base","type":"reference","value":"kb_knowledge_base","ed":{"reference":"kb_knowledge_base"}}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	if(input)
+		return;
+	else {
+	options.title = options.title || gs.getMessage('Most Viewed');
+	options.display_field = options.display_field || "short_description"; 
+	options.secondary_fields = options.secondary_fields ? options.secondary_fields.split(",") : getKnowledgeFieldsfromProperties();
+	options.show_secondary_fields_label = options.show_secondary_fields_label ? options.show_secondary_fields_label == 'true' : false;
+	options.max_records = options.max_records || gs.getProperty('glide.knowman.content_block_limit')|| '5';
+	options.always_show = options.always_show ? options.always_show == 'true' : true;
+	options.reverse = true;
+
+
+	var kbService = new KBPortalService();
+	options.knowledge_base =  options.knowledge_base || String(kbService.getServicePortalKnowledgeBases($sp.getPortalRecord().url_suffix)) || "";
+	var result = [];
+
+	var kbData = kbService.getMostViewedArticles(options.max_records,options.display_field,options.secondary_fields,options.knowledge_base);
+	if(kbData)
+		result= kbData;
+
+	options.result = result;
+	data.template = $sp.getWidget("kb-list-widget-template", options);
+	}
+
+
+	function getKnowledgeFieldsfromProperties(){
+
+		//Generate secondary fields based on legacy properties
+		var fields = [];
+
+		if(gs.getProperty('glide.knowman.search.show_article_number','false') == 'true'){
+			var kbMod = new global.KBViewModel();
+			if(kbMod.isVersioningEnabled()){
+				fields.push('display_number');
+			}else{
+				fields.push('number');
+			}
+		}
+		if(gs.getProperty('glide.knowman.search.show_author','false') == 'true')
+			fields.push('author');
+		if(gs.getProperty('glide.knowman.search.show_view_count','false') == 'true')
+			fields.push('sys_view_count');		
+		if(gs.getProperty('glide.knowman.search.show_last_modified','false') == 'true')
+			fields.push('sys_updated_on');
+		if(gs.getProperty('glide.knowman.search.show_published','false') == 'true')
+			fields.push('published');
+		if(gs.getProperty('glide.knowman.show_unpublished','false') == 'true')
+			fields.push('workflow_state');
+		if(gs.getProperty('glide.knowman.search.show_rating','false') == 'true')
+			fields.push('rating');
+
+		return fields;
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-01-22 21:44:42&lt;/sys_created_on&gt;&lt;sys_id&gt;d4f0d56cdb68320099f93691f0b8f502&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Knowledge MostViewed Articles&lt;/sys_name&gt;&lt;sys_package display_value="Knowledge Management - Service Portal" source="sn_km_portal"&gt;bab6dea3db20320099f93691f0b8f590&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Knowledge Management - Service Portal"&gt;bab6dea3db20320099f93691f0b8f590&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_d4f0d56cdb68320099f93691f0b8f502&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-07-02 10:19:30&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="kb-article-list"&gt;
+ &lt;sp-widget widget="::c.data.template"&gt;&lt;/sp-widget&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload><sys_class_name>sp_rel_widget_clone</sys_class_name><sys_created_by>Nishi</sys_created_by><sys_created_on>2020-04-29 08:59:27</sys_created_on><sys_id>22729ad0dbac5c10730a7b386896190a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>6a729ad0dbac5c10730a7b3868961907</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_rel_widget_clone_22729ad0dbac5c10730a7b386896190a</sys_update_name><sys_updated_by>Nishi</sys_updated_by><sys_updated_on>2020-04-29 08:59:27</sys_updated_on></sp_rel_widget_clone></record_update>]]></payload>
+        <payload_hash>308081758</payload_hash>
+        <record_name>6a729ad0dbac5c10730a7b3868961907</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-29 08:59:27</sys_created_on>
+        <sys_id>6a729ad0dbac5c10730a7b386896190b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171c5298f160000001</sys_recorded_at>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-29 08:59:27</sys_updated_on>
+        <type>Widget Clone</type>
+        <update_guid>a2729ad02fac5c102031402f5386da0b</update_guid>
+        <update_guid_history>a2729ad02fac5c102031402f5386da0b:308081758</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">46a5b71cdba09c10730a7b38689619d1</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-29 16:12:47</sys_created_on>
+        <sys_db_object display_value="" name="sp_rel_widget_clone">sp_rel_widget_clone</sys_db_object>
+        <sys_id>07a7c7014c4e4ac080731b2daffe6284</sys_id>
+        <sys_metadata>22729ad0dbac5c10730a7b386896190a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6a729ad0dbac5c10730a7b3868961907</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_rel_widget_clone_22729ad0dbac5c10730a7b386896190a</sys_update_name>
+        <sys_update_version display_value="sp_rel_widget_clone_22729ad0dbac5c10730a7b386896190a">6a729ad0dbac5c10730a7b386896190b</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-29 16:12:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

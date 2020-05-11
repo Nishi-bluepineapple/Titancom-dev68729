@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+	/* widget controller */
+	var c = this;
+//	console.log(c.data.seriesdata[0]);
+//	console.log(c.data.table);
+	c.data.points = {
+		series:["Loyalty Points"],
+//		labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"],
+//		data: [[500, 750, 750, 1250, 1250, 1000, 1500, 900, 900, 1050, 1750, 2000]],
+		labels: c.data.serieslabels,
+		data: [c.data.seriesdata],
+		colors: [{fillColor : "rgba(0,0,0,0.5)",
+			strokeColor : "rgba(0,153,204,1)",
+			pointColor : "rgba(0,0,0,1)",
+			pointStrokeColor : "#fff",
+						 pointHighlightFill: "rgba(0,0,0,1)"
+						 }
+			]
+	};
+	
+	c.chartOptions = {
+		scaleShowGridLines : false,
+
+
+	//String - Colour of the grid lines
+	//scaleGridLineColor : "rgba(0,0,0,.05)",
+
+	//Number - Width of the grid lines
+	//scaleGridLineWidth : 1,
+
+	//Boolean - Whether to show horizontal lines (except X axis)
+	//scaleShowHorizontalLines: true,
+
+	//Boolean - Whether to show vertical lines (except Y axis)
+	//scaleShowVerticalLines: true,
+
+	//Boolean - Whether the line is curved between points
+	//bezierCurve : true,
+
+	//Number - Tension of the bezier curve between points
+	//bezierCurveTension : 0.4,
+
+	//Boolean - Whether to show a dot for each point
+	pointDot : true,
+
+	//Number - Radius of each point dot in pixels
+	pointDotRadius : 2,
+
+	//Number - Pixel width of point dot stroke
+	pointDotStrokeWidth : 1,
+
+	//Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+	pointHitDetectionRadius : 1,
+
+	//Boolean - Whether to show a stroke for datasets
+	//datasetStroke : true,
+
+	//Number - Pixel width of dataset stroke
+	datasetStrokeWidth : 2
+	//Boolean - Whether to fill the dataset with a colour
+//	datasetFill : true,
+//	{% raw %}
+	//String - A legend template
+	//legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
+//	{% endraw %}
+
+	//Boolean - Whether to horizontally center the label and point dot inside the grid
+	//offsetGridLines : false
+		,scaleOverlay: true,
+//Boolean - If we want to override with a hard coded scale
+	scaleOverride : true,
+	datasetFill: false,
+	//** Required if scaleOverride is true **
+	//Number - The number of steps in a hard coded scale
+	scaleSteps :6,
+	//Number - The value jump in the hard coded scale
+	scaleStepWidth : 500,
+	//Number - The scale starting value
+	scaleStartValue : 0,		scaleShowLabels : true
+};
+	
+	
+
+//	c.colors = ['#45b7cd', '#ff6384'];
+	//$scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+	/*
+	c.data.points = {
+		series:["Abc", "Pqr"],
+		labels: ["Jan", "Feb", "Mar"],
+		data: [[21, 26, 16],[5, 13, 13]]
+	};
+	*/
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pointsgraph</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>PointsGraph</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var getM = function(m){
+		var mons = ['Jan', 'Feb', 'Mar', 'Apr',
+							  'May', 'Jun', 'Jul', 'Aug',
+							  'Sep', 'Oct', 'Nov', 'Dec']
+		return mons[m-1];	
+	}
+	
+	/* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  var sourceTable = 'x_236494_titan_enc_loyalty_points_transactions';
+  var gr = new GlideRecord(sourceTable);
+//  gr.addEncodedQuery('')
+	
+	gr.addQuery('user',gs.getUserID());
+  gr.orderBy('transaction_date');
+	gr.query();
+	//points balance, transaction date
+	var serieslabels = [];
+	var seriesdata = [];
+  while(gr.next()){
+	  seriesdata.push(gr.getValue('points_balance'));
+//		serieslabels.push(gr.getValue('transaction_date'));
+
+		
+		var txn_date = new GlideDateTime(gr.getValue('transaction_date'));
+		var month = txn_date.getMonthUTC();
+		//serieslabels.push(getM(month));
+		var day = txn_date.getDayOfMonthUTC();
+		serieslabels.push(getM(month) + ' ' + day);
+  }
+  data.seriesdata = seriesdata;
+	data.serieslabels  = serieslabels;
+
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-17 08:42:34</sys_created_on>
+        <sys_id>5a8b14ecdb989010730a7b3868961974</sys_id>
+        <sys_mod_count>119</sys_mod_count>
+        <sys_name>PointsGraph</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_5a8b14ecdb989010730a7b3868961974</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-30 09:31:40</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default ">
+<div class="panel-heading"> 
+  <h2 class="panel-title"> 
+   
+    <span >My Encircle Points</span>
+   
+    </h2> 
+ </div>  
+<div class="panel-body" >
+  <canvas id="points" class="chart chart-line" chart-data="data.points.data" 
+          chart-colours="data.points.colors"  chart-options="c.chartOptions"
+          chart-labels="data.points.labels" chart-series="data.points.series"
+          height="150px">
+  </canvas>
+</div>]]></template>
+    </sp_widget>
+</record_update>

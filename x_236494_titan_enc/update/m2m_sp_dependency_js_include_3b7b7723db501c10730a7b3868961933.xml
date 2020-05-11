@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_js_include">
+    <m2m_sp_dependency_js_include action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <sp_dependency display_value="Vertical carousel">054bb723db501c10730a7b3868961959</sp_dependency>
+        <sp_js_include display_value="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">1c6bf723db501c10730a7b38689619c2</sp_js_include>
+        <sys_class_name>m2m_sp_dependency_js_include</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-27 08:42:51</sys_created_on>
+        <sys_id>3b7b7723db501c10730a7b3868961933</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Vertical carousel.https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_dependency_js_include_3b7b7723db501c10730a7b3868961933</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:42:51</sys_updated_on>
+    </m2m_sp_dependency_js_include>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types>d8899a0473000010f7353c78caf6a750</associated_types>
+        <component_dependencies/>
+        <composition>[]</composition>
+        <data/>
+        <events/>
+        <extends/>
+        <interactions/>
+        <layout>{}</layout>
+        <macroponent_dependencies/>
+        <name>diguFirst</name>
+        <props>[]</props>
+        <root_component display_value="x-236494-digu-try-1">3e148b97b67e83d19c94cba3c38b7c38</root_component>
+        <root_component_config>{}</root_component_config>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:27:13</sys_created_on>
+        <sys_id>4403159a815624cb1f60a9306ec19110</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>diguFirst</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_macroponent_4403159a815624cb1f60a9306ec19110</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:27:13</sys_updated_on>
+    </sys_ux_macroponent>
+</record_update>

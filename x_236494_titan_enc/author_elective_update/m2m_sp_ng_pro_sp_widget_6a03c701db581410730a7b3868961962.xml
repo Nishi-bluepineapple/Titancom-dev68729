@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="spSurveyForm">aaf3cd03c3602200943974e1c1d3ae87</sp_angular_provider>
+        <sp_widget display_value="encircle survey">e603c701db581410730a7b386896195d</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-19 10:11:22</sys_created_on>
+        <sys_id>6a03c701db581410730a7b3868961962</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spSurveyForm.encircle survey</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_6a03c701db581410730a7b3868961962</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:11:22</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_6a03c701db581410730a7b3868961962</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="spSurveyForm">aaf3cd03c3602200943974e1c1d3ae87</sp_angular_provider><sp_widget display_value="encircle survey">e603c701db581410730a7b386896195d</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>neel</sys_created_by><sys_created_on>2020-04-19 10:11:22</sys_created_on><sys_id>6a03c701db581410730a7b3868961962</sys_id><sys_mod_count>0</sys_mod_count><sys_name>spSurveyForm.encircle survey</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_6a03c701db581410730a7b3868961962</sys_update_name><sys_updated_by>neel</sys_updated_by><sys_updated_on>2020-04-19 10:11:22</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>-199576565</payload_hash>
+        <record_name>spSurveyForm.encircle survey</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-19 10:11:22</sys_created_on>
+        <sys_id>a203c701db581410730a7b3868961964</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17191ebcfdd0000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:11:22</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>ea03c70176581410b959b6fcf79d1263</update_guid>
+        <update_guid_history>ea03c70176581410b959b6fcf79d1263:-199576565</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="spSurveyForm.encircle survey">06b7f8e9db985410730a7b3868961916</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 13:19:38</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>19c95a8daf0240cb9b40a7173ea6c799</sys_id>
+        <sys_metadata>6a03c701db581410730a7b3868961962</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spSurveyForm.encircle survey</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_6a03c701db581410730a7b3868961962</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_6a03c701db581410730a7b3868961962">a203c701db581410730a7b3868961964</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 13:19:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

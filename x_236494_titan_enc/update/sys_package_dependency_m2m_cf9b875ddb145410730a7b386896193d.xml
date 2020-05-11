@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Service Catalog Platform" source="com.glideapp.servicecatalog.platform">8acb469998f100107f2c2ed01a1f1628</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 05:27:18</sys_created_on>
+        <sys_id>cf9b875ddb145410730a7b386896193d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 05:27:18</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

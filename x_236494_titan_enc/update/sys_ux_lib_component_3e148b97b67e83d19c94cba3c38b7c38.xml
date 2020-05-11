@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_lib_component">
+    <sys_ux_lib_component action="INSERT_OR_UPDATE">
+        <default_children/>
+        <default_layout/>
+        <deprecated>false</deprecated>
+        <overrides/>
+        <required_sys_props/>
+        <required_translation_keys/>
+        <source_script display_value="@bluep/digu-try-1">ec0c8346a9c530480d7a931209105bbd</source_script>
+        <sys_class_name>sys_ux_lib_component</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:17:05</sys_created_on>
+        <sys_id>3e148b97b67e83d19c94cba3c38b7c38</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x-236494-digu-try-1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_lib_component_3e148b97b67e83d19c94cba3c38b7c38</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:27:12</sys_updated_on>
+        <tag>x-236494-digu-try-1</tag>
+    </sys_ux_lib_component>
+</record_update>

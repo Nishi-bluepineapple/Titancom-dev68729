@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	$scope.AddPoints = function(){
+		c.data.action = "addPoints";
+		c.server.update();
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>update_points_button</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Update Points Button</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	if(input){
+		if(input.action == "addPoints"){
+			console.log('inside server');
+			 var sp = new SurveyPoints();
+       sp.updatePoints('39826bf03710200044e0bfc8bcbe5d1f');//gs.getUserID());
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-27 00:17:30</sys_created_on>
+        <sys_id>3db54e23dbd8d810730a7b3868961981</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Update Points Button</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_3db54e23dbd8d810730a7b3868961981</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-27 05:33:53</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+ <div class="panel-heading">Add Points</div>
+ <div class="panel-body">
+ <button type="button" class="btn btn-primary btn-block" ng-click="AddPoints()">Add Points</button>
+
+ </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

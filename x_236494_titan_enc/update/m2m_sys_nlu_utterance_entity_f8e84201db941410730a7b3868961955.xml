@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE">
+        <annotation>[{"indexes":[4],"annotatedString":"do you know about {{phrase=\"titan\"}} brands","cat":"Titan"}]</annotation>
+        <entity display_value="Encircle Brands">9c6dc6f0dbd8d010730a7b38689619c9</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 05:57:18</sys_created_on>
+        <sys_id>f8e84201db941410730a7b3868961955</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Encircle Brands.do you know about titan brands</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_f8e84201db941410730a7b3868961955</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 05:57:18</sys_updated_on>
+        <utterance display_value="do you know about titan brands">12bdc6f0dbd8d010730a7b3868961969</utterance>
+    </m2m_sys_nlu_utterance_entity>
+</record_update>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>true</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>asmt_assessment_instance</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="asmt_assessment_instance">state=complete^metric_type.evaluation_method=survey^EQ<item display_value="Complete" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="complete"/>
+            <item display_value="survey" endquery="false" field="metric_type.evaluation_method" goto="false" newquery="false" operator="=" or="false" value="survey"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>UpdateSurveyPoints</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    gs.info('Nishi inside business rule');
+    var userSysId = gs.getUserID();
+    var gr = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+    gr.addQuery('user', userSysId);
+    gr.addQuery('latest_transaction', 'true');
+    gr.query();
+    while (gr.next()) {
+        gr.setValue('latest_transaction', 'false');
+        gr.update();
+        gr.get(gr.sys_id);
+        var sys_id_new = gr.insert();
+        gs.info('Nishi ' + sys_id_new);
+    }
+	gs.info('Nishi ' + sys_id_new);
+    var grec = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+    grec.addQuery('sys_id', sys_id_new);
+    grec.query();
+    while (grec.next()) {
+		gs.info('Nishi '+ grec.sys_id);
+        grec.setValue('latest_transaction', 'true');
+        var points = grec.points_balance + 250;
+        grec.setValue('points_balance', points);
+        grec.setValue('points_earned', 500);
+        grec.setValue('remarks', 'Survey');
+		grec.setValue('transaction_date',gs.nowDateTime());
+        grec.update();
+    }
+	gs.info('Nishi business rule end');
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 10:47:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>88613f1adbd41810730a7b3868961986</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>UpdateSurveyPoints</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_script_88613f1adbd41810730a7b3868961986</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-24 14:19:48</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=88613f1adbd41810730a7b3868961986"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_script_88613f1adbd41810730a7b3868961986</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;true&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;asmt_assessment_instance&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="asmt_assessment_instance"&gt;state=complete^metric_type.evaluation_method=survey^EQ&lt;item display_value="Complete" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="complete"/&gt;&lt;item display_value="survey" endquery="false" field="metric_type.evaluation_method" goto="false" newquery="false" operator="=" or="false" value="survey"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;UpdateSurveyPoints&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    gs.info('Nishi inside business rule');
+    var userSysId = gs.getUserID();
+    var gr = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+    gr.addQuery('user', userSysId);
+    gr.addQuery('latest_transaction', 'true');
+    gr.query();
+    while (gr.next()) {
+        gr.setValue('latest_transaction', 'false');
+        gr.update();
+        gr.get(gr.sys_id);
+        var sys_id_new = gr.insert();
+        gs.info('Nishi ' + sys_id_new);
+    }
+	gs.info('Nishi ' + sys_id_new);
+    var grec = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+    grec.addQuery('sys_id', sys_id_new);
+    grec.query();
+    while (grec.next()) {
+		gs.info('Nishi '+ grec.sys_id);
+        grec.setValue('latest_transaction', 'true');
+        var points = grec.points_balance + 250;
+        grec.setValue('points_balance', points);
+        grec.setValue('points_earned', 500);
+        grec.setValue('remarks', 'Survey');
+		grec.setValue('transaction_date',gs.nowDateTime());
+        grec.update();
+    }
+	gs.info('Nishi business rule end');
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Nishi&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-23 10:47:14&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;88613f1adbd41810730a7b3868961986&lt;/sys_id&gt;&lt;sys_mod_count&gt;36&lt;/sys_mod_count&gt;&lt;sys_name&gt;UpdateSurveyPoints&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_88613f1adbd41810730a7b3868961986&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Nishi&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-24 14:19:48&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=88613f1adbd41810730a7b3868961986"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1721891754</payload_hash>
+        <record_name>UpdateSurveyPoints</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-24 14:19:48</sys_created_on>
+        <sys_id>1adbe5b2db585810730a7b3868961963</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171ac8f0d3f0000001</sys_recorded_at>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-24 14:19:48</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>dedbe5b267585810e4486c3aef18dd62</update_guid>
+        <update_guid_history>dedbe5b267585810e4486c3aef18dd62:1721891754,186facb28b94581062f7be1a554677ae:-286203997,6a4ba8fe6f545810c74aa97f87627f29:772633994,94d7203e895458109b2ae485d4af02cb:-1875362346,2157683e51545810fb962ac08a1e78d6:947702119,e726a0fa11545810646bcd5379a49f8d:-883568250,8cb1a4f60c5458104760929f46d62903:-981510390,ef7128f62054581065b29718f2db019a:-402759564,fe41a0f6405458106e3492b964e4c15b:142144264,331688321a14581073617f1eeab0f72f:1778173125,17ab332ad8d058106fed48c24b37bbd5:1645180288,4c3b7be66bd05810a82c7bac3df63767:273975655,b7173fe21ad05810ec33b3f35f15a925:-1494072191,5f26bba245d058106c05b1c62a04d761:-1132463682,89a5f3a27cd058101f90798d04c5e224:273975655,de947762b2d0581090684b4cdd8e255d:1645180288,ec0273ee78905810e7832298e48b9fb4:-383623822,de70bb6e829058109d121e196528b882:-1161291574,0410f76e2290581032b2bb7ff1e4d908:-1132463682,b3bfaf2e8990581039b5605f3d295854:-94018892,371fab2ec990581048ae59ff82ca7041:1645180288,85bd27ea9c905810490cbb4e82bf0520:1145725205,184defaa9f905810a8cd14c486887f12:-1609724586,b95c27aae9905810863297d461740837:-1890445310,f75788aa0e181810fc6612912d8948ea:1894565065,4e7684aa39181810b284446673c48e3b:824499589,f9e58c6a731818109b7e65124d9dfdf0:2104739866,5255046a591818104ce33490524e6090:-2073512919,37f4806ae4181810f046f396ba293c28:-258694438,5f44482af8181810fcf417c4ab24d42e:1959871652,3a83cce6291818103a423301ba9d6b04:-1247594816,0c65bf1e66d418102b5328cdcd700e75:1246680538,ada4731ea8d4181096ccd352c404a148:1129630759,fed3bbdad6d41810f96951a55b8e034e:-1754057770,a1437b9ab4d418106b7285932c0c8d8e:216837053,c952b39a61d41810cd292d1b94a8a141:1745607308,0391b75aa2d41810001793e2746c0557:615059806</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-27 00:10:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>020be290a0cd476c8007a0b46965c510</sys_id>
+        <sys_metadata>88613f1adbd41810730a7b3868961986</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UpdateSurveyPoints</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent display_value="Asmt Assessment Instance">014b469598f100107f2c2ed01a1f1603</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_script_88613f1adbd41810730a7b3868961986</sys_update_name>
+        <sys_update_version display_value="sys_script_88613f1adbd41810730a7b3868961986">1adbe5b2db585810730a7b3868961963</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-27 00:10:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

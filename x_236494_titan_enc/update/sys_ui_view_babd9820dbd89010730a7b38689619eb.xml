@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>catalog_titan_service_portal</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-17 08:52:09</sys_created_on>
+        <sys_id>babd9820dbd89010730a7b38689619eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Service Portal View</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ui_view_babd9820dbd89010730a7b38689619eb</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-17 08:52:09</sys_updated_on>
+        <title>Titan Service Portal View</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="4e97db95db545410730a7b38689619fc" sys_domain="global" table="x_236494_titan_enc_titan_items" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>98395319db545410730a7b3868961927</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <text>${gs.getMessage('SC Item Form Description')}</text>
+            <type display_value="Section Details">19756e5ec3313000bac1addbdfba8f18</type>
+        </sys_ui_annotation>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>98395319db545410730a7b3868961927</element>
+            <position>0</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>d8399319db545410730a7b38689619f0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>50399319db545410730a7b38689619f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>2</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>d4399319db545410730a7b38689619f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sc_catalogs</element>
+            <position>3</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>5c399319db545410730a7b38689619f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>category</element>
+            <position>4</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>d0399319db545410730a7b38689619f2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>58399319db545410730a7b38689619f2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_scope</element>
+            <position>6</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>dc399319db545410730a7b38689619f2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>7</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>54399319db545410730a7b38689619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>roles</element>
+            <position>8</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>d8399319db545410730a7b38689619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>points</element>
+            <position>9</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>50399319db545410730a7b38689619f4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>offer</element>
+            <position>10</position>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:26:38</sys_created_on>
+            <sys_id>d4399319db545410730a7b38689619f4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:26:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemocategory</element>
+            <position>11</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:21:54</sys_created_on>
+            <sys_id>89ff22cadb18d410730a7b3868961916</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:21:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemosubcategory</element>
+            <position>12</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:22:42</sys_created_on>
+            <sys_id>7420f2cadb18d410730a7b38689619ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:22:42</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemobrand</element>
+            <position>13</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:27:03</sys_created_on>
+            <sys_id>d421320edb18d410730a7b3868961934</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:27:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoproductcode</element>
+            <position>14</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:27:31</sys_created_on>
+            <sys_id>1731b20edb18d410730a7b38689619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:27:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoproductname</element>
+            <position>15</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:27:58</sys_created_on>
+            <sys_id>f951b20edb18d410730a7b3868961951</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:27:58</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoproductdetailedname</element>
+            <position>16</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:28:47</sys_created_on>
+            <sys_id>79813a0edb18d410730a7b38689619fd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:28:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemomrp</element>
+            <position>17</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:29:13</sys_created_on>
+            <sys_id>8ca1b60edb18d410730a7b38689619f0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:29:13</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoofferprice</element>
+            <position>18</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:29:47</sys_created_on>
+            <sys_id>28c1f60edb18d410730a7b386896199e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:29:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoshortdescription</element>
+            <position>19</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:30:25</sys_created_on>
+            <sys_id>71e1fe0edb18d410730a7b38689619f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:30:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoinstock</element>
+            <position>20</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:30:56</sys_created_on>
+            <sys_id>5d02f24edb18d410730a7b3868961991</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:30:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemospecialfeature</element>
+            <position>21</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:31:28</sys_created_on>
+            <sys_id>4922364edb18d410730a7b386896198b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:31:28</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemodiscountpercent</element>
+            <position>22</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:32:11</sys_created_on>
+            <sys_id>a342fa4edb18d410730a7b3868961947</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:32:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemonocostemi</element>
+            <position>23</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:32:36</sys_created_on>
+            <sys_id>b962f64edb18d410730a7b38689619fd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:32:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemonewarrival</element>
+            <position>24</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:33:03</sys_created_on>
+            <sys_id>5c82fe4edb18d410730a7b38689619d7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:33:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoproductimage</element>
+            <position>25</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-22 11:55:04</sys_created_on>
+            <sys_id>76877282db58d410730a7b3868961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-22 11:55:04</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csmdemoitemposition</element>
+            <position>26</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-24 10:26:32</sys_created_on>
+            <sys_id>dd76bc3adb945810730a7b3868961924</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-24 10:26:32</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rating</element>
+            <position>27</position>
+            <sys_created_by>Nishi</sys_created_by>
+            <sys_created_on>2020-05-03 23:06:24</sys_created_on>
+            <sys_id>4cba3939dbe4d010730a7b3868961958</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_236494_titan_enc_titan_items" sys_domain="global" view="Default view">4e97db95db545410730a7b38689619fc</sys_ui_section>
+            <sys_updated_by>Nishi</sys_updated_by>
+            <sys_updated_on>2020-05-03 23:06:24</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_236494_titan_enc_titan_items</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>digu</sys_created_by>
+            <sys_created_on>2020-04-20 06:19:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4e97db95db545410730a7b38689619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_236494_titan_enc_titan_items</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+            <sys_update_name>sys_ui_section_4e97db95db545410730a7b38689619fc</sys_update_name>
+            <sys_updated_by>digu</sys_updated_by>
+            <sys_updated_on>2020-04-20 06:19:39</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $http) {
+	/* widget controller */
+	var c = this;
+	console.log(this.data.userPoints);
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>third-section</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>third section</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	console.log('inside');
+	var titanUtils = new TitanUtils();
+	data.userPhoto=titanUtils.getUserPhoto(gs.getUserID());
+	console.log('user data' + data.userPhoto);
+	var gUser = gs.getUser();
+	console.log(gUser);
+	data.salutation = "Hi "+gUser.getFirstName() + "!";
+	console.log(data.salutation);
+	console.log('in');
+	data.userPoints = titanUtils.getUserPoints(gs.getUserID());
+	data.userPhotoUrl=data.userPhoto+".iix?type=large";
+	data.isLoggedIn =  gs.isLoggedIn();
+	
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 07:24:15</sys_created_on>
+        <sys_id>0befa0f5db949410730a7b3868961941</sys_id>
+        <sys_mod_count>136</sys_mod_count>
+        <sys_name>third section</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_0befa0f5db949410730a7b3868961941</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-28 05:02:20</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6" style="background-repeat: no-repeat;background: #BFEBC9;
+    padding-top: 16px;">
+		<img src="third-section3.png" width ="100%" >   
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6" ng-if="!data.isLoggedIn" align="center">
+		<img src="BottomNonLoggedIn.png" width="490" height="905"/>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6" style="padding-top: 16px;" ng-if="data.isLoggedIn">
+    <div class="row" style="display: inline;text-align: center;">
+      <h3>{{::data.salutation}}</h3>
+      
+    </div>
+      
+      <div class="row" align="center">
+    
+    <div style="
+    background-color: #efefef;width: 34rem;height: 34rem;
+"><div class="avatar-container ng-isolate-scope" style="height: 32rem;width: 32rem;padding: 1rem;" ng-class="avatarType()" title="" primary="::r.userObject" showpresence="false"> 
+          <div class="avatar soloAvatar bottom ng-scope" context-menu="contextOptions"> 
+           <div class="sub-avatar" style="background-image: url('{{::data.userPhoto}}.iix?t=large');"> 
+           </div> 
+          </div> 
+    </div></div></div>
+      
+       <div class="row" style="display: inline;text-align: center;">
+      <h4>
+        You are currently a {{::data.userPoints.level}} League Member. <br/>
+        Add another <b>{{::data.userPoints.next_level_points}} </b> points and you'll become a {{::data.userPoints.next_level}} League Member.
+         </h4>
+    </div>
+       <div class="row" style="margin-left: 0">
+      <img src="third-section2.png" width ="600" height ="176" class="center">
+    </div> 
+      </div>
+    </div>
+  <br/>
+  </div>
+  
+    ]]></template>
+    </sp_widget>
+</record_update>

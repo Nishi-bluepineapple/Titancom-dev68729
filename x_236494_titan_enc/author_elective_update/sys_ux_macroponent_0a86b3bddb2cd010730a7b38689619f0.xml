@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="DELETE">
+        <associated_types/>
+        <component_dependencies/>
+        <composition>[ ]</composition>
+        <data/>
+        <events/>
+        <extends display_value="Landing Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <interactions/>
+        <layout>{
+  "default" : {
+    "type" : "rowColumn",
+    "root" : {"type":"column","id":"ck9s7bg0n000428805ed1eq90","size":"12","rows":[{"type":"row","id":"ck9s7gqn4000l28800cciayja","slotName":"ck9s7gqn4000k2880fpidv1zo"},{"type":"row","id":"ck9s7bg0n00052880oqfiz41u","slotName":"ck9s7bg0m00032880s6iy5ixg"}]}
+  }
+}</layout>
+        <macroponent_dependencies/>
+        <name>Hello</name>
+        <props/>
+        <root_component/>
+        <root_component_config/>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-04 08:07:29</sys_created_on>
+        <sys_id>0a86b3bddb2cd010730a7b38689619f0</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Hello</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ux_macroponent_0a86b3bddb2cd010730a7b38689619f0</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:14:47</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_ux_macroponent_0a86b3bddb2cd010730a7b38689619f0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent"><sys_ux_macroponent action="INSERT_OR_UPDATE"><associated_types/><component_dependencies/><composition>[ ]</composition><data/><events/><extends display_value="Landing Page Template">19be392623033300f4b4c50947bf65ba</extends><interactions/><layout>{
+  "default" : {
+    "type" : "rowColumn",
+    "root" : {"type":"column","id":"ck9s7bg0n000428805ed1eq90","size":"12","rows":[{"type":"row","id":"ck9s7gqn4000l28800cciayja","slotName":"ck9s7gqn4000k2880fpidv1zo"},{"type":"row","id":"ck9s7bg0n00052880oqfiz41u","slotName":"ck9s7bg0m00032880s6iy5ixg"}]}
+  }
+}</layout><macroponent_dependencies/><name>Hello</name><props/><root_component/><root_component_config/><schema_version>1.0.0</schema_version><sys_class_name>sys_ux_macroponent</sys_class_name><sys_created_by>digu</sys_created_by><sys_created_on>2020-05-04 08:07:29</sys_created_on><sys_id>0a86b3bddb2cd010730a7b38689619f0</sys_id><sys_mod_count>4</sys_mod_count><sys_name>Hello</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_ux_macroponent_0a86b3bddb2cd010730a7b38689619f0</sys_update_name><sys_updated_by>digu</sys_updated_by><sys_updated_on>2020-05-05 09:14:47</sys_updated_on></sys_ux_macroponent></record_update>]]></payload>
+        <payload_hash>-1881909037</payload_hash>
+        <record_name>Hello</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:14:47</sys_created_on>
+        <sys_id>a18f8d12db6c1410730a7b386896193a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171e41dc0fd0000001</sys_recorded_at>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:14:47</sys_updated_on>
+        <type>UX Macroponent Definition</type>
+        <update_guid>a98f8d120f6c14102ed1cb55883fad39</update_guid>
+        <update_guid_history>a98f8d120f6c14102ed1cb55883fad39:-1881909037,758ef775cf6cd010c213fc42b6f6f7e8:-277593703,105abf71806cd010dc0b7f44e000c4a9:1944095812,dc48bffd912cd01073e897d426506abb:-391709146,8a86b3bd5b2cd010d8b998edf70724f2:584051476</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:16:55</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_macroponent">sys_ux_macroponent</sys_db_object>
+        <sys_id>25fff7c3f66743249da15a99fc2f7089</sys_id>
+        <sys_metadata>0a86b3bddb2cd010730a7b38689619f0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hello</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_ux_macroponent_0a86b3bddb2cd010730a7b38689619f0</sys_update_name>
+        <sys_update_version display_value="sys_ux_macroponent_0a86b3bddb2cd010730a7b38689619f0">a18f8d12db6c1410730a7b386896193a</sys_update_version>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:16:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

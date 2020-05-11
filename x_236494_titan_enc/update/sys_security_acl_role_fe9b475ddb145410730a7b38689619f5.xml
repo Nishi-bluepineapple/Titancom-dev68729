@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-20 05:27:17</sys_created_on>
+        <sys_id>fe9b475ddb145410730a7b38689619f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_236494_titan_enc_titan_items.x_236494_titan_enc.titan_items_user</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_security_acl display_value="x_236494_titan_enc_titan_items">769b475ddb145410730a7b38689619f1</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_fe9b475ddb145410730a7b38689619f5</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-20 05:27:17</sys_updated_on>
+        <sys_user_role display_value="x_236494_titan_enc.titan_items_user" name="x_236494_titan_enc.titan_items_user">a69b4b1ddb145410730a7b3868961915</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

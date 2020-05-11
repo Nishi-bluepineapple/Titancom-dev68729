@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $http, $location, $rootScope) {
+	/* widget controller */
+	var c = this;
+	var apiBaseUrl = '/api/sn_communities/v1/community',
+			queryParams = $location.search(),
+			maxRowCount = parseInt(c.options.max_no_of_rows),
+		    maxRowsToDisplay = parseInt(c.options.rows_count);
+	        
+	c.collapseWidget = true;
+	c.condensedMode = true;
+	
+	c.countToShow = maxRowsToDisplay * 4;
+	
+	//Fetch the Forums
+	c.fetchForums = function(){
+		$http.get(apiBaseUrl + '/forums?getImages=1&depth_level=1&getSubForumCounts=1&limit='+maxRowCount)
+			.then(function(data){
+			c.forums = data.data.result;
+			if(c.data.accessibilityOn)
+				c.countToShow = c.forums ? c.forums.length : c.countToShow;
+		}, function(error){
+			console.error(error);
+		});
+	}
+
+
+	c.expandWidget = function(){
+		if(c.collapseWidget && !c.forums)
+			c.fetchForums();
+		c.collapseWidget = !c.collapseWidget;
+		if(c.collapseWidget){
+			$('.cm-minus').each(function(i){
+					$(this).attr('tabindex',-1);
+				}
+			);
+			$('.cm-plus').each(function(i){
+					$(this).removeAttr('tabindex');
+					$(this).focus();
+				}
+			);
+		}
+		else{
+			$('.cm-plus').each(function(i){
+					$(this).attr('tabindex',-1);
+				}
+			);
+			$('.cm-minus').each(function(i){
+					$(this).removeAttr('tabindex');
+					$(this).focus();
+				}
+			);
+		}
+		
+	};
+	
+	//When accessibility mode is on list all the available forum
+	if(c.data.accessibilityOn) {
+		c.collapseWidget = true;
+		c.condensedMode = false;
+		c.countToShow = c.forums ? c.forums.length : c.countToShow;
+		c.expandWidget();
+	}
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.cm-browse-forum-tiles {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  .cm-header {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    .fa {
+      color: $csm-icon-color;
+      margin-left: 5px;
+    }
+  }
+  .cm-forum-tiles {
+    .cm-forum-list{
+      list-style-type:none;
+      margin:0;
+      padding:0;
+    }
+    .cm-tile-container {
+      padding: 0px 10px;
+    }
+    .forum-tile {
+      height: 300px;
+      padding: 10px 15px;
+      overflow-y: hidden;
+      .forum-tile-link {
+        display: block;
+        .link-image {
+          padding-top: 27px;
+          img{
+            height: 150px;      
+          }
+        } 
+        .link-image-with-subforum{
+ 			padding-top:10px; 
+          	img{
+           	 height: 50px;      
+          	}
+	}
+        .link-text {
+          line-height: 20px;
+          //height: 50px;
+          p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            //white-space: nowrap;
+            font-weight: bold;
+            color:$text-color;
+          }
+        }
+      }
+    }
+    .cm-hide-me {
+      display: none;
+    }
+  }
+  .cm-show-more {
+    margin-bottom: 25px;
+  }
+}
+.cm-change-color{
+     color: $text-color;
+}
+.self-clear:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.link-text {
+  height: 50px;
+  display: block; /* or inline-block */
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+.cm-subforum-seperator{
+ margin: 0px;
+ margin-bottom: 5px;
+}
+.fa-caret-right{
+ margin-left:5px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>titan_browse_forums</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope){
+	$timeout = $injector.get('$timeout');
+	$timeout(function(){
+		$('.cm-minus').each(function(i){
+			$(this).attr('tabindex',-1);
+		});
+	});
+}]]></link>
+        <name>Titan Browse Forums</name>
+        <option_schema>[{"name":"rows_count","default_value":"2","label":"Number of rows displayed","type":"string"},{"name":"max_no_of_rows","default_value":"10","label":"Maximum number of forums displayed","type":"string"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+		data.accessibilityOn = gs.getUser().getPreference("glide.ui.accessibility") == 'true';
+		data.showBrowseCommunityForums = new global.CommunityUser().getReadableForums().length>0;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 09:07:38</sys_created_on>
+        <sys_id>aa0ebbd5dbd45410730a7b386896197a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Titan Browse Forums</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_aa0ebbd5dbd45410730a7b386896197a</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 09:14:38</sys_updated_on>
+        <template><![CDATA[<div data-ng-if="::c.data.showBrowseCommunityForums">
+  <div class="cm-browse-forum-tiles self-clear" aria-label="${Browse Forums}">
+    <h2 class="cm-header hidden-xs" data-ng-if="::!c.condensedMode">${Browse Forums}</h2>
+    <h2 class="cm-header hidden-xs" data-ng-if="::c.condensedMode">${Browse Forums}
+        <a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-plus cm-change-color"><span class="sr-only">${Browse Forums}</span><i class="fa fa-plus" aria-hidden="true" data-ng-if="c.collapseWidget"></i></a>
+        <a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-minus cm-change-color"><span class="sr-only">${Browse Forums}</span><i class="fa fa-minus" aria-hidden="true" data-ng-if="!c.collapseWidget"></i></a>
+    </h2>
+    <h2 class="cm-header visible-xs">${Browse Forums}
+        <a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-plus cm-change-color"><span class="sr-only">${Browse Forums}</span><i class="fa fa-plus" aria-hidden="true" data-ng-if="c.collapseWidget"></i></a>
+        <a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-minus cm-change-color"><span class="sr-only">${Browse Forums}</span><i class="fa fa-minus" aria-hidden="true" data-ng-if="!c.collapseWidget"></i></a>
+    </h2>
+    <div class="cm-forum-tiles self-clear" data-ng-if="!c.collapseWidget">
+      <ul class="cm-forum-list">
+      <li class="col-xs-6 col-md-3 cm-tile-container" 
+           data-ng-repeat="forum in ::c.forums track by forum.sys_id" data-ng-class="$index > (c.countToShow - 1) ? 'cm-hidden-tile cm-hide-me':''">
+        <div class="panel panel-default forum-tile">
+          <a href="?id=community_forum&sys_id={{::forum.sys_id}}" class="csm-link-inverse forum-tile-link">
+              <div ng-class="(forum.subforumCount==0)?'link-image':'link-image-with-subforum'">
+                <img data-ng-src="/{{::forum.forum_image}}" data-ng-if="::forum.forum_image" alt=""/>
+              </div>
+              <div class="link-text">
+                <p ng-bind="::forum.name"></p>
+              </div>
+          </a>
+            <hr class="cm-subforum-seperator" ng-if="forum.subforumCount>0">
+            <div ng-if="forum.subforumCount>0">
+              <a href="?id=community_forum_list&sys_id={{::forum.sys_id}}">
+              <span ng-if="forum.subforumCount>1" > 
+                <span ng-bind="forum.subforumCount"> </span> ${Sub Forums}
+              </span>
+              <span ng-if="forum.subforumCount==1" > 
+                <span ng-bind="forum.subforumCount"> </span> ${Sub Forum}
+              </span>
+              <i class="fa fa-caret-right"></i>
+              </a>
+            </div>
+        </div>
+      </li>
+      </ul>
+    </div>
+    <div class="cm-show-more self-clear" data-ng-if="!c.collapseWidget">
+      <a href="?id=community_forum_list" class="">${View all Forums}</a>
+    </div>
+  </div>
+  <style>
+    @media screen and (min-width: 480px){
+      .cm-browse-forum-tiles {
+        width: 70%;
+      }
+    }
+  </style>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_aa0ebbd5dbd45410730a7b386896197a</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function($scope, $http, $location, $rootScope) {
+	/* widget controller */
+	var c = this;
+	var apiBaseUrl = '/api/sn_communities/v1/community',
+			queryParams = $location.search(),
+			maxRowCount = parseInt(c.options.max_no_of_rows),
+		    maxRowsToDisplay = parseInt(c.options.rows_count);
+	        
+	c.collapseWidget = true;
+	c.condensedMode = true;
+	
+	c.countToShow = maxRowsToDisplay * 4;
+	
+	//Fetch the Forums
+	c.fetchForums = function(){
+		$http.get(apiBaseUrl + '/forums?getImages=1&amp;depth_level=1&amp;getSubForumCounts=1&amp;limit='+maxRowCount)
+			.then(function(data){
+			c.forums = data.data.result;
+			if(c.data.accessibilityOn)
+				c.countToShow = c.forums ? c.forums.length : c.countToShow;
+		}, function(error){
+			console.error(error);
+		});
+	}
+
+
+	c.expandWidget = function(){
+		if(c.collapseWidget &amp;&amp; !c.forums)
+			c.fetchForums();
+		c.collapseWidget = !c.collapseWidget;
+		if(c.collapseWidget){
+			$('.cm-minus').each(function(i){
+					$(this).attr('tabindex',-1);
+				}
+			);
+			$('.cm-plus').each(function(i){
+					$(this).removeAttr('tabindex');
+					$(this).focus();
+				}
+			);
+		}
+		else{
+			$('.cm-plus').each(function(i){
+					$(this).attr('tabindex',-1);
+				}
+			);
+			$('.cm-minus').each(function(i){
+					$(this).removeAttr('tabindex');
+					$(this).focus();
+				}
+			);
+		}
+		
+	};
+	
+	//When accessibility mode is on list all the available forum
+	if(c.data.accessibilityOn) {
+		c.collapseWidget = true;
+		c.condensedMode = false;
+		c.countToShow = c.forums ? c.forums.length : c.countToShow;
+		c.expandWidget();
+	}
+
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.cm-browse-forum-tiles {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  .cm-header {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    .fa {
+      color: $csm-icon-color;
+      margin-left: 5px;
+    }
+  }
+  .cm-forum-tiles {
+    .cm-forum-list{
+      list-style-type:none;
+      margin:0;
+      padding:0;
+    }
+    .cm-tile-container {
+      padding: 0px 10px;
+    }
+    .forum-tile {
+      height: 300px;
+      padding: 10px 15px;
+      overflow-y: hidden;
+      .forum-tile-link {
+        display: block;
+        .link-image {
+          padding-top: 27px;
+          img{
+            height: 150px;      
+          }
+        } 
+        .link-image-with-subforum{
+ 			padding-top:10px; 
+          	img{
+           	 height: 50px;      
+          	}
+	}
+        .link-text {
+          line-height: 20px;
+          //height: 50px;
+          p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            //white-space: nowrap;
+            font-weight: bold;
+            color:$text-color;
+          }
+        }
+      }
+    }
+    .cm-hide-me {
+      display: none;
+    }
+  }
+  .cm-show-more {
+    margin-bottom: 25px;
+  }
+}
+.cm-change-color{
+     color: $text-color;
+}
+.self-clear:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.link-text {
+  height: 50px;
+  display: block; /* or inline-block */
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+.cm-subforum-seperator{
+ margin: 0px;
+ margin-bottom: 5px;
+}
+.fa-caret-right{
+ margin-left:5px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;titan_browse_forums&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function(scope){
+	$timeout = $injector.get('$timeout');
+	$timeout(function(){
+		$('.cm-minus').each(function(i){
+			$(this).attr('tabindex',-1);
+		});
+	});
+}]]&gt;&lt;/link&gt;&lt;name&gt;Titan Browse Forums&lt;/name&gt;&lt;option_schema&gt;[{"name":"rows_count","default_value":"2","label":"Number of rows displayed","type":"string"},{"name":"max_no_of_rows","default_value":"10","label":"Maximum number of forums displayed","type":"string"}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+		data.accessibilityOn = gs.getUser().getPreference("glide.ui.accessibility") == 'true';
+		data.showBrowseCommunityForums = new global.CommunityUser().getReadableForums().length&gt;0;
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 09:07:38&lt;/sys_created_on&gt;&lt;sys_id&gt;aa0ebbd5dbd45410730a7b386896197a&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Titan Browse Forums&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_aa0ebbd5dbd45410730a7b386896197a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 09:14:38&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div data-ng-if="::c.data.showBrowseCommunityForums"&gt;
+  &lt;div class="cm-browse-forum-tiles self-clear" aria-label="${Browse Forums}"&gt;
+    &lt;h2 class="cm-header hidden-xs" data-ng-if="::!c.condensedMode"&gt;${Browse Forums}&lt;/h2&gt;
+    &lt;h2 class="cm-header hidden-xs" data-ng-if="::c.condensedMode"&gt;${Browse Forums}
+        &lt;a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-plus cm-change-color"&gt;&lt;span class="sr-only"&gt;${Browse Forums}&lt;/span&gt;&lt;i class="fa fa-plus" aria-hidden="true" data-ng-if="c.collapseWidget"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-minus cm-change-color"&gt;&lt;span class="sr-only"&gt;${Browse Forums}&lt;/span&gt;&lt;i class="fa fa-minus" aria-hidden="true" data-ng-if="!c.collapseWidget"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;h2 class="cm-header visible-xs"&gt;${Browse Forums}
+        &lt;a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-plus cm-change-color"&gt;&lt;span class="sr-only"&gt;${Browse Forums}&lt;/span&gt;&lt;i class="fa fa-plus" aria-hidden="true" data-ng-if="c.collapseWidget"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a href="Javascript:void(0);" role="button" data-ng-click="c.expandWidget()" class="cm-minus cm-change-color"&gt;&lt;span class="sr-only"&gt;${Browse Forums}&lt;/span&gt;&lt;i class="fa fa-minus" aria-hidden="true" data-ng-if="!c.collapseWidget"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div class="cm-forum-tiles self-clear" data-ng-if="!c.collapseWidget"&gt;
+      &lt;ul class="cm-forum-list"&gt;
+      &lt;li class="col-xs-6 col-md-3 cm-tile-container" 
+           data-ng-repeat="forum in ::c.forums track by forum.sys_id" data-ng-class="$index &gt; (c.countToShow - 1) ? 'cm-hidden-tile cm-hide-me':''"&gt;
+        &lt;div class="panel panel-default forum-tile"&gt;
+          &lt;a href="?id=community_forum&amp;sys_id={{::forum.sys_id}}" class="csm-link-inverse forum-tile-link"&gt;
+              &lt;div ng-class="(forum.subforumCount==0)?'link-image':'link-image-with-subforum'"&gt;
+                &lt;img data-ng-src="/{{::forum.forum_image}}" data-ng-if="::forum.forum_image" alt=""/&gt;
+              &lt;/div&gt;
+              &lt;div class="link-text"&gt;
+                &lt;p ng-bind="::forum.name"&gt;&lt;/p&gt;
+              &lt;/div&gt;
+          &lt;/a&gt;
+            &lt;hr class="cm-subforum-seperator" ng-if="forum.subforumCount&gt;0"&gt;
+            &lt;div ng-if="forum.subforumCount&gt;0"&gt;
+              &lt;a href="?id=community_forum_list&amp;sys_id={{::forum.sys_id}}"&gt;
+              &lt;span ng-if="forum.subforumCount&gt;1" &gt; 
+                &lt;span ng-bind="forum.subforumCount"&gt; &lt;/span&gt; ${Sub Forums}
+              &lt;/span&gt;
+              &lt;span ng-if="forum.subforumCount==1" &gt; 
+                &lt;span ng-bind="forum.subforumCount"&gt; &lt;/span&gt; ${Sub Forum}
+              &lt;/span&gt;
+              &lt;i class="fa fa-caret-right"&gt;&lt;/i&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="cm-show-more self-clear" data-ng-if="!c.collapseWidget"&gt;
+      &lt;a href="?id=community_forum_list" class=""&gt;${View all Forums}&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;style&gt;
+    @media screen and (min-width: 480px){
+      .cm-browse-forum-tiles {
+        width: 70%;
+      }
+    }
+  &lt;/style&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>663690134</payload_hash>
+        <record_name>Titan Browse Forums</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 09:14:38</sys_created_on>
+        <sys_id>51af3759dbd45410730a7b38689619d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17196de3a8a0000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 09:14:38</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>d9af37595bd45410ce726ffdeee5edd5</update_guid>
+        <update_guid_history>d9af37595bd45410ce726ffdeee5edd5:663690134,7a4ef7d505d45410f1717b33815ad2ab:-846391953,ae0ebbd519d4541027ad84d920946d7b:149133830</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Titan Browse Forums">84a778e9db985410730a7b386896199d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 13:19:14</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>000d9fd76f054cce863992e4c8ef25c9</sys_id>
+        <sys_metadata>aa0ebbd5dbd45410730a7b386896197a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Browse Forums</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_aa0ebbd5dbd45410730a7b386896197a</sys_update_name>
+        <sys_update_version display_value="sp_widget_aa0ebbd5dbd45410730a7b386896197a">51af3759dbd45410730a7b38689619d6</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 13:19:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

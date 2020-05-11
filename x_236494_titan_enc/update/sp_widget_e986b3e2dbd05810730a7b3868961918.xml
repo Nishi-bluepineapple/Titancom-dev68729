@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $timeout) {
+  /* widget controller */
+  var c = this;
+	c.slideInterval=3000;
+	c.slides= [
+		{id: 0, image: "horizontal_scroll.jpg"},
+		{id: 1, image: "horizontal_scroll2.jpg"}
+	];
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>nonloggedin</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>NonLoggedIn</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.userName = gs.getUser().getFirstName();
+	data.isLoggedIn = GlideSession.get().isLoggedIn();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-24 05:47:11</sys_created_on>
+        <sys_id>e986b3e2dbd05810730a7b3868961918</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>NonLoggedIn</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_e986b3e2dbd05810730a7b3868961918</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-28 04:48:52</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid no-pad">
+  <div class="row">
+    <div class=" col-md-12">
+      <div class="container-fluid no-pad">
+      <uib-carousel interval="c.slideInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in c.slides" active="slide.active" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+      </uib-slide>
+        </uib-carousel>
+      </div>
+    </div>
+  </div>
+   <div class="row">
+    <div class=" col-md-12">
+      <img src="NonLoggedInBanner.png" width="1349" height="446"/>
+    </div>
+  </div>
+   <div class="row">
+    <div class=" col-md-12">
+      <widget id="engage-and-win"></widget>
+    </div>
+  </div>
+   <div class="row">
+     <div class="col-sm-6 col-md-6 col-lg-6" style="background-repeat: no-repeat;background: #BFEBC9;
+    padding-top: 16px;">
+		<img src="third-section3.png" width ="100%" >   
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6"  align="center">
+		<img src="BottomNonLoggedIn.png" width="490" height="905"/>
+    </div>
+  </div>
+<!-- your widget template -->
+</div>]]></template>
+    </sp_widget>
+</record_update>

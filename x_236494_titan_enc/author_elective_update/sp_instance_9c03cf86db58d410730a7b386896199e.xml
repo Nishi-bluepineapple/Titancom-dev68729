@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">19ccdd75db589410730a7b3868961908</sp_column>
+        <sp_widget display_value="Gifting Perfumes">f43d3a86db58d410730a7b3868961977</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 12:45:09</sys_created_on>
+        <sys_id>9c03cf86db58d410730a7b386896199e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_instance_9c03cf86db58d410730a7b386896199e</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:47:49</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=9c03cf86db58d410730a7b386896199e"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_instance_9c03cf86db58d410730a7b386896199e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>2</order><roles/><short_description/><size>md</size><sp_column display_value="1">19ccdd75db589410730a7b3868961908</sp_column><sp_widget display_value="Gifting Perfumes">f43d3a86db58d410730a7b3868961977</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-22 12:45:09</sys_created_on><sys_id>9c03cf86db58d410730a7b386896199e</sys_id><sys_mod_count>5</sys_mod_count><sys_name/><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_instance_9c03cf86db58d410730a7b386896199e</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-23 13:47:49</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=9c03cf86db58d410730a7b386896199e"/></record_update>]]></payload>
+        <payload_hash>1326174295</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-23 13:47:49</sys_created_on>
+        <sys_id>d0fa186adb581810730a7b3868961964</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171a74b6ae30000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:47:49</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>1cfa186a9a5818107bba5e87033f5e63</update_guid>
+        <update_guid_history>1cfa186a9a5818107bba5e87033f5e63:1326174295,80ead46a84581810573b965cf2af3397:-1999190376,30fd3fd2871818109c47158a9f80ab3d:-1029587751,8f5c1656bad01810d761743a759945f2:-1999190376,543467c2ecd8d410b4c7eb9ab15e291d:1326174295,1803cf86c558d41033ca83dcd69d31a0:356571670</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">d6fa186adb581810730a7b38689619e5</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-23 13:47:57</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>37f50d0e789c438e90eb646428d60f24</sys_id>
+        <sys_metadata>9c03cf86db58d410730a7b386896199e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_instance_9c03cf86db58d410730a7b386896199e</sys_update_name>
+        <sys_update_version display_value="sp_instance_9c03cf86db58d410730a7b386896199e">d0fa186adb581810730a7b3868961964</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:47:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

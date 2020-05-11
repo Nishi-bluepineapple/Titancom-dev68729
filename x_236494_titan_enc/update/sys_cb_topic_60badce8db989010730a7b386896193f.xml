@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <category display_value="Customer Service Topics">b28634c4b7b93300da7ab948ee11a93a</category>
+        <connect_queue/>
+        <description/>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "c4e5dbfb510d4446bae2c4d7b2600d33": {
+      "id": "c4e5dbfb510d4446bae2c4d7b2600d33",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "ed247d5cdd1d470c8cec0d12b897ac50": {
+          "id": "ed247d5cdd1d470c8cec0d12b897ac50",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "29c5aaa4c18241b38766bede1f6b9b3d": {
+          "id": "29c5aaa4c18241b38766bede1f6b9b3d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "187e8a511f6b4a8e9c0239f5c22aa2e8": {
+          "id": "187e8a511f6b4a8e9c0239f5c22aa2e8",
+          "stepType": "Prompt",
+          "name": "Case Description",
+          "prompt": {
+            "value": "Please describe your Issue.",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": "",
+          "variableId": "ee448f6da4464fa7a06f046425c35a76"
+        },
+        "b0ce8c7959af4f93b670a50e533797b6": {
+          "id": "b0ce8c7959af4f93b670a50e533797b6",
+          "stepType": "CrudAction",
+          "name": "Create Case",
+          "template": "contact_type=virtual_agent^contact={{vaInputs.user.sys_id}}^state=1^short_description={{vaInputs.case_description}}^priority={{vaInputs.case_priority}}",
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "c6d725c45cd04bb4adf7562bac80075f"
+        },
+        "2d4e9e2e092b4ea28febea0886ed1fe7": {
+          "id": "2d4e9e2e092b4ea28febea0886ed1fe7",
+          "stepType": "Decision",
+          "name": "Case Decision"
+        },
+        "de1091700d8f498886ea040ed84f14f1": {
+          "id": "de1091700d8f498886ea040ed84f14f1",
+          "stepType": "RecordOutput",
+          "name": "Case Response",
+          "variableId": "c6d725c45cd04bb4adf7562bac80075f",
+          "mode": "variable",
+          "tableName": "sn_customerservice_case",
+          "fields": [
+            "number",
+            "short_description",
+            "state",
+            "priority"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "",
+            "value": ""
+          }
+        },
+        "0548c23810fb446a9d94bfaac460d110": {
+          "id": "0548c23810fb446a9d94bfaac460d110",
+          "stepType": "TextOutput",
+          "name": "Case Error Message",
+          "value": {
+            "value": "Something went wrong. Please try again latter.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "dbd0f4e0db9741f8aeb56d3579e6bf21": {
+          "id": "dbd0f4e0db9741f8aeb56d3579e6bf21",
+          "stepType": "TextOutput",
+          "name": "Case Ack",
+          "value": {
+            "value": "I've created a case for you:",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ef58ab1b11e74c79810ba6e1be3afd1d": {
+          "id": "ef58ab1b11e74c79810ba6e1be3afd1d",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "29302c99732041bcab95ef55d1e693f9": {
+          "id": "29302c99732041bcab95ef55d1e693f9",
+          "stepType": "TextOutput",
+          "name": "No Case Access Ack",
+          "value": {
+            "value": "You do not have the permissions to create a case. Contact your system administrator to get access.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1275a6ba126246c98dd50d14c43324a5": {
+          "stepType": "ChoicePrompt",
+          "name": "Case Priority",
+          "prompt": {
+            "value": "Select Case Priority",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "836927b8ec884f2daee9fd18a6eb52e9",
+          "id": "1275a6ba126246c98dd50d14c43324a5",
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
+        }
+      },
+      "edges": [
+        {
+          "id": "00c34e551b0141888e723931db5b6da6",
+          "edgeType": "Edge",
+          "source": "0548c23810fb446a9d94bfaac460d110",
+          "target": "29c5aaa4c18241b38766bede1f6b9b3d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "824e931bfdf54a1095596072951fc450",
+          "edgeType": "Edge",
+          "source": "b0ce8c7959af4f93b670a50e533797b6",
+          "target": "2d4e9e2e092b4ea28febea0886ed1fe7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "13d945ccc7e641f984489bf134546e6f",
+          "edgeType": "Edge",
+          "source": "de1091700d8f498886ea040ed84f14f1",
+          "target": "29c5aaa4c18241b38766bede1f6b9b3d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c5bf8e2e1ca84d34b0f7e1ba75372262",
+          "edgeType": "Branch",
+          "source": "2d4e9e2e092b4ea28febea0886ed1fe7",
+          "target": "0548c23810fb446a9d94bfaac460d110",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "create_caseISEMPTY",
+            "mode": "query"
+          },
+          "label": "Case Error"
+        },
+        {
+          "id": "28daf64b74b749c59612bce7830015e4",
+          "edgeType": "Branch",
+          "source": "2d4e9e2e092b4ea28febea0886ed1fe7",
+          "target": "dbd0f4e0db9741f8aeb56d3579e6bf21",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "create_caseISNOTEMPTY",
+            "mode": "query"
+          },
+          "label": "Case success"
+        },
+        {
+          "id": "8550f6d2543441578bc3faa76840784d",
+          "edgeType": "Edge",
+          "source": "dbd0f4e0db9741f8aeb56d3579e6bf21",
+          "target": "de1091700d8f498886ea040ed84f14f1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2183e7ee77fa40399f88654c187b650e",
+          "edgeType": "Edge",
+          "source": "ed247d5cdd1d470c8cec0d12b897ac50",
+          "target": "ef58ab1b11e74c79810ba6e1be3afd1d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f1041b6058d74b159b27aa991daafad5",
+          "edgeType": "Branch",
+          "source": "ef58ab1b11e74c79810ba6e1be3afd1d",
+          "target": "187e8a511f6b4a8e9c0239f5c22aa2e8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    var gr = new GlideRecord('sn_customerservice_case');\n    return gr.canCreate();\n})()\n"
+          },
+          "label": "Has Access to Case"
+        },
+        {
+          "id": "242f37a67a464ca48169c21353ba2140",
+          "edgeType": "Branch",
+          "source": "ef58ab1b11e74c79810ba6e1be3afd1d",
+          "target": "29302c99732041bcab95ef55d1e693f9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    var gr = new GlideRecord('sn_customerservice_case');\n    return !gr.canCreate();\n})()\n"
+          },
+          "label": "Does not have access to Case"
+        },
+        {
+          "id": "d8b1b8f708b94c719e9eef11b387a1b9",
+          "edgeType": "Edge",
+          "source": "29302c99732041bcab95ef55d1e693f9",
+          "target": "29c5aaa4c18241b38766bede1f6b9b3d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "522a768ed33c4bf78524c193ffa97c2a",
+          "edgeType": "Edge",
+          "source": "187e8a511f6b4a8e9c0239f5c22aa2e8",
+          "target": "1275a6ba126246c98dd50d14c43324a5",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "76d3aae3cfc9412f876a3b38e1e0ee44",
+          "edgeType": "Edge",
+          "source": "1275a6ba126246c98dd50d14c43324a5",
+          "target": "b0ce8c7959af4f93b670a50e533797b6",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "df44d14a9b464430985d5106cce2e803": {
+      "category": "vaInputs",
+      "id": "df44d14a9b464430985d5106cce2e803",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "ee448f6da4464fa7a06f046425c35a76": {
+      "id": "ee448f6da4464fa7a06f046425c35a76",
+      "name": "case_description",
+      "label": "Case Description",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "c6d725c45cd04bb4adf7562bac80075f": {
+      "id": "c6d725c45cd04bb4adf7562bac80075f",
+      "name": "create_case",
+      "label": "Create Case",
+      "varType": "reference",
+      "table": "sn_customerservice_case",
+      "inactive": false,
+      "category": "vaInputs"
+    },
+    "836927b8ec884f2daee9fd18a6eb52e9": {
+      "id": "836927b8ec884f2daee9fd18a6eb52e9",
+      "name": "case_priority",
+      "label": "Case Priority",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Critical",
+          "value": "1 - Critical"
+        },
+        {
+          "label": "High",
+          "value": "2 - High",
+          "checked": true
+        },
+        {
+          "label": "Moderate",
+          "value": "3 - Moderate",
+          "checked": true
+        },
+        {
+          "label": "Low",
+          "value": "4 - Low",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <name>Titan Create Case Clone</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-17 08:38:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>60badce8db989010730a7b386896193f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Titan Create Case Clone</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_60badce8db989010730a7b386896193f</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-24 15:10:34</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=60badce8db989010730a7b386896193f"/>
+</record_update>

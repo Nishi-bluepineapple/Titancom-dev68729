@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.dot, .dot:before, .dot:after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #34495e;
+}
+
+.dot {
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.dot:before, .dot:after {
+  content: "";
+}
+
+.dot:before {
+  right: 25px;
+  transition: right .3s ease-out;
+}
+
+.dot:after {
+  left: 25px;
+  transition: left .3s ease-out;
+}
+
+.dots:hover .dot:before {
+  right: -25px;
+}
+
+.dots:hover .dot:after {
+  left: -25px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>test</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 17:36:06</sys_created_on>
+        <sys_id>e82fc56adb981810730a7b38689619ef</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_e82fc56adb981810730a7b38689619ef</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-23 17:47:18</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+<a href="#" class="dots">
+  <div class="dot"></div>
+</a>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_e82fc56adb981810730a7b38689619ef</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.dot, .dot:before, .dot:after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #34495e;
+}
+
+.dot {
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.dot:before, .dot:after {
+  content: "";
+}
+
+.dot:before {
+  right: 25px;
+  transition: right .3s ease-out;
+}
+
+.dot:after {
+  left: 25px;
+  transition: left .3s ease-out;
+}
+
+.dots:hover .dot:before {
+  right: -25px;
+}
+
+.dots:hover .dot:after {
+  left: -25px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;test&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Nishi&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-23 17:36:06&lt;/sys_created_on&gt;&lt;sys_id&gt;e82fc56adb981810730a7b38689619ef&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;test&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_e82fc56adb981810730a7b38689619ef&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Nishi&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-23 17:47:18&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+&lt;!-- your widget template --&gt;
+&lt;a href="#" class="dots"&gt;
+  &lt;div class="dot"&gt;&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>988087503</payload_hash>
+        <record_name>test</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 17:47:18</sys_created_on>
+        <sys_id>d0c19deedbd81810730a7b3868961990</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171a826ac3d0000001</sys_recorded_at>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-23 17:47:18</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>1cc19dee19d81810c77d4315282d5f8f</update_guid>
+        <update_guid_history>1cc19dee19d81810c77d4315282d5f8f:988087503,4e51d9ae15d8181040d904736dc364bb:-653704493,0f601dae1ed818102151ee74277960e2:-1979585222,25afcd6e24d8181009720f2554473cbe:185354869,003f4d6ed3d818103c8c3f8cfd339372:793105360</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="test">9f04d962db1c1810730a7b3868961986</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 17:57:21</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>20407f9a3c7342509922d65e3f7ff824</sys_id>
+        <sys_metadata>e82fc56adb981810730a7b38689619ef</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_e82fc56adb981810730a7b38689619ef</sys_update_name>
+        <sys_update_version display_value="sp_widget_e82fc56adb981810730a7b38689619ef">d0c19deedbd81810730a7b3868961990</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-23 17:57:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

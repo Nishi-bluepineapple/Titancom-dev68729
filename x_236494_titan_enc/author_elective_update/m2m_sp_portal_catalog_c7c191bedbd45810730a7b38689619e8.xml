@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_portal_catalog">
+    <m2m_sp_portal_catalog action="DELETE">
+        <active>true</active>
+        <order>100</order>
+        <sc_catalog display_value="Titan Service Portal">15ad1060dbd89010730a7b386896198d</sc_catalog>
+        <sp_portal display_value="Titan Community">14c5b83ddb949410730a7b38689619ce</sp_portal>
+        <sys_class_name>m2m_sp_portal_catalog</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-24 12:26:08</sys_created_on>
+        <sys_id>c7c191bedbd45810730a7b38689619e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Service Portal.Titan Community</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_portal_catalog_c7c191bedbd45810730a7b38689619e8</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-24 12:26:08</sys_updated_on>
+    </m2m_sp_portal_catalog>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sp_portal_catalog_c7c191bedbd45810730a7b38689619e8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_portal_catalog"><m2m_sp_portal_catalog action="INSERT_OR_UPDATE"><active>true</active><order>100</order><sc_catalog display_value="Titan Service Portal">15ad1060dbd89010730a7b386896198d</sc_catalog><sp_portal display_value="Titan Community">14c5b83ddb949410730a7b38689619ce</sp_portal><sys_class_name>m2m_sp_portal_catalog</sys_class_name><sys_created_by>neel</sys_created_by><sys_created_on>2020-04-24 12:26:08</sys_created_on><sys_id>c7c191bedbd45810730a7b38689619e8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Titan Service Portal.Titan Community</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sp_portal_catalog_c7c191bedbd45810730a7b38689619e8</sys_update_name><sys_updated_by>neel</sys_updated_by><sys_updated_on>2020-04-24 12:26:08</sys_updated_on></m2m_sp_portal_catalog></record_update>]]></payload>
+        <payload_hash>-1906173633</payload_hash>
+        <record_name>Titan Service Portal.Titan Community</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-24 12:26:08</sys_created_on>
+        <sys_id>95d111bedbd45810730a7b38689619a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171ac26fc010000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-24 12:26:08</sys_updated_on>
+        <type>Portal Catalog</type>
+        <update_guid>ddd111be3cd45810fee5f5ccd0420fa0</update_guid>
+        <update_guid_history>ddd111be3cd45810fee5f5ccd0420fa0:-1906173633</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Titan Service Portal.Titan Community">683259bedbd45810730a7b3868961971</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-24 12:27:43</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_portal_catalog">m2m_sp_portal_catalog</sys_db_object>
+        <sys_id>7e30703efe8b4cb88e42e2f29ddf5da4</sys_id>
+        <sys_metadata>c7c191bedbd45810730a7b38689619e8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Service Portal.Titan Community</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sp_portal_catalog_c7c191bedbd45810730a7b38689619e8</sys_update_name>
+        <sys_update_version display_value="m2m_sp_portal_catalog_c7c191bedbd45810730a7b38689619e8">95d111bedbd45810730a7b38689619a1</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-24 12:27:43</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

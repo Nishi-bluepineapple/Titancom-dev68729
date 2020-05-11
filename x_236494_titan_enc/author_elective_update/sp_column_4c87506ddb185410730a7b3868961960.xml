@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <size>6</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">4487506ddb185410730a7b386896195d</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 10:58:52</sys_created_on>
+        <sys_id>4c87506ddb185410730a7b3868961960</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_column_4c87506ddb185410730a7b3868961960</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 11:01:04</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_column_4c87506ddb185410730a7b3868961960</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><class_name/><order>1</order><size>6</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">4487506ddb185410730a7b386896195d</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>neel</sys_created_by><sys_created_on>2020-04-20 10:58:52</sys_created_on><sys_id>4c87506ddb185410730a7b3868961960</sys_id><sys_mod_count>1</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_column_4c87506ddb185410730a7b3868961960</sys_update_name><sys_updated_by>neel</sys_updated_by><sys_updated_on>2020-04-20 11:01:04</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-1147151528</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 11:01:04</sys_created_on>
+        <sys_id>1808906ddb185410730a7b386896195f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171973fad050000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 11:01:04</sys_updated_on>
+        <type>Column</type>
+        <update_guid>9008906d011854106c6bc1ec52906d5f</update_guid>
+        <update_guid_history>9008906d011854106c6bc1ec52906d5f:-1147151528,c887506d9b1854105a5aad0197c9dd61:50443098</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">1708186ddb185410730a7b3868961962</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 11:01:16</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>5ed80e3173f84468b05536ee05284710</sys_id>
+        <sys_metadata>4c87506ddb185410730a7b3868961960</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_column_4c87506ddb185410730a7b3868961960</sys_update_name>
+        <sys_update_version display_value="sp_column_4c87506ddb185410730a7b3868961960">1808906ddb185410730a7b386896195f</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 11:01:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

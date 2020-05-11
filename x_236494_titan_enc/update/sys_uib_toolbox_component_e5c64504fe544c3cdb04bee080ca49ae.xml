@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_toolbox_component">
+    <sys_uib_toolbox_component action="INSERT_OR_UPDATE">
+        <description>generally digu</description>
+        <icon>configuration-item-fill</icon>
+        <label>diguFirst</label>
+        <macroponent display_value="diguFirst">4403159a815624cb1f60a9306ec19110</macroponent>
+        <sys_class_name>sys_uib_toolbox_component</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-05 09:27:15</sys_created_on>
+        <sys_id>e5c64504fe544c3cdb04bee080ca49ae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>diguFirst</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_uib_toolbox_component_e5c64504fe544c3cdb04bee080ca49ae</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-05 09:27:15</sys_updated_on>
+    </sys_uib_toolbox_component>
+</record_update>

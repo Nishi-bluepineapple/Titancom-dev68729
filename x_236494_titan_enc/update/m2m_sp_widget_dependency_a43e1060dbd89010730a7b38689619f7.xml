@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="chart.js">a7a8754347011200ba13a5554ee4905c</sp_dependency>
+        <sp_widget display_value="PointsGraph">5a8b14ecdb989010730a7b3868961974</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-17 08:54:12</sys_created_on>
+        <sys_id>a43e1060dbd89010730a7b38689619f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>chart.js.PointsGraph</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_a43e1060dbd89010730a7b38689619f7</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-17 08:54:12</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

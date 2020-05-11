@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability>(function execute() {
+    return false;
+})()
+</applicability>
+        <category display_value="Setup Topics">5628e7f27373230025d032e954f6a7de</category>
+        <connect_queue/>
+        <description>Presents a greeting to the user at the beginning of a conversation.</description>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "443ef25a91bb49f4a65aa6acfd7adc79": {
+      "id": "443ef25a91bb49f4a65aa6acfd7adc79",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "1472f581cd3b4b5ab7743520edbf906f": {
+          "id": "1472f581cd3b4b5ab7743520edbf906f",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "",
+            "mode": "simple"
+          }
+        },
+        "7cfbac389e2d496a84c630267aa15096": {
+          "id": "7cfbac389e2d496a84c630267aa15096",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": "",
+            "mode": "simple"
+          }
+        },
+        "e3c968aa5d0b4bb5952b791187300e79": {
+          "id": "e3c968aa5d0b4bb5952b791187300e79",
+          "stepType": "TextOutput",
+          "name": "Show Greeting Message",
+          "value": {
+            "value": "{{vaVars.greeting_message}}",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "3f29ceccda0b46b3a4834ecbbd8e1387": {
+          "id": "3f29ceccda0b46b3a4834ecbbd8e1387",
+          "name": "Get Greeting Message",
+          "script": "(function execute() {\n    vaVars.greeting_message = vaSystem.getGreetingMessage();\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "script",
+            "value": ""
+          }
+        },
+        "d1c6c583e51b4a43b3e18c5342523cb1": {
+          "id": "d1c6c583e51b4a43b3e18c5342523cb1",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "cad271d7d6be42669aa8ad02b4c4b4cf": {
+          "id": "cad271d7d6be42669aa8ad02b4c4b4cf",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "4af529aabf094ff3a590887db98f9847": {
+          "id": "4af529aabf094ff3a590887db98f9847",
+          "name": "Topic Discovery",
+          "script": "(function execute() {\n    vaSystem.topicDiscovery();\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "645e3f82e2314084843950ff707bf36c": {
+          "id": "645e3f82e2314084843950ff707bf36c",
+          "name": "Send to Topic Control",
+          "script": "(function execute() {\n    var greetingMessage = vaSystem.getTopicSelectionMessage();\n    vaSystem.sendTopicPickerControl(greetingMessage);\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "ce40560d1bd948d3aa0c74f00e19420e",
+          "edgeType": "Edge",
+          "source": "1472f581cd3b4b5ab7743520edbf906f",
+          "target": "d1c6c583e51b4a43b3e18c5342523cb1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "620965a319ab4710822fe29f0802642c",
+          "edgeType": "Branch",
+          "source": "cad271d7d6be42669aa8ad02b4c4b4cf",
+          "target": "645e3f82e2314084843950ff707bf36c",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaVars.global_preChatExecuted;\n})()\n"
+          },
+          "label": "Pre-chat executed"
+        },
+        {
+          "id": "3467f4058cdf47c0933faa1e0e0dd184",
+          "edgeType": "Edge",
+          "source": "e3c968aa5d0b4bb5952b791187300e79",
+          "target": "645e3f82e2314084843950ff707bf36c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cbd724a0bb0f4beab9263194bafbe2d8",
+          "edgeType": "Edge",
+          "source": "3f29ceccda0b46b3a4834ecbbd8e1387",
+          "target": "e3c968aa5d0b4bb5952b791187300e79",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "77664d4888e846d48975511c5602ab88",
+          "edgeType": "Branch",
+          "source": "d1c6c583e51b4a43b3e18c5342523cb1",
+          "target": "cad271d7d6be42669aa8ad02b4c4b4cf",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    gs.info('_________1 '+vaVars.global_search_text);\n    return gs.nil(vaVars.global_search_text)\n})()\n"
+          },
+          "label": "Search Text Not Set"
+        },
+        {
+          "id": "645ae24c0fa44751bb155b97e5112706",
+          "edgeType": "Branch",
+          "source": "cad271d7d6be42669aa8ad02b4c4b4cf",
+          "target": "3f29ceccda0b46b3a4834ecbbd8e1387",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    gs.info('++++++++++++++! '+vaVars.global_preChatExecuted);\n    return !vaVars.global_preChatExecuted;\n})()\n"
+          },
+          "label": "Pre-chat not executed"
+        },
+        {
+          "id": "63e410a6f4c345ad9ccd207e0658a818",
+          "edgeType": "Branch",
+          "source": "d1c6c583e51b4a43b3e18c5342523cb1",
+          "target": "4af529aabf094ff3a590887db98f9847",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return !gs.nil(vaVars.global_search_text)\n})()\n"
+          },
+          "label": "Search Text Set"
+        },
+        {
+          "id": "f07e2ffc23424495a04088daa582992f",
+          "edgeType": "Edge",
+          "source": "4af529aabf094ff3a590887db98f9847",
+          "target": "7cfbac389e2d496a84c630267aa15096",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "97720d66f76a4f759b2a868cbadcdab8",
+          "edgeType": "Edge",
+          "source": "645e3f82e2314084843950ff707bf36c",
+          "target": "7cfbac389e2d496a84c630267aa15096",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "90957c48e53746c792b4670679be42e0": {
+      "id": "90957c48e53746c792b4670679be42e0",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "name": "greeting_message",
+      "label": "greeting_message",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "010a8642ff9444b7b2518334c9a4e652": {
+      "category": "vaInputs",
+      "id": "010a8642ff9444b7b2518334c9a4e652",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases>Greetings</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Titan Encircle</name>
+        <nlu_intent>Welcome to Titan Encircle</nlu_intent>
+        <nlu_intent_label>Welcome to Titan Encircle</nlu_intent_label>
+        <nlu_model>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</nlu_model>
+        <nlu_model_label>Titan Encircle NLU for VA</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles>public</roles>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 10:11:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>2c238301db581410730a7b386896194a</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Titan Encircle</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_2c238301db581410730a7b386896194a</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 11:33:41</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=2c238301db581410730a7b386896194a"/>
+</record_update>

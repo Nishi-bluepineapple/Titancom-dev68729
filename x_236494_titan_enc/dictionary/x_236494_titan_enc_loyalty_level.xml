@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Loyalty Level" max_length="40" name="x_236494_titan_enc_loyalty_level" sizeclass="4" type="collection">
+        <element label="Ending Points" max_length="40" name="ending_points" type="integer"/>
+        <element label="Level Name" max_length="40" name="level_name" type="string"/>
+        <element label="Starting Points" max_length="40" name="starting_points" type="integer"/>
+    </element>
+</database>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="communityHTMLFilter">5d388bbbc3a41300e2fd5cb981d3ae49</sp_dependency>
+        <sp_widget display_value="Copy of Community Content Question">7b19eb55db945410730a7b3868961997</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 07:36:14</sys_created_on>
+        <sys_id>bb19eb55db945410730a7b3868961999</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>communityHTMLFilter.Copy of Community Content Question</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_bb19eb55db945410730a7b3868961999</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 07:36:14</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>m2m_sp_widget_dependency_bb19eb55db945410730a7b3868961999</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="communityHTMLFilter">5d388bbbc3a41300e2fd5cb981d3ae49</sp_dependency><sp_widget display_value="Copy of Community Content Question">7b19eb55db945410730a7b3868961997</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-20 07:36:14</sys_created_on><sys_id>bb19eb55db945410730a7b3868961999</sys_id><sys_mod_count>0</sys_mod_count><sys_name>communityHTMLFilter.Copy of Community Content Question</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>m2m_sp_widget_dependency_bb19eb55db945410730a7b3868961999</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-20 07:36:14</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>-1017656566</payload_hash>
+        <record_name>communityHTMLFilter.Copy of Community Content Question</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 07:36:14</sys_created_on>
+        <sys_id>3f19af55db945410730a7b38689619b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1719684237e0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 07:36:14</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>7719eb5574945410e81ec01dd90d759b</update_guid>
+        <update_guid_history>7719eb5574945410e81ec01dd90d759b:-1017656566</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="communityHTMLFilter.Copy of Community Content Question">f943442ddbd45410730a7b38689619f9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 09:30:31</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>02f65ae9305b4d6ea24d3ca0eae963c1</sys_id>
+        <sys_metadata>bb19eb55db945410730a7b3868961999</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>communityHTMLFilter.Copy of Community Content Question</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>m2m_sp_widget_dependency_bb19eb55db945410730a7b3868961999</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_bb19eb55db945410730a7b3868961999">3f19af55db945410730a7b38689619b7</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 09:30:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

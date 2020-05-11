@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope,$document) {
+  /* widget controller */
+  var c = this;
+	
+	$scope.toggleSideMenu = function() {
+		$document[0].getElementById('sidemenu').classList.toggle('active');
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.sidebar{
+	position:fixed;
+  width:200px;
+  height:auto;
+  background:gray;
+  left:-200px;
+  transition:all 500ms linear;
+  z-index:99999999;
+}
+.sidebar.active{
+	left:0px;
+}
+.sidebar ul{
+	margin:0;
+  padding: 0px;
+}
+.sidebar ul li{
+	color: rgba(230,230,230,.9);
+  list-style:none;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+.sidebar ul li:hover{
+	background-color: rgba(30,30,30,.9);
+}
+
+.sidebar ul li a{
+	color: #FFF;
+  text-decoration:none;
+}
+
+.sidebar .toggle-button {
+	position:absolute;
+  left:230px;
+  top:20px;
+}
+
+.sidebar .toggle-button span {
+	display:block;
+  width:30px;
+  height:5px;
+  background:#151719;
+  margin:5px 0px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>titan_sidemenu</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Titan SIdeMenu</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-21 10:39:41</sys_created_on>
+        <sys_id>70bcd1b5db589410730a7b3868961956</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Titan SIdeMenu</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_70bcd1b5db589410730a7b3868961956</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-21 11:57:25</sys_updated_on>
+        <template><![CDATA[<div class="sidebar" id="sidemenu">
+  <div class="toggle-button" ng-click="toggleSideMenu();">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul>
+    <li><a href="javascript:void(0)">Menu1</a></li>
+    <li><a href="javascript:void(0)">Menu2</a></li>
+
+    <li><a href="javascript:void(0)">Menu3</a></li>
+
+    <li><a href="javascript:void(0)">Menu4</a></li>
+
+    <li><a href="javascript:void(0)">Menu5</a></li>
+
+  </ul>
+</div>]]></template>
+    </sp_widget>
+</record_update>

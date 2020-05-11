@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_236494_titan_enc.SurveyPoints</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SurveyPoints</name>
+        <script><![CDATA[var SurveyPoints = Class.create();
+SurveyPoints.prototype = {
+	initialize: function() {},
+	updatePoints: function(userId) {
+		gs.info('inside server script');
+		var sys_id_new;
+		var gr = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+		gr.addQuery('user', userId); //userSysId);
+		gr.addQuery('latest_transaction', 'true');
+		gr.query();
+		while (gr.next()) {
+			gr.setValue('latest_transaction', 'false');
+			gr.update();
+			gr.get(gr.sys_id);
+			sys_id_new = gr.insert();
+			gs.info(sys_id_new);
+		}
+		var dateTimeNow = new GlideDateTime().getDisplayValue();
+		gs.info('Nishi :'+ dateTimeNow);
+		var grec = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+		grec.addQuery('sys_id', sys_id_new);
+		grec.query();
+		while (grec.next()) {
+			grec.setValue('latest_transaction', 'true');
+			var points = grec.points_balance + 500;
+			grec.setValue('points_balance', points);
+			grec.setValue('points_earned', 500);
+			grec.setValue('remarks', 'Survey');
+			grec.setValue('transaction_date',dateTimeNow);
+			//console.log('transaction date : '+ grec.transaction_date);
+			grec.update();
+		}
+
+	},
+	insertTransaction:function(userId,remarks,pointearned,pointsredeemed
+								,transactionprice,transactionproduct)
+	{
+		gs.info('inside server script');
+		var sys_id_new;
+		var gr = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+		gr.addQuery('user', userId); //userSysId);
+	    gr.addQuery('latest_transaction', 'true');
+		gr.setLimit(1);
+		gr.query();
+		var level="Silver";
+		var currentpoints=0;
+		if (gr.next()) {
+			currentpoints = gr.getValue('points_balance');
+			level=gr.getValue('level');
+			gr.setValue('latest_transaction', 'false');
+			gr.update();
+                        gs.info('made latest transaction false');
+		}
+		var newpoints=parseInt(currentpoints) + parseInt(pointearned)-parseInt(pointsredeemed);
+                gs.info('New points'+newpoints);
+		var grLevels=new GlideRecord('x_236494_titan_enc_loyalty_level');
+		
+		grLevels.addQuery('starting_points','<=',newpoints);
+		grLevels.addQuery('ending_points','>=',newpoints);
+		grLevels.orderBy('starting_points');
+		grLevels.query();
+		if(grLevels.next())
+		{
+			level=grLevels.getValue('level_name');
+		}
+        gs.info('level '+level);
+		var dateTimeNow = new GlideDateTime().getDisplayValue();
+		gs.info('Nishi :'+ dateTimeNow);
+		var grec = new GlideRecord('x_236494_titan_enc_loyalty_points_transactions');
+		grec.initialize();
+		grec.setValue('user',userId);
+		grec.setValue('latest_transaction','true');
+		grec.setValue('points_earned','true');
+		grec.setValue('points_balance', newpoints);
+		grec.setValue('points_earned', pointearned);
+		grec.setValue('points_redeemed', pointsredeemed);
+		grec.setValue('remarks', remarks);
+		grec.setValue('transaction_date',dateTimeNow);
+		grec.setValue('transaction_price',transactionprice);
+		grec.setValue('transaction_product',transactionproduct);
+		grec.setValue('level',level);
+		grec.insert();
+
+	},
+
+	type: 'SurveyPoints'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-23 03:41:55</sys_created_on>
+        <sys_id>ab10da9adb901810730a7b3868961999</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>SurveyPoints</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_script_include_ab10da9adb901810730a7b3868961999</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-05-01 12:01:27</sys_updated_on>
+    </sys_script_include>
+</record_update>

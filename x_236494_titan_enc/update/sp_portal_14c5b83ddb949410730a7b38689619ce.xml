@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$brand-primary:#000000;
+$body-bg:#fff;
+$state-success-text:#5cb85c;
+$sp-homepage-bg:#fff;
+$sp-navbar-divider-color:#ffffff;
+$text-color:#000000;
+$sp-logo-margin-y:.5rem;
+$navbar-inverse-link-hover-color:#485563;
+$panel-bg:#fff;
+$brand-success:#717171;
+$navbar-inverse-bg:#ffffff;
+$brand-warning:#f0ad4e;
+$brand-danger:#d9534f;
+$sp-tagline-color:#717171;
+$navbar-inverse-link-color:#000000;
+$brand-info:#5bc0de;
+$link-color:#000000;
+$sp-logo-margin-x:15px;
+$btn-default-bg:#fff;
+$text-muted:#cbcbcb;
+</css_variables>
+        <default>false</default>
+        <homepage display_value="titan_communities">24fd0535db189410730a7b38689619ff</homepage>
+        <icon>d3663b02db1cd410730a7b38689619f9</icon>
+        <kb_knowledge_base/>
+        <kb_knowledge_page display_value="titan_knowledge_base">b0e5fcf6db945810730a7b38689619f5</kb_knowledge_page>
+        <login_page display_value="titan_login">7a03f8bfdbd01c10730a7b3868961994</login_page>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config/>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu/>
+        <sqanda_knowledge_base display_value="Customer Service">05ff44289f011200550bf7b6077fcfa3</sqanda_knowledge_base>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-21 07:50:18</sys_created_on>
+        <sys_id>14c5b83ddb949410730a7b38689619ce</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Titan Community</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_portal_14c5b83ddb949410730a7b38689619ce</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-30 06:58:31</sys_updated_on>
+        <theme display_value="TitanComm">5356347ddb949410730a7b38689619f6</theme>
+        <title>Titan Community</title>
+        <ts_index_group/>
+        <url_suffix>titancom</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=14c5b83ddb949410730a7b38689619ce"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#ffffff</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>icon</file_name>
+        <hash>84a950eebbad7d0330984d72c30b1a1221ba5431ff0f3b747f2303bc068a6c8f</hash>
+        <image_height>213</image_height>
+        <image_width>236</image_width>
+        <size_bytes>2685</size_bytes>
+        <size_compressed>2708</size_compressed>
+        <state>available</state>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-22 16:29:49</sys_created_on>
+        <sys_id>d3663b02db1cd410730a7b38689619f9</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-04-22 16:29:49</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>14c5b83ddb949410730a7b38689619ce</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="icon" sys_id="d3663b02db1cd410730a7b38689619f9">d3663b02db1cd410730a7b38689619f9</sys_attachment>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-22 16:29:49</sys_created_on>
+        <sys_id>17663b02db1cd410730a7b38689619f9</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3600</length>
+        <position>1</position>
+        <sys_attachment display_value="icon" sys_id="d3663b02db1cd410730a7b38689619f9">d3663b02db1cd410730a7b38689619f9</sys_attachment>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-22 16:29:49</sys_created_on>
+        <sys_id>97663b02db1cd410730a7b38689619f9</sys_id>
+    </sys_attachment_doc>
+</record_update>

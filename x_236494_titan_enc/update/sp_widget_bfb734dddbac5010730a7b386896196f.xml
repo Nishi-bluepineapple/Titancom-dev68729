@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 150px;
+}
+.right{
+width:418px;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>titan-survey-popup</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>survey popup</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-05-02 04:57:18</sys_created_on>
+        <sys_id>bfb734dddbac5010730a7b386896196f</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>survey popup</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_bfb734dddbac5010730a7b386896196f</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-05-02 14:30:42</sys_updated_on>
+        <template><![CDATA[<div class = "container-fluid">
+<div class="row">
+  <div class="column left">
+ <img src="encircle.png" width= "145px">
+  </div>
+  <div class="column right" style="padding-top: 35px;">
+ Give Feedback and Earn 500 points. Do you want to take our survey?
+  </div>
+</div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

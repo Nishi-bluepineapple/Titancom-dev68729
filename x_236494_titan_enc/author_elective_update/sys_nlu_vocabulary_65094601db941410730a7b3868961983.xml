@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_vocabulary">
+    <sys_nlu_vocabulary action="DELETE">
+        <model display_value="Titan Encircle NLU for VA">59eaca70dbd8d010730a7b3868961997</model>
+        <name>Tanishq</name>
+        <pattern/>
+        <related_terms>Titan Brand</related_terms>
+        <sys_class_name>sys_nlu_vocabulary</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 05:57:54</sys_created_on>
+        <sys_id>65094601db941410730a7b3868961983</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Tanishq</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_nlu_vocabulary_65094601db941410730a7b3868961983</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 05:57:54</sys_updated_on>
+        <type>regular</type>
+    </sys_nlu_vocabulary>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_nlu_vocabulary_65094601db941410730a7b3868961983</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_vocabulary"><sys_nlu_vocabulary action="INSERT_OR_UPDATE"><model display_value="Titan Encircle NLU for VA">59eaca70dbd8d010730a7b3868961997</model><name>Tanishq</name><pattern/><related_terms>Titan Brand</related_terms><sys_class_name>sys_nlu_vocabulary</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-19 05:57:54</sys_created_on><sys_id>65094601db941410730a7b3868961983</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Tanishq</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_nlu_vocabulary_65094601db941410730a7b3868961983</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-19 05:57:54</sys_updated_on><type>regular</type></sys_nlu_vocabulary></record_update>]]></payload>
+        <payload_hash>-2000104750</payload_hash>
+        <record_name>Tanishq</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 05:57:54</sys_created_on>
+        <sys_id>a9094601db941410730a7b3868961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1719103bf880000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 05:57:54</sys_updated_on>
+        <type>NLU Vocabulary</type>
+        <update_guid>e109460195941410e3e39d6d5f7d9f85</update_guid>
+        <update_guid_history>e109460195941410e3e39d6d5f7d9f85:-2000104750</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 13:38:14</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_vocabulary">sys_nlu_vocabulary</sys_db_object>
+        <sys_id>54a0c96b120e458899a2a2d82de7dfc4</sys_id>
+        <sys_metadata>65094601db941410730a7b3868961983</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Tanishq</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_nlu_vocabulary_65094601db941410730a7b3868961983</sys_update_name>
+        <sys_update_version display_value="sys_nlu_vocabulary_65094601db941410730a7b3868961983">a9094601db941410730a7b3868961985</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 13:38:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

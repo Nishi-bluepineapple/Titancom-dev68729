@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">b5b8a755db945410730a7b3868961957</sp_column>
+        <sp_widget display_value="Titan Knowledge Search">12b63711dbd45410730a7b38689619b4</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 08:36:44</sys_created_on>
+        <sys_id>31f67f11dbd45410730a7b3868961916</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Search our content</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_instance_31f67f11dbd45410730a7b3868961916</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 08:38:22</sys_updated_on>
+        <title>Search our content</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"placeholder": {
+		"value": "",
+		"displayValue": ""
+	},
+	"allow_empty_search": {
+		"value": "",
+		"displayValue": ""
+	},
+	"min_search_char": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=31f67f11dbd45410730a7b3868961916"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_instance_31f67f11dbd45410730a7b3868961916</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;b5b8a755db945410730a7b3868961957&lt;/sp_column&gt;&lt;sp_widget display_value="Titan Knowledge Search"&gt;12b63711dbd45410730a7b38689619b4&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 08:36:44&lt;/sys_created_on&gt;&lt;sys_id&gt;31f67f11dbd45410730a7b3868961916&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Search our content&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_31f67f11dbd45410730a7b3868961916&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 08:38:22&lt;/sys_updated_on&gt;&lt;title&gt;Search our content&lt;/title&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"placeholder": {
+		"value": "",
+		"displayValue": ""
+	},
+	"allow_empty_search": {
+		"value": "",
+		"displayValue": ""
+	},
+	"min_search_char": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=31f67f11dbd45410730a7b3868961916"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-716286675</payload_hash>
+        <record_name>Search our content</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 08:38:22</sys_created_on>
+        <sys_id>c2573351dbd45410730a7b386896196c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17196bd08130000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 08:38:22</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>4e573351c9d45410796319b05cb5a96b</update_guid>
+        <update_guid_history>4e573351c9d45410796319b05cb5a96b:-716286675,fd37335195d454104546f0ef1c4328bb:-411033843,b9f67f1153d45410d2e766e877843c17:-50827742</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Search our content">9e8432d5db249010730a7b38689619ed</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-05-02 14:02:11</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>4332f0977fb34f94945e2e1e9c43ff10</sys_id>
+        <sys_metadata>31f67f11dbd45410730a7b3868961916</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search our content</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_instance_31f67f11dbd45410730a7b3868961916</sys_update_name>
+        <sys_update_version display_value="sp_instance_31f67f11dbd45410730a7b3868961916">c2573351dbd45410730a7b386896196c</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-05-02 14:02:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

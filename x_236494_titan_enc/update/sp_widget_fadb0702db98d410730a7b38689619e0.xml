@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+	
+	
+	console.log(c.data.uniqueSubCategories);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Purely for testing</description>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>TestWidget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+	// Table for Catalog Items
+var sourceTable = 'x_236494_titan_enc_titan_items';
+var gr = new GlideRecord(sourceTable);
+gr.addQuery('csmdemocategory', 'Gifting');
+gr.query();
+
+// At this stage we have fetched all records under category Gifting
+// This will have all sub categories and all items under each sub category
+var uniqueSubCategories = [];
+var count = 0;
+// Create a list of just sub categories - at this point it will have duplicates
+while (gr.next()) {
+		var element = gr.getValue('csmdemosubcategory').trim();
+		if (uniqueSubCategories.indexOf(element) == -1) {
+			uniqueSubCategories.push(element);
+		}
+}
+
+data.uniqueSubCategories = uniqueSubCategories;
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-22 13:24:26</sys_created_on>
+        <sys_id>fadb0702db98d410730a7b38689619e0</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>TestWidget</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_fadb0702db98d410730a7b38689619e0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-22 14:19:59</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+  <div>
+    {{c.data.uniqueSubCategories}}
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

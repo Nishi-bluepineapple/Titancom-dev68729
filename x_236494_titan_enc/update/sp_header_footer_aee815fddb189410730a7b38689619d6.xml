@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($document, $scope, spUtil, $rootScope, $timeout, spAriaUtil, spGtd, $window) {
+	/* widget controller */
+	var c = this;
+	$scope.collapse = function() {
+		$rootScope.$emit('sp-navbar-collapse');
+	}
+	
+	c.getUrlParam = function(param) {
+		var toggleClassDom = $document[0].getElementsByClassName('toggleClass');
+		for(var i=0; i<toggleClassDom.length;i++){
+			if(toggleClassDom[i].id == param) {
+				toggleClassDom[i].classList.add('active');
+			} else {
+				toggleClassDom[i].classList.remove('active');
+			}
+		}
+	}
+	var urlParams = {};
+	var searchurl = window.location.search;
+	var parts = searchurl.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		urlParams[key] = value;
+	});
+	if(Object.keys(urlParams).length != 0) {
+		if(urlParams.hasOwnProperty('paramid')) {
+			c.getUrlParam(urlParams.paramid);
+		}
+	}
+
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.titan-container a{
+	color:#000;
+  text-decoration:none;
+}
+.titan-container a span.active, .dropdown-menu &gt; li &gt; a span.active{
+	font-weight:700;
+}
+.center-align {
+  text-align:center;
+}
+.titan-container {
+  padding:0;
+}
+.menuicon{
+  float:right;
+}
+.uppercase {
+	text-transform:uppercase;
+}
+.remove-float {
+	float:none;
+}
+.header-item {
+  font-size: 2rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.navbar.titan-navbar {
+  background-color: #FFF;
+  line-height: 60px;
+  border-radius:0;
+  max-height: 60px;
+  margin: 0;
+}
+.dropdown-menu {
+  box-shadow:none;
+  border:none;
+  margin: 1px 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.dropdown-menu &gt; li &gt; a {
+  padding: 12px 16px;
+  font-size: 1.8rem;
+}
+
+.zoom {
+  transition: transform .2s;
+}
+.icons-size {
+  font-size: 2rem;
+}
+.titan-logo{
+	width:32px;
+  height:auto;
+}
+.zoom:hover {
+  transform: scale(1.2);
+}
+.loggedin-user-img{
+	width:4rem;
+  height:4rem;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: -10px;
+}
+.loggedin-user-title{
+	font-size:1.8rem;
+}
+
+/*********************Media Query Classes **********************/
+@media only screen and (max-width: 600px) {
+  .hide-on-small-only, .hide-on-small-and-down {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .loggedin-user-img{
+    width:3rem;
+    height:3rem;
+    margin-top: -10px;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .hide-on-med-and-down {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .loggedin-user-img{
+    width:3rem;
+    height:3rem;
+    margin-top: -10px;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .hide-on-med-only {
+    display: none !important;
+  }
+  .header-item {
+    font-size: 1.5rem;
+  }
+  .loggedin-user-title{
+    font-size:1.5rem;
+  }
+  .icons-size {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .hide-on-med-and-up {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .hide-on-large-only {
+    display: none !important;
+  }
+  .row .col-md-5half {
+    width: 45.8333333334%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .row .col-lg-5half {
+    width: 45.8333333334%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Titan Comm Header Used</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.userLoggedIn = gs.isLoggedIn();
+	if(!data.userLoggedIn){
+		var menu_id = $sp.getParameter("m");
+		if (!menu_id)
+			menu_id="k";
+
+		data.menuSelected = menu_id;
+	}
+	else{
+		var titanUtils = new TitanUtils();
+		data.menuitems = titanUtils.getMenuItems();
+/*		data.menuitems = [
+			{html:"Picking",href:"?d=picking"},
+			{html:"Kicking",href:"?d=kicking"},
+			{html:"Ticking",href:"?d=ticking"}
+			
+		];
+*/		data.userPhoto=titanUtils.getUserPhoto(gs.getUserID());
+		var gUser = gs.getUser();
+		data.salutation = "Hi "+gUser.getFirstName();
+		
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-04-21 10:23:09</sys_created_on>
+        <sys_id>aee815fddb189410730a7b38689619d6</sys_id>
+        <sys_mod_count>214</sys_mod_count>
+        <sys_name>Titan Comm Header Used</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_header_footer_aee815fddb189410730a7b38689619d6</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-30 04:46:32</sys_updated_on>
+        <template><![CDATA[<div class="container-fluid titan-container">
+  <!-- Loggedin User Start-->
+
+  <div ng-if="data.userLoggedIn" class="navbar titan-navbar">
+    <div class="row">
+
+      <div class="col-sm-5 col-md-5half col-lg-5half center-align">
+        <div class="row">
+          <!-- Dropdown Menu -->
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 center-align">
+            <div class="header-menu-item nav navbar-nav menuicon" uib-dropdown on-toggle="toggled(open)">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                <span style="font-size:3rem;"><fa class="fas fa-bars"></fa></span>
+              </a>
+              <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li >
+                  <a role="menuitem"  ng-href="?id=titan_products&paramid=productsid" ng-click="c.getUrlParam('productsid')" > 
+                    <span class="uppercase header-item toggleClass" id="productsid">Products</span>
+                  </a>
+                </li>
+                <li >
+                  <a role="menuitem"  ng-href="?id=titan_gifting&paramid=giftingid" ng-click="c.getUrlParam('giftingid')"> 
+                    <span class="uppercase header-item toggleClass" id="giftingid">Gifting</span>
+                  </a>
+                </li>
+                <!--<li>
+                  <a role="menuitem"  ng-href="/encircle"  ng-Class="{'link-bold':data.menuSelected=='o'}" ng-click="c.getUrlParam('encircleid')"> 
+                    <span class="uppercase header-item toggleClass" id="encircleid">Encircle</span>
+                  </a>
+                </li>
+                <li>
+                	<a role="menuitem"  ng-href="?id=titan_knowledge_base&paramid=prodselfid" ng-Class="{'link-bold':data.menuSelected=='p'}" ng-click="c.getUrlParam('prodselfid')" > 
+                    <span class="uppercase header-item toggleClass" id="prodselfid">PRODUCT SELFCARE</span>
+                  </a>
+                </li>-->
+                <li ng-repeat="mi in data.menuitems">
+                  <a ng-href="{{::mi.href}}" ng-click="c.getUrlParam(mi.html+'id')">
+                  	<span class="uppercase toggleClass" id="{{mi.html+'id'}}">{{::mi.html}}</span>
+                  </a>
+                </li>
+                <li >
+                  <a ng-href="?id=community_forum&sys_id=e20fffd3dbcc1010730a7b386896196d" ng-click="c.getUrlParam('ideafid')">
+                    <span class="uppercase toggleClass" id="ideafid">Idea Forum</span>
+                  </a>
+                </li>
+                <li >
+                  <a ng-href="?id=community_forum&sys_id=4d7f7fd3dbcc1010730a7b38689619a9" ng-click="c.getUrlParam('customerfid')">
+                    <span class="uppercase toggleClass" id="customerfid">Customer Forum</span>
+                    </a>
+                </li>
+                <li >
+                  <a ng-href="?id=community_forum&sys_id=e18f3717dbcc1010730a7b38689619d2" ng-click="c.getUrlParam('feedfid')">
+                    <span class="uppercase toggleClass" id="feedfid">Feedback Forum</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Left header items start-->
+          <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3 hide-on-small-and-down">
+            <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+              <a role="menuitem"  ng-href="?id=titan_products&paramid=productsid" ng-Class="{'link-bold':data.menuSelected=='k'}" ng-click="c.getUrlParam('productsid')" > 
+                <span class="uppercase header-item toggleClass" id="productsid">Products</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hide-on-small-and-down">
+            <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+              <a role="menuitem"  ng-href="?id=titan_gifting&paramid=giftingid"  ng-Class="{'link-bold':data.menuSelected=='n'}" ng-click="c.getUrlParam('giftingid')"> 
+                <span class="uppercase header-item toggleClass" id="giftingid">Gifting</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 hide-on-small-and-down">
+            <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+              <a role="menuitem"  ng-href="/encircle"  ng-Class="{'link-bold':data.menuSelected=='o'}" ng-click="c.getUrlParam('encircleid')"> 
+                <span class="uppercase header-item toggleClass" id="encircleid">Encircle</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Left header items start-->
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1 center-align">
+        <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+          <a role="menuitem"  ng-href="/titancom" ng-Class="{'link-bold':data.menuSelected=='p'}"  > 
+            <img class="titan-logo zoom" src="TitanLogo.png">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xs-8 col-sm-5 col-md-5half col-lg-5half center-align">
+        <div class="row">
+          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="row">
+
+              <div class="col-xs-5 col-sm-5 col-md-7 col-lg-7 hide-on-small-and-down">
+                <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+                  <a role="menuitem"  ng-href="?id=titan_knowledge_base&paramid=prodselfid" ng-Class="{'link-bold':data.menuSelected=='p'}" ng-click="c.getUrlParam('prodselfid')" > 
+                    <span class="uppercase header-item toggleClass" id="prodselfid">PRODUCT SELFCARE</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+                  <span class="glyphicon glyphicon-shopping-cart icons-size" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+                <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+                  <span class="glyphicon glyphicon-search icons-size" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Left header items -->
+          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="ng-scope header-menu-item nav navbar-nav">
+              <div class="header-menu-item nav navbar-nav menuicon" uib-dropdown on-toggle="toggled(open)">
+                <a href="javascript:void(0);" id="logout-dropdown" uib-dropdown-toggle>
+                  <span>
+                    <img src="{{::data.userPhoto}}.iix" class="loggedin-user-img">
+                  </span>
+                  <span class="loggedin-user-title">{{::data.salutation}}</span>
+                </a>
+                <ul uib-dropdown-menu aria-labelledby="logout-dropdown">
+                  <li >
+                    <a ng-href="/logout.do?sysparm_goto_url=/titancom">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Loggedin user end --->
+
+
+  <!-- Non Loggedin user start -->
+  <div ng-if="!data.userLoggedIn" class="navbar titan-navbar">
+    <div class="row">
+
+      <div class="col-sm-5 col-md-5half col-lg-5half center-align">
+        <div class="row">
+          <!-- Left header items start-->
+          <div class="col-xs-5 col-sm-5 col-md-6 col-lg-6 hide-on-small-and-down">
+            <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+              <a role="menuitem"  ng-href="?id=titan_products&paramid=productsid" ng-Class="{'link-bold':data.menuSelected=='k'}" ng-click="c.getUrlParam('productsid')" > 
+                <span class="uppercase header-item toggleClass" id="productsid">Products</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xs-5 col-sm-5 col-md-6 col-lg-6 hide-on-small-and-down">
+            <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+              <a role="menuitem"  ng-href="?id=titan_knowledge_base&paramid=prodselfid" ng-Class="{'link-bold':data.menuSelected=='p'}" ng-click="c.getUrlParam('prodselfid')" > 
+                <span class="uppercase header-item toggleClass" id="prodselfid">PRODUCT SELFCARE</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Left header items start-->
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1 center-align">
+        <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+          <a role="menuitem"  ng-href="titancom" ng-Class="{'link-bold':data.menuSelected=='p'}"  > 
+            <img class="titan-logo zoom" src="TitanLogo.png">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xs-8 col-sm-5 col-md-5half col-lg-5half center-align">
+        <div class="row">
+          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="row">
+              
+              <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 hide-on-small-and-down">
+                <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+                  <a role="menuitem"  ng-href="?id=titan_gifting&paramid=giftingid"  ng-Class="{'link-bold':data.menuSelected=='n'}" ng-click="c.getUrlParam('giftingid')"> 
+                    <span class="uppercase header-item toggleClass" id="giftingid">Gifting</span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-6 col-lg-6">
+                <div class="ng-scope header-menu-item nav navbar-nav remove-float">
+                  <span class="glyphicon glyphicon-search icons-size" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Left header items -->
+          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="ng-scope header-menu-item nav navbar-nav">
+              <a ng-href="?id=titan_login">
+                <span class="loggedin-user-title">Log In</span>
+              </a>
+              <span style="font-size:2rem;">|</span>
+              <a ng-href="?id=titan_encircle_registration_form">
+                <span class="loggedin-user-title">Sign Up</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Non Loggedin user end -->
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

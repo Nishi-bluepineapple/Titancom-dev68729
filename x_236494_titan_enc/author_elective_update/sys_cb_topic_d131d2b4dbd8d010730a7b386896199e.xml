@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="DELETE">
+        <applicability/>
+        <category display_value="Customer Service Topics">b28634c4b7b93300da7ab948ee11a93a</category>
+        <connect_queue/>
+        <description/>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "graph_api_version": "1.0.16",
+  "goals": {
+    "8013e7b872364adcb9af29a7ab9a3672": {
+      "id": "8013e7b872364adcb9af29a7ab9a3672",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "974d29edd77147bca1bdba43282f482e": {
+          "id": "974d29edd77147bca1bdba43282f482e",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "db42313bcf034687bf3b042191b09d69": {
+          "id": "db42313bcf034687bf3b042191b09d69",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "8c592d9a9a3a44c486f22e64685655fb": {
+          "id": "8c592d9a9a3a44c486f22e64685655fb",
+          "stepType": "Prompt",
+          "name": "welcome",
+          "prompt": {
+            "value": "How may I help you?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": true,
+          "skipIfFulfilled": true,
+          "entity": "",
+          "variableId": "ced8539d628640cdaa30dbb8778fc33d"
+        }
+      },
+      "edges": [
+        {
+          "id": "f683d3cca0944fd58cca6a0926a5a4aa",
+          "edgeType": "Edge",
+          "source": "974d29edd77147bca1bdba43282f482e",
+          "target": "8c592d9a9a3a44c486f22e64685655fb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "62bb7502c4ec4469a4a56bc49e734cd1",
+          "edgeType": "Edge",
+          "source": "8c592d9a9a3a44c486f22e64685655fb",
+          "target": "db42313bcf034687bf3b042191b09d69",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "ced8539d628640cdaa30dbb8778fc33d": {
+      "id": "ced8539d628640cdaa30dbb8778fc33d",
+      "name": "welcome",
+      "label": "Welcome",
+      "varType": "string",
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Welcome to Titan Encircle</name>
+        <nlu_intent>Welcome to Titan Encircle</nlu_intent>
+        <nlu_intent_label>Welcome to Titan Encircle</nlu_intent_label>
+        <nlu_model>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</nlu_model>
+        <nlu_model_label>Titan Encircle NLU for VA</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:55:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d131d2b4dbd8d010730a7b386896199e</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Welcome to Titan Encircle</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_d131d2b4dbd8d010730a7b386896199e</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:57:50</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="DELETE" query="document_key=d131d2b4dbd8d010730a7b386896199e"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_cb_topic_d131d2b4dbd8d010730a7b386896199e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic"><sys_cb_topic action="INSERT_OR_UPDATE"><applicability/><category display_value="Customer Service Topics">b28634c4b7b93300da7ab948ee11a93a</category><connect_queue/><description/><flexible_conversation_switching>false</flexible_conversation_switching><graph>{
+  "graph_api_version": "1.0.16",
+  "goals": {
+    "8013e7b872364adcb9af29a7ab9a3672": {
+      "id": "8013e7b872364adcb9af29a7ab9a3672",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "974d29edd77147bca1bdba43282f482e": {
+          "id": "974d29edd77147bca1bdba43282f482e",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "db42313bcf034687bf3b042191b09d69": {
+          "id": "db42313bcf034687bf3b042191b09d69",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "8c592d9a9a3a44c486f22e64685655fb": {
+          "id": "8c592d9a9a3a44c486f22e64685655fb",
+          "stepType": "Prompt",
+          "name": "welcome",
+          "prompt": {
+            "value": "How may I help you?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": true,
+          "skipIfFulfilled": true,
+          "entity": "",
+          "variableId": "ced8539d628640cdaa30dbb8778fc33d"
+        }
+      },
+      "edges": [
+        {
+          "id": "f683d3cca0944fd58cca6a0926a5a4aa",
+          "edgeType": "Edge",
+          "source": "974d29edd77147bca1bdba43282f482e",
+          "target": "8c592d9a9a3a44c486f22e64685655fb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "62bb7502c4ec4469a4a56bc49e734cd1",
+          "edgeType": "Edge",
+          "source": "8c592d9a9a3a44c486f22e64685655fb",
+          "target": "db42313bcf034687bf3b042191b09d69",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "ced8539d628640cdaa30dbb8778fc33d": {
+      "id": "ced8539d628640cdaa30dbb8778fc33d",
+      "name": "welcome",
+      "label": "Welcome",
+      "varType": "string",
+      "category": "vaInputs"
+    }
+  }
+}</graph><key_phrases/><library>false</library><live_agent>false</live_agent><name>Welcome to Titan Encircle</name><nlu_intent>Welcome to Titan Encircle</nlu_intent><nlu_intent_label>Welcome to Titan Encircle</nlu_intent_label><nlu_model>global_fd74bb58db109010730a7b386896199e_Titan_Encircle_NLU_for_VA</nlu_model><nlu_model_label>Titan Encircle NLU for VA</nlu_model_label><nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider><roles/><sys_class_name>sys_cb_topic</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-18 11:55:11</sys_created_on><sys_domain>global</sys_domain><sys_id>d131d2b4dbd8d010730a7b386896199e</sys_id><sys_mod_count>15</sys_mod_count><sys_name>Welcome to Titan Encircle</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_cb_topic_d131d2b4dbd8d010730a7b386896199e</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-19 10:57:50</sys_updated_on><variables/></sys_cb_topic><sys_variable_value action="delete_multiple" query="document_key=d131d2b4dbd8d010730a7b386896199e"/></record_update>]]></payload>
+        <payload_hash>1953923562</payload_hash>
+        <record_name>Welcome to Titan Encircle</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 10:57:50</sys_created_on>
+        <sys_id>97ad0f09db581410730a7b3868961954</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17192165b2d0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:57:50</sys_updated_on>
+        <type>Topic</type>
+        <update_guid>13ad0f098e5814102845ce6a51c49d54</update_guid>
+        <update_guid_history>13ad0f098e5814102845ce6a51c49d54:1953923562,1f2dee0d4fd41410abc0ebfffb17760b:2109726314,032b260dd0d4141024f727ea58e97879:1324915042,4668ae498cd4141079eaab1b97adba57:-1969012291,f628ea4949d41410c8dad1b06ad0c715:1788503382,cad7aa09e2d41410850c685319396335:-1969012291,6ee292097a94141041fe18e8dd219aa8:370738449,9c721a81f7941410287a8cb0086e2d2e:-1969012291,85a982414a941410ad7afc8a6034e009:370738449,38045a3841d8d010e17bddfd20a988f1:1324915042,5932def46ed8d01035bb3fe7225afda1:-1969012291,adf19ef476d8d0109ce62cfbe10628bf:1791036989,38d11ef46ed8d010662a077cb333ab61:-1923050044,51c1daf450d8d01097d6b9d34c247169:1399878212,c86116f4ecd8d010bc5264dce1a6c7f1:-1455329412,613116f4b6d8d01047d6352d0d24a7a0:-613607049</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-19 10:57:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_cb_topic">sys_cb_topic</sys_db_object>
+        <sys_id>006c6fba7fe943ac8017c57da4fbfd10</sys_id>
+        <sys_metadata>d131d2b4dbd8d010730a7b386896199e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Welcome to Titan Encircle</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_cb_topic_d131d2b4dbd8d010730a7b386896199e</sys_update_name>
+        <sys_update_version display_value="sys_cb_topic_d131d2b4dbd8d010730a7b386896199e">97ad0f09db581410730a7b3868961954</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-19 10:57:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

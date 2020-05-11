@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Loyalty Points Transactions" max_length="40" name="x_236494_titan_enc_loyalty_points_transactions" sizeclass="32" type="collection">
+        <element label="Latest Transaction" max_length="40" name="latest_transaction" type="boolean"/>
+        <element label="Level" max_length="40" name="level" type="string"/>
+        <element label="Points Balance" max_length="40" name="points_balance" type="integer"/>
+        <element label="Points Earned" max_length="40" name="points_earned" type="integer"/>
+        <element label="Points Redeemed" max_length="40" name="points_redeemed" type="integer"/>
+        <element label="Remarks" max_length="40" name="remarks" type="string"/>
+        <element label="Transaction Date" max_length="40" name="transaction_date" type="glide_date_time"/>
+        <element label="Transaction Item" max_length="32" name="transaction_item" reference="x_236494_titan_enc_titan_items" type="reference"/>
+        <element label="Transaction Price" max_length="40" name="transaction_price" type="integer"/>
+        <element label="Transaction Product" max_length="140" name="transaction_product" type="string"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="transaction_item"/>
+        </index>
+        <index name="index2">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

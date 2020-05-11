@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_236494_titan_enc.GetStructuredData</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GetStructuredData</name>
+        <script><![CDATA[var GetStructuredData = Class.create();
+GetStructuredData.prototype = {
+    initialize: function() {
+    },
+	getFieldProperties: function(tableName) {
+		var gr = new GlideRecord("sys_dictionary");
+		var fields = {};
+		gr.addQuery("name", tableName);
+		gr.query();
+		while (gr.next()) {
+			var metaData = {};
+			metaData.type = gr.internal_type.sys_name.toString();
+			metaData.label = gr.column_label.toString();
+			metaData.mandatory =  (gr.mandatory+'' == 'true') ? true : false;
+			metaData.max_length = gr.max_length+'';
+
+			if (gr.choice != 0) {
+				metaData.type = 'Picklist';
+				metaData.choices = this.getChoiceList(tableName, gr.element);
+			}
+			if (metaData.type == 'Reference') {
+				metaData.refTable = gr.reference.name+'';
+				gs.info('ref table '+gr.reference+' name '+gr.reference.name);
+			}
+			fields[gr.element] = metaData;
+		}
+		return fields;
+	},
+	
+		getViewFields: function(tableName, view) {
+		var gr = new GlideRecord("sys_ui_element");
+		var elementList = [];
+		gr.addQuery("sys_ui_section.view.name", view);
+		gr.addQuery("sys_ui_section.sys_name", tableName);
+
+		gr.orderBy("position");
+		gr.query();
+		while (gr.next()) {
+			elementList.push(gr.element.toString());
+		}
+		return elementList;
+	},
+
+	/*get fields meta data & order by field 
+    tableName : tableName to get view fields 
+    view : table view to get 
+    */
+	getGFIViewFields: function(tableName, view) {
+		var fieldMetaData = this.getFieldProperties(tableName);
+		var fieldView = this.getViewFields(tableName, view);
+		return {
+			"view_fields": fieldView,
+			"field_properties": fieldMetaData
+		};
+	},
+
+	//get Record JSON for table using sys_id according to view 
+	getRecord: function(tableName, sys_id, view) {
+		var fieldProp = this.getFieldProperties(tableName);
+		var gr = new GlideRecord(tableName);
+		gr.addQuery('sys_id', sys_id);
+		gr.query();
+		var viewFields = this.getViewFields(tableName, view);
+		var record = {};
+
+		while (gr.next()) {
+			for (var i in viewFields) {
+				var field = viewFields[i];
+				if(fieldProp[field].type == 'Reference'){
+					record[field] = {};
+					record[field].displayValue = gr[field].name.toString();
+					record[field].name = gr[field].name.toString();
+					record[field].value = gr[field].getDisplayValue().toString();	
+				}
+				else if (viewFields[i] == 'file') {
+					if (gr[viewFields[i]].getDisplayValue().toString() != '') {
+
+						record[viewFields[i]] = 'https://' + gs.getProperty('instance_name') + '.service-now.com/sys_attachment.do?sys_id=' + gr[viewFields[i]].toString();
+
+					}
+				} else {
+					record[viewFields[i]] = gr[viewFields[i]].getDisplayValue().toString();
+				}
+			}
+			var isProcessed = (/true/i).test(gr.doc_processed.toString());
+			var isDataUpdated = (/true/i).test(gr.data_updated.toString());
+			var hasRole = gs.hasRole('x_272304_green_fol.process_user');
+
+			record.isDocGenerated = (!isProcessed && isDataUpdated && hasRole);
+		}
+		return record;
+	},
+	
+    type: 'GetStructuredData'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 02:51:52</sys_created_on>
+        <sys_id>ce813fa5dbd09410730a7b386896195e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetStructuredData</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_script_include_ce813fa5dbd09410730a7b386896195e</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-21 03:11:10</sys_updated_on>
+    </sys_script_include>
+</record_update>

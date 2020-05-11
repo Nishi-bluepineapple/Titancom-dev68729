@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">a1d594e9db185410730a7b38689619f1</sp_column>
+        <sp_widget display_value="External User Registration Content">61238ce93bc73200b5c42479b3efc4dd</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 10:51:35</sys_created_on>
+        <sys_id>21d594e9db185410730a7b38689619f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_instance_21d594e9db185410730a7b38689619f3</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 10:51:35</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{ 
+   "icon_list": {
+          "value":  "[{\"iconClass\":\"fa-question-circle\", \"title\":\"Ask\", \"text\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. \"},{\"iconClass\":\"fa-check-circle\", \"title\":\"Answer\", \"text\":\"Quisque sed sapien turpis. Ut in tempor lorem. Vestibulum placerat mauris metus, eu congue arcu blandit in.\"},{\"iconClass\":\"fa-pencil-square-o\", \"title\":\"Blog\", \"text\":\"Duis accumsan mauris neque, eget varius tellus pretium fermentum.\"},{\"iconClass\":\"fa-video-camera\", \"title\":\"Watch\", \"text\":\"Nam porttitor nunc eu mi dignissim ultricies. Quisque vel tempor ante.\"},{\"iconClass\":\"fa-calendar\", \"title\":\"Attend\", \"text\":\"Phasellus vitae ipsum eget massa convallis gravida. Aenean iaculis accumsan neque ut mollis.\"}]"
+   			}
+   }]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=21d594e9db185410730a7b38689619f3"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_instance_21d594e9db185410730a7b38689619f3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;a1d594e9db185410730a7b38689619f1&lt;/sp_column&gt;&lt;sp_widget display_value="External User Registration Content"&gt;61238ce93bc73200b5c42479b3efc4dd&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 10:51:35&lt;/sys_created_on&gt;&lt;sys_id&gt;21d594e9db185410730a7b38689619f3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_21d594e9db185410730a7b38689619f3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 10:51:35&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{ 
+   "icon_list": {
+          "value":  "[{\"iconClass\":\"fa-question-circle\", \"title\":\"Ask\", \"text\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. \"},{\"iconClass\":\"fa-check-circle\", \"title\":\"Answer\", \"text\":\"Quisque sed sapien turpis. Ut in tempor lorem. Vestibulum placerat mauris metus, eu congue arcu blandit in.\"},{\"iconClass\":\"fa-pencil-square-o\", \"title\":\"Blog\", \"text\":\"Duis accumsan mauris neque, eget varius tellus pretium fermentum.\"},{\"iconClass\":\"fa-video-camera\", \"title\":\"Watch\", \"text\":\"Nam porttitor nunc eu mi dignissim ultricies. Quisque vel tempor ante.\"},{\"iconClass\":\"fa-calendar\", \"title\":\"Attend\", \"text\":\"Phasellus vitae ipsum eget massa convallis gravida. Aenean iaculis accumsan neque ut mollis.\"}]"
+   			}
+   }]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=21d594e9db185410730a7b38689619f3"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1502568108</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 10:51:35</sys_created_on>
+        <sys_id>2dd594e9db185410730a7b38689619f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1719736fe9a0000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 10:51:35</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>65d594e9f6185410744ac4a9206396f4</update_guid>
+        <update_guid_history>65d594e9f6185410744ac4a9206396f4:-1502568108</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">ea2618e9db185410730a7b386896197e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 10:53:02</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>07b1d277e25c410697a93520c4680801</sys_id>
+        <sys_metadata>21d594e9db185410730a7b38689619f3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_instance_21d594e9db185410730a7b38689619f3</sys_update_name>
+        <sys_update_version display_value="sp_instance_21d594e9db185410730a7b38689619f3">2dd594e9db185410730a7b38689619f4</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 10:53:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

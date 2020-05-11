@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_utterance">
+    <sys_nlu_utterance action="DELETE">
+        <intent display_value="Welcome to Titan Encircle">e98116f4dbd8d010730a7b38689619ca</intent>
+        <sys_class_name>sys_nlu_utterance</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:56:42</sys_created_on>
+        <sys_id>2f811af4dbd8d010730a7b3868961963</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>welcomw</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_nlu_utterance_2f811af4dbd8d010730a7b3868961963</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:56:42</sys_updated_on>
+        <utterance>welcomw</utterance>
+    </sys_nlu_utterance>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sys_nlu_utterance_2f811af4dbd8d010730a7b3868961963</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_utterance"><sys_nlu_utterance action="INSERT_OR_UPDATE"><intent display_value="Welcome to Titan Encircle">e98116f4dbd8d010730a7b38689619ca</intent><sys_class_name>sys_nlu_utterance</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-18 11:56:42</sys_created_on><sys_id>2f811af4dbd8d010730a7b3868961963</sys_id><sys_mod_count>0</sys_mod_count><sys_name>welcomw</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sys_nlu_utterance_2f811af4dbd8d010730a7b3868961963</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-18 11:56:42</sys_updated_on><utterance>welcomw</utterance></sys_nlu_utterance></record_update>]]></payload>
+        <payload_hash>1876828485</payload_hash>
+        <record_name>welcomw</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:56:42</sys_created_on>
+        <sys_id>27811af4dbd8d010730a7b3868961965</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1718d25e1d40000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:56:42</sys_updated_on>
+        <type>NLU Utterance</type>
+        <update_guid>6f811af44ed8d01029ffabaf9d2ace64</update_guid>
+        <update_guid_history>6f811af44ed8d01029ffabaf9d2ace64:1876828485</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-18 11:56:48</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_utterance">sys_nlu_utterance</sys_db_object>
+        <sys_id>5990ea59560847fe9ea58c14f9715cc4</sys_id>
+        <sys_metadata>2f811af4dbd8d010730a7b3868961963</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>welcomw</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sys_nlu_utterance_2f811af4dbd8d010730a7b3868961963</sys_update_name>
+        <sys_update_version display_value="sys_nlu_utterance_2f811af4dbd8d010730a7b3868961963">27811af4dbd8d010730a7b3868961965</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:56:48</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

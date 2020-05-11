@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <category display_value="Customer Service Topics">b28634c4b7b93300da7ab948ee11a93a</category>
+        <connect_queue/>
+        <description>Customer Service Management conversation topic for an external customer to check the status of an existing case</description>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "ab83ab37fb4b4352849b66fd8b27cc85": {
+      "id": "ab83ab37fb4b4352849b66fd8b27cc85",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "Check Case Status",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "dcec081c8cca4bf09c494599c0ba0ae6": {
+          "id": "dcec081c8cca4bf09c494599c0ba0ae6",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "cfdf8dbcf0cc47e7bbb07eacd6c3de65": {
+          "id": "cfdf8dbcf0cc47e7bbb07eacd6c3de65",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "09de72012508437b9f197f2478b00354": {
+          "id": "09de72012508437b9f197f2478b00354",
+          "stepType": "Decision",
+          "name": "Decision",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "91aa3b6dd28942b889672ca34f36f999": {
+          "id": "91aa3b6dd28942b889672ca34f36f999",
+          "stepType": "Decision",
+          "name": "Decision",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "97fc2fa7e49248fd8d3e7acd9224c279": {
+          "id": "97fc2fa7e49248fd8d3e7acd9224c279",
+          "name": "Determine Table Name",
+          "script": "(function execute() {\n    var tablename = \"sn_customerservice_case\";\n    if (new GlidePluginManager().isActive(\"com.snc.csm.order\")) {\n        var gr1 = new GlideRecord(\"csm_order_case\");\n        if (gr1.get(vaVars.caseid)) {\n            tablename = \"csm_order_case\";\n        }\n    }\n    vaVars.tablename = tablename;\n    vaVars.LiveAgent_case = vaVars.caseid;\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "a31664dfccf84b67884671c06d28b091": {
+          "id": "a31664dfccf84b67884671c06d28b091",
+          "stepType": "TextOutput",
+          "name": "Case Select Ack",
+          "value": {
+            "value": "Here’s the case you’ve selected: ",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "820e0fe6faa7498a84e1353a9931f1f7": {
+          "id": "820e0fe6faa7498a84e1353a9931f1f7",
+          "stepType": "TextOutput",
+          "name": "Connect to Agent Ack",
+          "value": {
+            "value": "(function execute() {\n    return gs.getMessage(\"I'm now transferring you to an agent to help you with case {0}\" ,vaInputs.your_case.number);\n})()\n",
+            "mode": "script"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "3698c2c5cec5449c94795d0f8a53a418": {
+          "id": "3698c2c5cec5449c94795d0f8a53a418",
+          "name": "Connect To Agent",
+          "script": "(function execute() {\n    vaSystem.connectToAgent();\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          }
+        },
+        "fa6ec2ce0be54203a0f88233c3fcdbd6": {
+          "id": "fa6ec2ce0be54203a0f88233c3fcdbd6",
+          "stepType": "RecordOutput",
+          "name": "Case card OOB",
+          "variableId": "8bc9dd6a93ef41b6a2aef69ddab3d07d",
+          "mode": "variable",
+          "tableName": "sn_customerservice_case",
+          "fields": [
+            "short_description",
+            "state",
+            "priority",
+            "product",
+            "asset"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "variable"
+          }
+        },
+        "24628e0e7a614a1e8c4c1ca464a73701": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "your case",
+          "prompt": {
+            "value": "Please pick the case you want to check:",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "8bc9dd6a93ef41b6a2aef69ddab3d07d",
+          "id": "24628e0e7a614a1e8c4c1ca464a73701",
+          "mode": "glide_record",
+          "script": "",
+          "noRecordsResponseMsg": {
+            "mode": "simple",
+            "value": "No Records Found"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "active=true"
+          },
+          "table": "sn_customerservice_case",
+          "withNluUserInput": true,
+          "skipIfFulfilled": true,
+          "entity": {
+            "id": "case"
+          }
+        },
+        "1cbb5a525bf249ddb90f7ffeceb113a1": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "Additional Action",
+          "prompt": {
+            "value": "Here are some additional actions you can take:",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "e88c5800ab5a4c23b5355ac9c9e92118",
+          "id": "1cbb5a525bf249ddb90f7ffeceb113a1",
+          "mode": "external",
+          "script": "(function execute() {\n    var options = [];\n    //options.push({ 'value': '1', 'label': gs.getMessage('Update {0}', [vaInputs.your_case.number])});\n    options.push({ 'value': '2', 'label': gs.getMessage('Check another case') });\n    options.push({ 'value': '3', 'label': gs.getMessage('Contact an agent') });\n    options.push({ 'value': '0', 'label': gs.getMessage('I\\'m done') });\n    return options;    \n})()",
+          "noRecordsResponseMsg": {
+            "value": "No Additional Actions found!",
+            "mode": "simple"
+          },
+          "condition": {
+            "value": "(function execute() {\n    var options = [];\n    //options.push({ 'value': '1', 'label': gs.getMessage('Update {0}', [vaInputs.your_case.number])});\n    options.push({ 'value': '2', 'label': gs.getMessage('Check another case') });\n    options.push({ 'value': '3', 'label': gs.getMessage('Contact an agent') });\n    options.push({ 'value': '0', 'label': gs.getMessage('I\\'m done') });\n    return options;    \n})()",
+            "mode": "external_script"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": {
+            "id": ""
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "b707d5ccf4b94045a42ef43f7296e4af",
+          "edgeType": "Edge",
+          "source": "fa6ec2ce0be54203a0f88233c3fcdbd6",
+          "target": "1cbb5a525bf249ddb90f7ffeceb113a1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8de19085586648b2ad4449661881338c",
+          "edgeType": "Edge",
+          "source": "24628e0e7a614a1e8c4c1ca464a73701",
+          "target": "91aa3b6dd28942b889672ca34f36f999",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8a1354012b61469d89560a785a2a5392",
+          "edgeType": "Branch",
+          "source": "09de72012508437b9f197f2478b00354",
+          "target": "cfdf8dbcf0cc47e7bbb07eacd6c3de65",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "additional_action=0",
+            "mode": "query"
+          },
+          "label": "(0) I am done"
+        },
+        {
+          "id": "855cbe3bab7d47d2841ffb11df68b988",
+          "edgeType": "Branch",
+          "source": "09de72012508437b9f197f2478b00354",
+          "target": "24628e0e7a614a1e8c4c1ca464a73701",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.additional_action=='2';\n})()\n"
+          },
+          "label": "Check Another Case (2)"
+        },
+        {
+          "id": "d47163eb779649fe8c38795a8fbf51c8",
+          "edgeType": "Branch",
+          "source": "91aa3b6dd28942b889672ca34f36f999",
+          "target": "97fc2fa7e49248fd8d3e7acd9224c279",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    gs.info(\"has case :\"+vaInputs.your_case);\n    vaVars.index = 0;\n    vaVars.caseid = vaInputs.your_case;\n    return !gs.nil(vaInputs.your_case);\n})()"
+          },
+          "label": "Continue"
+        },
+        {
+          "id": "6723226dc04d4cb69186e44f6090f387",
+          "edgeType": "Edge",
+          "source": "97fc2fa7e49248fd8d3e7acd9224c279",
+          "target": "a31664dfccf84b67884671c06d28b091",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2834f3e3688f46cc9d55091a47980183",
+          "edgeType": "Branch",
+          "source": "09de72012508437b9f197f2478b00354",
+          "target": "820e0fe6faa7498a84e1353a9931f1f7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.additional_action=='3';\n})()\n"
+          },
+          "label": "(3) Contact an agent"
+        },
+        {
+          "id": "779c93645d3149c8a6a9525b097bcf91",
+          "edgeType": "Edge",
+          "source": "820e0fe6faa7498a84e1353a9931f1f7",
+          "target": "3698c2c5cec5449c94795d0f8a53a418",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8d3035a1d49a4d5da420bfdac82ab1b2",
+          "edgeType": "Edge",
+          "source": "3698c2c5cec5449c94795d0f8a53a418",
+          "target": "cfdf8dbcf0cc47e7bbb07eacd6c3de65",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "aa11a61bc12e4b16b4a0dcd5a1874872",
+          "edgeType": "Edge",
+          "source": "a31664dfccf84b67884671c06d28b091",
+          "target": "fa6ec2ce0be54203a0f88233c3fcdbd6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "93f1850a790640d7a53e09de9b7a6003",
+          "edgeType": "Edge",
+          "source": "dcec081c8cca4bf09c494599c0ba0ae6",
+          "target": "24628e0e7a614a1e8c4c1ca464a73701",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d08fc44eccd244beaca7f51311c8825f",
+          "edgeType": "Edge",
+          "source": "1cbb5a525bf249ddb90f7ffeceb113a1",
+          "target": "09de72012508437b9f197f2478b00354",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "ed86029a6a034a029862d78b196ec552": {
+      "id": "ed86029a6a034a029862d78b196ec552",
+      "name": "case_list",
+      "label": "case_list",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "9f8129e66d28499dad7597a7ffa0ba69": {
+      "id": "9f8129e66d28499dad7597a7ffa0ba69",
+      "name": "caseid",
+      "label": "caseid",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "bfc192cb9bd84f8e9d8f02b53e39d83b": {
+      "id": "bfc192cb9bd84f8e9d8f02b53e39d83b",
+      "name": "imageId",
+      "label": "imageId",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "8bc9dd6a93ef41b6a2aef69ddab3d07d": {
+      "id": "8bc9dd6a93ef41b6a2aef69ddab3d07d",
+      "name": "your_case",
+      "label": "Your Case",
+      "varType": "reference",
+      "table": "sn_customerservice_case",
+      "category": "vaInputs"
+    },
+    "779845a18230440da82cfe0fa9157f22": {
+      "id": "779845a18230440da82cfe0fa9157f22",
+      "name": "index",
+      "label": "index",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "9adede18c91c4dc28ccbacce362dec9b": {
+      "id": "9adede18c91c4dc28ccbacce362dec9b",
+      "name": "tablename",
+      "label": "tablename",
+      "varType": "script",
+      "value": "",
+      "category": "vaVars"
+    },
+    "9576b71022fd421492ada2b972abadd0": {
+      "id": "9576b71022fd421492ada2b972abadd0",
+      "name": "LiveAgent_case",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "7f8478cb59024fd1aed78e7d8b013835": {
+      "id": "7f8478cb59024fd1aed78e7d8b013835",
+      "value": {
+        "mode": "script",
+        "value": "(function execute() {\n    return vaContext.portal == undefined ? null: vaContext.portal;\n})()"
+      },
+      "name": "portal",
+      "label": "portal",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "e88c5800ab5a4c23b5355ac9c9e92118": {
+      "id": "e88c5800ab5a4c23b5355ac9c9e92118",
+      "name": "additional_action",
+      "label": "Additional Action",
+      "varType": "reference",
+      "table": "",
+      "category": "vaInputs"
+    },
+    "fbb75dc900154e6c91a2c816853c7cda": {
+      "id": "fbb75dc900154e6c91a2c816853c7cda",
+      "name": "case_sys_id",
+      "label": "Case_sys_id",
+      "defaultValue": "case_sys_id",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "19e92e5df43d4da0bb6260fde836154b": {
+      "category": "vaInputs",
+      "id": "19e92e5df43d4da0bb6260fde836154b",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <name>Titan Check Case Status Clone</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-17 08:39:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>fcead0acdb989010730a7b3868961900</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Titan Check Case Status Clone</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_fcead0acdb989010730a7b3868961900</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-17 11:02:58</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=fcead0acdb989010730a7b3868961900"/>
+</record_update>

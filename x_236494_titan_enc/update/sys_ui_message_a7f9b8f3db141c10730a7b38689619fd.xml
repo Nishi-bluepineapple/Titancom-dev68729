@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <key>titan_login</key>
+        <language>en</language>
+        <message>Titan Community Login</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-27 13:16:19</sys_created_on>
+        <sys_id>a7f9b8f3db141c10730a7b38689619fd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>titan_login</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_ui_message_a7f9b8f3db141c10730a7b38689619fd</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-27 13:55:20</sys_updated_on>
+    </sys_ui_message>
+</record_update>

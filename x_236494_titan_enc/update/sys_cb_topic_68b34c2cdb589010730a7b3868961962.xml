@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability>(function execute() {
+    /* Return true or false to indicate if the topic or topic node can run 
+       and be discoverable (or not).  For example:
+
+       var applicability = vaInputs.first_name == 'Bill' ? true : false;
+    */
+    return false;
+})()
+</applicability>
+        <category display_value="Setup Topics">5628e7f27373230025d032e954f6a7de</category>
+        <connect_queue/>
+        <description>Titan Encircle Support presents a greeting to the user at the beginning of a conversation.</description>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <graph>{
+  "goals": {
+    "15e91c7617684e29a56a2c70e94a3069": {
+      "id": "15e91c7617684e29a56a2c70e94a3069",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "7249fba08bce4b6d95326c411781245e": {
+          "id": "7249fba08bce4b6d95326c411781245e",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "",
+            "mode": "simple"
+          }
+        },
+        "5820420639e043f7b8edcae3d00e054e": {
+          "id": "5820420639e043f7b8edcae3d00e054e",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "366d9da011e341e38b4cecd575541973": {
+          "stepType": "ChoicePrompt",
+          "name": "Main Menu",
+          "prompt": {
+            "value": "Choose Your Options",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "764eb42e4bf849acb0eb6c63fd114a56",
+          "id": "366d9da011e341e38b4cecd575541973",
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
+        },
+        "a25399dd145e41b9bbe0e0786fd2cc25": {
+          "id": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "1e86dd424013402984e70dc1e109adca": {
+          "id": "1e86dd424013402984e70dc1e109adca",
+          "stepType": "ReusableTopic",
+          "name": "Titan Create Case Clone",
+          "fields": [],
+          "reusableTopicChoice": "Titan Create Case Clone",
+          "reusableTopicId": "76ba5c2cdb989010730a7b3868961914",
+          "inputs": {},
+          "variableIds": [],
+          "outputs": []
+        },
+        "eb6a38e4e3ab4473baab07abf4832d3f": {
+          "id": "eb6a38e4e3ab4473baab07abf4832d3f",
+          "stepType": "ReusableTopic",
+          "name": "Titan Check Case Status Clone",
+          "fields": [],
+          "reusableTopicChoice": "Titan Check Case Status Clone",
+          "reusableTopicId": "878ed860dbd89010730a7b38689619a1",
+          "inputs": {},
+          "variableIds": [],
+          "outputs": []
+        },
+        "50651f4f0ea54b4094cd715ef46a959b": {
+          "id": "50651f4f0ea54b4094cd715ef46a959b",
+          "stepType": "ReusableTopic",
+          "name": "Titan Knowledge Search Clone",
+          "fields": [],
+          "reusableTopicChoice": "Titan Knowledge Search Clone",
+          "reusableTopicId": "2c1b5cacdb989010730a7b386896196a",
+          "inputs": {},
+          "variableIds": [],
+          "outputs": []
+        },
+        "8ae6763419bf4f0aba48e65c580d2e3c": {
+          "id": "8ae6763419bf4f0aba48e65c580d2e3c",
+          "stepType": "TextOutput",
+          "name": "End Conversation",
+          "value": {
+            "value": "Bye, have a good day!",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "a0ff21c137b14d20bafeda3538862b6d",
+          "edgeType": "Edge",
+          "source": "7249fba08bce4b6d95326c411781245e",
+          "target": "366d9da011e341e38b4cecd575541973",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4ac4068968d74b59a74c9a3e44546ea3",
+          "edgeType": "Edge",
+          "source": "366d9da011e341e38b4cecd575541973",
+          "target": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6dcb9d53b57348bfbdcfd19ef2297ada",
+          "edgeType": "Branch",
+          "source": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "target": "1e86dd424013402984e70dc1e109adca",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "main_menu=Create Case",
+            "mode": "query"
+          },
+          "label": "Create Case"
+        },
+        {
+          "id": "94fcf26dfc694c368fee5570b9e0048d",
+          "edgeType": "Edge",
+          "source": "1e86dd424013402984e70dc1e109adca",
+          "target": "366d9da011e341e38b4cecd575541973",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3c85cbe28b53450c8f1239b9418cd0b5",
+          "edgeType": "Branch",
+          "source": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "target": "eb6a38e4e3ab4473baab07abf4832d3f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "main_menu=Check Case Status",
+            "mode": "query"
+          },
+          "label": "Check Case Status"
+        },
+        {
+          "id": "4c25297208f748e1a1b008d9bf27147a",
+          "edgeType": "Edge",
+          "source": "eb6a38e4e3ab4473baab07abf4832d3f",
+          "target": "366d9da011e341e38b4cecd575541973",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "322057c19a3445a9a5b83e7622c77a23",
+          "edgeType": "Branch",
+          "source": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "target": "50651f4f0ea54b4094cd715ef46a959b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "main_menu=Knowledge Search",
+            "mode": "query"
+          },
+          "label": "Knowledge Search"
+        },
+        {
+          "id": "1f96966f149e4f8585d89edd1e4a3ccb",
+          "edgeType": "Edge",
+          "source": "50651f4f0ea54b4094cd715ef46a959b",
+          "target": "366d9da011e341e38b4cecd575541973",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5961291dfcb341749ab762085a23598a",
+          "edgeType": "Branch",
+          "source": "a25399dd145e41b9bbe0e0786fd2cc25",
+          "target": "8ae6763419bf4f0aba48e65c580d2e3c",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "main_menu=End Chat",
+            "mode": "query"
+          },
+          "label": "End Chat"
+        },
+        {
+          "id": "ac8a311a4b044a219934110e5caa7bda",
+          "edgeType": "Edge",
+          "source": "8ae6763419bf4f0aba48e65c580d2e3c",
+          "target": "5820420639e043f7b8edcae3d00e054e",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.16",
+  "variables": {
+    "05469ab5e473403e897047a427a212dc": {
+      "id": "05469ab5e473403e897047a427a212dc",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "name": "greeting_message",
+      "label": "greeting_message",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "426c44681e354ac380f7d1671aaf28e2": {
+      "category": "vaInputs",
+      "id": "426c44681e354ac380f7d1671aaf28e2",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "5433debe1dff4d1893f284aa2a8bd79a": {
+      "id": "5433debe1dff4d1893f284aa2a8bd79a",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "764eb42e4bf849acb0eb6c63fd114a56": {
+      "id": "764eb42e4bf849acb0eb6c63fd114a56",
+      "name": "main_menu",
+      "label": "Main Menu",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Create Case",
+          "value": "Create Case"
+        },
+        {
+          "label": "Check Case Status",
+          "value": "Check Case Status",
+          "checked": true
+        },
+        {
+          "label": "Knowledge Search",
+          "value": "Knowledge Search",
+          "checked": true
+        },
+        {
+          "label": "End Chat",
+          "value": "End Chat",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Greetings,Help,support</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Titan Encircle Support</name>
+        <nlu_intent>Greetings</nlu_intent>
+        <nlu_intent_label/>
+        <nlu_model>Setup_Topics_Model</nlu_model>
+        <nlu_model_label/>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <roles>public</roles>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-17 06:58:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>68b34c2cdb589010730a7b3868961962</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Titan Encircle Support</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sys_cb_topic_68b34c2cdb589010730a7b3868961962</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-18 11:10:35</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=68b34c2cdb589010730a7b3868961962"/>
+</record_update>

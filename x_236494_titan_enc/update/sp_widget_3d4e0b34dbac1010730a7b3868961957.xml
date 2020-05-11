@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($rootScope,$scope,$document,spUtil,spModal,$timeout) {
+	/* widget controller */
+	var c = this;
+	c.menuSelected = function (menuItem) {
+		c.data.selectedCategory = menuItem;
+		$scope.$emit("menuSelected",menuItem);
+	};
+	$timeout(function(){$scope.$emit("menuSelected",c.data.selectedCategory);},500);
+	
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.products-item, .products-item-selected {
+  text-decoration:none;
+	color: #000;
+  font-size: 1.3em;
+}
+
+.products-item-selected {
+	color: #7f8c8d ;
+}
+
+.products-header{
+  text-decoration:none;
+	color: #000;
+  font-weight:800;
+  font-size: 1.5em;
+}
+
+li{
+  list-style:none;
+  padding: 6px 0px;
+}
+
+
+
+
+.products ul{
+	margin:0;
+  padding: 0px;
+}
+.products ul li{
+  list-style:none;
+  padding: 6px 0px;
+  //border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+
+
+//----------products------------
+.card-image-size{
+  width: 200px;
+  height: 200px;
+}
+.center-align{
+	text-align:center;
+}
+.card-watch-title{
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align:center;
+  text-transform: uppercase;
+}
+.card-watch-price{
+  font-size: 1.5rem;
+  text-align:center;
+}
+.card-badge{
+  padding: 3px 6px;
+  border:none;
+  border-radius:0;
+  font-weight:200;
+  background-color: #666666;
+}
+.nocostemi{
+	width:90px;
+  height:18px;
+}
+.padding-top-bottom{
+    padding: 3px 0;
+}
+.margin-top-bottom{
+    margin: 2px 0;
+}
+.block-ellipsis {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 34px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+
+@media only screen and (min-width: 768px and max-width: 991px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}
+//------------------Detail page css
+.detail-image-size{
+  width: 400px;
+  height: 400px;
+}
+.product-detailname{
+  font-weight:600;
+      font-size: 1.5rem;
+  padding-top: 12px;
+}
+.detail-currency-selector {
+    float: right;
+    padding:0;
+}
+.detail-currency-selector-button {
+    margin-top: 9px;
+}
+.detail-currency-selector-button button{
+  background-color: #FFF;
+  color: #000;
+}
+.btn.plus, .btn.minus{
+  background: none;
+}
+.detail-currency-selector .btn{
+  float: left;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 15px;
+  outline: 0;
+  padding: 0;
+}
+.center-align{
+  text-align: center;
+}
+.no-padding{
+  padding:0;
+}
+.new-price-label{
+  padding: 0 6px;
+  font-size: 1.8rem;
+}
+.product-title {
+  margin: 0;
+  line-height: 28px;
+  font-weight: 600;
+}
+.productPrice {
+   padding: 16px 0;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.product-main-details {
+  padding: 0 0 0 15px;
+}
+.product-details{
+  float: left;
+  padding: 40px 0 0 0;
+}
+.quantity {
+    margin-top: 20px;
+}
+.quantity-text{
+font-weight:600;
+  font-size:16px;
+}
+.input-div {
+    display: inline !important;
+    position: relative;
+}
+.quantity input {
+    width: 60px;
+    padding: 6px 0;
+    border-radius: 16px;
+    border: 1px solid #cfcfcf;
+    outline: 0 !important;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+.left-in-stock {
+  padding: 12px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.add-to-cart button {
+  font-size: 14px;
+  font-weight: 500;
+  outline: 0 !important;
+  box-shadow: none;
+  padding: 0;
+  color: #fff;
+  background-color: #222;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  border-radius: 25px;
+  width:100%;
+  margin:5px;
+}	
+.card-product-old-price{
+  text-decoration: line-through;
+      font-weight: 100;
+    color: gray;
+}
+.instock{
+color:green;
+}
+.outofstock{
+color:red;
+}
+.flex{
+display:flex;
+}
+@media only screen and (max-width: 991px) {
+  .detail-image-size{
+    width: 280px;
+    height: 280px;
+  }
+}
+
+///MODAL CSS---------------------------
+.inputstyle {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: inherit;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.modal-title {
+  text-align:center;
+  font-size: 2.5rem;
+}
+.modal-header{
+  border:none;
+}
+.modal-footer{
+  text-align:center;
+  border-top:none;
+}
+.modal-body {
+  padding: 0 15px;
+}
+.tatacss{
+  color: #005898;
+  font-weight: 900;
+}
+.capitalcss{
+  color: #145b91;
+  font-weight: 600;
+}
+.phase2text, .phase1text{
+  color: #1b78e5;
+  font-size: 2rem;
+}
+
+//////////---------Checkout-------//////////////
+.bottomline{
+  border-bottom: 2px solid #dcdcdc;
+  padding-bottom: 6px;
+}
+.checkout-image-size{
+  width: 170px;
+  height: 170px;
+}
+.checkout{
+  display:flex;
+  padding-top: 6px;
+}
+.checkout button{
+	padding: 0 8px;
+}
+.checkout input{
+  width:45px;
+  padding-left: 12px;
+}
+.checkout-total{
+  padding-top: 6px;
+}
+.payemt-title{
+	
+  font-weight:800;
+}
+.payemt-title-note{
+	 font-weight: normal;
+   padding-top: 5px;
+   padding-bottom: 5px;
+ 
+}
+.creditcart{
+  display:flex;
+   padding-bottom: 5px;
+}
+.creditcart .radio {
+  
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+.creditcart .credittext{
+  
+    padding-left: 6px;
+    padding-top: 4px;
+ 
+}
+.payemtpadding{
+  padding-bottom:12px;
+}
+.payement-box-svg{
+  margin-top: -26px;
+  float: right;
+  padding-right: 10px;
+}
+.rememberme{
+  font-size: 2rem;
+  font-weight: 600;
+}
+.completeorder{
+  background-color:#000;
+  color:#FFF;
+  padding: 14px 24px;
+  width: 100%;
+}
+.emi-title{
+font-size: 2rem;
+  font-weight: 500;
+  color:grey;
+}
+
+/////////////------Loading idicators css----////////////////////////
+.titan-loader-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999991;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  display:block;
+}
+.titan-loader{
+  z-index: 999992;
+  position: relative;
+  background-image: url('TitanLoader.gif');
+  width: 56px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+}
+
+.btn-blue{
+  color:#FAF7F5;
+  background-color:#2986B7;
+}
+.btn-blue:hover{
+  color:#FAF7F5;
+  background-color:#35a1da;
+}
+
+	.totalrow{
+		padding-top: 0.5rem;
+		padding-bottom: 0;
+		
+	}
+	.total-last-row{
+		padding-top: 0.5rem;
+		border-bottom: 1px solid #000;
+		padding-bottom: 0.5rem;
+	}
+	
+	.total-row-heading{
+		font-weight: 800;
+    text-align:right;
+	}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gifting_menu</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Gifting Menu</name>
+        <option_schema>[{"name":"display","section":"other","default_value":"Gifting","label":"Display","type":"string"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	gs.info("digu options gift menu : {0}", JSON.stringify(options)); //, JSON.stringify(options)
+	
+	var sourceTable = 'x_236494_titan_enc_titan_items';
+	var gr = new GlideRecord(sourceTable);
+	var subCategories = [];
+	gr.addQuery('csmdemocategory', 'Gifting');
+	//gr.orderByDesc('csmdemocategory');
+	gr.query();
+
+	while (gr.next()) {
+		subCategories.push(gr.csmdemosubcategory.trim());
+	}
+	subCategories = subCategories.sort();
+	subCategories=subCategories.filter(
+		function (subCat,indx) {
+			return indx==0 || subCat!=subCategories[indx-1];
+		}
+	);
+	subCategories=subCategories.reverse();
+	subCategories = subCategories.concat(["Eyewear","Clocks","Wallets","Belts"]);
+	var selectedCategory = subCategories[0];
+
+	data.subCategories = subCategories;
+	data.selectedCategory = selectedCategory;
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>digu</sys_created_by>
+        <sys_created_on>2020-05-01 02:37:41</sys_created_on>
+        <sys_id>3d4e0b34dbac1010730a7b3868961957</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Gifting Menu</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_3d4e0b34dbac1010730a7b3868961957</sys_update_name>
+        <sys_updated_by>digu</sys_updated_by>
+        <sys_updated_on>2020-05-01 12:21:05</sys_updated_on>
+        <template><![CDATA[      <ul>
+        <li class="products-header">{{::c.options.display}}</li>
+        <li ng-repeat="subCategory in c.data.subCategories" >
+          <a ng-if="subCategory!=c.data.selectedCategory" class="products-item" href="javascript:void(0)" ng-click="c.menuSelected(subCategory)" >{{subCategory}}</a>
+          <span ng-if="subCategory==c.data.selectedCategory" class="products-item-selected">{{subCategory}}</span>
+        </li>
+      </ul>
+]]></template>
+    </sp_widget>
+</record_update>

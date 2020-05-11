@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Test Virtual Agent - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="test_virtual_agent_page">6dde90a0dbd89010730a7b38689619c6</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-17 08:59:19</sys_created_on>
+        <sys_id>eb5fd8a0dbd89010730a7b386896195a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test Virtual Agent - Container 1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_container_eb5fd8a0dbd89010730a7b386896195a</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-17 08:59:19</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_container_eb5fd8a0dbd89010730a7b386896195a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Test Virtual Agent - Container 1</name><order>1</order><sp_page display_value="test_virtual_agent_page">6dde90a0dbd89010730a7b38689619c6</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-17 08:59:19</sys_created_on><sys_id>eb5fd8a0dbd89010730a7b386896195a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Test Virtual Agent - Container 1</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>sp_container_eb5fd8a0dbd89010730a7b386896195a</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-17 08:59:19</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>136814743</payload_hash>
+        <record_name>Test Virtual Agent - Container 1</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-17 08:59:19</sys_created_on>
+        <sys_id>6f5fd8a0dbd89010730a7b386896195d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171875d216d0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-17 08:59:19</sys_updated_on>
+        <type>Container</type>
+        <update_guid>a75fd8a051d8901022d211ff99af345d</update_guid>
+        <update_guid_history>a75fd8a051d8901022d211ff99af345d:136814743</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Test Virtual Agent - Container 1">5067a315db945410730a7b386896190f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-20 07:28:37</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>29f46f0b3e6e4f54ad5450ebffe55090</sys_id>
+        <sys_metadata>eb5fd8a0dbd89010730a7b386896195a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test Virtual Agent - Container 1</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_container_eb5fd8a0dbd89010730a7b386896195a</sys_update_name>
+        <sys_update_version display_value="sp_container_eb5fd8a0dbd89010730a7b386896195a">6f5fd8a0dbd89010730a7b386896195d</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-20 07:28:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

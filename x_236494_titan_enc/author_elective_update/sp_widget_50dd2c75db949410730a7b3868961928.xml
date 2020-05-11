@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.body{
+  background: black;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Third-section</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 07:15:06</sys_created_on>
+        <sys_id>50dd2c75db949410730a7b3868961928</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Third-section</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_widget_50dd2c75db949410730a7b3868961928</sys_update_name>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-21 07:23:19</sys_updated_on>
+        <template><![CDATA[<html>
+ <body>
+   hello world
+  </body>
+</html>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_widget_50dd2c75db949410730a7b3868961928</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.body{
+  background: black;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Third-section&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Nishi&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-21 07:15:06&lt;/sys_created_on&gt;&lt;sys_id&gt;50dd2c75db949410730a7b3868961928&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Third-section&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_50dd2c75db949410730a7b3868961928&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Nishi&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-21 07:23:19&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;html&gt;
+ &lt;body&gt;
+   hello world
+  &lt;/body&gt;
+&lt;/html&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-974064195</payload_hash>
+        <record_name>Third-section</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 07:23:19</sys_created_on>
+        <sys_id>accf24f5db949410730a7b3868961941</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1719b9eae0a0000001</sys_recorded_at>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-21 07:23:19</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>28cf24f573949410f2cbefab77017441</update_guid>
+        <update_guid_history>28cf24f573949410f2cbefab77017441:-974064195,7d8f28f531949410fa8c6f178b1d84d5:852038561,a91f6cb5eb9494102c2f5d7b26a1aedf:2121057067,9ede6cb5af9494103afd87dd921de5ab:-2126339007,7cde68b52f94941011ed2d1dbff92950:893312445,3b5e20b52a949410ad7718fff612c442:-331366096,3bddec7559949410dc8edb150d939d5c:-1769172618</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Third-section">73dfa8f5db949410730a7b386896191f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Nishi</sys_created_by>
+        <sys_created_on>2020-04-21 07:23:50</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>89b7e41b7bbc4c46a1ce998868c0c664</sys_id>
+        <sys_metadata>50dd2c75db949410730a7b3868961928</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Third-section</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_widget_50dd2c75db949410730a7b3868961928</sys_update_name>
+        <sys_update_version display_value="sp_widget_50dd2c75db949410730a7b3868961928">accf24f5db949410730a7b3868961941</sys_update_version>
+        <sys_updated_by>Nishi</sys_updated_by>
+        <sys_updated_on>2020-04-21 07:23:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

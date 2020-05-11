@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">c6b8a755db945410730a7b3868961976</sp_column>
+        <sp_widget display_value="Knowledge MostUseful Articles">4111d56cdb68320099f93691f0b8f52f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 07:34:28</sys_created_on>
+        <sys_id>42b8a755db945410730a7b386896197c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Most Useful</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>sp_instance_42b8a755db945410730a7b386896197c</sys_update_name>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 09:00:51</sys_updated_on>
+        <title>Most Useful</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"table": {
+		"value": "kb_knowledge",
+		"displayValue": "kb_knowledge"
+	},
+	"display_field": {
+		"value": "",
+		"displayValue": ""
+	},
+	"secondary_fields": {
+		"value": "",
+		"displayValue": ""
+	},
+	"max_records": {
+		"value": "",
+		"displayValue": ""
+	},
+	"always_show": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_secondary_fields_label": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=42b8a755db945410730a7b386896197c"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>sp_instance_42b8a755db945410730a7b386896197c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;c6b8a755db945410730a7b3868961976&lt;/sp_column&gt;&lt;sp_widget display_value="Knowledge MostUseful Articles"&gt;4111d56cdb68320099f93691f0b8f52f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;neel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-20 07:34:28&lt;/sys_created_on&gt;&lt;sys_id&gt;42b8a755db945410730a7b386896197c&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Most Useful&lt;/sys_name&gt;&lt;sys_package display_value="Titan Encircle" source="x_236494_titan_enc"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Titan Encircle"&gt;fd74bb58db109010730a7b386896199e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_42b8a755db945410730a7b386896197c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;neel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-20 09:00:51&lt;/sys_updated_on&gt;&lt;title&gt;Most Useful&lt;/title&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"table": {
+		"value": "kb_knowledge",
+		"displayValue": "kb_knowledge"
+	},
+	"display_field": {
+		"value": "",
+		"displayValue": ""
+	},
+	"secondary_fields": {
+		"value": "",
+		"displayValue": ""
+	},
+	"max_records": {
+		"value": "",
+		"displayValue": ""
+	},
+	"always_show": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_secondary_fields_label": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=42b8a755db945410730a7b386896197c"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1424793579</payload_hash>
+        <record_name>Most Useful</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-04-20 09:00:51</sys_created_on>
+        <sys_id>577cb395dbd45410730a7b38689619a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17196d19a6e0000001</sys_recorded_at>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-04-20 09:00:51</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>df7cb3957fd454105c898439501259a8</update_guid>
+        <update_guid_history>df7cb3957fd454105c898439501259a8:-1424793579,93f5bfdd74945410b266b630adb45f99:-878076848,86b8a75538945410a357df1d63d2a17d:531889039</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Most Useful">4a8432d5db249010730a7b38689619bd</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>neel</sys_created_by>
+        <sys_created_on>2020-05-02 14:02:10</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>11afc44143824855877aa33f2a5a6399</sys_id>
+        <sys_metadata>42b8a755db945410730a7b386896197c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Most Useful</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>sp_instance_42b8a755db945410730a7b386896197c</sys_update_name>
+        <sys_update_version display_value="sp_instance_42b8a755db945410730a7b386896197c">577cb395dbd45410730a7b38689619a9</sys_update_version>
+        <sys_updated_by>neel</sys_updated_by>
+        <sys_updated_on>2020-05-02 14:02:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

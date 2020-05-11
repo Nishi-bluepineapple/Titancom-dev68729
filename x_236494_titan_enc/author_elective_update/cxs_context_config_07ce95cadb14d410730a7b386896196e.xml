@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_context_config">
+    <cxs_context_config action="DELETE">
+        <active>true</active>
+        <cxs_searcher_config display_value="Knowledge only">d51b7504eb53210070a9666cd206feff</cxs_searcher_config>
+        <default_config>false</default_config>
+        <name>Titan Encircle  Knowledge Base</name>
+        <search_on_tab>true</search_on_tab>
+        <searcher_text>Default Sources</searcher_text>
+        <short_description>used in virtual agent to search titan encircle related articles from customer service.</short_description>
+        <sys_class_name>cxs_context_config</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:28:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>07ce95cadb14d410730a7b386896196e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Titan Encircle  Knowledge Base</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_update_name>cxs_context_config_07ce95cadb14d410730a7b386896196e</sys_update_name>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:30:00</sys_updated_on>
+        <wildcard_search_active>false</wildcard_search_active>
+    </cxs_context_config>
+    <sys_translated_text action="DELETE" query="documentkey=07ce95cadb14d410730a7b386896196e"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</application>
+        <file_path/>
+        <instance_id>01ceb2c0dbf753804f035d00cf961989</instance_id>
+        <instance_name>dev68729</instance_name>
+        <name>cxs_context_config_07ce95cadb14d410730a7b386896196e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_context_config"><cxs_context_config action="INSERT_OR_UPDATE"><active>true</active><cxs_searcher_config display_value="Knowledge only">d51b7504eb53210070a9666cd206feff</cxs_searcher_config><default_config>false</default_config><name>Titan Encircle  Knowledge Base</name><search_on_tab>true</search_on_tab><searcher_text>Default Sources</searcher_text><short_description>used in virtual agent to search titan encircle related articles from customer service.</short_description><sys_class_name>cxs_context_config</sys_class_name><sys_created_by>pradeep</sys_created_by><sys_created_on>2020-04-22 05:28:45</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>07ce95cadb14d410730a7b386896196e</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Titan Encircle  Knowledge Base</sys_name><sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package><sys_policy/><sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope><sys_update_name>cxs_context_config_07ce95cadb14d410730a7b386896196e</sys_update_name><sys_updated_by>pradeep</sys_updated_by><sys_updated_on>2020-04-22 05:30:00</sys_updated_on><wildcard_search_active>false</wildcard_search_active></cxs_context_config><sys_translated_text action="delete_multiple" query="documentkey=07ce95cadb14d410730a7b386896196e"/></record_update>]]></payload>
+        <payload_hash>-1239537963</payload_hash>
+        <record_name>Titan Encircle  Knowledge Base</record_name>
+        <reverted_from/>
+        <source>7574bb58db109010730a7b38689619a1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:30:00</sys_created_on>
+        <sys_id>d66f110edb14d410730a7b38689619f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171a05d4a5f0000001</sys_recorded_at>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:30:00</sys_updated_on>
+        <type>Search Context</type>
+        <update_guid>126f110ec014d4104ac05d8dbc3dd4f7</update_guid>
+        <update_guid_history>126f110ec014d4104ac05d8dbc3dd4f7:-1239537963,442f9d8a1914d410a8c6e28813e69467:491588236</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Titan Encircle  Knowledge Base">d600690edb14d410730a7b3868961961</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>pradeep</sys_created_by>
+        <sys_created_on>2020-04-22 05:32:44</sys_created_on>
+        <sys_db_object display_value="" name="cxs_context_config">cxs_context_config</sys_db_object>
+        <sys_id>3dae7176d3d54e30a3596ed886beda40</sys_id>
+        <sys_metadata>07ce95cadb14d410730a7b386896196e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Titan Encircle  Knowledge Base</sys_name>
+        <sys_package display_value="Titan Encircle" source="x_236494_titan_enc">fd74bb58db109010730a7b386896199e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Titan Encircle">fd74bb58db109010730a7b386896199e</sys_scope>
+        <sys_scope_delete display_value="">0de0b3f8a94448488137bd5ffca83e40</sys_scope_delete>
+        <sys_update_name>cxs_context_config_07ce95cadb14d410730a7b386896196e</sys_update_name>
+        <sys_update_version display_value="cxs_context_config_07ce95cadb14d410730a7b386896196e">d66f110edb14d410730a7b38689619f7</sys_update_version>
+        <sys_updated_by>pradeep</sys_updated_by>
+        <sys_updated_on>2020-04-22 05:32:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
